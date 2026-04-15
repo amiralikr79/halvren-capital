@@ -1,1 +1,367 @@
-<!-- See file content via API -->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halvren Capital</title>
+  <meta name="description" content="Halvren Capital — Patient capital allocated to businesses that deserve to exist in fifty years." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300..600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(2.5rem, 1rem + 4vw, 5rem);
+      --text-hero: clamp(3rem, 0.5rem + 7vw, 8rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+      --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+      --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem; --space-32: 8rem;
+      --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem; --radius-xl: 1rem; --radius-full: 9999px;
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --content-narrow: 640px; --content-default: 960px; --content-wide: 1200px;
+      --font-display: "Instrument Serif", Georgia, serif;
+      --font-body: "Work Sans", "Helvetica Neue", sans-serif;
+    }
+    :root, [data-theme="light"] {
+      --color-bg: #f4f1eb; --color-surface: #f8f6f1; --color-surface-2: #faf9f6;
+      --color-surface-offset: #ece9e2; --color-surface-dynamic: #e2dfd8;
+      --color-divider: #d6d2c8; --color-border: #ccc8bd;
+      --color-text: #1a1810; --color-text-muted: #6b6860;
+      --color-text-faint: #b0ada6; --color-text-inverse: #f8f6f1;
+      --color-gold: #a07820; --color-gold-hover: #7d5c14;
+      --color-gold-active: #5c4010; --color-gold-highlight: #ede4ca;
+      --shadow-sm: 0 1px 2px oklch(0.2 0.02 80 / 0.06);
+      --shadow-md: 0 4px 12px oklch(0.2 0.02 80 / 0.08);
+      --shadow-lg: 0 12px 32px oklch(0.2 0.02 80 / 0.12);
+    }
+    [data-theme="dark"] {
+      --color-bg: #111009; --color-surface: #16140d; --color-surface-2: #1b1912;
+      --color-surface-offset: #1f1d15; --color-surface-dynamic: #2a2820;
+      --color-divider: #2e2c24; --color-border: #3a3830;
+      --color-text: #e8e4d8; --color-text-muted: #8a8778;
+      --color-text-faint: #524f43; --color-text-inverse: #111009;
+      --color-gold: #c9a040; --color-gold-hover: #e0b84a;
+      --color-gold-active: #f0cc60; --color-gold-highlight: #2e2818;
+      --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.25);
+      --shadow-md: 0 4px 12px oklch(0 0 0 / 0.35);
+      --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.5);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth; scroll-padding-top: var(--space-16); }
+    body { min-height: 100dvh; font-family: var(--font-body); font-size: var(--text-base); line-height: 1.7; color: var(--color-text); background-color: var(--color-bg); transition: background-color 300ms ease, color 300ms ease; }
+    img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+    h1, h2, h3, h4, h5, h6 { text-wrap: balance; line-height: 1.15; font-family: var(--font-display); font-weight: 400; }
+    p, li { text-wrap: pretty; max-width: 68ch; }
+    a, button { transition: color var(--transition-interactive), background var(--transition-interactive), opacity var(--transition-interactive), border-color var(--transition-interactive); }
+    button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+    ::selection { background: oklch(from var(--color-gold) l c h / 0.2); color: var(--color-text); }
+    :focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; border-radius: var(--radius-sm); }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .container { max-width: var(--content-default); margin-inline: auto; padding-inline: clamp(var(--space-6), 5vw, var(--space-16)); }
+    .container--wide { max-width: var(--content-wide); margin-inline: auto; padding-inline: clamp(var(--space-6), 5vw, var(--space-16)); }
+    .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: var(--space-5) clamp(var(--space-6), 5vw, var(--space-16)); display: flex; align-items: center; justify-content: space-between; background: oklch(from var(--color-bg) l c h / 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid oklch(from var(--color-text) l c h / 0.07); transition: background 300ms ease; }
+    .nav-logo { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
+    .nav-logo-text { font-family: var(--font-display); font-size: var(--text-sm); letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-muted); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: var(--space-8); list-style: none; }
+    .nav-links a { font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--color-text-muted); }
+    .nav-links a:hover { color: var(--color-text); }
+    .nav-right { display: flex; align-items: center; gap: var(--space-4); }
+    .theme-toggle { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-full); color: var(--color-text-muted); }
+    .theme-toggle:hover { color: var(--color-text); background: oklch(from var(--color-text) l c h / 0.05); }
+    .btn-subscribe { font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; padding: var(--space-2) var(--space-5); border: 1px solid oklch(from var(--color-gold) l c h / 0.5); border-radius: var(--radius-sm); color: var(--color-gold); }
+    .btn-subscribe:hover { background: oklch(from var(--color-gold) l c h / 0.08); border-color: var(--color-gold); }
+    .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; width: 36px; height: 36px; align-items: center; justify-content: center; }
+    .mobile-menu-toggle span { display: block; width: 20px; height: 1px; background: var(--color-text-muted); }
+    .hero { position: relative; min-height: 100dvh; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: clamp(var(--space-16), 8vw, var(--space-32)); overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, oklch(0.07 0.02 80 / 0.3) 0%, oklch(0.07 0.02 80 / 0.55) 50%, oklch(0.07 0.02 80 / 0.92) 100%); }
+    .hero-content { position: relative; z-index: 1; padding-inline: clamp(var(--space-6), 5vw, var(--space-16)); max-width: 900px; }
+    .hero-eyebrow { font-size: var(--text-xs); letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-gold); margin-bottom: var(--space-6); display: flex; align-items: center; gap: var(--space-3); }
+    .hero-eyebrow::before { content: ""; display: block; width: 32px; height: 1px; background: var(--color-gold); flex-shrink: 0; }
+    .hero-headline { font-size: var(--text-hero); font-family: var(--font-display); font-weight: 400; color: #e8e4d8; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: var(--space-8); }
+    .hero-headline em { font-style: italic; color: var(--color-gold); }
+    .hero-sub { font-size: var(--text-lg); color: rgba(232,228,216,0.7); max-width: 54ch; line-height: 1.6; font-weight: 300; margin-bottom: var(--space-12); }
+    .hero-actions { display: flex; align-items: center; gap: var(--space-6); flex-wrap: wrap; }
+    .btn-primary { font-size: var(--text-sm); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: var(--space-4) var(--space-8); background: var(--color-gold); color: var(--color-bg); border-radius: var(--radius-sm); font-weight: 500; border: 1px solid transparent; }
+    .btn-primary:hover { background: var(--color-gold-hover); }
+    .btn-ghost { font-size: var(--text-sm); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: var(--space-4) var(--space-8); border: 1px solid rgba(232,228,216,0.25); color: rgba(232,228,216,0.75); border-radius: var(--radius-sm); }
+    .btn-ghost:hover { border-color: rgba(232,228,216,0.5); color: #e8e4d8; }
+    .hero-scroll-hint { position: absolute; bottom: var(--space-10); right: clamp(var(--space-6), 5vw, var(--space-16)); z-index: 1; display: flex; flex-direction: column; align-items: center; gap: var(--space-2); color: rgba(232,228,216,0.35); }
+    .scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, transparent, currentColor); animation: scrollPulse 2s ease-in-out infinite; }
+    .scroll-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; writing-mode: vertical-rl; }
+    @keyframes scrollPulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 0.7; } }
+    .section-divider { height: 1px; background: oklch(from var(--color-text) l c h / 0.08); }
+    .section { padding-block: clamp(var(--space-16), 8vw, var(--space-32)); }
+    .section-label { font-size: var(--text-xs); letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-gold); margin-bottom: var(--space-6); display: flex; align-items: center; gap: var(--space-3); }
+    .section-label::before { content: ""; display: block; width: 24px; height: 1px; background: var(--color-gold); flex-shrink: 0; }
+    .memo-section { background: var(--color-surface); }
+    .memo-layout { display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-16); align-items: start; }
+    .memo-sidebar { position: sticky; top: calc(var(--space-16) + var(--space-8)); }
+    .memo-sidebar-heading { font-size: var(--text-2xl); font-family: var(--font-display); font-weight: 400; line-height: 1.1; color: var(--color-text); margin-bottom: var(--space-6); }
+    .memo-sidebar-heading em { font-style: italic; color: var(--color-gold); }
+    .memo-sidebar-meta { font-size: var(--text-xs); letter-spacing: 0.08em; color: var(--color-text-faint); text-transform: uppercase; border-top: 1px solid var(--color-divider); padding-top: var(--space-4); margin-top: var(--space-6); }
+    .memo-body h2 { font-size: var(--text-xl); font-family: var(--font-display); font-weight: 400; color: var(--color-text); margin-top: var(--space-12); margin-bottom: var(--space-4); }
+    .memo-body h2:first-child { margin-top: 0; }
+    .memo-body p { font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.8; margin-bottom: var(--space-5); max-width: 62ch; }
+    .memo-body p strong { color: var(--color-text); font-weight: 500; }
+    .memo-body blockquote { border-left: 2px solid var(--color-gold); padding-left: var(--space-6); margin: var(--space-8) 0; }
+    .memo-body blockquote p { font-family: var(--font-display); font-style: italic; font-size: var(--text-lg); color: var(--color-text); line-height: 1.5; }
+    .beliefs-section { background: var(--color-bg); }
+    .beliefs-intro { max-width: 54ch; margin-bottom: var(--space-16); }
+    .beliefs-intro h2 { font-size: var(--text-2xl); font-family: var(--font-display); font-weight: 400; line-height: 1.15; margin-bottom: var(--space-5); letter-spacing: -0.02em; }
+    .beliefs-intro p { color: var(--color-text-muted); font-size: var(--text-base); line-height: 1.8; }
+    .beliefs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); gap: var(--space-1); }
+    .belief-card { background: var(--color-surface); padding: var(--space-8); border: 1px solid oklch(from var(--color-text) l c h / 0.06); transition: background var(--transition-interactive); }
+    .belief-card:hover { background: var(--color-surface-2); }
+    .belief-number { font-size: var(--text-xs); letter-spacing: 0.15em; color: var(--color-gold); margin-bottom: var(--space-5); font-style: italic; font-family: var(--font-display); }
+    .belief-title { font-size: var(--text-lg); font-family: var(--font-display); font-weight: 400; color: var(--color-text); margin-bottom: var(--space-3); line-height: 1.2; }
+    .belief-body { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.75; max-width: none; }
+    .thesis-section { background: var(--color-surface); }
+    .thesis-layout { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-1); margin-top: var(--space-12); }
+    .thesis-card { padding: var(--space-8) var(--space-8) var(--space-10); background: var(--color-surface-2); border: 1px solid oklch(from var(--color-text) l c h / 0.06); position: relative; }
+    .thesis-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--color-gold); opacity: 0.4; transition: opacity var(--transition-interactive); }
+    .thesis-card:hover::before { opacity: 1; }
+    .thesis-tag { font-size: var(--text-xs); letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: var(--space-5); }
+    .thesis-title { font-size: var(--text-xl); font-family: var(--font-display); font-weight: 400; line-height: 1.1; color: var(--color-text); margin-bottom: var(--space-4); }
+    .thesis-body { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.75; }
+    .thesis-pullquote { margin-top: var(--space-16); padding: var(--space-12) 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); }
+    .thesis-pullquote p { font-family: var(--font-display); font-style: italic; font-size: var(--text-2xl); line-height: 1.25; color: var(--color-text); max-width: 20ch; }
+    .thesis-pullquote cite { display: block; margin-top: var(--space-4); font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-faint); font-style: normal; }
+    .subscribe-section { background: var(--color-bg); }
+    .subscribe-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(var(--space-8), 5vw, var(--space-20)); align-items: center; }
+    .subscribe-copy h2 { font-size: var(--text-2xl); font-family: var(--font-display); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: var(--space-5); }
+    .subscribe-copy h2 em { font-style: italic; color: var(--color-gold); }
+    .subscribe-copy p { color: var(--color-text-muted); line-height: 1.8; margin-bottom: var(--space-8); }
+    .subscribe-form { display: flex; flex-direction: column; gap: var(--space-4); }
+    .form-field { display: flex; flex-direction: column; gap: var(--space-2); }
+    .form-field label { font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-faint); }
+    .form-field input { width: 100%; padding: var(--space-4) var(--space-5); background: var(--color-surface); border: 1px solid oklch(from var(--color-text) l c h / 0.12); border-radius: var(--radius-sm); font-size: var(--text-sm); color: var(--color-text); }
+    .form-field input::placeholder { color: var(--color-text-faint); }
+    .form-field input:focus { outline: none; border-color: var(--color-gold); }
+    .btn-form { padding: var(--space-4) var(--space-8); background: var(--color-gold); color: var(--color-bg); border: none; border-radius: var(--radius-sm); font-size: var(--text-sm); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; cursor: pointer; align-self: flex-start; }
+    .btn-form:hover { background: var(--color-gold-hover); }
+    .subscribe-fine-print { font-size: var(--text-xs); color: var(--color-text-faint); margin-top: var(--space-2); }
+    .texture-block { width: 100%; aspect-ratio: 16 / 7; overflow: hidden; }
+    .texture-block img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.6); opacity: 0.7; }
+    .site-footer { padding-block: var(--space-12) var(--space-10); border-top: 1px solid var(--color-divider); background: var(--color-surface); }
+    .footer-layout { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
+    .footer-brand { display: flex; align-items: center; gap: var(--space-3); }
+    .footer-brand-text { font-family: var(--font-display); font-style: italic; font-size: var(--text-sm); color: var(--color-text-faint); letter-spacing: 0.08em; }
+    .footer-links { display: flex; gap: var(--space-6); list-style: none; }
+    .footer-links a { font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-faint); text-decoration: none; }
+    .footer-links a:hover { color: var(--color-text-muted); }
+    .footer-copy { font-size: var(--text-xs); color: var(--color-text-faint); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 100ms; } .reveal-delay-2 { transition-delay: 200ms; }
+    .reveal-delay-3 { transition-delay: 300ms; } .reveal-delay-4 { transition-delay: 400ms; }
+    .reveal-delay-5 { transition-delay: 500ms; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; } .mobile-menu-toggle { display: flex; }
+      .mobile-open .nav-links { display: flex; flex-direction: column; position: fixed; top: 65px; left: 0; right: 0; bottom: 0; background: var(--color-bg); padding: var(--space-8); gap: var(--space-6); }
+      .memo-layout { grid-template-columns: 1fr; } .memo-sidebar { position: static; }
+      .thesis-layout { grid-template-columns: 1fr; } .subscribe-layout { grid-template-columns: 1fr; }
+      .beliefs-grid { grid-template-columns: 1fr; } .footer-layout { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" id="site-nav">
+    <a href="#" class="nav-logo" aria-label="Halvren Capital home">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M6 26V6h4v8h12V6h4v20h-4V18H10v8H6z" fill="currentColor" opacity="0.9"/><rect x="5" y="28" width="22" height="1" fill="#c9a040" opacity="0.7"/></svg>
+      <span class="nav-logo-text">Halvren Capital</span>
+    </a>
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#memo">Founding Memo</a></li>
+      <li><a href="#thesis">Thesis</a></li>
+      <li><a href="#subscribe">Subscribe</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      <a href="https://substack.com/@halvrencapital" target="_blank" rel="noopener noreferrer" class="btn-subscribe">Subscribe</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="hero" aria-label="Halvren Capital">
+    <div class="hero-bg" aria-hidden="true">
+      <img src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/4d806055-5dbd-4c87-8a5c-506582e69cf4.png" alt="" width="1920" height="1080" loading="eager" decoding="async" />
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Halvren Capital — Founded 2025</div>
+      <h1 class="hero-headline">Patient<br /><em>Capital.</em></h1>
+      <p class="hero-sub">We allocate capital to businesses that deserve to exist in fifty years — and hold them as if we plan to be around to see it.</p>
+      <div class="hero-actions">
+        <a href="#memo" class="btn-primary">Read the Founding Memo</a>
+        <a href="#philosophy" class="btn-ghost">Our Philosophy</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true"><div class="scroll-line"></div><span class="scroll-label">Scroll</span></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section class="section memo-section" id="memo">
+    <div class="container--wide">
+      <div class="memo-layout">
+        <aside class="memo-sidebar reveal">
+          <div class="section-label">Founding Document</div>
+          <h2 class="memo-sidebar-heading">The Case for<br /><em>Halvren Capital</em></h2>
+          <div class="memo-sidebar-meta">Published April 2025<br />Halvren Capital Partners</div>
+        </aside>
+        <article class="memo-body">
+          <div class="reveal">
+            <h2>To Our Future Partners</h2>
+            <p>Most investment memos begin with a statement of edge. Ours begins with an admission: we don’t know what the market will do next quarter. Neither does anyone else, including the people who sound most certain about it. The hedge fund manager with the proprietary macro model, the sell-side analyst with the twelve-month price target, the talking head with seventeen minutes to fill — they are engaged in the respectable theater of precision. <strong>We are not.</strong></p>
+            <p>What we do know — with the quiet confidence of someone who has read enough history to be chastened by it — is this: over sufficiently long periods, the ownership of truly excellent businesses is one of the most reliable ways to compound wealth that humanity has yet devised. Not the fastest. Not the most exciting. <strong>The most reliable.</strong></p>
+            <blockquote><p>“The stock market is a device for transferring money from the impatient to the patient. We intend to be on the right side of that transaction.”</p></blockquote>
+          </div>
+          <div class="reveal reveal-delay-1">
+            <h2>Why We Exist</h2>
+            <p>The financial industry is, at its core, a machine optimized for the production of activity. Activity generates fees. Fees fund offices in desirable postal codes, Bloomberg terminals, and the comfortable illusion that constant motion is the same thing as progress. We were built as a counterargument.</p>
+            <p>Halvren Capital was founded on the observation that most of what passes for sophisticated investing is elaborate noise reduction — and not particularly successful noise reduction at that. The average active fund underperforms its benchmark after fees. The average investor underperforms the average fund by panic-selling at the worst possible moment. <strong>The industry has industrialized the destruction of alpha.</strong></p>
+            <p>We think there is a better way. Not a secret formula. Not a proprietary dataset that only we possess. Something more boring, and more durable: a genuine long-term orientation, applied consistently, by people who are temperamentally built for boredom and intellectually built for depth.</p>
+          </div>
+          <div class="reveal reveal-delay-2">
+            <h2>What We Actually Do</h2>
+            <p>We read. We think. We wait. Occasionally — when all three activities converge on the same idea — we buy.</p>
+            <p>The businesses we seek to own share certain qualities that make them deeply unfashionable to discuss at cocktail parties. They tend to be comprehensible. They have economics that are almost embarrassingly straightforward: they earn more than they spend, the difference grows over time, and the reinvestment of that difference compounds at attractive rates. They have moats — not the imaginary moats that analysts construct from brand sentiment surveys, but the grinding, structural kind that take decades to build and cannot be replicated by a competitor with a large balance sheet and aggressive hiring.</p>
+            <p>We avoid businesses that require our continuous attention to remain excellent. <strong>If a company needs us watching it every day to behave itself, we don’t own enough of it to matter, and we own too much of it to sleep well.</strong></p>
+          </div>
+          <div class="reveal reveal-delay-3">
+            <h2>On Risk</h2>
+            <p>The financial industry has a peculiar relationship with risk. It measures it in standard deviations and betas — quantities that describe how a stock’s price has moved relative to other prices, which is not the same thing as risk in any sense that matters to a long-term owner of businesses.</p>
+            <p>We think about risk the way a structural engineer thinks about the load-bearing capacity of a bridge: not as the probability that something will fluctuate, but as the probability of permanent, unrecoverable loss. <strong>Volatility is not risk. Volatility is opportunity in uncomfortable clothing.</strong></p>
+            <p>The second-order implication of this view is that we will, with some regularity, look foolish. Our portfolios will underperform during the phases of the cycle when the market rewards things we don’t own: the meme stocks, the narrative-driven SPACs, the crypto tokens that are indistinguishable from each other except in name. We accept this. The performance of a well-managed portfolio over a three-year period is interesting. Over a twenty-year period, it is conclusive.</p>
+            <blockquote><p>“Every market cycle produces a new graveyard of people who had a unique edge. We plan to compound quietly in the background while that story plays out.”</p></blockquote>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <h2>On Technology and the Next Era</h2>
+            <p>We are living through the most significant technological transition since electricity. The diffusion of general-purpose AI into the fabric of economic production will — over the next decade — restructure the cost basis of industries, eliminate the competitive advantage of scale in some sectors, and amplify it dramatically in others.</p>
+            <p>We hold a view that may be unfashionable in both the tech-skeptic and the tech-utopian camps: <strong>the primary beneficiaries of AI will not be the companies building AI, but the companies that know how to use it against incumbents who cannot.</strong> The electricity analogy is instructive. The fortunes of the twentieth century were not primarily made by electrical utility companies. They were made by the factories, retailers, and service businesses that rewired their operations first, fastest, and most completely.</p>
+            <p>We are looking, with considerable attention, for the factory owners of the current transition. They are, by definition, not obvious. Obvious opportunities are efficiently priced. We are in the business of the non-obvious, patiently discovered.</p>
+          </div>
+          <div class="reveal reveal-delay-5">
+            <h2>What We Ask of Our Partners</h2>
+            <p>We ask for time. Not an unreasonable amount — a five-year horizon is sufficient to distinguish luck from skill in most investment contexts. A ten-year horizon is sufficient to make the distinction nearly certain.</p>
+            <p>We ask for calm during the periods when the market disagrees with us. It will, reliably, disagree with us. That is not a failure of our analysis; it is the mechanism by which our returns are generated. The spread between price and value is the engine of this strategy, and that spread widens most aggressively precisely when the psychological pressure to close it — by selling — is most intense.</p>
+            <p>In exchange, we commit to writing to you honestly. We will tell you when we are wrong, and why. We will tell you when we don’t know something, which will be more often than you might prefer. We will not produce a quarterly letter explaining how our portfolio, despite declining 14%, has in fact performed quite well given the circumstances. <strong>If we decline 14%, we declined 14%.</strong></p>
+            <p>We will, eventually, write a memo about being wrong. We look forward to that memo. It means something interesting happened.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section class="section beliefs-section" id="philosophy">
+    <div class="container--wide">
+      <div class="beliefs-intro reveal">
+        <div class="section-label">Core Beliefs</div>
+        <h2>Five things we hold<br /><em>to be self-evident</em></h2>
+        <p>These are not marketing positions. They are the beliefs that determine what we own, what we ignore, and how we behave when markets make both feel equally unreasonable.</p>
+      </div>
+      <div class="beliefs-grid">
+        <div class="belief-card reveal"><div class="belief-number">I.</div><h3 class="belief-title">Price is not value</h3><p class="belief-body">The market is a voting machine in the short run and a weighing machine in the long run. We are in the weighing business. The gap between price and intrinsic value is not an anomaly to be explained away — it is the source of our returns, and it requires both patience and the occasional willingness to look stupid.</p></div>
+        <div class="belief-card reveal reveal-delay-1"><div class="belief-number">II.</div><h3 class="belief-title">Conviction is scarce</h3><p class="belief-body">A portfolio of forty positions is not a portfolio. It is the financial equivalent of a restaurant menu that lists two hundred items. Real conviction — the kind that survives a 30% drawdown in a holding you’ve held for three years — is only available in approximately ten ideas at any given time. We allocate accordingly.</p></div>
+        <div class="belief-card reveal reveal-delay-2"><div class="belief-number">III.</div><h3 class="belief-title">Risk is permanent loss</h3><p class="belief-body">Volatility is a feature, not a bug. The assets that fluctuate most dramatically in the short term are often the ones that compound most reliably over the long term — because the fluctuation creates the entry point. We distinguish between mark-to-market pain, which is temporary, and fundamental impairment, which is not.</p></div>
+        <div class="belief-card reveal reveal-delay-3"><div class="belief-number">IV.</div><h3 class="belief-title">Moats are earned, not declared</h3><p class="belief-body">Every management team believes their company has a moat. The word appears with remarkable regularity in earnings calls, investor presentations, and letters to shareholders. We apply a simple test: if a well-capitalized, highly motivated competitor spent five years trying to take your customers, would you still have them? The honest answer is usually clarifying.</p></div>
+        <div class="belief-card reveal reveal-delay-4"><div class="belief-number">V.</div><h3 class="belief-title">The cycle always turns</h3><p class="belief-body">Every era of market history ends with a consensus view that is not merely wrong but spectacularly, embarrassingly wrong — in ways that seem obvious in retrospect and genuinely invisible in the moment. The dot-com analyst who saw no ceiling, the 2007 mortgage underwriter who saw no floor. We manage with the quiet assumption that the current consensus is probably also, in some important respect, mistaken.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="texture-block">
+    <img src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/630983e6-7802-4e5a-a56e-6bda860ab756.png" alt="Aged financial texture" width="1600" height="700" loading="lazy" decoding="async" />
+  </div>
+
+  <div class="section-divider"></div>
+
+  <section class="section thesis-section" id="thesis">
+    <div class="container--wide">
+      <div class="reveal">
+        <div class="section-label">Investment Thesis</div>
+        <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;line-height:1.15;letter-spacing:-0.02em;max-width:18ch;">Where we look,<br />and <em>why</em></h2>
+      </div>
+      <div class="thesis-layout">
+        <div class="thesis-card reveal"><div class="thesis-tag">Bucket One</div><h3 class="thesis-title">Compounding<br />Machines</h3><p class="thesis-body">Businesses with pricing power, low capital requirements, and the structural ability to reinvest earnings at high rates of return for decades. These are the rare assets where the appropriate holding period is “until the thesis breaks, not until the price rises.” They tend to be boring. We are comfortable with boring.</p></div>
+        <div class="thesis-card reveal reveal-delay-2"><div class="thesis-tag">Bucket Two</div><h3 class="thesis-title">Dislocated<br />Quality</h3><p class="thesis-body">Excellent businesses temporarily mispriced due to macro noise, earnings seasonality, or the market’s irrational short-termism. The operative word is “temporarily.” We do not buy businesses that are cheap for genuine fundamental reasons and call it a dislocation. The distinction requires judgment. Judgment is our product.</p></div>
+        <div class="thesis-card reveal reveal-delay-4"><div class="thesis-tag">Bucket Three</div><h3 class="thesis-title">Technological<br />Transition Plays</h3><p class="thesis-body">Businesses in sectors undergoing AI-driven cost restructuring, where incumbents are too large and profitable to reinvent themselves and challengers have the advantage of building on the new cost basis from day one. We are not buying the shovels. We are looking for the miners who know where the ground is soft.</p></div>
+      </div>
+      <div class="thesis-pullquote reveal">
+        <p>“We are looking for the factory owners of the current transition. They are, by definition, not obvious.”</p>
+        <cite>— Halvren Capital Founding Memo, 2025</cite>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section class="section subscribe-section" id="subscribe">
+    <div class="container">
+      <div class="subscribe-layout">
+        <div class="subscribe-copy reveal">
+          <div class="section-label">Investment Research</div>
+          <h2>Think longer.<br /><em>Read deeper.</em></h2>
+          <p>Halvren Capital publishes original investment research, company analyses, and periodic letters on the things that actually drive long-term compounding. No noise. No monthly performance theater. Just ideas worth reading twice.</p>
+          <a href="https://substack.com/@halvrencapital" target="_blank" rel="noopener noreferrer" class="btn-primary">Read on Substack</a>
+        </div>
+        <div class="subscribe-form-wrap reveal reveal-delay-2">
+          <div class="section-label" style="margin-bottom:var(--space-6);">Email Updates</div>
+          <form class="subscribe-form" id="subscribe-form" onsubmit="handleSubscribe(event)">
+            <div class="form-field"><label for="email">Email address</label><input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" /></div>
+            <button type="submit" class="btn-form">Subscribe</button>
+            <p class="subscribe-fine-print">Quarterly at most. Unsubscribe any time. No spam, ever.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container--wide">
+      <div class="footer-layout">
+        <div class="footer-brand"><svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M6 26V6h4v8h12V6h4v20h-4V18H10v8H6z" fill="currentColor" opacity="0.5"/></svg><span class="footer-brand-text">Halvren Capital</span></div>
+        <ul class="footer-links" role="list"><li><a href="#memo">Memo</a></li><li><a href="#philosophy">Philosophy</a></li><li><a href="#thesis">Thesis</a></li><li><a href="https://substack.com/@halvrencapital" target="_blank" rel="noopener noreferrer">Substack</a></li></ul>
+        <p class="footer-copy">© 2025 Halvren Capital. Not investment advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const html = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      html.setAttribute('data-theme', theme);
+      function setIcon(t) {
+        if (!toggle) return;
+        toggle.innerHTML = t === 'dark'
+          ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+        toggle.setAttribute('aria-label', 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' mode');
+      }
+      setIcon(theme);
+      if (toggle) toggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; html.setAttribute('data-theme', theme); setIcon(theme); });
+    })();
+    const mobileToggle = document.getElementById('mobile-menu-toggle');
+    const siteNav = document.getElementById('site-nav');
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => { const open = siteNav.classList.toggle('mobile-open'); mobileToggle.setAttribute('aria-expanded', String(open)); });
+      document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => { siteNav.classList.remove('mobile-open'); mobileToggle.setAttribute('aria-expanded', 'false'); }));
+    }
+    const observer = new IntersectionObserver((entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    function handleSubscribe(e) { e.preventDefault(); const btn = e.target.querySelector('button[type="submit"]'); btn.textContent = 'Subscribed ✓'; btn.disabled = true; btn.style.background = 'var(--color-text-faint)'; }
+  </script>
+</body>
+</html>
