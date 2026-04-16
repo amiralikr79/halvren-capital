@@ -159,6 +159,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:var(--space-5) var(-
 .thesis-quote-attr{margin-top:var(--space-3);font-size:var(--text-xs);color:var(--color-text-muted);letter-spacing:0.05em;font-family:var(--font-body);font-style:normal}
 @media(max-width:768px){.thesis-grid{grid-template-columns:1fr}.thesis-card.large{grid-row:span 1}.thesis-quote{grid-column:span 1;flex-direction:column;gap:var(--space-4)}}
 
+/* WATCHLIST */
+.watchlist-header{margin-bottom:var(--space-10);max-width:var(--content-default)}
+.watchlist-header .thesis-heading{margin-top:var(--space-4)}
+.watchlist-intro{margin-top:var(--space-6);font-size:var(--text-base);color:var(--color-text-muted);max-width:56ch;line-height:1.7}
+.watchlist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)}
+.watch-card{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg);padding:var(--space-8);display:flex;flex-direction:column}
+.watch-card:hover{border-color:oklch(from var(--color-gold) l c h/0.3);box-shadow:var(--shadow-md)}
+.watch-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-3);padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider);margin-bottom:var(--space-5)}
+.watch-symbol{font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:0;color:var(--color-gold)}
+.watch-name{font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-text-faint);text-align:right;font-family:var(--font-body)}
+.watch-sector{font-size:var(--text-xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--color-gold);font-weight:500;margin-bottom:var(--space-3)}
+.watch-body{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;flex-grow:1}
+.watch-track{margin-top:var(--space-6);padding-top:var(--space-4);border-top:1px solid var(--color-divider);font-size:var(--text-xs);color:var(--color-text-faint);line-height:1.6}
+.watch-track-label{display:block;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:var(--space-2);font-weight:500;letter-spacing:0.12em;font-size:var(--text-xs)}
+.watchlist-footnote{margin-top:var(--space-10);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.03em;max-width:72ch;line-height:1.7}
+@media(max-width:900px){.watchlist-grid{grid-template-columns:1fr}}
+
 /* MEMO */
 .memo-layout{display:grid;grid-template-columns:2fr 1fr;gap:var(--space-16);align-items:start}
 .memo-heading{font-family:var(--font-display);font-size:var(--text-2xl);letter-spacing:-0.02em;line-height:1.1;margin-top:var(--space-4);margin-bottom:var(--space-8)}
@@ -229,7 +246,8 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
   </a>
   <div class="nav-links" id="nav-links" data-open="false">
     <a href="#beliefs">Philosophy</a>
-    <a href="#thesis">Thesis</a>
+    <a href="#thesis">Coverage</a>
+    <a href="#watchlist">On the desk</a>
     <a href="#memo">Memo</a>
     <a href="#about">About</a>
   </div>
@@ -251,15 +269,15 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <p class="hero-label">Halvren Capital — Founded 2025 — Vancouver, BC</p>
-    <h1 class="hero-heading">We buy what we’d be <em>embarrassed</em> to sell.</h1>
-    <p class="hero-sub">Patient capital for businesses built to last decades. We are not traders who occasionally hold. We are owners who occasionally sell — and only then, reluctantly.</p>
+    <p class="hero-label">Halvren Capital — Vancouver, BC — Est. 2025</p>
+    <h1 class="hero-heading">We read Canadian businesses the way their <em>operators</em> do.</h1>
+    <p class="hero-sub">Independent research on the energy, materials, and infrastructure companies that move Canada's economy. Honest about cycles, skeptical of narratives, patient about price. We write to sharpen our own capital. You read it for free.</p>
     <div class="hero-meta">
-      <span>Long-term compounding</span>
+      <span>Energy · Materials · Infrastructure</span>
       <div class="hero-meta-divider"></div>
-      <span>Private &amp; public markets</span>
+      <span>Canadian operators</span>
       <div class="hero-meta-divider"></div>
-      <span>Real assets &amp; technology</span>
+      <span>Proprietary capital, closed book</span>
     </div>
   </div>
 </section>
@@ -270,43 +288,29 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
     <div class="beliefs-layout">
       <div class="beliefs-left">
         <p class="section-label">Our Philosophy</p>
-        <h2 class="beliefs-heading">Five things we <em>actually</em> believe</h2>
-        <p class="beliefs-intro">Not aspirations. Not values off a slide deck. These are the convictions that determine where capital goes and, more importantly, where it does not.</p>
+        <h2 class="beliefs-heading">Three things we <em>actually</em> believe</h2>
+        <p class="beliefs-intro">Not aspirations. Not values off a slide deck. The convictions that determine what we read, what we write, and what we own.</p>
       </div>
       <div class="beliefs-list">
         <div class="belief-item">
           <span class="belief-num">01</span>
           <div>
             <p class="belief-text">The price of admission to real returns is the discomfort of looking wrong for years.</p>
-            <p class="belief-note">The consensus is always priced. Edge lives in the time horizons others have abandoned, the industries others have embarrassed themselves in, and the businesses too boring to make a conference panel. We are comfortable being boring.</p>
+            <p class="belief-note">The consensus is already priced. Edge lives in the horizons others have abandoned, the industries that have embarrassed themselves, and the operators too boring to make a conference panel. Canada has a lot of those. We are comfortable being boring.</p>
           </div>
         </div>
         <div class="belief-item">
           <span class="belief-num">02</span>
           <div>
-            <p class="belief-text">We don’t predict cycles. We position for the aftermath of other people’s predictions.</p>
-            <p class="belief-note">Markets are not machines; they are crowds. Crowds panic, extrapolate, and eventually correct. Our job is not to forecast when — it is to know what survives regardless of when. Quality businesses at reasonable prices have a remarkable tendency to win the waiting game.</p>
+            <p class="belief-text">We don't predict cycles. We read the operators who survive them.</p>
+            <p class="belief-note">Macro forecasting is a prestige game. Operator quality is arithmetic. We spend our time on the second one — cost curves, reinvestment history, insider behaviour, the balance sheet through a 2015 or a 2020. That evidence tells you what a business <em>is</em> without asking the market what it thinks.</p>
           </div>
         </div>
         <div class="belief-item">
           <span class="belief-num">03</span>
           <div>
-            <p class="belief-text">Risk is not volatility. Risk is the permanent impairment of capital. We are paid to know the difference.</p>
-            <p class="belief-note">A stock that falls 40% and recovers is not a loss. A business whose competitive position quietly erodes over four years while the price stays flat — that is a loss. We spend more time on the latter than the former, because the latter does not announce itself.</p>
-          </div>
-        </div>
-        <div class="belief-item">
-          <span class="belief-num">04</span>
-          <div>
-            <p class="belief-text">Technology doesn’t disrupt industries. It reveals which operators were never actually good at them.</p>
-            <p class="belief-note">Every technology wave exposes the incumbents who were protected by friction, not by quality. We look for the rare businesses on the right side of that revelation — builders who treat software as a weapon rather than a cost centre, and who would be terrifying competitors in any era.</p>
-          </div>
-        </div>
-        <div class="belief-item">
-          <span class="belief-num">05</span>
-          <div>
-            <p class="belief-text">Humility is not a virtue here. It is the actual edge.</p>
-            <p class="belief-note">The graveyard of capital is crowded with people who were right about the thesis and wrong about the timing, the management, or the price. We try to know what we don’t know before we deploy a dollar. This is harder than it sounds. We are still working on it.</p>
+            <p class="belief-text">Risk is not volatility. Risk is the permanent impairment of capital — and it never announces itself.</p>
+            <p class="belief-note">A stock that falls 40% and recovers is not a loss. A business whose competitive position quietly erodes over four years while the chart trades sideways — that is a loss. We spend more time on the latter, because it never shows up in a risk model until it has already happened.</p>
           </div>
         </div>
       </div>
@@ -318,43 +322,84 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
 <section class="section" id="thesis">
   <div class="section-inner">
     <div class="thesis-header">
-      <p class="section-label">Investment Thesis</p>
-      <h2 class="thesis-heading">Three places where <em>patient capital</em> wins.</h2>
+      <p class="section-label">What we cover</p>
+      <h2 class="thesis-heading">Three sectors. <em>Canadian operators.</em> Long horizons.</h2>
     </div>
     <div class="thesis-grid">
       <div class="thesis-card large">
         <div>
-          <p class="thesis-card-label">Compounders</p>
-          <h3 class="thesis-card-title">Businesses that get stronger while you sleep.</h3>
-          <p class="thesis-card-body">We seek businesses with durable pricing power, high returns on incremental capital, and management teams that think in decades. Not turnarounds. Not cyclicals. Not commodities with a story. We want the businesses where time is unambiguously on our side — where doing nothing is a legitimate strategy because the underlying engine is genuinely exceptional.</p>
-          <p class="thesis-card-body" style="margin-top:var(--space-4)">This means we say no to most things. An average business at a cheap price will outperform a mediocre business at a great price only briefly. The moat matters more than the multiple at horizons beyond five years. We plan to be here in fifteen.</p>
+          <p class="thesis-card-label">Energy</p>
+          <h3 class="thesis-card-title">The businesses the market keeps giving up on — usually twice per cycle.</h3>
+          <p class="thesis-card-body">Canada runs on heavy oil, natural gas, and uranium. The operators worth owning have learned to live in the middle of the cost curve and still make money at the bottom of it. We look for low all-in sustaining costs, clean balance sheets, reserves that don't need a story to work, and boards that buy back shares when the stock is hated instead of issuing when it's loved.</p>
+          <p class="thesis-card-body" style="margin-top:var(--space-4)">Most of what gets written about this sector is a price deck in prose. We try to write about the business underneath — the one that was already profitable before the commodity moved, and will still be after.</p>
         </div>
-        <p class="thesis-card-footer">Canadian &amp; U.S. equities · Private operating companies · Real assets with embedded optionality</p>
+        <p class="thesis-card-footer">Oil &amp; gas · Uranium · Power · Midstream</p>
       </div>
       <div class="thesis-card">
         <div>
-          <p class="thesis-card-label">Real Assets</p>
-          <h3 class="thesis-card-title">Hard things in the right locations.</h3>
-          <p class="thesis-card-body">Real estate and infrastructure in supply-constrained geographies remain one of the few honest stores of long-term value. We focus on Metro Vancouver, where land supply is structurally limited, demand is structurally supported, and the development process is so painful that it creates genuine barriers for undercapitalized competitors.</p>
+          <p class="thesis-card-label">Materials</p>
+          <h3 class="thesis-card-title">Hard things with hard numbers.</h3>
+          <p class="thesis-card-body">Copper, silver, potash, lumber, specialty chemicals. The cycle is loud; the business underneath is quieter. We read cost curves, reinvestment history, and insider behaviour more than price forecasts. Most mining stories collapse on the drill results — the ones worth owning were already profitable before the story started.</p>
         </div>
-        <p class="thesis-card-footer">Metro Vancouver · Fourplex &amp; infill development · Income-producing properties</p>
+        <p class="thesis-card-footer">Precious metals · Industrial metals · Fertilizers · Forest products</p>
       </div>
       <div class="thesis-card">
         <div>
-          <p class="thesis-card-label">Technology &amp; AI</p>
-          <h3 class="thesis-card-title">Picks and shovels for the next twenty years.</h3>
-          <p class="thesis-card-body">The last infrastructure cycle created the modern internet. The current one — AI, energy, compute — is rewriting the cost structure of nearly every industry. We focus on businesses that provide the foundational layer rather than the applications layer, where winner-take-most dynamics are most durable.</p>
+          <p class="thesis-card-label">Infrastructure</p>
+          <h3 class="thesis-card-title">The regulated cash machines, read honestly.</h3>
+          <p class="thesis-card-body">Pipelines, utilities, railways, ports. Boring on a chart, spectacular on a twenty-year dividend reinvestment. We care about regulatory jurisdiction, the quality of the asset underneath, and rate-base growth more than the payout ratio. Not every yield is a business — some are a slow-motion return of capital.</p>
         </div>
-        <p class="thesis-card-footer">AI infrastructure · Energy transition · Fintech &amp; financial services</p>
+        <p class="thesis-card-footer">Pipelines · Utilities · Rail · Ports &amp; terminals</p>
       </div>
       <div class="thesis-quote">
         <div class="thesis-quote-mark">“</div>
         <div>
-          <p class="thesis-quote-text">We are not in the business of predicting what the world will look like. We are in the business of finding the businesses that will be indispensable regardless of what it looks like.</p>
-          <p class="thesis-quote-attr">— Halvren Capital Founding Memo, 2025</p>
+          <p class="thesis-quote-text">We don't trade sectors. We read operators. Everything else — price decks, macro calls, central-bank body language — is noise that happens to other people.</p>
+          <p class="thesis-quote-attr">— Halvren Capital, Research Notes</p>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- WATCHLIST -->
+<section class="section" id="watchlist">
+  <div class="section-inner">
+    <div class="watchlist-header">
+      <p class="section-label">On the desk</p>
+      <h2 class="thesis-heading">Three Canadian names we're reading <em>right now.</em></h2>
+      <p class="watchlist-intro">No price targets. No conviction levels. No pretending we know what the stock does next month. Just what we're actually working through under the hood — business health, who's at the helm, where we sit in the cycle.</p>
+    </div>
+    <div class="watchlist-grid">
+      <article class="watch-card">
+        <div class="watch-head">
+          <span class="watch-symbol">CCO</span>
+          <span class="watch-name">Cameco Corp<br>TSX / NYSE</span>
+        </div>
+        <p class="watch-sector">Uranium</p>
+        <p class="watch-body">Uranium has become a narrative asset. Cameco is still a mine with a cost structure. We're re-reading McArthur River restart economics, the Westinghouse integration, and what happens to contract-price realizations as the utilities' term book actually rolls. The bull case needs the commodity. The business is fine without it — which is exactly why we keep coming back to it.</p>
+        <p class="watch-track"><span class="watch-track-label">What we track</span>All-in mining cost · Westinghouse contribution · Long-term contract book · Capital discipline vs. peers</p>
+      </article>
+      <article class="watch-card">
+        <div class="watch-head">
+          <span class="watch-symbol">CNQ</span>
+          <span class="watch-name">Canadian Natural<br>TSX / NYSE</span>
+        </div>
+        <p class="watch-sector">Oil &amp; Gas</p>
+        <p class="watch-body">Murray Edwards built a business that doesn't need $100 oil to matter. Low-decline, long-life assets, a dividend that survived 2015 and 2020, and a management team that allocates capital like owners — because many of them are. The questions we keep returning to: how many more cycles does this same playbook work for, and what does succession actually look like when it comes.</p>
+        <p class="watch-track"><span class="watch-track-label">What we track</span>Sustaining capex · Free cash flow at strip · Buyback pace · Insider alignment · Succession</p>
+      </article>
+      <article class="watch-card">
+        <div class="watch-head">
+          <span class="watch-symbol">AG</span>
+          <span class="watch-name">First Majestic Silver<br>NYSE / TSX</span>
+        </div>
+        <p class="watch-sector">Silver</p>
+        <p class="watch-body">The hardest of the three to own honestly. Silver is a narrative metal, and First Majestic has had more operational resets than closes at a new high. We're working through the real cost curve, the Mexico tax and royalty overhang, and whether management's capital decisions have generated per-share value — or just production growth. Sometimes the most useful output of research is &ldquo;not yet.&rdquo;</p>
+        <p class="watch-track"><span class="watch-track-label">What we track</span>All-in sustaining cost · Production-per-share · Mexico tax posture · Reserve quality · Hedge book</p>
+      </article>
+    </div>
+    <p class="watchlist-footnote">None of the above is a recommendation, a solicitation, or a price call. The author may hold positions in any of these names and may transact in them at any time without notice. See the footer for the full disclaimer. The writeups live on <a href="https://substack.com/@halvrencapital" target="_blank" rel="noopener noreferrer" style="color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3)">Substack</a>.</p>
   </div>
 </section>
 
@@ -415,12 +460,12 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
 <section class="subscribe-section">
   <div class="subscribe-inner">
     <h2 class="subscribe-heading">Join the <em>patient few.</em></h2>
-    <p class="subscribe-sub">Irregular memos on capital allocation, markets, and the long game. Written when we have something worth saying — which is less often than you’d think, and more honest than most.</p>
+    <p class="subscribe-sub">One Canadian operator worth reading. One thing the Street is misreading. One number the investor decks are hiding. Published when we find it — not on a calendar.</p>
     <a href="https://substack.com/@halvrencapital" target="_blank" rel="noopener noreferrer" class="subscribe-btn">
       Subscribe on Substack
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
     </a>
-    <p class="subscribe-note">No cadence commitment. No noise. Unsubscribe anytime.</p>
+    <p class="subscribe-note">Free. No cadence commitment. No noise. Unsubscribe anytime.</p>
   </div>
 </section>
 
@@ -487,7 +532,7 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
   document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
 
   // Scroll spy — highlight current section in nav
-  var sections=['beliefs','thesis','memo','about'].map(function(id){return document.getElementById(id)}).filter(Boolean);
+  var sections=['beliefs','thesis','watchlist','memo','about'].map(function(id){return document.getElementById(id)}).filter(Boolean);
   var linkFor={};
   navLinks.querySelectorAll('a').forEach(function(a){
     var href=a.getAttribute('href');if(href&&href.charAt(0)==='#')linkFor[href.slice(1)]=a;
