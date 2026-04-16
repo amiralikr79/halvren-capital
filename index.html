@@ -4,510 +4,376 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Halvren Capital</title>
+<meta name="description" content="Halvren Capital is a patient capital vehicle investing in businesses worth owning for decades. Founded in Vancouver, BC.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-/* =============================================
-   ART DIRECTION: Halvren Capital
-   Palette: Near-black charcoal, warm gold accent
-   Typography: Cormorant Garamond (display) + Inter (body)
-   Density: Spacious editorial
-   ============================================= */
-
-:root {
-  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
-  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
-  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
-  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
-  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
-  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
-  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
-  --text-hero: clamp(3rem,     0.5rem  + 7vw,    8rem);
-
-  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
-  --space-4: 1rem;    --space-5: 1.25rem; --space-6: 1.5rem;
-  --space-8: 2rem;    --space-10: 2.5rem; --space-12: 3rem;
-  --space-16: 4rem;   --space-20: 5rem;  --space-24: 6rem;
-  --space-32: 8rem;
-
-  --radius-sm: 0.375rem; --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;  --radius-xl: 1rem; --radius-full: 9999px;
-
-  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
-
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Inter', 'Helvetica Neue', sans-serif;
-
-  --content-narrow: 640px;
-  --content-default: 960px;
-  --content-wide: 1200px;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --font-display:'Instrument Serif',Georgia,serif;
+  --font-body:'DM Sans','Helvetica Neue',sans-serif;
+  --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
+  --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
+  --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
+  --text-lg:clamp(1.125rem,1rem + 0.75vw,1.5rem);
+  --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+  --text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+  --text-3xl:clamp(2.5rem,1rem + 4vw,5rem);
+  --text-hero:clamp(3rem,0.5rem + 7vw,8rem);
+  --space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;
+  --space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;
+  --space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;--space-32:8rem;
+  --radius-sm:0.375rem;--radius-md:0.5rem;--radius-lg:0.75rem;--radius-xl:1rem;
+  --transition:180ms cubic-bezier(0.16,1,0.3,1);
+  --content-narrow:640px;--content-default:960px;--content-wide:1200px;
 }
-
-:root, [data-theme="dark"] {
-  --color-bg:              #0e0d0b;
-  --color-surface:         #141210;
-  --color-surface-2:       #1a1815;
-  --color-surface-offset:  #1f1d1a;
-  --color-surface-dynamic: #272420;
-  --color-divider:         #2a2724;
-  --color-border:          #333028;
-  --color-text:            #e8e4d8;
-  --color-text-muted:      #8a8678;
-  --color-text-faint:      #4a4840;
-  --color-text-inverse:    #0e0d0b;
-  --color-primary:         #c9a84c;
-  --color-primary-hover:   #dbb95a;
-  --color-primary-active:  #e8ce70;
-  --color-primary-highlight: #2a2415;
-  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.3);
-  --shadow-md: 0 4px 12px oklch(0 0 0 / 0.4);
-  --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.5);
+:root,[data-theme="light"]{
+  --color-bg:#f7f6f2;--color-surface:#f9f8f5;--color-surface-2:#fbfbf9;
+  --color-surface-offset:#f3f0ec;--color-border:#d4d1ca;--color-divider:#dcd9d5;
+  --color-text:#1a1814;--color-text-muted:#6b6a66;--color-text-faint:#bab9b4;
+  --color-gold:#b8860b;--color-gold-light:#d4a017;
+  --shadow-sm:0 1px 2px oklch(0.2 0.01 80/0.06);
+  --shadow-md:0 4px 12px oklch(0.2 0.01 80/0.08);
+  --shadow-lg:0 12px 32px oklch(0.2 0.01 80/0.12);
 }
-
-[data-theme="light"] {
-  --color-bg:              #f9f7f2;
-  --color-surface:         #f4f1ea;
-  --color-surface-2:       #eeeae0;
-  --color-surface-offset:  #e8e3d8;
-  --color-surface-dynamic: #ddd7ca;
-  --color-divider:         #d4cfc4;
-  --color-border:          #c8c2b5;
-  --color-text:            #1a1812;
-  --color-text-muted:      #6a6458;
-  --color-text-faint:      #a09a8e;
-  --color-text-inverse:    #f9f7f2;
-  --color-primary:         #8a6820;
-  --color-primary-hover:   #7a5c18;
-  --color-primary-active:  #6a5010;
-  --color-primary-highlight: #f0e8d0;
-  --shadow-sm: 0 1px 2px oklch(0.2 0.02 80 / 0.08);
-  --shadow-md: 0 4px 12px oklch(0.2 0.02 80 / 0.1);
-  --shadow-lg: 0 12px 32px oklch(0.2 0.02 80 / 0.14);
+[data-theme="dark"]{
+  --color-bg:#111010;--color-surface:#171614;--color-surface-2:#1c1b19;
+  --color-surface-offset:#1f1e1c;--color-border:#2e2d2b;--color-divider:#222120;
+  --color-text:#e8e6e2;--color-text-muted:#8a8884;--color-text-faint:#4a4946;
+  --color-gold:#c9a84c;--color-gold-light:#e2c47a;
+  --shadow-sm:0 1px 2px oklch(0 0 0/0.3);
+  --shadow-md:0 4px 12px oklch(0 0 0/0.4);
+  --shadow-lg:0 12px 32px oklch(0 0 0/0.5);
 }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  scroll-behavior: smooth;
-  scroll-padding-top: var(--space-16);
-}
-body {
-  min-height: 100dvh;
-  font-family: var(--font-body);
-  font-size: var(--text-base);
-  color: var(--color-text);
-  background-color: var(--color-bg);
-  line-height: 1.6;
-}
-img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
-ul[role="list"] { list-style: none; }
-input, button, textarea, select { font: inherit; color: inherit; }
-h1, h2, h3, h4, h5, h6 { text-wrap: balance; line-height: 1.1; }
-p, li { text-wrap: pretty; }
-button { cursor: pointer; background: none; border: none; }
-::selection { background: oklch(from var(--color-primary) l c h / 0.2); color: var(--color-text); }
-:focus-visible { outline: 1px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-a, button, [role="button"] {
-  transition: color var(--transition-interactive), background var(--transition-interactive),
-    border-color var(--transition-interactive), opacity var(--transition-interactive);
-}
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
-
-.container { max-width: var(--content-default); margin-inline: auto; padding-inline: var(--space-6); }
-.container--wide { max-width: var(--content-wide); margin-inline: auto; padding-inline: var(--space-6); }
-.container--narrow { max-width: var(--content-narrow); margin-inline: auto; padding-inline: var(--space-6); }
+@media(prefers-color-scheme:light){:root:not([data-theme]){
+  --color-bg:#f7f6f2;--color-surface:#f9f8f5;--color-surface-2:#fbfbf9;
+  --color-surface-offset:#f3f0ec;--color-border:#d4d1ca;--color-divider:#dcd9d5;
+  --color-text:#1a1814;--color-text-muted:#6b6a66;--color-text-faint:#bab9b4;
+  --color-gold:#b8860b;--color-gold-light:#d4a017;
+}}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;scroll-padding-top:var(--space-16)}
+body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);line-height:1.6}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,h4{text-wrap:balance;line-height:1.15;font-family:var(--font-display)}
+p,li{text-wrap:pretty;max-width:68ch}
+::selection{background:oklch(from var(--color-gold) l c h/0.2);color:var(--color-text)}
+:focus-visible{outline:2px solid var(--color-gold);outline-offset:3px;border-radius:var(--radius-sm)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+a,button{transition:color var(--transition),background var(--transition),border-color var(--transition),opacity var(--transition)}
+button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 
 /* NAV */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  padding: var(--space-5) var(--space-6);
-  display: flex; align-items: center; justify-content: space-between;
-  background: oklch(from var(--color-bg) l c h / 0.85);
-  backdrop-filter: blur(16px) saturate(1.4);
-  -webkit-backdrop-filter: blur(16px) saturate(1.4);
-  border-bottom: 1px solid oklch(from var(--color-text) l c h / 0.06);
-}
-.nav__logo { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
-.nav__logo-mark { width: 32px; height: 32px; flex-shrink: 0; }
-.nav__name { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text); }
-.nav__right { display: flex; align-items: center; gap: var(--space-6); }
-.nav__links { display: flex; align-items: center; gap: var(--space-6); list-style: none; }
-.nav__links a { text-decoration: none; font-size: var(--text-sm); font-weight: 400; letter-spacing: 0.04em; color: var(--color-text-muted); }
-.nav__links a:hover { color: var(--color-text); }
-.nav__theme-btn { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; color: var(--color-text-muted); border-radius: var(--radius-md); }
-.nav__theme-btn:hover { color: var(--color-text); background: oklch(from var(--color-text) l c h / 0.06); }
-.nav__cta { display: inline-flex; align-items: center; padding: var(--space-2) var(--space-5); font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.04em; color: var(--color-text-inverse); background: var(--color-primary); border-radius: var(--radius-sm); text-decoration: none; }
-.nav__cta:hover { background: var(--color-primary-hover); color: var(--color-text-inverse); }
-.nav__mobile-menu { display: none; flex-direction: column; gap: var(--space-1); padding: var(--space-2); border-radius: var(--radius-md); color: var(--color-text-muted); }
-.nav__mobile-menu span { display: block; width: 20px; height: 1.5px; background: currentColor; border-radius: 2px; }
-@media (max-width: 768px) { .nav__links { display: none; } .nav__cta { display: none; } .nav__mobile-menu { display: flex; } }
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:var(--space-5) var(--space-8);display:flex;align-items:center;justify-content:space-between;background:oklch(from var(--color-bg) l c h/0.85);backdrop-filter:blur(12px);border-bottom:1px solid oklch(from var(--color-text) l c h/0.06)}
+.nav-logo{display:flex;align-items:center;gap:var(--space-3);text-decoration:none;color:var(--color-text)}
+.nav-logo-mark{width:32px;height:32px}
+.nav-logo-name{font-family:var(--font-display);font-size:var(--text-lg);letter-spacing:-0.01em;color:var(--color-text)}
+.nav-links{display:flex;align-items:center;gap:var(--space-8)}
+.nav-links a{text-decoration:none;color:var(--color-text-muted);font-size:var(--text-sm);letter-spacing:0.02em}
+.nav-links a:hover{color:var(--color-text)}
+.nav-right{display:flex;align-items:center;gap:var(--space-4)}
+.theme-toggle{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--color-text-muted);border-radius:var(--radius-md)}
+.theme-toggle:hover{color:var(--color-text);background:oklch(from var(--color-text) l c h/0.06)}
+.btn-subscribe{font-size:var(--text-sm);padding:var(--space-2) var(--space-5);background:var(--color-gold);color:#0e0d0b;border-radius:var(--radius-sm);text-decoration:none;font-weight:500;letter-spacing:0.01em}
+.btn-subscribe:hover{background:var(--color-gold-light)}
+@media(max-width:768px){.nav-links{display:none}.nav-logo-name{font-size:var(--text-base)}}
 
 /* HERO */
-.hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; padding-top: 100px; overflow: hidden; }
-.hero__bg { position: absolute; inset: 0; background-image: url('https://user-gen-media-assets.s3.amazonaws.com/gemini_images/f58910c2-c20f-4309-b38f-918f5fd4b0b3.png'); background-size: cover; background-position: center; z-index: 0; }
-.hero__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, oklch(from var(--color-bg) l c h / 0.3) 0%, oklch(from var(--color-bg) l c h / 0.5) 40%, oklch(from var(--color-bg) l c h / 0.92) 80%, var(--color-bg) 100%); }
-.hero__content { position: relative; z-index: 1; padding: var(--space-24) var(--space-6) var(--space-20); max-width: 1200px; margin-inline: auto; width: 100%; }
-.hero__eyebrow { display: inline-flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-8); font-size: var(--text-xs); font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-primary); }
-.hero__eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--color-primary); }
-.hero__headline { font-family: var(--font-display); font-size: clamp(3rem, 1rem + 6vw, 7.5rem); font-weight: 300; line-height: 1.0; color: var(--color-text); max-width: 900px; margin-bottom: var(--space-8); letter-spacing: -0.01em; }
-.hero__headline em { font-style: italic; color: var(--color-primary); }
-.hero__sub { max-width: 540px; font-size: var(--text-base); font-weight: 300; color: var(--color-text-muted); line-height: 1.7; margin-bottom: var(--space-10); }
-.hero__actions { display: flex; align-items: center; gap: var(--space-6); flex-wrap: wrap; }
-.btn-primary { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-8); font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-inverse); background: var(--color-primary); border-radius: var(--radius-sm); text-decoration: none; }
-.btn-primary:hover { background: var(--color-primary-hover); color: var(--color-text-inverse); }
-.btn-ghost { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); font-weight: 400; letter-spacing: 0.04em; color: var(--color-text-muted); text-decoration: none; border-bottom: 1px solid oklch(from var(--color-text) l c h / 0.2); padding-bottom: 2px; }
-.btn-ghost:hover { color: var(--color-text); border-color: oklch(from var(--color-text) l c h / 0.5); }
-.hero__scroll { position: absolute; bottom: var(--space-8); left: 50%; transform: translateX(-50%); z-index: 1; display: flex; flex-direction: column; align-items: center; gap: var(--space-2); color: var(--color-text-faint); font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; animation: scrollpulse 2.5s ease-in-out infinite; }
-@keyframes scrollpulse { 0%,100%{opacity:0.4;transform:translateX(-50%) translateY(0)} 50%{opacity:0.8;transform:translateX(-50%) translateY(4px)} }
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:var(--space-32) var(--space-8) var(--space-20);position:relative;overflow:hidden;border-bottom:1px solid var(--color-divider)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 30%,oklch(from var(--color-gold) l c h/0.04) 0%,transparent 70%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(oklch(from var(--color-text) l c h/0.03) 1px,transparent 1px),linear-gradient(90deg,oklch(from var(--color-text) l c h/0.03) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+.hero-content{max-width:var(--content-wide);margin:0 auto;width:100%;position:relative}
+.hero-label{font-size:var(--text-xs);letter-spacing:0.15em;text-transform:uppercase;color:var(--color-gold);margin-bottom:var(--space-8);font-family:var(--font-body);font-weight:500}
+.hero-heading{font-family:var(--font-display);font-size:var(--text-hero);line-height:1.02;letter-spacing:-0.02em;color:var(--color-text);max-width:14ch;margin-bottom:var(--space-10)}
+.hero-heading em{font-style:italic;color:var(--color-gold)}
+.hero-sub{font-size:var(--text-lg);color:var(--color-text-muted);max-width:52ch;line-height:1.6;margin-bottom:var(--space-12)}
+.hero-meta{display:flex;align-items:center;gap:var(--space-8);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.08em;text-transform:uppercase}
+.hero-meta-divider{width:40px;height:1px;background:var(--color-divider)}
+@media(max-width:768px){.hero{padding:var(--space-24) var(--space-6) var(--space-16)}.hero-heading{font-size:var(--text-3xl)}}
 
-/* DIVIDER */
-.divider-section { padding: var(--space-16) var(--space-6); border-top: 1px solid oklch(from var(--color-text) l c h / 0.08); border-bottom: 1px solid oklch(from var(--color-text) l c h / 0.08); }
-.divider-section__inner { max-width: var(--content-wide); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: var(--space-8); flex-wrap: wrap; }
-.divider-section__stat { text-align: center; }
-.divider-section__stat .number { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 300; color: var(--color-primary); display: block; }
-.divider-section__stat .label { font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint); margin-top: var(--space-1); }
-.divider-section__rule { width: 1px; height: 60px; background: oklch(from var(--color-text) l c h / 0.1); flex-shrink: 0; }
-@media (max-width: 640px) { .divider-section__rule { display: none; } .divider-section__inner { justify-content: center; gap: var(--space-10); } }
+/* SECTION BASE */
+.section{padding:clamp(var(--space-16),8vw,var(--space-32)) var(--space-8);border-bottom:1px solid var(--color-divider)}
+.section-inner{max-width:var(--content-wide);margin:0 auto;width:100%}
+.section-label{font-size:var(--text-xs);letter-spacing:0.15em;text-transform:uppercase;color:var(--color-gold);margin-bottom:var(--space-6);font-family:var(--font-body);font-weight:500}
+@media(max-width:768px){.section{padding:var(--space-16) var(--space-6)}}
 
-/* PHILOSOPHY */
-.philosophy { padding: clamp(var(--space-16), 8vw, var(--space-32)) var(--space-6); }
-.philosophy__inner { max-width: var(--content-wide); margin-inline: auto; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: start; }
-.philosophy__left { position: sticky; top: 120px; }
-.philosophy__label { font-size: var(--text-xs); font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-primary); margin-bottom: var(--space-6); display: flex; align-items: center; gap: var(--space-3); }
-.philosophy__label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--color-primary); }
-.philosophy__heading { font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 300; line-height: 1.08; color: var(--color-text); margin-bottom: var(--space-6); }
-.philosophy__intro { font-size: var(--text-base); font-weight: 300; color: var(--color-text-muted); line-height: 1.75; max-width: 42ch; }
-.philosophy__beliefs { display: flex; flex-direction: column; gap: var(--space-1); }
-.belief { padding: var(--space-6) 0; border-bottom: 1px solid oklch(from var(--color-text) l c h / 0.07); cursor: default; transition: all var(--transition-interactive); }
-.belief:first-child { border-top: 1px solid oklch(from var(--color-text) l c h / 0.07); }
-.belief__number { font-size: var(--text-xs); color: var(--color-primary); letter-spacing: 0.1em; font-weight: 500; margin-bottom: var(--space-3); }
-.belief__text { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 300; line-height: 1.2; color: var(--color-text); font-style: italic; transition: color var(--transition-interactive); }
-.belief__sub { font-size: var(--text-sm); color: var(--color-text-faint); margin-top: var(--space-2); line-height: 1.6; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease; opacity: 0; }
-.belief:hover .belief__sub { max-height: 80px; opacity: 1; margin-top: var(--space-3); }
-.belief:hover .belief__text { color: var(--color-primary); }
-@media (max-width: 768px) { .philosophy__inner { grid-template-columns: 1fr; gap: var(--space-10); } .philosophy__left { position: static; } }
+/* BELIEFS */
+.beliefs-layout{display:grid;grid-template-columns:1fr 2fr;gap:var(--space-16);align-items:start}
+.beliefs-left{position:sticky;top:calc(var(--space-16) + 60px)}
+.beliefs-heading{font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.1;letter-spacing:-0.02em;color:var(--color-text)}
+.beliefs-heading em{font-style:italic;color:var(--color-gold)}
+.beliefs-intro{margin-top:var(--space-6);font-size:var(--text-base);color:var(--color-text-muted);line-height:1.7;max-width:38ch}
+.beliefs-list{display:flex;flex-direction:column;gap:0}
+.belief-item{padding:var(--space-8) 0;border-bottom:1px solid var(--color-divider);display:grid;grid-template-columns:3ch 1fr;gap:var(--space-6);align-items:start}
+.belief-item:first-child{border-top:1px solid var(--color-divider)}
+.belief-num{font-size:var(--text-xs);color:var(--color-text-faint);font-family:var(--font-body);padding-top:0.35em;letter-spacing:0.05em}
+.belief-text{font-family:var(--font-display);font-size:var(--text-lg);line-height:1.4;color:var(--color-text);font-style:italic}
+.belief-note{margin-top:var(--space-3);font-family:var(--font-body);font-size:var(--text-sm);color:var(--color-text-muted);font-style:normal;line-height:1.6;max-width:56ch}
+@media(max-width:900px){.beliefs-layout{grid-template-columns:1fr}.beliefs-left{position:static}}
 
 /* THESIS */
-.thesis { padding: clamp(var(--space-16), 8vw, var(--space-32)) var(--space-6); background: var(--color-surface); }
-.thesis__inner { max-width: var(--content-wide); margin-inline: auto; }
-.section-label { font-size: var(--text-xs); font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-primary); margin-bottom: var(--space-4); display: flex; align-items: center; gap: var(--space-3); }
-.section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--color-primary); }
-.thesis__header { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); margin-bottom: var(--space-16); align-items: end; }
-.thesis__heading { font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 300; line-height: 1.08; color: var(--color-text); }
-.thesis__intro { font-size: var(--text-base); font-weight: 300; color: var(--color-text-muted); line-height: 1.75; max-width: 48ch; }
-.thesis__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--space-4); }
-.thesis-card { background: var(--color-surface-2); border: 1px solid oklch(from var(--color-text) l c h / 0.07); border-radius: var(--radius-lg); padding: var(--space-8); display: flex; flex-direction: column; transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive); }
-.thesis-card:hover { border-color: oklch(from var(--color-primary) l c h / 0.3); box-shadow: var(--shadow-md); }
-.thesis-card--featured { padding: var(--space-10); }
-.thesis-card__tag { display: inline-block; font-size: var(--text-xs); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-primary); border: 1px solid oklch(from var(--color-primary) l c h / 0.3); border-radius: var(--radius-full); padding: var(--space-1) var(--space-3); margin-bottom: var(--space-6); width: fit-content; }
-.thesis-card__number { font-family: var(--font-display); font-size: clamp(3rem, 4vw, 5rem); font-weight: 300; color: oklch(from var(--color-primary) l c h / 0.15); line-height: 1; margin-bottom: var(--space-4); }
-.thesis-card__title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; line-height: 1.2; color: var(--color-text); margin-bottom: var(--space-4); }
-.thesis-card--featured .thesis-card__title { font-size: var(--text-2xl); }
-.thesis-card__body { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.7; flex: 1; }
-@media (max-width: 900px) { .thesis__grid { grid-template-columns: 1fr; } .thesis__header { grid-template-columns: 1fr; gap: var(--space-6); } }
+.thesis-header{margin-bottom:var(--space-12)}
+.thesis-heading{font-family:var(--font-display);font-size:var(--text-2xl);letter-spacing:-0.02em;line-height:1.1;margin-top:var(--space-4);max-width:20ch}
+.thesis-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:var(--space-4)}
+.thesis-card{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg);padding:var(--space-8);display:flex;flex-direction:column;justify-content:space-between;min-height:280px}
+.thesis-card:hover{border-color:oklch(from var(--color-gold) l c h/0.3);box-shadow:var(--shadow-md)}
+.thesis-card.large{grid-row:span 2;min-height:auto}
+.thesis-card-label{font-size:var(--text-xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--color-gold);margin-bottom:var(--space-6);font-weight:500}
+.thesis-card-title{font-family:var(--font-display);font-size:var(--text-xl);line-height:1.15;letter-spacing:-0.01em;color:var(--color-text);margin-bottom:var(--space-4)}
+.thesis-card-body{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;max-width:50ch}
+.thesis-card-footer{margin-top:var(--space-6);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.05em;border-top:1px solid var(--color-divider);padding-top:var(--space-4)}
+.thesis-quote{background:oklch(from var(--color-gold) l c h/0.06);border:1px solid oklch(from var(--color-gold) l c h/0.15);border-radius:var(--radius-lg);padding:var(--space-8);grid-column:span 2;display:flex;align-items:center;gap:var(--space-8)}
+.thesis-quote-mark{font-family:var(--font-display);font-size:clamp(4rem,8vw,7rem);line-height:0.8;color:var(--color-gold);opacity:0.4;flex-shrink:0}
+.thesis-quote-text{font-family:var(--font-display);font-size:var(--text-lg);font-style:italic;line-height:1.5;color:var(--color-text);max-width:72ch}
+.thesis-quote-attr{margin-top:var(--space-3);font-size:var(--text-xs);color:var(--color-text-muted);letter-spacing:0.05em;font-family:var(--font-body);font-style:normal}
+@media(max-width:768px){.thesis-grid{grid-template-columns:1fr}.thesis-card.large{grid-row:span 1}.thesis-quote{grid-column:span 1;flex-direction:column;gap:var(--space-4)}}
 
 /* MEMO */
-.memo { padding: clamp(var(--space-16), 8vw, var(--space-32)) var(--space-6); }
-.memo__inner { max-width: var(--content-default); margin-inline: auto; }
-.memo__pull { font-family: var(--font-display); font-size: clamp(1.5rem, 1rem + 2.5vw, 2.75rem); font-weight: 300; font-style: italic; line-height: 1.3; color: var(--color-text); border-left: 2px solid var(--color-primary); padding-left: var(--space-8); margin-bottom: var(--space-10); }
-.memo__pull em { font-style: normal; color: var(--color-primary); }
-.memo__body { font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.8; font-weight: 300; max-width: 68ch; margin-bottom: var(--space-10); }
-.memo__body p + p { margin-top: var(--space-5); }
-.memo__read-link { display: inline-flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary); text-decoration: none; border-bottom: 1px solid oklch(from var(--color-primary) l c h / 0.3); padding-bottom: 2px; }
-.memo__read-link:hover { color: var(--color-primary-hover); border-color: var(--color-primary-hover); }
-.memo__read-link svg { transition: transform var(--transition-interactive); }
-.memo__read-link:hover svg { transform: translateX(4px); }
+.memo-layout{display:grid;grid-template-columns:2fr 1fr;gap:var(--space-16);align-items:start}
+.memo-heading{font-family:var(--font-display);font-size:var(--text-2xl);letter-spacing:-0.02em;line-height:1.1;margin-top:var(--space-4);margin-bottom:var(--space-8)}
+.memo-text{font-size:var(--text-base);color:var(--color-text-muted);line-height:1.8;margin-bottom:var(--space-6);max-width:65ch}
+.memo-text strong{color:var(--color-text);font-weight:500}
+.memo-cta{display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--text-sm);color:var(--color-gold);text-decoration:none;margin-top:var(--space-4);border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:2px}
+.memo-cta:hover{border-color:var(--color-gold)}
+.memo-aside{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg);padding:var(--space-8);position:sticky;top:calc(var(--space-16) + 60px)}
+.memo-aside-label{font-size:var(--text-xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--color-gold);margin-bottom:var(--space-4);font-weight:500}
+.memo-aside-quote{font-family:var(--font-display);font-size:var(--text-lg);font-style:italic;line-height:1.45;color:var(--color-text);margin-bottom:var(--space-4)}
+.memo-aside-source{font-size:var(--text-xs);color:var(--color-text-muted);letter-spacing:0.05em}
+@media(max-width:900px){.memo-layout{grid-template-columns:1fr}.memo-aside{position:static}}
 
-/* APPROACH */
-.approach { padding: clamp(var(--space-16), 8vw, var(--space-32)) var(--space-6); background: var(--color-surface); border-top: 1px solid oklch(from var(--color-text) l c h / 0.06); }
-.approach__inner { max-width: var(--content-wide); margin-inline: auto; }
-.approach__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-12); margin-top: var(--space-12); }
-.approach__heading { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 300; color: var(--color-text); margin-bottom: var(--space-4); }
-.approach__subhead { font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.7; font-weight: 300; max-width: 48ch; }
-.approach-item__title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 400; color: var(--color-text); margin-bottom: var(--space-3); }
-.approach-item__body { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.7; font-weight: 300; }
-.approach-item__line { width: 24px; height: 1px; background: var(--color-primary); margin-bottom: var(--space-4); }
-@media (max-width: 768px) { .approach__grid { grid-template-columns: 1fr; gap: var(--space-8); } }
-
-/* CTA */
-.cta-section { padding: clamp(var(--space-20), 10vw, var(--space-32)) var(--space-6); text-align: center; position: relative; overflow: hidden; }
-.cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, oklch(from var(--color-primary) l c h / 0.06) 0%, transparent 70%); pointer-events: none; }
-.cta-section__inner { position: relative; z-index: 1; max-width: 680px; margin-inline: auto; }
-.cta-section__heading { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 300; font-style: italic; color: var(--color-text); line-height: 1.2; margin-bottom: var(--space-6); }
-.cta-section__body { font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.7; font-weight: 300; margin-bottom: var(--space-10); }
-.cta-section__actions { display: flex; align-items: center; justify-content: center; gap: var(--space-6); flex-wrap: wrap; }
+/* SUBSCRIBE */
+.subscribe-section{padding:clamp(var(--space-16),8vw,var(--space-32)) var(--space-8);background:oklch(from var(--color-gold) l c h/0.04);border-bottom:1px solid var(--color-divider)}
+.subscribe-inner{max-width:var(--content-narrow);margin:0 auto;text-align:center}
+.subscribe-heading{font-family:var(--font-display);font-size:var(--text-2xl);letter-spacing:-0.02em;line-height:1.1;margin-bottom:var(--space-4)}
+.subscribe-sub{font-size:var(--text-base);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-10);max-width:48ch;margin-left:auto;margin-right:auto}
+.subscribe-btn{display:inline-flex;align-items:center;gap:var(--space-2);background:var(--color-gold);color:#0e0d0b;font-size:var(--text-sm);font-weight:500;padding:var(--space-4) var(--space-8);border-radius:var(--radius-sm);text-decoration:none;letter-spacing:0.02em}
+.subscribe-btn:hover{background:var(--color-gold-light)}
+.subscribe-note{margin-top:var(--space-6);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.05em}
 
 /* FOOTER */
-footer { padding: var(--space-12) var(--space-6); border-top: 1px solid oklch(from var(--color-text) l c h / 0.08); }
-footer .footer__inner { max-width: var(--content-wide); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-6); }
-.footer__brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
-.footer__brand-name { font-family: var(--font-display); font-size: var(--text-base); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
-.footer__meta { font-size: var(--text-xs); color: var(--color-text-faint); letter-spacing: 0.04em; }
-.footer__links { display: flex; align-items: center; gap: var(--space-6); }
-.footer__links a { font-size: var(--text-xs); color: var(--color-text-faint); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
-.footer__links a:hover { color: var(--color-text-muted); }
-
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal.revealed { opacity: 1; transform: translateY(0); }
+footer{padding:var(--space-12) var(--space-8);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-4)}
+.footer-inner{max-width:var(--content-wide);margin:0 auto;width:100%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-4)}
+.footer-left{font-family:var(--font-display);font-size:var(--text-base);color:var(--color-text-muted)}
+.footer-left span{color:var(--color-text-faint);font-family:var(--font-body);font-size:var(--text-xs);display:block;margin-top:var(--space-1);letter-spacing:0.05em}
+.footer-right{font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.05em;text-align:right}
 </style>
 </head>
 <body>
 
-<a href="#main" class="sr-only">Skip to content</a>
-
-<nav class="nav" aria-label="Primary navigation">
-  <a href="#" class="nav__logo" aria-label="Halvren Capital home">
-    <svg class="nav__logo-mark" viewBox="0 0 32 32" fill="none" aria-label="Halvren Capital mark" role="img">
-      <rect x="1" y="1" width="30" height="30" rx="2" stroke="currentColor" stroke-opacity="0.15" stroke-width="1"/>
-      <path d="M8 24V8M8 16h10M18 8v16" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
-      <path d="M22 8l4 8-4 8" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo" aria-label="Halvren Capital">
+    <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="4" fill="none"/>
+      <path d="M6 6 L6 26 M6 16 L16 16 M16 6 L16 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 6 L20 26 M20 6 L28 16 L20 26" stroke="var(--color-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-    <span class="nav__name">Halvren Capital</span>
+    <span class="nav-logo-name">Halvren Capital</span>
   </a>
-  <div class="nav__right">
-    <ul class="nav__links">
-      <li><a href="#philosophy">Philosophy</a></li>
-      <li><a href="#thesis">Thesis</a></li>
-      <li><a href="#memo">Memo</a></li>
-    </ul>
-    <button class="nav__theme-btn" data-theme-toggle aria-label="Switch to light mode">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+  <div class="nav-links">
+    <a href="#beliefs">Philosophy</a>
+    <a href="#thesis">Thesis</a>
+    <a href="#memo">Memo</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
-    <a href="#memo" class="nav__cta">Read the Memo</a>
-    <button class="nav__mobile-menu" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="https://substack.com/@halvrencapital" target="_blank" rel="noopener noreferrer" class="btn-subscribe">Subscribe</a>
   </div>
 </nav>
 
-<main id="main">
-<section class="hero" aria-label="Hero">
-  <div class="hero__bg" role="presentation" aria-hidden="true"></div>
-  <div class="hero__content">
-    <div class="hero__eyebrow">Halvren Capital &mdash; Founded 2025</div>
-    <h1 class="hero__headline">
-      We buy businesses<br>
-      that would <em>embarrass us</em><br>
-      to sell.
-    </h1>
-    <p class="hero__sub">Patient capital, concentrated positions, and the intellectual honesty to sit still when sitting still is the hardest thing to do.</p>
-    <div class="hero__actions">
-      <a href="#memo" class="btn-primary">Read the Founding Memo</a>
-      <a href="#philosophy" class="btn-ghost">
-        Our Philosophy
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </div>
-  <div class="hero__scroll" aria-hidden="true">
-    <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1" width="14" height="22" rx="7"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg>
-  </div>
-</section>
-
-<div class="divider-section reveal">
-  <div class="divider-section__inner">
-    <div class="divider-section__stat"><span class="number">Long-Only</span><span class="label">Investment Approach</span></div>
-    <div class="divider-section__rule" aria-hidden="true"></div>
-    <div class="divider-section__stat"><span class="number">Concentrated</span><span class="label">High-Conviction Positions</span></div>
-    <div class="divider-section__rule" aria-hidden="true"></div>
-    <div class="divider-section__stat"><span class="number">Permanent</span><span class="label">Capital Mindset</span></div>
-    <div class="divider-section__rule" aria-hidden="true"></div>
-    <div class="divider-section__stat"><span class="number">Vancouver</span><span class="label">Headquarters</span></div>
-  </div>
-</div>
-
-<section class="philosophy" id="philosophy" aria-labelledby="philosophy-heading">
-  <div class="philosophy__inner">
-    <div class="philosophy__left">
-      <div class="philosophy__label">Investment Philosophy</div>
-      <h2 class="philosophy__heading" id="philosophy-heading">Five beliefs<br>we don&apos;t<br><em style="font-style:italic;color:var(--color-primary)">negotiate on.</em></h2>
-      <p class="philosophy__intro">Most investment philosophies are written to comfort investors. Ours is written to constrain us. There is a difference.</p>
-    </div>
-    <div class="philosophy__beliefs" role="list">
-      <article class="belief reveal" role="listitem">
-        <div class="belief__number">01</div>
-        <div class="belief__text">The price of admission to real returns is the discomfort of looking wrong for years.</div>
-        <div class="belief__sub">Our benchmark is not the index. It is the business we could have bought and didn&apos;t.</div>
-      </article>
-      <article class="belief reveal" role="listitem">
-        <div class="belief__number">02</div>
-        <div class="belief__text">We don&apos;t predict cycles. We position for the aftermath of other people&apos;s predictions.</div>
-        <div class="belief__sub">The consensus is rarely wrong about direction. It is almost always wrong about magnitude and timing.</div>
-      </article>
-      <article class="belief reveal" role="listitem">
-        <div class="belief__number">03</div>
-        <div class="belief__text">A great business at a fair price beats a fair business at a great price. Barely, but reliably.</div>
-        <div class="belief__sub">Compounding favors quality over time. The spreadsheet always underestimates duration.</div>
-      </article>
-      <article class="belief reveal" role="listitem">
-        <div class="belief__number">04</div>
-        <div class="belief__text">Technology doesn&apos;t disrupt industries. It reveals which operators were never actually good at them.</div>
-        <div class="belief__sub">We own the revealer, not just the revealed. Picks and shovels only matter if the gold is real.</div>
-      </article>
-      <article class="belief reveal" role="listitem">
-        <div class="belief__number">05</div>
-        <div class="belief__text">Risk is not volatility. Risk is permanent loss of capital. We are paid to know the difference.</div>
-        <div class="belief__sub">Volatility is a feature we exploit, not a hazard we manage. Our stop-loss is the original thesis.</div>
-      </article>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <p class="hero-label">Halvren Capital — Founded 2025 — Vancouver, BC</p>
+    <h1 class="hero-heading">We buy what we'd be <em>embarrassed</em> to sell.</h1>
+    <p class="hero-sub">Patient capital for businesses built to last decades. We are not traders who occasionally hold. We are owners who occasionally sell — and only then, reluctantly.</p>
+    <div class="hero-meta">
+      <span>Long-term compounding</span>
+      <div class="hero-meta-divider"></div>
+      <span>Private &amp; public markets</span>
+      <div class="hero-meta-divider"></div>
+      <span>Real assets &amp; technology</span>
     </div>
   </div>
 </section>
 
-<section class="thesis" id="thesis" aria-labelledby="thesis-heading">
-  <div class="thesis__inner">
-    <div class="thesis__header reveal">
-      <div>
-        <div class="section-label">Where We Look</div>
-        <h2 class="thesis__heading" id="thesis-heading">Three pockets of<br>durable advantage</h2>
+<!-- BELIEFS -->
+<section class="section" id="beliefs">
+  <div class="section-inner">
+    <div class="beliefs-layout">
+      <div class="beliefs-left">
+        <p class="section-label">Our Philosophy</p>
+        <h2 class="beliefs-heading">Five things we <em>actually</em> believe</h2>
+        <p class="beliefs-intro">Not aspirations. Not values off a slide deck. These are the convictions that determine where capital goes and, more importantly, where it does not.</p>
       </div>
-      <p class="thesis__intro">We are not generalists by accident. We are generalists by discipline. Each pocket shares one characteristic: the moat compounds faster than the market&apos;s ability to price it.</p>
-    </div>
-    <div class="thesis__grid">
-      <div class="thesis-card thesis-card--featured reveal">
-        <div class="thesis-card__tag">Core Thesis</div>
-        <div class="thesis-card__number">I</div>
-        <h3 class="thesis-card__title">Businesses the Market Prices as Cyclical But Are Structurally Secular</h3>
-        <p class="thesis-card__body">The most persistent mispricing in public markets is confusing a business that has cycles with a business whose destiny is determined by cycles. We look for operators who have survived enough cycles to have compounded through all of them. The market calls the bottom of the cycle a risk. We call it a price.</p>
-      </div>
-      <div class="thesis-card reveal">
-        <div class="thesis-card__tag">Platform Bets</div>
-        <div class="thesis-card__number">II</div>
-        <h3 class="thesis-card__title">Software &amp; AI Infrastructure with Negative Churn Economics</h3>
-        <p class="thesis-card__body">The only software worth owning long-term is software that gets cheaper to switch away from in theory and more expensive in practice. We seek platforms where the switching cost is invisible until it isn&apos;t.</p>
-      </div>
-      <div class="thesis-card reveal">
-        <div class="thesis-card__tag">Special Situations</div>
-        <div class="thesis-card__number">III</div>
-        <h3 class="thesis-card__title">Real Assets Mispriced by the Market&apos;s Obsession with Liquidity</h3>
-        <p class="thesis-card__body">The premium for liquidity is the most consistently overpaid premium in capital markets. We hold real estate, infrastructure, and commodities when the illiquidity discount has been applied three times over.</p>
+      <div class="beliefs-list">
+        <div class="belief-item">
+          <span class="belief-num">01</span>
+          <div>
+            <p class="belief-text">The price of admission to real returns is the discomfort of looking wrong for years.</p>
+            <p class="belief-note">The consensus is always priced. Edge lives in the time horizons others have abandoned, the industries others have embarrassed themselves in, and the businesses too boring to make a conference panel. We are comfortable being boring.</p>
+          </div>
+        </div>
+        <div class="belief-item">
+          <span class="belief-num">02</span>
+          <div>
+            <p class="belief-text">We don't predict cycles. We position for the aftermath of other people's predictions.</p>
+            <p class="belief-note">Markets are not machines; they are crowds. Crowds panic, extrapolate, and eventually correct. Our job is not to forecast when — it is to know what survives regardless of when. Quality businesses at reasonable prices have a remarkable tendency to win the waiting game.</p>
+          </div>
+        </div>
+        <div class="belief-item">
+          <span class="belief-num">03</span>
+          <div>
+            <p class="belief-text">Risk is not volatility. Risk is the permanent impairment of capital. We are paid to know the difference.</p>
+            <p class="belief-note">A stock that falls 40% and recovers is not a loss. A business whose competitive position quietly erodes over four years while the price stays flat — that is a loss. We spend more time on the latter than the former, because the latter does not announce itself.</p>
+          </div>
+        </div>
+        <div class="belief-item">
+          <span class="belief-num">04</span>
+          <div>
+            <p class="belief-text">Technology doesn't disrupt industries. It reveals which operators were never actually good at them.</p>
+            <p class="belief-note">Every technology wave exposes the incumbents who were protected by friction, not by quality. We look for the rare businesses on the right side of that revelation — builders who treat software as a weapon rather than a cost centre, and who would be terrifying competitors in any era.</p>
+          </div>
+        </div>
+        <div class="belief-item">
+          <span class="belief-num">05</span>
+          <div>
+            <p class="belief-text">Humility is not a virtue here. It is the actual edge.</p>
+            <p class="belief-note">The graveyard of capital is crowded with people who were right about the thesis and wrong about the timing, the management, or the price. We try to know what we don't know before we deploy a dollar. This is harder than it sounds. We are still working on it.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="memo" id="memo" aria-labelledby="memo-heading">
-  <div class="memo__inner">
-    <div class="section-label reveal">The Founding Memo</div>
-    <blockquote class="memo__pull reveal">
-      &ldquo;The investment industry does not have a shortage of intelligence.<br>
-      It has a shortage of <em>patience</em>, a shortage of <em>honesty</em>,<br>
-      and a chronic oversupply of activity mistaken for effort.&rdquo;
-    </blockquote>
-    <div class="memo__body reveal">
-      <p>Halvren Capital was not founded to gather assets. It was founded to compound them. There is a distinction that the industry has worked very hard to obscure. We would like to be transparent about which side of that distinction we intend to be on.</p>
-      <p>We began with a simple question: if a brilliant friend &mdash; one who happened to manage capital for a living &mdash; sat you down and told you exactly what they would do with their own money, and why, and what would have to change before they changed their mind, what would that actually sound like?</p>
-      <p>We suspect it would sound less like a pitch deck and more like a long letter from someone who had been thinking about the same ten businesses for seven years and was still not entirely sure they were right.</p>
-      <p>This memo is that letter. It will be the first of many. We apologise for the length. We are not sorry about the conviction.</p>
+<!-- THESIS -->
+<section class="section" id="thesis">
+  <div class="section-inner">
+    <div class="thesis-header">
+      <p class="section-label">Investment Thesis</p>
+      <h2 class="thesis-heading">Three places where <em>patient capital</em> wins.</h2>
     </div>
-    <a href="https://substack.com/@halvrencapital" class="memo__read-link reveal" target="_blank" rel="noopener noreferrer">
-      Read the Full Founding Memo
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    <div class="thesis-grid">
+      <div class="thesis-card large">
+        <div>
+          <p class="thesis-card-label">Compounders</p>
+          <h3 class="thesis-card-title">Businesses that get stronger while you sleep.</h3>
+          <p class="thesis-card-body">We seek businesses with durable pricing power, high returns on incremental capital, and management teams that think in decades. Not turnarounds. Not cyclicals. Not commodities with a story. We want the businesses where time is unambiguously on our side — where doing nothing is a legitimate strategy because the underlying engine is genuinely exceptional.</p>
+          <p class="thesis-card-body" style="margin-top:var(--space-4)">This means we say no to most things. An average business at a cheap price will outperform a mediocre business at a great price only briefly. The moat matters more than the multiple at horizons beyond five years. We plan to be here in fifteen.</p>
+        </div>
+        <p class="thesis-card-footer">Canadian &amp; U.S. equities · Private operating companies · Real assets with embedded optionality</p>
+      </div>
+      <div class="thesis-card">
+        <div>
+          <p class="thesis-card-label">Real Assets</p>
+          <h3 class="thesis-card-title">Hard things in the right locations.</h3>
+          <p class="thesis-card-body">Real estate and infrastructure in supply-constrained geographies remain one of the few honest stores of long-term value. We focus on Metro Vancouver, where land supply is structurally limited, demand is structurally supported, and the development process is so painful that it creates genuine barriers for undercapitalized competitors.</p>
+        </div>
+        <p class="thesis-card-footer">Metro Vancouver · Fourplex &amp; infill development · Income-producing properties</p>
+      </div>
+      <div class="thesis-card">
+        <div>
+          <p class="thesis-card-label">Technology &amp; AI</p>
+          <h3 class="thesis-card-title">Picks and shovels for the next twenty years.</h3>
+          <p class="thesis-card-body">The last infrastructure cycle created the modern internet. The current one — AI, energy, compute — is rewriting the cost structure of nearly every industry. We focus on businesses that provide the foundational layer rather than the applications layer, where winner-take-most dynamics are most durable.</p>
+        </div>
+        <p class="thesis-card-footer">AI infrastructure · Energy transition · Fintech &amp; financial services</p>
+      </div>
+      <div class="thesis-quote">
+        <div class="thesis-quote-mark">"</div>
+        <div>
+          <p class="thesis-quote-text">We are not in the business of predicting what the world will look like. We are in the business of finding the businesses that will be indispensable regardless of what it looks like.</p>
+          <p class="thesis-quote-attr">— Halvren Capital Founding Memo, 2025</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMO -->
+<section class="section" id="memo">
+  <div class="section-inner">
+    <div class="memo-layout">
+      <div class="memo-main">
+        <p class="section-label">The Founding Memo</p>
+        <h2 class="memo-heading">On patience, capital, and the <em>long game.</em></h2>
+        <p class="memo-text">There is a certain kind of investor who treats uncertainty as the enemy. They build models to defeat it, buy protection against it, and measure their competence by how seldom it appears in their portfolio. We are not that investor.</p>
+        <p class="memo-text"><strong>Uncertainty is the job.</strong> The question is never whether uncertainty exists — it always does — but whether the price you paid reflects it honestly. Our edge is not superior information. It is superior patience. We are willing to hold through the quarters where being right feels identical to being wrong.</p>
+        <p class="memo-text">We also believe in being honest about what we don't know. We don't know which AI model wins. We don't know when Canadian real estate corrects or by how much. We don't know which of today's platform businesses will look like railroads in thirty years — essential, regulated, and only mildly profitable. What we believe is that the businesses we own will still be operating, still compounding, and still relevant when those answers become obvious.</p>
+        <p class="memo-text">That, we think, is enough.</p>
+        <a href="https://substack.com/@halvrencapital" target="_blank" rel="noopener noreferrer" class="memo-cta">Read the full founding memo →</a>
+      </div>
+      <aside class="memo-aside">
+        <p class="memo-aside-label">From the Memo</p>
+        <p class="memo-aside-quote">"We apologize for the length of this document. We are not sorry about the conviction behind it."</p>
+        <p class="memo-aside-source">— Halvren Capital, 2025</p>
+        <div style="margin-top:var(--space-8);padding-top:var(--space-8);border-top:1px solid var(--color-divider)">
+          <p class="memo-aside-label">Published on Substack</p>
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;margin-top:var(--space-3)">Halvren publishes irregular memos on markets, capital allocation, and the businesses we find interesting. No schedule. Only when we have something worth saying.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIBE -->
+<section class="subscribe-section">
+  <div class="subscribe-inner">
+    <h2 class="subscribe-heading">Join the <em>patient few.</em></h2>
+    <p class="subscribe-sub">Irregular memos on capital allocation, markets, and the long game. Written when we have something worth saying — which is less often than you'd think, and more honest than most.</p>
+    <a href="https://substack.com/@halvrencapital" target="_blank" rel="noopener noreferrer" class="subscribe-btn">
+      Subscribe on Substack
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
     </a>
+    <p class="subscribe-note">No cadence commitment. No noise. Unsubscribe anytime.</p>
   </div>
 </section>
 
-<section class="approach" id="approach" aria-labelledby="approach-heading">
-  <div class="approach__inner">
-    <div class="reveal">
-      <div class="section-label">How We Operate</div>
-      <h2 class="approach__heading" id="approach-heading">The operating system behind the portfolio</h2>
-      <p class="approach__subhead">These are not values statements. They are constraints we impose on ourselves so our investors don&apos;t have to.</p>
-    </div>
-    <div class="approach__grid">
-      <div class="approach-item reveal">
-        <div class="approach-item__line"></div>
-        <h3 class="approach-item__title">No permanent hedge</h3>
-        <p class="approach-item__body">We do not maintain a standing short book. Permanent hedges are a tax on conviction. If we are not willing to be fully long a position, we should own less of it.</p>
-      </div>
-      <div class="approach-item reveal">
-        <div class="approach-item__line"></div>
-        <h3 class="approach-item__title">Annual letter, no quarterly calls</h3>
-        <p class="approach-item__body">Quarterly calls produce quarterly thinking. We write one letter per year. It will be long. It will be honest. It will include at least one paragraph about something we got wrong.</p>
-      </div>
-      <div class="approach-item reveal">
-        <div class="approach-item__line"></div>
-        <h3 class="approach-item__title">Concentration over diversification</h3>
-        <p class="approach-item__body">Diversification is insurance against ignorance. We prefer to be informed. Our top five positions will always represent our best five ideas, not our most defensible allocation.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-section" aria-label="Contact">
-  <div class="cta-section__inner">
-    <h2 class="cta-section__heading reveal">If this reads like how you already<br>think about money, we should talk.</h2>
-    <p class="cta-section__body reveal">Halvren Capital is open to conversations with long-term partners &mdash; individuals, families, and institutions who measure time in years rather than quarters. We do not have a minimum investment. We have a minimum patience.</p>
-    <div class="cta-section__actions reveal">
-      <a href="mailto:hello@halvrencapital.com" class="btn-primary">Get in Touch</a>
-      <a href="https://substack.com/@halvrencapital" class="btn-ghost" target="_blank" rel="noopener noreferrer">
-        Follow Our Writing
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-</main>
-
+<!-- FOOTER -->
 <footer>
-  <div class="footer__inner">
-    <a href="#" class="footer__brand" aria-label="Halvren Capital">
-      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <path d="M8 24V8M8 16h10M18 8v16" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <span class="footer__brand-name">Halvren Capital</span>
-    </a>
-    <p class="footer__meta">&copy; 2025 Halvren Capital. Vancouver, British Columbia. All rights reserved.<br>Not an offer to invest. For informational purposes only.</p>
-    <nav class="footer__links" aria-label="Footer navigation">
-      <a href="https://substack.com/@halvrencapital" target="_blank" rel="noopener noreferrer">Substack</a>
-      <a href="mailto:hello@halvrencapital.com">Contact</a>
-    </nav>
+  <div class="footer-inner">
+    <div class="footer-left">
+      Halvren Capital
+      <span>Vancouver, BC · Est. 2025 · Patient Capital</span>
+    </div>
+    <div class="footer-right">
+      Not investment advice.<br>
+      All positions are our own.
+    </div>
   </div>
 </footer>
 
 <script>
 (function(){
-  const t = document.querySelector('[data-theme-toggle]');
-  const r = document.documentElement;
-  let d = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  r.setAttribute('data-theme', d);
-  const icons = {
-    dark: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>',
-    light: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'
-  };
-  if (t) {
-    t.innerHTML = icons[d];
-    t.addEventListener('click', () => {
-      d = d === 'dark' ? 'light' : 'dark';
-      r.setAttribute('data-theme', d);
-      t.innerHTML = icons[d];
-      t.setAttribute('aria-label', 'Switch to ' + (d === 'dark' ? 'light' : 'dark') + ' mode');
-    });
+  var t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
+  var d=r.getAttribute('data-theme')||'dark';
+  function setIcon(mode){
+    t.innerHTML=mode==='dark'
+      ?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      :'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
   }
-})();
+  setIcon(d);
+  t.addEventListener('click',function(){
+    d=d==='dark'?'light':'dark';
+    r.setAttribute('data-theme',d);
+    setIcon(d);
+  });
 
-(function(){
-  const els = document.querySelectorAll('.reveal');
-  if (!window.IntersectionObserver) { els.forEach(el => el.classList.add('revealed')); return; }
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('revealed'); obs.unobserve(entry.target); }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  els.forEach(el => obs.observe(el));
-})();
-
-(function(){
-  const beliefs = document.querySelectorAll('.belief');
-  beliefs.forEach((b, i) => { b.style.transitionDelay = (i * 80) + 'ms'; });
+  // Scroll reveal
+  var els=document.querySelectorAll('.belief-item,.thesis-card,.thesis-quote,.memo-main,.memo-aside');
+  var style=document.createElement('style');
+  style.textContent='.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}.reveal.visible{opacity:1;transform:none}';
+  document.head.appendChild(style);
+  els.forEach(function(el){el.classList.add('reveal')});
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+  },{threshold:0.1});
+  els.forEach(function(el){io.observe(el)});
 })();
 </script>
 </body>
