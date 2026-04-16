@@ -176,6 +176,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:var(--space-5) var(-
 .watchlist-footnote{margin-top:var(--space-10);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.03em;max-width:72ch;line-height:1.7}
 @media(max-width:900px){.watchlist-grid{grid-template-columns:1fr}}
 
+/* CHECKLIST */
+.checklist-header{margin-bottom:var(--space-12);max-width:var(--content-default)}
+.checklist-intro{margin-top:var(--space-6);font-size:var(--text-base);color:var(--color-text-muted);max-width:64ch;line-height:1.7}
+.checklist-grid{display:grid;grid-template-columns:1.1fr 1.1fr 0.8fr;gap:var(--space-5);align-items:start}
+.checklist-pillar{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg);padding:var(--space-8)}
+.checklist-pillar-label{font-size:var(--text-xs);letter-spacing:0.15em;text-transform:uppercase;color:var(--color-gold);font-weight:500;margin-bottom:var(--space-2);font-family:var(--font-body)}
+.checklist-pillar-title{font-family:var(--font-display);font-size:var(--text-lg);line-height:1.2;color:var(--color-text);margin-bottom:var(--space-4);padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider)}
+.checklist-item{display:grid;grid-template-columns:2.5ch 1fr;gap:var(--space-4);padding:var(--space-5) 0;border-bottom:1px solid oklch(from var(--color-text) l c h/0.04)}
+.checklist-item:last-child{border-bottom:none;padding-bottom:0}
+.checklist-num{font-size:var(--text-xs);color:var(--color-text-faint);font-family:var(--font-body);padding-top:0.4em;letter-spacing:0.05em}
+.checklist-q{font-family:var(--font-display);font-style:italic;font-size:var(--text-base);line-height:1.4;color:var(--color-text)}
+.checklist-q em{font-style:italic;color:var(--color-gold);font-family:var(--font-display)}
+.checklist-note{margin-top:var(--space-3);font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.7;font-family:var(--font-body);font-style:normal;letter-spacing:0.01em}
+.checklist-footnote{margin-top:var(--space-10);font-size:var(--text-sm);color:var(--color-text-muted);max-width:60ch;line-height:1.7;font-style:italic;font-family:var(--font-display)}
+@media(max-width:1000px){.checklist-grid{grid-template-columns:1fr 1fr}.checklist-pillar:last-child{grid-column:span 2}}
+@media(max-width:700px){.checklist-grid{grid-template-columns:1fr}.checklist-pillar:last-child{grid-column:span 1}}
+
 /* MEMO */
 .memo-layout{display:grid;grid-template-columns:2fr 1fr;gap:var(--space-16);align-items:start}
 .memo-heading{font-family:var(--font-display);font-size:var(--text-2xl);letter-spacing:-0.02em;line-height:1.1;margin-top:var(--space-4);margin-bottom:var(--space-8)}
@@ -248,7 +265,7 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
     <a href="#beliefs">Philosophy</a>
     <a href="#thesis">Coverage</a>
     <a href="#watchlist">On the desk</a>
-    <a href="#memo">Memo</a>
+    <a href="#checklist">Checklist</a>
     <a href="#about">About</a>
   </div>
   <div class="nav-right">
@@ -403,6 +420,102 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
   </div>
 </section>
 
+<!-- CHECKLIST -->
+<section class="section" id="checklist">
+  <div class="section-inner">
+    <div class="checklist-header">
+      <p class="section-label">The lens</p>
+      <h2 class="thesis-heading">The Halvren <em>Checklist.</em></h2>
+      <p class="checklist-intro">Ten questions we run through before a Canadian operator earns the writeup. Nothing proprietary. Mostly the questions sell-side decks skip — because the honest answers are inconvenient. Screenshot it. Use it. Argue with it.</p>
+    </div>
+    <div class="checklist-grid">
+      <div class="checklist-pillar">
+        <p class="checklist-pillar-label">Pillar I</p>
+        <h3 class="checklist-pillar-title">The business</h3>
+        <div class="checklist-item">
+          <span class="checklist-num">01</span>
+          <div>
+            <p class="checklist-q">Does it generate free cash flow through the <em>full</em> cycle — or only the top half of it?</p>
+            <p class="checklist-note">Reported earnings lie in commodities. Ten years of FCF tells the truth.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-num">02</span>
+          <div>
+            <p class="checklist-q">Do the unit economics still work at the <em>worst</em> price of the last decade?</p>
+            <p class="checklist-note">If the thesis needs a new commodity regime to work, it isn't a business yet.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-num">03</span>
+          <div>
+            <p class="checklist-q">What does the balance sheet look like at <em>trough</em> pricing — net debt, covenants, maturity ladder?</p>
+            <p class="checklist-note">The next crisis won't ask what you projected. It asks what you owe and when.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-num">04</span>
+          <div>
+            <p class="checklist-q">When they reinvest a dollar — capex, M&amp;A, or buyback — what actually <em>comes back</em>?</p>
+            <p class="checklist-note">ROIC on incremental capital, not reported ROE on the whole book.</p>
+          </div>
+        </div>
+      </div>
+      <div class="checklist-pillar">
+        <p class="checklist-pillar-label">Pillar II</p>
+        <h3 class="checklist-pillar-title">The people</h3>
+        <div class="checklist-item">
+          <span class="checklist-num">05</span>
+          <div>
+            <p class="checklist-q">How much of the operator's own net worth — <em>bought</em>, not granted — is in this name?</p>
+            <p class="checklist-note">Options are loyalty to a quarter. Open-market purchases are loyalty to a decade.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-num">06</span>
+          <div>
+            <p class="checklist-q">What did management actually <em>do</em> in 2015 and 2020 — issue, buy back, or sit still?</p>
+            <p class="checklist-note">Every Canadian operator has been stress-tested twice in the last decade. The record is public.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-num">07</span>
+          <div>
+            <p class="checklist-q">Is compensation tied to <em>per-share</em> value — or to production, revenue, and size?</p>
+            <p class="checklist-note">Growth at the expense of the share count is a tax the operator quietly charges you.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-num">08</span>
+          <div>
+            <p class="checklist-q">Who <em>succeeds</em> the operator — and is that person already visible on the page?</p>
+            <p class="checklist-note">Every owner-operator story ends. The question is whether the business does too.</p>
+          </div>
+        </div>
+      </div>
+      <div class="checklist-pillar">
+        <p class="checklist-pillar-label">Pillar III</p>
+        <h3 class="checklist-pillar-title">The cycle</h3>
+        <div class="checklist-item">
+          <span class="checklist-num">09</span>
+          <div>
+            <p class="checklist-q">Where are we on the cost curve that <em>matters</em> — the real one, not the one in the pitch deck?</p>
+            <p class="checklist-note">Every operator is first-quartile when they pick the quartile. Ask who sets the denominator.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-num">10</span>
+          <div>
+            <p class="checklist-q">What does a &ldquo;normal&rdquo; year look like a <em>decade</em> from now — and does this business still work at that price?</p>
+            <p class="checklist-note">If the thesis only works at the top of the cycle, it's a trade. Halvren doesn't trade.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="checklist-footnote">Ten questions. If a name can't survive the first four with honest answers, it never reaches the next four. Most don't. That's the point.</p>
+  </div>
+</section>
+
 <!-- MEMO -->
 <section class="section" id="memo">
   <div class="section-inner">
@@ -532,7 +645,7 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
   document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
 
   // Scroll spy — highlight current section in nav
-  var sections=['beliefs','thesis','watchlist','memo','about'].map(function(id){return document.getElementById(id)}).filter(Boolean);
+  var sections=['beliefs','thesis','watchlist','checklist','memo','about'].map(function(id){return document.getElementById(id)}).filter(Boolean);
   var linkFor={};
   navLinks.querySelectorAll('a').forEach(function(a){
     var href=a.getAttribute('href');if(href&&href.charAt(0)==='#')linkFor[href.slice(1)]=a;
