@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Halvren Capital</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Halvren Capital — Patient capital, long-horizon investing</title>
 <meta name="description" content="Halvren Capital is a patient capital vehicle investing in businesses worth owning for decades. Founded in Vancouver, BC.">
+<meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<script>(function(){try{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="canonical" href="https://halvrencapital.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Halvren Capital">
+<meta property="og:title" content="Halvren Capital — Patient capital, long-horizon investing">
+<meta property="og:description" content="Patient capital for businesses built to last decades. Founded 2025 in Vancouver, BC.">
+<meta property="og:url" content="https://halvrencapital.com/">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Halvren Capital">
+<meta name="twitter:description" content="Patient capital for businesses built to last decades.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111010'/><path d='M7 8 L7 24 M7 16 L15 16 M15 8 L15 24' stroke='%23e8e6e2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M19 8 L19 24 M19 8 L26 16 L19 24' stroke='%23c9a84c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Halvren Capital","url":"https://halvrencapital.com/","foundingDate":"2025","foundingLocation":{"@type":"Place","name":"Vancouver, BC, Canada"},"description":"Patient capital vehicle investing in businesses worth owning for decades.","sameAs":["https://substack.com/@halvrencapital"]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,14 +87,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:var(--space-5) var(-
 .nav-logo-mark{width:32px;height:32px}
 .nav-logo-name{font-family:var(--font-display);font-size:var(--text-lg);letter-spacing:-0.01em;color:var(--color-text)}
 .nav-links{display:flex;align-items:center;gap:var(--space-8)}
-.nav-links a{text-decoration:none;color:var(--color-text-muted);font-size:var(--text-sm);letter-spacing:0.02em}
-.nav-links a:hover{color:var(--color-text)}
+.nav-links a{position:relative;text-decoration:none;color:var(--color-text-muted);font-size:var(--text-sm);letter-spacing:0.02em;padding:var(--space-1) 0}
+.nav-links a:hover,.nav-links a[aria-current="true"]{color:var(--color-text)}
+.nav-links a[aria-current="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--color-gold)}
 .nav-right{display:flex;align-items:center;gap:var(--space-4)}
 .theme-toggle{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--color-text-muted);border-radius:var(--radius-md)}
 .theme-toggle:hover{color:var(--color-text);background:oklch(from var(--color-text) l c h/0.06)}
 .btn-subscribe{font-size:var(--text-sm);padding:var(--space-2) var(--space-5);background:var(--color-gold);color:#0e0d0b;border-radius:var(--radius-sm);text-decoration:none;font-weight:500;letter-spacing:0.01em}
 .btn-subscribe:hover{background:var(--color-gold-light)}
-@media(max-width:768px){.nav-links{display:none}.nav-logo-name{font-size:var(--text-base)}}
+.nav-toggle{display:none;width:36px;height:36px;align-items:center;justify-content:center;color:var(--color-text-muted);border-radius:var(--radius-md)}
+.nav-toggle:hover{color:var(--color-text);background:oklch(from var(--color-text) l c h/0.06)}
+@media(max-width:768px){
+  .nav-links{position:fixed;inset:0;top:0;background:var(--color-bg);flex-direction:column;justify-content:center;align-items:center;gap:var(--space-8);transform:translateY(-100%);transition:transform 320ms cubic-bezier(0.16,1,0.3,1);z-index:90}
+  .nav-links[data-open="true"]{transform:translateY(0)}
+  .nav-links a{font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-text)}
+  .nav-logo-name{font-size:var(--text-base)}
+  .nav-toggle{display:inline-flex;z-index:110}
+}
+
+/* SKIP LINK */
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:200}
+.skip-link:focus{left:var(--space-4);top:var(--space-4);width:auto;height:auto;padding:var(--space-3) var(--space-5);background:var(--color-gold);color:#0e0d0b;border-radius:var(--radius-sm);font-size:var(--text-sm)}
 
 /* HERO */
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:var(--space-32) var(--space-8) var(--space-20);position:relative;overflow:hidden;border-bottom:1px solid var(--color-divider)}
@@ -160,9 +191,11 @@ footer{padding:var(--space-12) var(--space-8);display:flex;justify-content:space
 </head>
 <body>
 
+<a href="#main" class="skip-link">Skip to content</a>
+
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo" aria-label="Halvren Capital">
+  <a href="/" class="nav-logo" aria-label="Halvren Capital — home">
     <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
       <rect width="32" height="32" rx="4" fill="none"/>
       <path d="M6 6 L6 26 M6 16 L16 16 M16 6 L16 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -170,18 +203,23 @@ footer{padding:var(--space-12) var(--space-8);display:flex;justify-content:space
     </svg>
     <span class="nav-logo-name">Halvren Capital</span>
   </a>
-  <div class="nav-links">
+  <div class="nav-links" id="nav-links" data-open="false">
     <a href="#beliefs">Philosophy</a>
     <a href="#thesis">Thesis</a>
     <a href="#memo">Memo</a>
   </div>
   <div class="nav-right">
-    <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" type="button">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
     <a href="https://substack.com/@halvrencapital" target="_blank" rel="noopener noreferrer" class="btn-subscribe">Subscribe</a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-controls="nav-links" aria-expanded="false" type="button">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
   </div>
 </nav>
+
+<main id="main">
 
 <!-- HERO -->
 <section class="hero">
@@ -334,6 +372,8 @@ footer{padding:var(--space-12) var(--space-8);display:flex;justify-content:space
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -350,20 +390,64 @@ footer{padding:var(--space-12) var(--space-8);display:flex;justify-content:space
 
 <script>
 (function(){
-  var t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
+  var r=document.documentElement;
+  var SUN='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+  var MOON='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+
+  // Theme toggle with persistence
+  var t=document.querySelector('[data-theme-toggle]');
   var d=r.getAttribute('data-theme')||'dark';
-  function setIcon(mode){
-    t.innerHTML=mode==='dark'
-      ?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-      :'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-  }
+  function setIcon(mode){t.innerHTML=mode==='dark'?SUN:MOON}
   setIcon(d);
   t.addEventListener('click',function(){
     d=d==='dark'?'light':'dark';
     r.setAttribute('data-theme',d);
     setIcon(d);
+    try{localStorage.setItem('halvren-theme',d)}catch(e){}
   });
+  // Follow OS changes only when user has no explicit preference
+  try{
+    var mql=window.matchMedia('(prefers-color-scheme: light)');
+    mql.addEventListener&&mql.addEventListener('change',function(e){
+      if(localStorage.getItem('halvren-theme'))return;
+      d=e.matches?'light':'dark';r.setAttribute('data-theme',d);setIcon(d);
+    });
+  }catch(e){}
 
+  // Mobile menu
+  var navToggle=document.querySelector('[data-nav-toggle]');
+  var navLinks=document.getElementById('nav-links');
+  function setMenu(open){
+    navLinks.setAttribute('data-open',open?'true':'false');
+    navToggle.setAttribute('aria-expanded',open?'true':'false');
+    navToggle.setAttribute('aria-label',open?'Close menu':'Open menu');
+    document.body.style.overflow=open?'hidden':'';
+  }
+  navToggle.addEventListener('click',function(){
+    setMenu(navLinks.getAttribute('data-open')!=='true');
+  });
+  navLinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+
+  // Scroll spy — highlight current section in nav
+  var sections=['beliefs','thesis','memo'].map(function(id){return document.getElementById(id)}).filter(Boolean);
+  var linkFor={};
+  navLinks.querySelectorAll('a').forEach(function(a){
+    var href=a.getAttribute('href');if(href&&href.charAt(0)==='#')linkFor[href.slice(1)]=a;
+  });
+  var spy=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var id=e.target.id, a=linkFor[id];
+      if(!a)return;
+      if(e.isIntersecting){
+        Object.keys(linkFor).forEach(function(k){linkFor[k].removeAttribute('aria-current')});
+        a.setAttribute('aria-current','true');
+      }
+    });
+  },{rootMargin:'-40% 0px -55% 0px',threshold:0});
+  sections.forEach(function(s){spy.observe(s)});
+
+  // Reveal-on-scroll
   var els=document.querySelectorAll('.belief-item,.thesis-card,.thesis-quote,.memo-main,.memo-aside');
   var style=document.createElement('style');
   style.textContent='.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}.reveal.visible{opacity:1;transform:none}';
