@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Pricing — Join the Halvren founding cohort | Halvren Capital</title>
+<meta name="description" content="Halvren opens a paid research tier. Founding cohort caps at 150 members with lifetime pricing. Two tiers: Halvren and Halvren Pro. Canadian operator research done seriously.">
+<meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<script>(function(){try{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="canonical" href="https://halvrencapital.com/pricing">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pricing — Join the Halvren founding cohort">
+<meta property="og:description" content="Paid research tier for Canadian investors who take the work seriously. Founding cohort caps at 150 members with lifetime pricing.">
+<meta property="og:url" content="https://halvrencapital.com/pricing">
+<meta property="og:image" content="https://halvrencapital.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://halvrencapital.com/og.png">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111010'/><path d='M7 8 L7 24 M7 16 L15 16 M15 8 L15 24' stroke='%23e8e6e2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M19 8 L19 24 M19 8 L26 16 L19 24' stroke='%23c9a84c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/page.css">
+<style>
+.pricing-header{text-align:left;margin-bottom:var(--space-12)}
+.pricing-lede{margin-top:var(--space-6);font-size:var(--text-base);color:var(--color-text-muted);max-width:62ch;line-height:1.7}
+.tier-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-5);align-items:stretch;margin:var(--space-10) 0}
+.tier{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg);padding:var(--space-8);display:flex;flex-direction:column}
+.tier--featured{border-color:oklch(from var(--color-gold) l c h/0.4);background:oklch(from var(--color-gold) l c h/0.04);position:relative}
+.tier--featured::before{content:"Most popular";position:absolute;top:-12px;left:var(--space-6);background:var(--color-gold);color:#0e0d0b;font-size:var(--text-xs);letter-spacing:0.12em;text-transform:uppercase;font-weight:500;padding:4px 10px;border-radius:var(--radius-sm);font-family:var(--font-body)}
+.tier-name{font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-text);margin-bottom:var(--space-2)}
+.tier-pitch{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;min-height:3em;margin-bottom:var(--space-5)}
+.tier-price{margin-bottom:var(--space-2)}
+.tier-price-num{font-family:var(--font-display);font-size:var(--text-3xl);color:var(--color-text);line-height:1;font-variant-numeric:tabular-nums}
+.tier-price-per{font-size:var(--text-sm);color:var(--color-text-muted);margin-left:var(--space-2)}
+.tier-price-alt{font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-2);letter-spacing:0.02em}
+.tier-founder{margin:var(--space-4) 0;padding:var(--space-3) var(--space-4);background:oklch(from var(--color-gold) l c h/0.08);border:1px solid oklch(from var(--color-gold) l c h/0.2);border-radius:var(--radius-sm);font-size:var(--text-xs);color:var(--color-text);line-height:1.5}
+.tier-founder strong{color:var(--color-gold);display:block;text-transform:uppercase;letter-spacing:0.12em;font-size:var(--text-xs);margin-bottom:4px;font-weight:500;font-family:var(--font-body)}
+.tier-features{list-style:none;margin:var(--space-5) 0;padding:0;flex-grow:1}
+.tier-features li{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;padding:var(--space-2) 0;padding-left:var(--space-6);position:relative;max-width:none}
+.tier-features li::before{content:"";position:absolute;left:0;top:14px;width:10px;height:1px;background:var(--color-gold)}
+.tier-features li strong{color:var(--color-text);font-weight:500}
+.tier-cta{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);padding:var(--space-3) var(--space-5);border-radius:var(--radius-sm);font-size:var(--text-sm);font-weight:500;letter-spacing:0.02em;text-decoration:none;border:1px solid var(--color-border);color:var(--color-text);margin-top:var(--space-4);font-family:var(--font-body)}
+.tier-cta:hover{border-color:oklch(from var(--color-gold) l c h/0.5);background:oklch(from var(--color-gold) l c h/0.04)}
+.tier-cta--primary{background:var(--color-gold);color:#0e0d0b;border-color:var(--color-gold)}
+.tier-cta--primary:hover{background:var(--color-gold-light);border-color:var(--color-gold-light)}
+.waitlist-box{margin:var(--space-16) 0;padding:var(--space-10);background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg);text-align:center}
+.waitlist-box h2{font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-text);margin-bottom:var(--space-3)}
+.waitlist-box h2 em{font-style:italic;color:var(--color-gold)}
+.waitlist-box p{color:var(--color-text-muted);max-width:52ch;margin:0 auto var(--space-6);line-height:1.7;font-size:var(--text-sm)}
+.waitlist-btn{display:inline-flex;align-items:center;gap:var(--space-2);background:var(--color-gold);color:#0e0d0b;font-size:var(--text-sm);font-weight:500;padding:var(--space-4) var(--space-8);border-radius:var(--radius-sm);text-decoration:none;letter-spacing:0.02em;font-family:var(--font-body);border:none}
+.waitlist-btn:hover{background:var(--color-gold-light)}
+.faq{margin-top:var(--space-16)}
+.faq h2{font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:-0.01em;color:var(--color-text);margin-bottom:var(--space-6)}
+.faq-item{padding:var(--space-5) 0;border-bottom:1px solid var(--color-divider)}
+.faq-q{font-family:var(--font-display);font-style:italic;font-size:var(--text-base);color:var(--color-text);margin-bottom:var(--space-2)}
+.faq-a{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;max-width:70ch}
+.faq-a a{color:var(--color-gold)}
+@media(max-width:900px){.tier-grid{grid-template-columns:1fr;gap:var(--space-4)}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav>
+  <a href="/" class="nav-logo" aria-label="Halvren Capital — home">
+    <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="4" fill="none"/>
+      <path d="M6 6 L6 26 M6 16 L16 16 M16 6 L16 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 6 L20 26 M20 6 L28 16 L20 26" stroke="var(--color-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-logo-name">Halvren Capital</span>
+  </a>
+  <div class="nav-right">
+    <a href="/" class="nav-back">Back to home</a>
+  </div>
+</nav>
+
+<main id="main" class="doc-main" style="max-width:calc(var(--content-wide));padding-left:var(--space-8);padding-right:var(--space-8)">
+  <article class="doc-article" style="max-width:var(--content-wide)">
+    <p class="doc-breadcrumb"><a href="/">Home</a><span class="doc-breadcrumb-sep">/</span><span>Pricing</span></p>
+    <div class="pricing-header">
+      <p class="section-label">Pricing</p>
+      <h1 class="doc-h1">Join the Halvren <em>founding cohort.</em></h1>
+      <p class="pricing-lede">Halvren is opening a paid research tier for Canadian investors who read 10-Ks on the weekend. The <a href="/checklist">Halvren Checklist</a>, the <a href="/#watchlist">current watchlist</a>, and the <a href="/research/cameco-cco">full research pages</a> on this site will always stay free. The paid tier is where the deeper, more frequent, subscriber-only work goes. Founding members lock in lifetime pricing. The cohort caps at 150 seats.</p>
+    </div>
+
+    <div class="tier-grid">
+      <div class="tier">
+        <h2 class="tier-name">Free</h2>
+        <p class="tier-pitch">The site, the Checklist, and a monthly free essay. Forever.</p>
+        <div class="tier-price"><span class="tier-price-num">C$0</span></div>
+        <p class="tier-price-alt">&nbsp;</p>
+        <ul class="tier-features">
+          <li>The full <strong>Halvren Checklist</strong></li>
+          <li>The current three-name <strong>watchlist</strong> with FY data</li>
+          <li>All three public research pages (CCO, CNQ, AG)</li>
+          <li>The <strong>founding memo</strong></li>
+          <li>One free essay per month on Substack</li>
+        </ul>
+        <a href="https://substack.com/@halvrencapital" target="_blank" rel="noopener noreferrer" class="tier-cta">Follow on Substack</a>
+      </div>
+
+      <div class="tier tier--featured">
+        <h2 class="tier-name">Halvren</h2>
+        <p class="tier-pitch">For the serious DIY investor. Full research, as it's written.</p>
+        <div class="tier-price"><span class="tier-price-num">C$19</span><span class="tier-price-per">/mo</span></div>
+        <p class="tier-price-alt">or C$180/year &nbsp;·&nbsp; save two months</p>
+        <div class="tier-founder"><strong>Founding offer</strong>C$12/mo or C$120/yr &mdash; locked in for life. Capped at 150 founding seats.</div>
+        <ul class="tier-features">
+          <li>Everything in Free</li>
+          <li><strong>Two full research writeups per month</strong> on new Canadian names (operators not on the public site)</li>
+          <li>Quarterly portfolio &amp; watchlist updates</li>
+          <li>Subscriber-only Substack chat with the principal</li>
+          <li>Full searchable archive</li>
+          <li>Early-read access before public posts go up</li>
+        </ul>
+        <a href="#waitlist" class="tier-cta tier-cta--primary">Join the waitlist &rarr;</a>
+      </div>
+
+      <div class="tier">
+        <h2 class="tier-name">Halvren Pro</h2>
+        <p class="tier-pitch">For operators, allocators, and family offices.</p>
+        <div class="tier-price"><span class="tier-price-num">C$49</span><span class="tier-price-per">/mo</span></div>
+        <p class="tier-price-alt">or C$480/year</p>
+        <div class="tier-founder"><strong>Founding Pro</strong>C$29/mo or C$290/yr &mdash; locked in for life. Capped at 30 founding seats.</div>
+        <ul class="tier-features">
+          <li>Everything in Halvren</li>
+          <li>Monthly <strong>"On the desk" deep dive</strong> &mdash; a single name, read end-to-end</li>
+          <li>Quarterly 1-hour live subscriber call with Q&amp;A</li>
+          <li>Direct email access to the principal</li>
+          <li>Full disclosure of proprietary positions held</li>
+        </ul>
+        <a href="#waitlist" class="tier-cta">Join the waitlist &rarr;</a>
+      </div>
+    </div>
+
+    <div class="waitlist-box" id="waitlist">
+      <h2>We're opening the tier to <em>founding members</em> soon.</h2>
+      <p>Drop your email on Substack and hit the subscribe button. You will be notified the moment the paid tier is live, and founding pricing will be available first to the existing subscriber list. We are not taking payment until we do.</p>
+      <a href="https://substack.com/@halvrencapital" target="_blank" rel="noopener noreferrer" class="waitlist-btn">
+        Join the waitlist on Substack
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+      <p style="margin-top:var(--space-6);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.02em">No payment collected at this time. No credit card requested. Unsubscribe anytime.</p>
+    </div>
+
+    <section class="faq">
+      <h2>Questions readers actually ask</h2>
+
+      <div class="faq-item">
+        <p class="faq-q">Who is this for?</p>
+        <p class="faq-a">Canadian DIY investors who read filings themselves. Operators in energy, materials, infrastructure, real estate, and software who want to see how patient public-market capital evaluates their peers. Family offices and small allocators who prefer one disciplined research source over ten dashboards.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">What exactly do I get that I cannot get on the free site?</p>
+        <p class="faq-a">The public site carries the Checklist, the three-name current watchlist with FY data, and three full research pages (Cameco, Canadian Natural, First Majestic). The paid tier adds <strong>two new full writeups per month on names not on the public site</strong>, a quarterly watchlist update with changes flagged, a subscriber-only chat with the principal, and an early-read before anything is made public. Pro adds the monthly "On the desk" deep dive, a quarterly live call, direct email access, and disclosure of positions held.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">How often do you publish?</p>
+        <p class="faq-a">Paid tier: one public-free essay plus two paid writeups per month, plus the quarterly update. Pro adds a monthly deep dive and a quarterly live call. No calendar commitments beyond that. If we do not have something worth saying, we will not say it. Cadence you can rely on is built on quality you can trust.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Is this investment advice?</p>
+        <p class="faq-a">No. Halvren publishes research and commentary for <strong>informational and educational purposes only</strong>. Nothing we write is a recommendation, solicitation, or personalized investment advice for any particular reader. We are not a registered investment adviser, portfolio manager, or broker-dealer, and we do not manage client money. Before acting on anything you read, consult a licensed advisor in your jurisdiction. See <a href="/terms">Terms</a> for the full disclaimer.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Do you disclose your own positions?</p>
+        <p class="faq-a">Pro subscribers receive a quarterly snapshot of the proprietary book with positions disclosed. On the public site and in free essays we state when the author may hold a position in a name discussed. We do not publish position sizes or transaction timing, and we may buy or sell at any time without notice.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">What happens if I cancel?</p>
+        <p class="faq-a">Cancel anytime through Substack. Monthly subscribers retain access through the end of the paid month. Annual subscribers can request a pro-rated refund within 30 days of the most recent annual payment by emailing <a href="mailto:amirali@halvrencapital.com">amirali@halvrencapital.com</a>. Founding lifetime pricing applies as long as the subscription is active and in good standing.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Why is the pricing this low?</p>
+        <p class="faq-a">Halvren manages its own capital. The paid tier supports the depth of the writing, not a headcount. We would rather have 200 engaged Canadian DIY readers than 10,000 casual ones. The founding rate is how we find the first group.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Is Halvren a fund I can invest in?</p>
+        <p class="faq-a">No. Halvren manages proprietary capital and is not currently accepting outside investors. The paid tier is a <em>research subscription</em>, not an investment product. Those are different businesses in different regulatory categories.</p>
+      </div>
+    </section>
+
+    <hr class="doc-divider">
+
+    <p class="doc-p" style="font-size:var(--text-sm);color:var(--color-text-faint)">Halvren Capital publishes research and commentary for informational and educational purposes only. Nothing on this site, on Substack, or in the paid tier constitutes an offer, solicitation, recommendation, or personalized investment advice. Halvren is not a registered investment adviser, portfolio manager, or broker-dealer in any jurisdiction. The author may hold positions in securities discussed and may transact at any time without notice. Past performance is not indicative of future results. Consult a licensed advisor before acting. See the <a href="/terms">Terms of Use</a> for the full disclaimer.</p>
+  </article>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Halvren Capital<span>Vancouver, BC · Est. 2025</span></div>
+    <div class="footer-disclaimer">
+      <p>Halvren Capital publishes research and commentary for informational and educational purposes only. Nothing on this site constitutes an offer, solicitation, or recommendation to buy or sell any security.</p>
+      <p>Halvren manages proprietary capital and is not a registered investment adviser, broker-dealer, or portfolio manager. The author may hold positions in securities discussed and may transact at any time without notice.</p>
+    </div>
+  </div>
+  <div class="footer-inner footer-meta">
+    <span>&copy; 2025 Halvren Capital. All rights reserved.</span>
+    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/checklist">Checklist</a> &middot; <a href="/pricing">Pricing</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span>
+  </div>
+</footer>
+</body>
+</html>

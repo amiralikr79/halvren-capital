@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Research archive — Canadian operator writeups | Halvren Capital</title>
+<meta name="description" content="Every Halvren writeup on Canadian energy, materials, and infrastructure operators, organized by sector. FY 2025 data, business analysis, and the Halvren Checklist applied.">
+<meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<script>(function(){try{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="canonical" href="https://halvrencapital.com/research">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Research archive — Halvren Capital">
+<meta property="og:description" content="Every Halvren writeup on Canadian energy, materials, and infrastructure operators, organized by sector.">
+<meta property="og:url" content="https://halvrencapital.com/research">
+<meta property="og:image" content="https://halvrencapital.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://halvrencapital.com/og.png">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111010'/><path d='M7 8 L7 24 M7 16 L15 16 M15 8 L15 24' stroke='%23e8e6e2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M19 8 L19 24 M19 8 L26 16 L19 24' stroke='%23c9a84c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Halvren research archive","description":"Every Halvren writeup on Canadian operators, organized by sector.","url":"https://halvrencapital.com/research","publisher":{"@id":"https://halvrencapital.com/#organization"},"author":{"@id":"https://halvrencapital.com/#amirali"},"inLanguage":"en-CA","hasPart":[{"@type":"Article","name":"Cameco (CCO): A mine with a cost structure, read honestly","url":"https://halvrencapital.com/research/cameco-cco","datePublished":"2026-04-18"},{"@type":"Article","name":"Canadian Natural Resources (CNQ): The owner-operator arithmetic","url":"https://halvrencapital.com/research/canadian-natural-cnq","datePublished":"2026-04-18"},{"@type":"Article","name":"First Majestic Silver (AG): The honest skeptic's read","url":"https://halvrencapital.com/research/first-majestic-ag","datePublished":"2026-04-18"}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://halvrencapital.com/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://halvrencapital.com/research"}]}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/page.css">
+<style>
+.archive-header{margin-bottom:var(--space-12);max-width:var(--content-default)}
+.archive-lede{margin-top:var(--space-6);font-size:var(--text-base);color:var(--color-text-muted);max-width:62ch;line-height:1.7}
+.sector{margin-top:var(--space-12);padding-top:var(--space-8);border-top:1px solid var(--color-divider)}
+.sector:first-of-type{border-top:none;padding-top:0}
+.sector-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:var(--space-8);gap:var(--space-4);flex-wrap:wrap}
+.sector-title{font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:-0.01em;color:var(--color-text)}
+.sector-count{font-size:var(--text-xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--color-text-faint);font-family:var(--font-body)}
+.archive-list{display:flex;flex-direction:column}
+.archive-row{display:grid;grid-template-columns:120px 1fr auto;gap:var(--space-8);padding:var(--space-6) 0;border-bottom:1px solid oklch(from var(--color-text) l c h/0.04);align-items:baseline;text-decoration:none;border-top:none;color:inherit;border-left:none;border-right:none}
+.archive-row:hover .archive-title{color:var(--color-gold)}
+.archive-row:last-child{border-bottom:none}
+.archive-ticker{font-family:var(--font-display);font-size:var(--text-lg);color:var(--color-gold);letter-spacing:0}
+.archive-ticker small{display:block;font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.05em;font-family:var(--font-body);margin-top:4px;text-transform:uppercase}
+.archive-title{font-family:var(--font-display);font-size:var(--text-lg);line-height:1.3;color:var(--color-text);transition:color var(--transition)}
+.archive-title em{color:var(--color-gold);font-style:italic}
+.archive-dek{margin-top:var(--space-2);font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;font-family:var(--font-body)}
+.archive-date{font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.05em;text-transform:uppercase;font-family:var(--font-body);white-space:nowrap}
+.coming-soon{opacity:0.5}
+.coming-soon .archive-title::after{content:" — paid tier";color:var(--color-gold);font-style:normal;font-size:var(--text-sm);letter-spacing:0.08em;text-transform:uppercase;margin-left:var(--space-3)}
+.cta-strip{margin-top:var(--space-16);padding:var(--space-10);background:oklch(from var(--color-gold) l c h/0.05);border:1px solid oklch(from var(--color-gold) l c h/0.2);border-radius:var(--radius-lg);text-align:center}
+.cta-strip h2{font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-text);margin-bottom:var(--space-3)}
+.cta-strip h2 em{font-style:italic;color:var(--color-gold)}
+.cta-strip p{max-width:52ch;margin:0 auto var(--space-6);color:var(--color-text-muted);line-height:1.7;font-size:var(--text-sm)}
+.cta-btn{display:inline-flex;align-items:center;gap:var(--space-2);background:var(--color-gold);color:#0e0d0b;font-size:var(--text-sm);font-weight:500;padding:var(--space-3) var(--space-6);border-radius:var(--radius-sm);text-decoration:none;border:none;letter-spacing:0.02em;font-family:var(--font-body)}
+.cta-btn:hover{background:var(--color-gold-light)}
+@media(max-width:700px){.archive-row{grid-template-columns:1fr;gap:var(--space-2)}.archive-date{order:-1}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav>
+  <a href="/" class="nav-logo" aria-label="Halvren Capital — home">
+    <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="4" fill="none"/>
+      <path d="M6 6 L6 26 M6 16 L16 16 M16 6 L16 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 6 L20 26 M20 6 L28 16 L20 26" stroke="var(--color-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-logo-name">Halvren Capital</span>
+  </a>
+  <div class="nav-right">
+    <a href="/" class="nav-back">Back to home</a>
+  </div>
+</nav>
+
+<main id="main" class="doc-main">
+  <article class="doc-article">
+    <p class="doc-breadcrumb"><a href="/">Home</a><span class="doc-breadcrumb-sep">/</span><span>Research</span></p>
+    <div class="archive-header">
+      <p class="section-label">Research archive</p>
+      <h1 class="doc-h1">Every Halvren writeup, by <em>sector.</em></h1>
+      <p class="archive-lede">Deep reads on Canadian operators in energy, materials, and infrastructure. Each writeup carries FY data at the top, business analysis in the middle, and the <a href="/checklist">Halvren Checklist</a> applied at the end. Publicly visible writeups are free to read. Paid-tier writeups are published on Substack for members. See <a href="/pricing">pricing</a>.</p>
+    </div>
+
+    <section class="sector">
+      <div class="sector-head">
+        <h2 class="sector-title">Energy</h2>
+        <span class="sector-count">Oil &amp; gas · Uranium · Midstream</span>
+      </div>
+      <div class="archive-list">
+        <a href="/research/cameco-cco" class="archive-row">
+          <div class="archive-ticker">CCO<small>TSX / NYSE:CCJ</small></div>
+          <div>
+            <div class="archive-title">Cameco: A mine with a cost structure, read <em>honestly.</em></div>
+            <p class="archive-dek">Uranium has become a narrative asset. Cameco is still a Saskatchewan business that trades on pounds produced. McArthur restart economics, Westinghouse contribution, contract-book dynamics.</p>
+          </div>
+          <div class="archive-date">Apr 2026</div>
+        </a>
+        <a href="/research/canadian-natural-cnq" class="archive-row">
+          <div class="archive-ticker">CNQ<small>TSX / NYSE</small></div>
+          <div>
+            <div class="archive-title">Canadian Natural: The <em>owner-operator</em> arithmetic.</div>
+            <p class="archive-dek">Low-decline long-life assets. A dividend that survived 2015 and 2020. FY 2025 generated C$15.5B of adjusted funds flow and returned C$9.0B to shareholders. The succession question, honestly discussed.</p>
+          </div>
+          <div class="archive-date">Apr 2026</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="sector">
+      <div class="sector-head">
+        <h2 class="sector-title">Materials</h2>
+        <span class="sector-count">Precious metals · Industrial metals · Fertilizers</span>
+      </div>
+      <div class="archive-list">
+        <a href="/research/first-majestic-ag" class="archive-row">
+          <div class="archive-ticker">AG<small>NYSE / TSX</small></div>
+          <div>
+            <div class="archive-title">First Majestic Silver: The <em>honest skeptic's</em> read.</div>
+            <p class="archive-dek">Silver is a narrative metal. First Majestic's FY 2025 revenue print was spectacular. The real questions live one layer down: the true cost curve, the Mexico tax overhang, and whether per-share value was actually created or just ounces were.</p>
+          </div>
+          <div class="archive-date">Apr 2026</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="sector">
+      <div class="sector-head">
+        <h2 class="sector-title">Infrastructure</h2>
+        <span class="sector-count">Pipelines · Utilities · Rail · Ports</span>
+      </div>
+      <div class="archive-list">
+        <div class="archive-row coming-soon" style="pointer-events:none">
+          <div class="archive-ticker">&mdash;<small>Coming soon</small></div>
+          <div>
+            <div class="archive-title">Infrastructure coverage opens with a Canadian pipeline operator</div>
+            <p class="archive-dek">First full writeup in the sector is queued for the founding cohort of the paid tier. Details on <a href="/pricing" style="pointer-events:auto;color:var(--color-gold)">the pricing page</a>.</p>
+          </div>
+          <div class="archive-date">Soon</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-strip">
+      <h2>Want the next one in your <em>inbox?</em></h2>
+      <p>Halvren publishes one public essay per month on Substack. Founding members of the paid tier also get two full writeups per month on new Canadian names, a quarterly portfolio update, and a subscriber-only chat with the principal.</p>
+      <a href="/pricing" class="cta-btn">See pricing &amp; join the waitlist &rarr;</a>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Halvren Capital<span>Vancouver, BC · Est. 2025</span></div>
+    <div class="footer-disclaimer">
+      <p>Halvren Capital publishes research and commentary for informational and educational purposes only. Nothing on this site constitutes an offer, solicitation, or recommendation to buy or sell any security.</p>
+      <p>Halvren manages proprietary capital and is not a registered investment adviser, broker-dealer, or portfolio manager. The author may hold positions in securities discussed and may transact at any time without notice.</p>
+    </div>
+  </div>
+  <div class="footer-inner footer-meta">
+    <span>&copy; 2025 Halvren Capital. All rights reserved.</span>
+    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/checklist">Checklist</a> &middot; <a href="/pricing">Pricing</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span>
+  </div>
+</footer>
+</body>
+</html>
