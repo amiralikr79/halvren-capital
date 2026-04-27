@@ -2,6 +2,8 @@
 :root{
   --font-display:'Instrument Serif',Georgia,serif;
   --font-body:'DM Sans','Helvetica Neue',sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --ease-soft:cubic-bezier(0.16,1,0.3,1);
   --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
   --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
   --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
@@ -23,10 +25,10 @@
   --color-gold:#b8860b;--color-gold-light:#d4a017;
 }
 [data-theme="dark"]{
-  --color-bg:#111010;--color-surface:#171614;--color-surface-2:#1c1b19;
-  --color-surface-offset:#1f1e1c;--color-border:#2e2d2b;--color-divider:#222120;
-  --color-text:#e8e6e2;--color-text-muted:#8a8884;--color-text-faint:#4a4946;
-  --color-gold:#c9a84c;--color-gold-light:#e2c47a;
+  --color-bg:#0d0c0a;--color-surface:#15140f;--color-surface-2:#1a1813;
+  --color-surface-offset:#1f1d17;--color-border:#2a2823;--color-divider:#1f1d18;
+  --color-text:#ece8df;--color-text-muted:#8a8780;--color-text-faint:#4a4843;
+  --color-gold:#bf9c5b;--color-gold-light:#d6b97a;
 }
 @media(prefers-color-scheme:light){:root:not([data-theme]){
   --color-bg:#f7f6f2;--color-surface:#f9f8f5;--color-surface-2:#fbfbf9;
@@ -144,3 +146,17 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
 .footer-meta a{color:var(--color-text-faint);border:none;padding:0}
 .footer-meta a:hover{color:var(--color-text-muted)}
 @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:var(--space-8)}.doc-main{padding:calc(var(--space-16) + 40px) var(--space-6) var(--space-12)}}
+
+/* MASK REVEAL — auto-plays on load (CSS-only) */
+.mask-reveal{display:block;overflow:hidden}
+.mask-reveal>span{display:inline-block;transform:translateY(110%);opacity:0;animation:maskReveal 1100ms var(--ease-soft) 120ms forwards}
+.mask-reveal.in>span{transform:translateY(0);opacity:1}
+@keyframes maskReveal{to{transform:translateY(0);opacity:1}}
+@media(prefers-reduced-motion:reduce){.mask-reveal>span{transform:none;opacity:1;animation:none}}
+
+/* CARD HOVER LIFT — V1 system */
+.related-card,.path,.cl-pillar,.col,.archive-row,.letter-row{transition:transform var(--transition),border-color var(--transition),background var(--transition)}
+.related-card:hover,.path:hover,.cl-pillar:hover,.archive-row:hover,.letter-row:hover{transform:translateY(-2px)}
+
+/* MONO TREATMENTS — data values & symbols */
+.glossary-term small,.cov-tkr,.archive-ticker,.letter-quarter,.doc-stats dd,.watch-symbol{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
