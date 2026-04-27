@@ -281,10 +281,12 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
 .live-pill .sep{color:var(--color-text-faint)}
 @media(max-width:520px){.live-pill>span:nth-child(n+5){display:none}.live-pill{font-size:10.5px;padding:6px 12px}}
 
-/* Mask reveal */
+/* Mask reveal — auto-plays via animation, JS adds .in for IntersectionObserver-staged reveals */
 .mask-reveal{display:block;overflow:hidden}
-.mask-reveal>span{display:inline-block;transform:translateY(110%);opacity:0;transition:transform 900ms var(--ease-soft),opacity 700ms var(--ease-soft)}
-.mask-reveal.in>span{transform:translateY(0);opacity:1}
+.mask-reveal>span{display:inline-block;transform:translateY(110%);opacity:0;animation:maskRevealAuto 1100ms var(--ease-soft) 100ms forwards}
+.mask-reveal.in>span{transform:translateY(0);opacity:1;animation:none}
+@keyframes maskRevealAuto{to{transform:translateY(0);opacity:1}}
+@media(prefers-reduced-motion:reduce){.mask-reveal>span{transform:none;opacity:1;animation:none}}
 
 /* Stats bar (big numbers) */
 .stats-strip{padding:var(--space-12) var(--space-8) var(--space-16);border-bottom:1px solid var(--color-divider);background:linear-gradient(180deg,transparent 0%,oklch(from var(--color-text) l c h/0.015) 100%)}
