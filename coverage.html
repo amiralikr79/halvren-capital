@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Coverage universe — Canadian operators on the Halvren desk | Halvren Capital</title>
+<meta name="description" content="Every Canadian operator on the Halvren desk, organized by sector and status. Energy, materials, infrastructure. What we've published, what is being worked through, what we are watching.">
+<meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<script>(function(){try{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="canonical" href="https://halvrencapital.com/coverage">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Coverage universe — Halvren Capital">
+<meta property="og:description" content="Every Canadian operator on the Halvren desk, organized by sector and status.">
+<meta property="og:url" content="https://halvrencapital.com/coverage">
+<meta property="og:image" content="https://halvrencapital.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://halvrencapital.com/og.png">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111010'/><path d='M7 8 L7 24 M7 16 L15 16 M15 8 L15 24' stroke='%23e8e6e2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M19 8 L19 24 M19 8 L26 16 L19 24' stroke='%23c9a84c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Halvren coverage universe","description":"Every Canadian operator on the Halvren desk, organized by sector and status.","url":"https://halvrencapital.com/coverage","publisher":{"@id":"https://halvrencapital.com/#organization"},"author":{"@id":"https://halvrencapital.com/#amirali"},"inLanguage":"en-CA"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://halvrencapital.com/"},{"@type":"ListItem","position":2,"name":"Coverage","item":"https://halvrencapital.com/coverage"}]}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/page.css">
+<style>
+.cov-header{margin-bottom:var(--space-10);max-width:var(--content-default)}
+.cov-lede{margin-top:var(--space-6);font-size:var(--text-base);color:var(--color-text-muted);max-width:62ch;line-height:1.7}
+.legend{margin:var(--space-10) 0;padding:var(--space-6) var(--space-8);background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-5)}
+.legend-item{font-size:var(--text-xs);line-height:1.6;font-family:var(--font-body)}
+.legend-label{display:block;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;margin-bottom:var(--space-1)}
+.legend-label.published{color:var(--color-gold)}
+.legend-label.desk{color:var(--color-text)}
+.legend-label.watching{color:var(--color-text-muted)}
+.legend-label.monitoring{color:var(--color-text-faint)}
+.legend-desc{color:var(--color-text-muted);max-width:none}
+.sector-block{margin-top:var(--space-12);padding-top:var(--space-8);border-top:1px solid var(--color-divider)}
+.sector-block:first-of-type{border-top:none;padding-top:0}
+.sector-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:var(--space-5);flex-wrap:wrap;gap:var(--space-4)}
+.sector-h{font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:-0.01em;color:var(--color-text)}
+.sector-meta{font-size:var(--text-xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--color-text-faint);font-family:var(--font-body)}
+.cov-table{width:100%;border-collapse:collapse;font-family:var(--font-body)}
+.cov-table thead th{text-align:left;font-size:var(--text-xs);letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-faint);font-weight:500;padding:var(--space-3) var(--space-4) var(--space-3) 0;border-bottom:1px solid var(--color-divider)}
+.cov-table tbody td{padding:var(--space-4) var(--space-4) var(--space-4) 0;border-bottom:1px solid oklch(from var(--color-text) l c h/0.05);font-size:var(--text-sm);line-height:1.4;vertical-align:baseline}
+.cov-table tbody tr:last-child td{border-bottom:none}
+.cov-tkr{font-family:var(--font-display);color:var(--color-gold);font-size:var(--text-base);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cov-name{color:var(--color-text);font-weight:500}
+.cov-name a{color:var(--color-text);border:none;padding:0}
+.cov-name a:hover{color:var(--color-gold)}
+.cov-sub{color:var(--color-text-muted)}
+.cov-st{font-size:var(--text-xs);letter-spacing:0.1em;text-transform:uppercase;font-weight:500;white-space:nowrap}
+.cov-st.published{color:var(--color-gold)}
+.cov-st.desk{color:var(--color-text)}
+.cov-st.watching{color:var(--color-text-muted)}
+.cov-st.monitoring{color:var(--color-text-faint)}
+.cov-st a{color:var(--color-gold);border:none;padding:0}
+.cov-st a:hover{text-decoration:underline}
+.bottom-note{margin-top:var(--space-12);font-size:var(--text-sm);color:var(--color-text-muted);max-width:62ch;line-height:1.7}
+@media(max-width:800px){.legend{grid-template-columns:1fr 1fr;gap:var(--space-4)}}
+@media(max-width:600px){.legend{grid-template-columns:1fr}.cov-table thead{display:none}.cov-table tbody td{display:block;padding:var(--space-1) 0;border:none}.cov-table tbody tr{display:block;padding:var(--space-4) 0;border-bottom:1px solid var(--color-divider)}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav>
+  <a href="/" class="nav-logo" aria-label="Halvren Capital — home">
+    <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="4" fill="none"/>
+      <path d="M6 6 L6 26 M6 16 L16 16 M16 6 L16 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 6 L20 26 M20 6 L28 16 L20 26" stroke="var(--color-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-logo-name">Halvren Capital</span>
+  </a>
+  <div class="nav-right"><a href="/" class="nav-back">Back to home</a></div>
+</nav>
+
+<main id="main" class="doc-main">
+  <article class="doc-article">
+    <p class="doc-breadcrumb"><a href="/">Home</a><span class="doc-breadcrumb-sep">/</span><span>Coverage</span></p>
+    <div class="cov-header">
+      <p class="section-label">Coverage universe</p>
+      <h1 class="doc-h1">Every Canadian operator on the <em>desk.</em></h1>
+      <p class="cov-lede">Halvren follows roughly two dozen Canadian-listed operators across energy, materials, and infrastructure. The list below is the working universe. A name appears here when it has earned the read, regardless of whether it has earned a position. Status is honest about depth: a handful are published, more are on the desk, the rest are watched or monitored.</p>
+    </div>
+
+    <div class="legend" aria-label="Status legend">
+      <div class="legend-item">
+        <span class="legend-label published">Published</span>
+        <p class="legend-desc">A full writeup is live on the site, with FY data, business analysis, and the Halvren Checklist applied.</p>
+      </div>
+      <div class="legend-item">
+        <span class="legend-label desk">On the desk</span>
+        <p class="legend-desc">Actively researching. A public writeup is queued or close. The work happens before the page does.</p>
+      </div>
+      <div class="legend-item">
+        <span class="legend-label watching">Watching</span>
+        <p class="legend-desc">Quarterly review. The thesis or the price has not earned active research, but the name remains in scope.</p>
+      </div>
+      <div class="legend-item">
+        <span class="legend-label monitoring">Monitoring</span>
+        <p class="legend-desc">Tracked at a distance. We read the disclosures when they land but have not formed a working view.</p>
+      </div>
+    </div>
+
+    <section class="sector-block">
+      <div class="sector-head">
+        <h2 class="sector-h">Energy</h2>
+        <p class="sector-meta">10 names · Oil &amp; gas · Uranium · Pipelines · Power</p>
+      </div>
+      <table class="cov-table">
+        <thead><tr><th>Ticker</th><th>Company</th><th>Subsector</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="cov-tkr">CCO</td><td class="cov-name"><a href="/research/cameco-cco">Cameco</a></td><td class="cov-sub">Uranium · Saskatchewan</td><td><span class="cov-st published"><a href="/research/cameco-cco">Published</a></span></td></tr>
+          <tr><td class="cov-tkr">CNQ</td><td class="cov-name"><a href="/research/canadian-natural-cnq">Canadian Natural</a></td><td class="cov-sub">Oil sands · Heavy oil · Gas</td><td><span class="cov-st published"><a href="/research/canadian-natural-cnq">Published</a></span></td></tr>
+          <tr><td class="cov-tkr">SU</td><td class="cov-name">Suncor Energy</td><td class="cov-sub">Oil sands · Integrated</td><td><span class="cov-st desk">On the desk</span></td></tr>
+          <tr><td class="cov-tkr">CVE</td><td class="cov-name">Cenovus Energy</td><td class="cov-sub">Oil sands · Integrated</td><td><span class="cov-st desk">On the desk</span></td></tr>
+          <tr><td class="cov-tkr">TOU</td><td class="cov-name">Tourmaline Oil</td><td class="cov-sub">Natural gas · Montney</td><td><span class="cov-st desk">On the desk</span></td></tr>
+          <tr><td class="cov-tkr">IMO</td><td class="cov-name">Imperial Oil</td><td class="cov-sub">Oil sands · Refining</td><td><span class="cov-st watching">Watching</span></td></tr>
+          <tr><td class="cov-tkr">ENB</td><td class="cov-name">Enbridge</td><td class="cov-sub">Pipelines · Liquids · Gas distribution</td><td><span class="cov-st desk">On the desk</span></td></tr>
+          <tr><td class="cov-tkr">TRP</td><td class="cov-name">TC Energy</td><td class="cov-sub">Pipelines · Gas · Power</td><td><span class="cov-st desk">On the desk</span></td></tr>
+          <tr><td class="cov-tkr">KEY</td><td class="cov-name">Keyera</td><td class="cov-sub">Midstream · NGLs</td><td><span class="cov-st watching">Watching</span></td></tr>
+          <tr><td class="cov-tkr">NPI</td><td class="cov-name">Northland Power</td><td class="cov-sub">Renewables · Offshore wind</td><td><span class="cov-st desk">On the desk</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sector-block">
+      <div class="sector-head">
+        <h2 class="sector-h">Materials</h2>
+        <p class="sector-meta">8 names · Fertilizers · Precious metals · Industrial metals · Forest products</p>
+      </div>
+      <table class="cov-table">
+        <thead><tr><th>Ticker</th><th>Company</th><th>Subsector</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="cov-tkr">NTR</td><td class="cov-name"><a href="/research/nutrien-ntr">Nutrien</a></td><td class="cov-sub">Fertilizers · Potash · Retail</td><td><span class="cov-st published"><a href="/research/nutrien-ntr">Published</a></span></td></tr>
+          <tr><td class="cov-tkr">AG</td><td class="cov-name"><a href="/research/first-majestic-ag">First Majestic Silver</a></td><td class="cov-sub">Silver · Mexico · Nevada</td><td><span class="cov-st published"><a href="/research/first-majestic-ag">Published</a></span></td></tr>
+          <tr><td class="cov-tkr">TECK.B</td><td class="cov-name">Teck Resources</td><td class="cov-sub">Copper · Zinc</td><td><span class="cov-st desk">On the desk</span></td></tr>
+          <tr><td class="cov-tkr">FM</td><td class="cov-name">First Quantum Minerals</td><td class="cov-sub">Copper · Africa · Latin America</td><td><span class="cov-st watching">Watching</span></td></tr>
+          <tr><td class="cov-tkr">WPM</td><td class="cov-name">Wheaton Precious Metals</td><td class="cov-sub">Streaming · Silver &amp; gold</td><td><span class="cov-st desk">On the desk</span></td></tr>
+          <tr><td class="cov-tkr">FNV</td><td class="cov-name">Franco-Nevada</td><td class="cov-sub">Royalty · Diversified</td><td><span class="cov-st desk">On the desk</span></td></tr>
+          <tr><td class="cov-tkr">AEM</td><td class="cov-name">Agnico Eagle Mines</td><td class="cov-sub">Gold · Canada</td><td><span class="cov-st watching">Watching</span></td></tr>
+          <tr><td class="cov-tkr">WFG</td><td class="cov-name">West Fraser Timber</td><td class="cov-sub">Lumber · OSB</td><td><span class="cov-st watching">Watching</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sector-block">
+      <div class="sector-head">
+        <h2 class="sector-h">Infrastructure</h2>
+        <p class="sector-meta">6 names · Rail · Utilities · Operating infrastructure</p>
+      </div>
+      <table class="cov-table">
+        <thead><tr><th>Ticker</th><th>Company</th><th>Subsector</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="cov-tkr">BIP.UN</td><td class="cov-name">Brookfield Infrastructure</td><td class="cov-sub">Diversified infrastructure</td><td><span class="cov-st desk">On the desk</span></td></tr>
+          <tr><td class="cov-tkr">BEP.UN</td><td class="cov-name">Brookfield Renewable</td><td class="cov-sub">Renewables · Hydro · Wind</td><td><span class="cov-st watching">Watching</span></td></tr>
+          <tr><td class="cov-tkr">CNR</td><td class="cov-name">Canadian National Railway</td><td class="cov-sub">Class I rail</td><td><span class="cov-st watching">Watching</span></td></tr>
+          <tr><td class="cov-tkr">CP</td><td class="cov-name">Canadian Pacific Kansas City</td><td class="cov-sub">Class I rail · North-South</td><td><span class="cov-st watching">Watching</span></td></tr>
+          <tr><td class="cov-tkr">FTS</td><td class="cov-name">Fortis</td><td class="cov-sub">Regulated utility · North America</td><td><span class="cov-st watching">Watching</span></td></tr>
+          <tr><td class="cov-tkr">WSP</td><td class="cov-name">WSP Global</td><td class="cov-sub">Engineering services</td><td><span class="cov-st monitoring">Monitoring</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <p class="bottom-note"><strong style="color:var(--color-text)">A note on the list.</strong> The universe will grow. Coverage is shaped by where Canadian operating risk is genuinely interesting, not by what the index weights. The list is reviewed at the end of each quarter and refreshed in the <a href="/letters">quarterly letter</a>. Names not on the list are not necessarily uncovered &mdash; they have not yet earned a place. <a href="mailto:amirali@halvrencapital.com">Write</a> if there is a name we should be reading.</p>
+  </article>
+</main>
+
+<footer>
+  <div class="footer-trust">
+    <span class="footer-trust-item">Canadian-owned</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">Proprietary capital</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">Public research is free</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">Reviewed quarterly</span>
+  </div>
+  <div class="footer-inner">
+    <div class="footer-brand">Halvren Capital<span>Vancouver, BC · Est. 2025</span></div>
+    <div class="footer-disclaimer">
+      <p>Halvren Capital publishes research and commentary for informational and educational purposes only. Nothing on this site constitutes an offer, solicitation, or recommendation to buy or sell any security.</p>
+      <p>Halvren manages proprietary capital and is not a registered investment adviser, broker-dealer, or portfolio manager. The author may hold positions in securities discussed and may transact at any time without notice.</p>
+    </div>
+  </div>
+  <div class="footer-inner footer-meta">
+    <span>&copy; 2025 Halvren Capital. All rights reserved.</span>
+    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/checklist">Checklist</a> &middot; <a href="/access">Access</a></span>
+  </div>
+</footer>
+</body>
+</html>
