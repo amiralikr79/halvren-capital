@@ -30,12 +30,14 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --font-display:'Instrument Serif',Georgia,serif;
   --font-body:'DM Sans','Helvetica Neue',sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --ease-soft:cubic-bezier(0.16,1,0.3,1);
   --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
   --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
   --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
@@ -61,10 +63,10 @@
   --shadow-lg:0 12px 32px oklch(0.2 0.01 80/0.12);
 }
 [data-theme="dark"]{
-  --color-bg:#111010;--color-surface:#171614;--color-surface-2:#1c1b19;
-  --color-surface-offset:#1f1e1c;--color-border:#2e2d2b;--color-divider:#222120;
-  --color-text:#e8e6e2;--color-text-muted:#8a8884;--color-text-faint:#4a4946;
-  --color-gold:#c9a84c;--color-gold-light:#e2c47a;
+  --color-bg:#0d0c0a;--color-surface:#15140f;--color-surface-2:#1a1813;
+  --color-surface-offset:#1f1d17;--color-border:#2a2823;--color-divider:#1f1d18;
+  --color-text:#ece8df;--color-text-muted:#8a8780;--color-text-faint:#4a4843;
+  --color-gold:#bf9c5b;--color-gold-light:#d6b97a;
   --shadow-sm:0 1px 2px oklch(0 0 0/0.3);
   --shadow-md:0 4px 12px oklch(0 0 0/0.4);
   --shadow-lg:0 12px 32px oklch(0 0 0/0.5);
@@ -264,6 +266,41 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
 .footer-trust-sep{color:var(--color-text-faint)}
 .progress-bar{position:fixed;top:0;left:0;right:0;height:2px;background:transparent;z-index:150;pointer-events:none}
 .progress-bar-fill{height:100%;background:var(--color-gold);width:0%;will-change:width}
+
+/* Hero halo (cursor follow) */
+.hero{position:relative;overflow:hidden}
+.hero-halo{position:absolute;pointer-events:none;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle at center,oklch(from var(--color-gold) l c h/0.08) 0%,oklch(from var(--color-gold) l c h/0.04) 25%,transparent 60%);filter:blur(40px);transform:translate(-50%,-50%);left:50%;top:35%;transition:left 600ms var(--ease-soft),top 600ms var(--ease-soft);z-index:0;will-change:left,top}
+.hero-content,.hero-grid,.hero-bg{position:relative;z-index:1}
+
+/* Live pill */
+.live-pill{display:inline-flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-8);padding:6px 14px;background:oklch(from var(--color-text) l c h/0.04);border:1px solid oklch(from var(--color-text) l c h/0.08);border-radius:99px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.04em;color:var(--color-text-muted)}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 oklch(0.7 0.18 145/0.55);animation:livePulse 2.4s var(--ease-soft) infinite}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 oklch(0.7 0.18 145/0.45)}70%{box-shadow:0 0 0 8px oklch(0.7 0.18 145/0)}100%{box-shadow:0 0 0 0 oklch(0.7 0.18 145/0)}}
+.live-pill .sep{color:var(--color-text-faint)}
+
+/* Mask reveal */
+.mask-reveal{display:block;overflow:hidden}
+.mask-reveal>span{display:inline-block;transform:translateY(110%);opacity:0;transition:transform 900ms var(--ease-soft),opacity 700ms var(--ease-soft)}
+.mask-reveal.in>span{transform:translateY(0);opacity:1}
+
+/* Stats bar (big numbers) */
+.stats-strip{padding:var(--space-12) var(--space-8) var(--space-16);border-bottom:1px solid var(--color-divider);background:linear-gradient(180deg,transparent 0%,oklch(from var(--color-text) l c h/0.015) 100%)}
+.stats-inner{max-width:var(--content-wide);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4) var(--space-8);align-items:end}
+.stat{position:relative;padding-top:var(--space-4)}
+.stat::before{content:"";position:absolute;top:0;left:0;width:24px;height:1px;background:var(--color-gold)}
+.big-num{font-family:var(--font-mono);font-weight:500;font-size:clamp(2.5rem,1rem + 4vw,4.25rem);line-height:1;letter-spacing:-0.04em;color:var(--color-text);font-variant-numeric:tabular-nums;display:block;margin-bottom:var(--space-3)}
+.big-num-suffix{color:var(--color-gold);font-size:0.55em;margin-left:0.05em;letter-spacing:0}
+.stat-label{font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--color-text-muted);line-height:1.5;max-width:22ch}
+@media(max-width:900px){.stats-inner{grid-template-columns:repeat(2,1fr);gap:var(--space-8)}}
+@media(max-width:480px){.stats-inner{grid-template-columns:1fr 1fr;gap:var(--space-6)}.big-num{font-size:clamp(2rem,4vw + 1rem,3rem)}}
+
+/* Card hover refinements */
+.thesis-card,.watch-card{transition:border-color 280ms var(--ease-soft),transform 280ms var(--ease-soft),box-shadow 280ms var(--ease-soft)}
+.thesis-card:hover,.watch-card:hover{transform:translateY(-2px);border-color:oklch(from var(--color-gold) l c h/0.4);box-shadow:0 12px 32px oklch(0 0 0/0.2),0 0 0 1px oklch(from var(--color-gold) l c h/0.1) inset}
+
+/* Mono treatment for tickers and tabular numerics */
+.watch-symbol{font-family:var(--font-mono);font-weight:500;letter-spacing:-0.01em}
+.watch-stats dd{font-family:var(--font-mono);font-weight:400}
 @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:var(--space-8)}}
 </style>
 </head>
@@ -302,18 +339,48 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-halo" data-halo aria-hidden="true"></div>
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <p class="hero-label">Halvren Capital · Vancouver, BC · Est. 2025</p>
-    <h1 class="hero-heading">Machine breadth. Human <em>conviction.</em></h1>
-    <p class="hero-sub">Halvren is an AI-augmented research desk covering Canadian and U.S. operators in energy, materials, and infrastructure. Models read at scale. The principal signs the decision. The book is proprietary. The work is public.</p>
+    <p class="live-pill" aria-label="Desk status">
+      <span class="live-dot" aria-hidden="true"></span>
+      <span>Reading 24 operators</span>
+      <span class="sep">·</span>
+      <span>Q1 2026 letter live</span>
+      <span class="sep">·</span>
+      <span>Apr 2026</span>
+    </p>
+    <h1 class="hero-heading mask-reveal" data-reveal><span>Machine breadth. Human <em>conviction.</em></span></h1>
+    <p class="hero-sub mask-reveal" data-reveal data-reveal-delay="180"><span>Halvren is an AI-augmented research desk covering Canadian and U.S. operators in energy, materials, and infrastructure. Models read at scale. The principal signs the decision. The book is proprietary. The work is public.</span></p>
     <div class="hero-meta">
       <span>Canadian &amp; U.S. markets</span>
       <div class="hero-meta-divider"></div>
       <span>AI-augmented · human-reviewed</span>
       <div class="hero-meta-divider"></div>
       <span>Proprietary capital</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<section class="stats-strip" aria-label="Desk in numbers">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="big-num" data-count="24"><span class="big-num-suffix">+</span></span>
+      <p class="stat-label">Operators in the working universe</p>
+    </div>
+    <div class="stat">
+      <span class="big-num" data-count="4"></span>
+      <p class="stat-label">Public research writeups, growing</p>
+    </div>
+    <div class="stat">
+      <span class="big-num" data-count="2"></span>
+      <p class="stat-label">Markets covered &mdash; Canada and the U.S.</p>
+    </div>
+    <div class="stat">
+      <span class="big-num" data-count="1"></span>
+      <p class="stat-label">Quarterly letter live, four per year</p>
     </div>
   </div>
 </section>
@@ -740,6 +807,71 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
     entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
   },{threshold:0.1});
   els.forEach(function(el){io.observe(el)});
+
+  // Mask-reveal: trigger 'in' class once headline enters view
+  var revealEls=document.querySelectorAll('[data-reveal]');
+  if(revealEls.length){
+    var rio=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting)return;
+        var d=parseInt(e.target.getAttribute('data-reveal-delay')||'0',10);
+        setTimeout(function(){e.target.classList.add('in')},d);
+        rio.unobserve(e.target);
+      });
+    },{threshold:0.1,rootMargin:'0px 0px -10% 0px'});
+    revealEls.forEach(function(el){rio.observe(el)});
+    // Trigger immediately for items already in view (above fold) on load
+    requestAnimationFrame(function(){
+      revealEls.forEach(function(el){
+        var r=el.getBoundingClientRect();
+        if(r.top<window.innerHeight*0.9){
+          var d=parseInt(el.getAttribute('data-reveal-delay')||'0',10);
+          setTimeout(function(){el.classList.add('in')},d);
+        }
+      });
+    });
+  }
+
+  // Cursor-following hero halo
+  var halo=document.querySelector('[data-halo]');
+  var hero=halo?halo.parentElement:null;
+  if(halo&&hero&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    hero.addEventListener('mousemove',function(e){
+      var rect=hero.getBoundingClientRect();
+      var x=((e.clientX-rect.left)/rect.width)*100;
+      var y=((e.clientY-rect.top)/rect.height)*100;
+      halo.style.left=x+'%';
+      halo.style.top=y+'%';
+    },{passive:true});
+  }
+
+  // Big-number counter on viewport entry
+  var counters=document.querySelectorAll('.big-num[data-count]');
+  if(counters.length){
+    var cio=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting)return;
+        var el=e.target;
+        var target=parseInt(el.getAttribute('data-count'),10);
+        var suffix=el.querySelector('.big-num-suffix');
+        var suffixHTML=suffix?suffix.outerHTML:'';
+        var dur=900,start=performance.now();
+        function tick(now){
+          var p=Math.min(1,(now-start)/dur);
+          var eased=1-Math.pow(1-p,3);
+          var val=Math.round(target*eased);
+          el.firstChild.nodeValue=val;
+          if(p<1)requestAnimationFrame(tick);
+          else {el.innerHTML=target+suffixHTML;}
+        }
+        // Prepare element: set text node = "0", keep suffix
+        el.innerHTML='0'+suffixHTML;
+        requestAnimationFrame(tick);
+        cio.unobserve(el);
+      });
+    },{threshold:0.5});
+    counters.forEach(function(el){cio.observe(el)});
+  }
 })();
 </script>
 </body>
