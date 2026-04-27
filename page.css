@@ -49,6 +49,7 @@ a:hover{border-color:var(--color-gold)}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:var(--space-5) var(--space-8);display:flex;align-items:center;justify-content:space-between;background:oklch(from var(--color-bg) l c h/0.85);backdrop-filter:blur(12px);border-bottom:1px solid oklch(from var(--color-text) l c h/0.06)}
+@media(max-width:768px){nav{padding:var(--space-4) var(--space-5)}.nav-logo-mark{width:28px;height:28px}.nav-back{padding:var(--space-2) var(--space-3);font-size:var(--text-xs)}}
 .nav-logo{display:flex;align-items:center;gap:var(--space-3);color:var(--color-text);border:none}
 .nav-logo:hover{color:var(--color-text)}
 .nav-logo-mark{width:32px;height:32px}
