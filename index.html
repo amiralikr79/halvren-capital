@@ -76,7 +76,7 @@
   --color-gold:#b8860b;--color-gold-light:#d4a017;
 }}
 html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;scroll-padding-top:var(--space-16)}
-body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);line-height:1.6}
+body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);line-height:1.6;overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 h1,h2,h3,h4{text-wrap:balance;line-height:1.15;font-family:var(--font-display)}
 p,li{text-wrap:pretty;max-width:68ch}
@@ -123,8 +123,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:var(--space-5) var(-
 .hero-heading{font-family:var(--font-display);font-size:var(--text-hero);line-height:1.02;letter-spacing:-0.02em;color:var(--color-text);max-width:14ch;margin-bottom:var(--space-10)}
 .hero-heading em{font-style:italic;color:var(--color-gold)}
 .hero-sub{font-size:var(--text-lg);color:var(--color-text-muted);max-width:52ch;line-height:1.6;margin-bottom:var(--space-12)}
-.hero-meta{display:flex;align-items:center;gap:var(--space-8);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.08em;text-transform:uppercase}
+.hero-meta{display:flex;align-items:center;gap:var(--space-8);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.08em;text-transform:uppercase;flex-wrap:wrap;row-gap:var(--space-3)}
 .hero-meta-divider{width:40px;height:1px;background:var(--color-divider)}
+@media(max-width:600px){.hero-meta{gap:var(--space-3);flex-direction:column;align-items:flex-start}.hero-meta-divider{display:none}}
 @media(max-width:768px){.hero{padding:var(--space-24) var(--space-6) var(--space-16)}.hero-heading{font-size:var(--text-3xl)}}
 
 /* SECTION BASE */
@@ -179,7 +180,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:var(--space-5) var(-
 .watchlist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)}
 .watch-card{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg);padding:var(--space-8);display:flex;flex-direction:column}
 .watch-card:hover{border-color:oklch(from var(--color-gold) l c h/0.3);box-shadow:var(--shadow-md)}
-.watch-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-3);padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider);margin-bottom:var(--space-5)}
+.watch-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-3);padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider);margin-bottom:var(--space-5);flex-wrap:wrap}
 .watch-symbol{font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:0;color:var(--color-gold)}
 .watch-name{font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-text-faint);text-align:right;font-family:var(--font-body)}
 .watch-sector{font-size:var(--text-xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--color-gold);font-weight:500;margin-bottom:var(--space-3)}
