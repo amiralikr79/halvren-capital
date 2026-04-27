@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Process — How the desk works | Halvren Capital</title>
+<meta name="description" content="How Halvren works. AI handles breadth across Canadian and U.S. operator filings. Models screen, summarize, and surface. The principal reads, decides, signs. No algorithmic trading; no model in charge of capital.">
+<meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<script>(function(){try{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="canonical" href="https://halvrencapital.com/process">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Process — How the desk works | Halvren Capital">
+<meta property="og:description" content="AI handles breadth. The principal handles judgment. How Halvren reads Canadian and U.S. operators.">
+<meta property="og:url" content="https://halvrencapital.com/process">
+<meta property="og:image" content="https://halvrencapital.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://halvrencapital.com/og.png">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111010'/><path d='M7 8 L7 24 M7 16 L15 16 M15 8 L15 24' stroke='%23e8e6e2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M19 8 L19 24 M19 8 L26 16 L19 24' stroke='%23c9a84c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/page.css">
+<style>
+.process-header{margin-bottom:var(--space-12);max-width:var(--content-default)}
+.process-lede{margin-top:var(--space-6);font-size:var(--text-base);color:var(--color-text-muted);max-width:62ch;line-height:1.7}
+.stack{display:grid;grid-template-columns:auto 1fr;gap:var(--space-6) var(--space-8);margin:var(--space-12) 0;align-items:start}
+.stack-step{font-family:var(--font-display);color:var(--color-gold);font-size:var(--text-xl);letter-spacing:0;font-variant-numeric:tabular-nums;padding-top:var(--space-1);min-width:6ch}
+.stack-step small{display:block;font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.12em;font-family:var(--font-body);margin-top:4px;text-transform:uppercase}
+.stack-body{padding:var(--space-2) 0 var(--space-8) 0;border-bottom:1px solid var(--color-divider)}
+.stack-body:last-child{border-bottom:none;padding-bottom:0}
+.stack-h{font-family:var(--font-display);font-size:var(--text-lg);color:var(--color-text);line-height:1.25;margin-bottom:var(--space-3)}
+.stack-h em{font-style:italic;color:var(--color-gold)}
+.stack-p{font-size:var(--text-base);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-3);max-width:62ch}
+.stack-p strong{color:var(--color-text);font-weight:500}
+.stack-tag{display:inline-block;padding:2px 8px;border:1px solid oklch(from var(--color-text) l c h/0.12);border-radius:var(--radius-sm);font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-text-faint);margin-right:var(--space-2);font-family:var(--font-body)}
+.stack-tag.gold{border-color:oklch(from var(--color-gold) l c h/0.4);color:var(--color-gold)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);margin-top:var(--space-12)}
+.col{padding:var(--space-8);background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg)}
+.col h3{font-family:var(--font-display);font-size:var(--text-lg);color:var(--color-text);margin-bottom:var(--space-4)}
+.col h3 em{font-style:italic;color:var(--color-gold)}
+.col ul{list-style:none;padding:0;margin:0}
+.col li{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;padding:var(--space-2) 0;padding-left:var(--space-5);position:relative}
+.col li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:1px;background:var(--color-gold)}
+.col li strong{color:var(--color-text);font-weight:500}
+.notbox{margin-top:var(--space-12);padding:var(--space-8);border:1px solid oklch(from var(--color-text) l c h/0.1);border-radius:var(--radius-lg);max-width:var(--content-default)}
+.notbox h3{font-family:var(--font-display);font-size:var(--text-lg);color:var(--color-text);margin-bottom:var(--space-4)}
+.notbox p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-3)}
+.notbox p strong{color:var(--color-text);font-weight:500}
+@media(max-width:800px){.row{grid-template-columns:1fr;gap:var(--space-4)}.stack{grid-template-columns:1fr;gap:var(--space-3)}.stack-step{padding-top:0}.stack-body{padding-top:0}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav>
+  <a href="/" class="nav-logo" aria-label="Halvren Capital — home">
+    <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="4" fill="none"/>
+      <path d="M6 6 L6 26 M6 16 L16 16 M16 6 L16 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 6 L20 26 M20 6 L28 16 L20 26" stroke="var(--color-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-logo-name">Halvren Capital</span>
+  </a>
+  <div class="nav-right"><a href="/" class="nav-back">Back to home</a></div>
+</nav>
+
+<main id="main" class="doc-main">
+  <article class="doc-article">
+    <p class="doc-breadcrumb"><a href="/">Home</a><span class="doc-breadcrumb-sep">/</span><span>Process</span></p>
+    <div class="process-header">
+      <p class="section-label">How the desk works</p>
+      <h1 class="doc-h1">Machine breadth. <em>Human</em> conviction.</h1>
+      <p class="process-lede">A single human cannot read every Canadian and U.S. operator's filings, transcripts, insider activity, and pricing data each quarter. Halvren does not pretend otherwise. We use AI to read the universe at scale, surface the names that earn a closer look, and prepare the work the principal then reads, decides, and signs. The machine does breadth. The human does judgment. The capital follows the human.</p>
+    </div>
+
+    <div class="stack">
+      <div class="stack-step">01<small>Inputs</small></div>
+      <div class="stack-body">
+        <h2 class="stack-h">Public market data, ingested continuously.</h2>
+        <p class="stack-p">SEDAR+ and SEC EDGAR filings. Quarterly transcripts. Insider transactions through SEDI and Form 4. Reserve and resource reports. Pricing and consensus from listed feeds. <strong>Public data only.</strong> No alternative-data scraping that crosses a privacy line, no inside information, no tipped channels.</p>
+        <span class="stack-tag">SEDAR+</span><span class="stack-tag">EDGAR</span><span class="stack-tag">SEDI / Form 4</span><span class="stack-tag">NI 51-101</span><span class="stack-tag">Pricing &amp; consensus</span>
+      </div>
+
+      <div class="stack-step">02<small>Models</small></div>
+      <div class="stack-body">
+        <h2 class="stack-h">Reading at scale, with discipline.</h2>
+        <p class="stack-p">Large language and statistical models read filings and transcripts the way a junior analyst would, faster and at greater volume, and produce structured summaries against a fixed schema: business, balance sheet, capital allocation, insider behaviour, cycle position. The same model output is generated for every operator in the coverage universe in the same format. Consistency is the point.</p>
+        <p class="stack-p">Models also run quantitative screens against the <a href="/checklist">Halvren Checklist</a>: full-cycle FCF, unit economics at trough, balance sheet at trough, ROIC on incremental capital, insider activity bought versus granted. <strong>The output of this layer is a triaged list of names</strong>, not a position and not a recommendation.</p>
+        <span class="stack-tag">LLM-assisted reading</span><span class="stack-tag">Structured extraction</span><span class="stack-tag">Quant screens</span>
+      </div>
+
+      <div class="stack-step">03<small>Human review</small></div>
+      <div class="stack-body">
+        <h2 class="stack-h">The principal reads <em>everything</em> that earns a position.</h2>
+        <p class="stack-p">Model output is a starting point, not a verdict. The principal reads the underlying filings for any name that reaches the publishable stage, validates each Halvren Checklist answer against primary sources, audits the model's summary for hallucinations or omissions, and forms an independent view of management quality, succession, and cycle. <strong>Every public writeup, every quarterly letter, and every position is human-reviewed and signed.</strong></p>
+        <p class="stack-p">The model never writes the conviction sentence. The model never sets the price. The model never decides what gets owned.</p>
+        <span class="stack-tag gold">Human in the loop</span>
+      </div>
+
+      <div class="stack-step">04<small>Capital</small></div>
+      <div class="stack-body">
+        <h2 class="stack-h">Proprietary, sized by hand.</h2>
+        <p class="stack-p">Halvren manages proprietary capital only. Position sizes are set by the principal against conviction and against the rest of the book. There is no automated execution, no algorithmic strategy, and no model in charge of when to buy or sell anything. <strong>Trades are entered and exited by hand.</strong> The model knows the universe; the human signs the order.</p>
+        <span class="stack-tag">Proprietary capital</span><span class="stack-tag">No algo execution</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h3>What the <em>machine</em> does</h3>
+        <ul>
+          <li><strong>Reads</strong> filings, transcripts, and proxy circulars across the coverage universe</li>
+          <li><strong>Extracts</strong> structured data into a fixed schema, refreshed each quarter</li>
+          <li><strong>Screens</strong> against the Halvren Checklist and surfaces deviations from peer baselines</li>
+          <li><strong>Monitors</strong> insider transactions, debt covenants, and material disclosures across the watchlist</li>
+          <li><strong>Drafts</strong> initial summaries that the principal then audits and rewrites</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>What the <em>human</em> does</h3>
+        <ul>
+          <li><strong>Reads</strong> the underlying filings for every name that reaches publication</li>
+          <li><strong>Audits</strong> every model output against primary sources before it leaves the desk</li>
+          <li><strong>Decides</strong> what is on the desk, what gets a writeup, and what goes in the book</li>
+          <li><strong>Sizes</strong> every position against conviction and against the standing book</li>
+          <li><strong>Signs</strong> every public writeup, every quarterly letter, and every transaction</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="notbox">
+      <h3>What Halvren is <em>not</em>.</h3>
+      <p><strong>Not a quant fund.</strong> No statistical-arbitrage strategy, no factor sleeve, no automated trading. The investment process is fundamental. The AI is a research instrument, not an execution engine.</p>
+      <p><strong>Not a model-driven black box.</strong> Every conclusion in a public writeup or a private letter can be traced back to a primary filing the principal has read. If the model produced something the principal cannot defend in plain English, it does not appear on the page.</p>
+      <p><strong>Not an outside-capital business.</strong> Halvren manages proprietary capital. The public research is free. The private letters are research and commentary, not personalized advice.</p>
+    </div>
+
+    <hr class="doc-divider">
+    <p class="doc-p" style="font-size:var(--text-sm);color:var(--color-text-faint)">For the editorial standard behind this work, see the <a href="/checklist">Halvren Checklist</a>. For the working universe of names, see <a href="/coverage">Coverage</a>. For the format of the public writeups, see the <a href="/research">research archive</a>.</p>
+  </article>
+</main>
+
+<footer>
+  <div class="footer-trust">
+    <span class="footer-trust-item">Canadian &amp; U.S. markets</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">AI-augmented &middot; human-reviewed</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">Proprietary capital</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">Public research is free</span>
+  </div>
+  <div class="footer-inner">
+    <div class="footer-brand">Halvren Capital<span>Vancouver, BC · Est. 2025</span></div>
+    <div class="footer-disclaimer">
+      <p>Halvren Capital publishes research and commentary for informational and educational purposes only. Nothing on this site constitutes an offer, solicitation, or recommendation to buy or sell any security.</p>
+      <p>Halvren manages proprietary capital and is not a registered investment adviser, broker-dealer, or portfolio manager. The author may hold positions in securities discussed and may transact at any time without notice.</p>
+    </div>
+  </div>
+  <div class="footer-inner footer-meta">
+    <span>&copy; 2025 Halvren Capital. All rights reserved.</span>
+    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/process">Process</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/checklist">Checklist</a> &middot; <a href="/access">Access</a></span>
+  </div>
+</footer>
+</body>
+</html>
