@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Coverage universe — Canadian operators on the Halvren desk | Halvren Capital</title>
-<meta name="description" content="Every Canadian operator on the Halvren desk, organized by sector and status. Energy, materials, infrastructure. What we've published, what is being worked through, what we are watching.">
+<title>Coverage universe — Canadian and U.S. operators on the Halvren desk | Halvren Capital</title>
+<meta name="description" content="Every Canadian and U.S. operator on the Halvren desk, organized by sector and status. Energy, materials, infrastructure. What we've published, what is being worked through, what we are watching.">
 <meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="dark light">
@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://halvrencapital.com/coverage">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Coverage universe — Halvren Capital">
-<meta property="og:description" content="Every Canadian operator on the Halvren desk, organized by sector and status.">
+<meta property="og:description" content="Every Canadian and U.S. operator on the Halvren desk, organized by sector and status.">
 <meta property="og:url" content="https://halvrencapital.com/coverage">
 <meta property="og:image" content="https://halvrencapital.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -82,8 +82,8 @@
     <p class="doc-breadcrumb"><a href="/">Home</a><span class="doc-breadcrumb-sep">/</span><span>Coverage</span></p>
     <div class="cov-header">
       <p class="section-label">Coverage universe</p>
-      <h1 class="doc-h1">Every Canadian operator on the <em>desk.</em></h1>
-      <p class="cov-lede">Halvren covers operators across <strong>Canada and the United States</strong> in energy, materials, and infrastructure. The list below is the working universe. The Canadian sectors are mapped first; the U.S. mirror coverage is being built and will appear as the AI ingestion layer is extended to SEC filings at the same standard we apply to SEDAR+. A name appears here when it has earned the read, regardless of whether it has earned a position.</p>
+      <h1 class="doc-h1">Every operator on the <em>desk.</em></h1>
+      <p class="cov-lede">Halvren covers operators across <strong>Canada and the United States</strong> in energy, materials, and infrastructure. The list below is the working universe. The Canadian sectors are deepest, the legacy of the firm's home market and the SEDAR+ ingestion layer that has been live the longest. The U.S. universe is in the build, ingested through SEC EDGAR at the same standard. A name appears here when it has earned the read, regardless of whether it has earned a position.</p>
     </div>
 
     <div class="legend" aria-label="Status legend">
@@ -167,10 +167,46 @@
 
     <section class="sector-block">
       <div class="sector-head">
-        <h2 class="sector-h">United States</h2>
-        <p class="sector-meta">Forthcoming · Energy · Materials · Infrastructure</p>
+        <h2 class="sector-h">United States &mdash; Energy</h2>
+        <p class="sector-meta">2 names · Independent E&amp;P · Capital-disciplined operators</p>
       </div>
-      <p class="bottom-note" style="margin-top:0">U.S. coverage is in the build. The same Halvren Checklist applies in either jurisdiction; the difference is data plumbing &mdash; SEC filings, U.S. proxy circulars, FERC dockets &mdash; not method. First U.S. names land in the <a href="/letters">Q2 2026 letter</a>. Sector priorities: U.S. independent E&amp;P, copper and uranium pure-plays, and regulated North American utilities.</p>
+      <table class="cov-table">
+        <thead><tr><th>Ticker</th><th>Company</th><th>Subsector</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="cov-tkr">EOG</td><td class="cov-name">EOG Resources</td><td class="cov-sub">Independent E&amp;P · Permian · Eagle Ford</td><td><span class="cov-st monitoring">Monitoring</span></td></tr>
+          <tr><td class="cov-tkr">COP</td><td class="cov-name">ConocoPhillips</td><td class="cov-sub">Integrated independent · Permian · Alaska · LNG</td><td><span class="cov-st monitoring">Monitoring</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sector-block">
+      <div class="sector-head">
+        <h2 class="sector-h">United States &mdash; Materials</h2>
+        <p class="sector-meta">2 names · Fertilizers · Precious metals</p>
+      </div>
+      <table class="cov-table">
+        <thead><tr><th>Ticker</th><th>Company</th><th>Subsector</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="cov-tkr">CF</td><td class="cov-name">CF Industries</td><td class="cov-sub">Nitrogen fertilizer · U.S. Gulf</td><td><span class="cov-st monitoring">Monitoring</span></td></tr>
+          <tr><td class="cov-tkr">NEM</td><td class="cov-name">Newmont</td><td class="cov-sub">Gold · Copper · Largest pure-play</td><td><span class="cov-st monitoring">Monitoring</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sector-block">
+      <div class="sector-head">
+        <h2 class="sector-h">United States &mdash; Infrastructure</h2>
+        <p class="sector-meta">3 names · Pipelines · Regulated utilities · Renewables</p>
+      </div>
+      <table class="cov-table">
+        <thead><tr><th>Ticker</th><th>Company</th><th>Subsector</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="cov-tkr">WMB</td><td class="cov-name">Williams Companies</td><td class="cov-sub">Pipelines · Gas transmission · Transco</td><td><span class="cov-st monitoring">Monitoring</span></td></tr>
+          <tr><td class="cov-tkr">KMI</td><td class="cov-name">Kinder Morgan</td><td class="cov-sub">Energy infrastructure · Gas · Liquids</td><td><span class="cov-st monitoring">Monitoring</span></td></tr>
+          <tr><td class="cov-tkr">NEE</td><td class="cov-name">NextEra Energy</td><td class="cov-sub">Regulated utility · Renewables (FPL · NEER)</td><td><span class="cov-st monitoring">Monitoring</span></td></tr>
+        </tbody>
+      </table>
+      <p class="bottom-note" style="margin-top:var(--space-6)">U.S. coverage is in the build. The same Halvren Checklist applies in either jurisdiction; the difference is data plumbing &mdash; SEC filings, U.S. proxy circulars, FERC dockets &mdash; not method. First U.S. writeups land in the <a href="/letters">Q2 2026 letter</a>. The list above will grow before any name moves up to <strong>Watching</strong> or <strong>On the desk</strong>.</p>
     </section>
 
     <p class="bottom-note"><strong style="color:var(--color-text)">A note on the list.</strong> The universe will grow. Coverage is shaped by where operating risk is genuinely interesting, not by what an index weights. The list is reviewed at the end of each quarter and refreshed in the <a href="/letters">quarterly letter</a>. Names not on the list are not necessarily uncovered &mdash; they have not yet earned a place. For the methodology behind the list, see <a href="/process">how the desk works</a>. <a href="mailto:amirali@halvrencapital.com">Write</a> if there is a name we should be reading.</p>
