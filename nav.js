@@ -19,12 +19,20 @@
     });
   }
 
-  // MOBILE MENU — display:none/flex toggle via data-open
+  // MOBILE MENU — side drawer with backdrop
   var navToggle=document.querySelector('[data-nav-toggle]');
   var navLinks=document.getElementById('nav-links');
   if(navToggle&&navLinks){
+    // Inject backdrop once
+    var backdrop=document.createElement('div');
+    backdrop.className='nav-backdrop';
+    backdrop.setAttribute('data-nav-backdrop','');
+    backdrop.setAttribute('aria-hidden','true');
+    document.body.appendChild(backdrop);
+
     function setMenu(open){
       navLinks.setAttribute('data-open',open?'true':'false');
+      backdrop.setAttribute('data-open',open?'true':'false');
       navToggle.setAttribute('aria-expanded',open?'true':'false');
       navToggle.setAttribute('aria-label',open?'Close menu':'Open menu');
       navToggle.classList.toggle('is-open',open);
@@ -33,6 +41,7 @@
     navToggle.addEventListener('click',function(){
       setMenu(navLinks.getAttribute('data-open')!=='true');
     });
+    backdrop.addEventListener('click',function(){setMenu(false)});
     navLinks.querySelectorAll('a').forEach(function(a){
       a.addEventListener('click',function(){setMenu(false)});
     });
