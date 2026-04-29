@@ -106,6 +106,20 @@
       <p><strong>On cadence.</strong> The quarterly letter is the spine. Public research is published when a name earns it. Subscribers receive everything Halvren publishes, plus the letter and the position commentary. We do not publish on a calendar; we publish when there is something honest to say.</p>
       <p><strong>On reach.</strong> If you are an institutional reader, family office, or operator and want a different conversation, write directly: <a href="mailto:amirali@halvrencapital.com">amirali@halvrencapital.com</a>.</p>
     </div>
+
+    <aside class="subscribe" data-subscribe>
+      <p class="subscribe-eyebrow">Start with the public letter</p>
+      <h2 class="subscribe-h">Get the next <em>letter.</em></h2>
+      <p class="subscribe-p">Free. Untracked. Uncluttered. Every public research piece and the quarterly Halvren letter, delivered the day they land.</p>
+      <form class="subscribe-form" action="https://substack.com/@halvrencapital/subscribe" method="get" target="_blank" data-subscribe-form>
+        <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" class="subscribe-input" aria-label="Your email address">
+        <button type="submit" class="subscribe-btn">Get the letter</button>
+      </form>
+      <p class="subscribe-meta">The list runs through Substack. Cancel anytime; the public archive stays free with or without a subscription.</p>
+      <p class="subscribe-success" data-subscribe-success>Sent. Confirm your subscription in the Substack tab that just opened.</p>
+    </aside>
+
+    <script>(function(){document.querySelectorAll('[data-subscribe-form]').forEach(function(form){form.addEventListener('submit',function(e){var input=form.querySelector('input[type="email"]');var email=input&&input.value?input.value.trim():'';if(!email)return;e.preventDefault();window.open('https://substack.com/@halvrencapital/subscribe?email='+encodeURIComponent(email),'_blank','noopener,noreferrer');var s=form.closest('[data-subscribe]');if(s)s.classList.add('sent');input.value='';});});})();</script>
   </article>
 </main>
 

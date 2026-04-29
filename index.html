@@ -299,6 +299,27 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
 @media(max-width:900px){.stats-inner{grid-template-columns:repeat(2,1fr);gap:var(--space-8)}}
 @media(max-width:480px){.stats-inner{grid-template-columns:1fr 1fr;gap:var(--space-6)}.big-num{font-size:clamp(2rem,4vw + 1rem,3rem)}}
 
+/* Subscribe block */
+.subscribe-section{padding:var(--space-20) var(--space-8);background:linear-gradient(180deg,transparent 0%,oklch(from var(--color-text) l c h/0.015) 100%);border-bottom:1px solid var(--color-divider)}
+.subscribe-inner{max-width:var(--content-default);margin:0 auto;padding:var(--space-12) var(--space-10);background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.08);border-radius:var(--radius-lg);position:relative;overflow:hidden}
+.subscribe-inner::before{content:"";position:absolute;top:0;left:0;width:32px;height:1px;background:var(--color-gold)}
+.subscribe-eyebrow{font-size:var(--text-xs);letter-spacing:0.15em;text-transform:uppercase;color:var(--color-gold);font-weight:500;font-family:var(--font-body);margin-bottom:var(--space-4)}
+.subscribe-h{font-family:var(--font-display);font-size:var(--text-2xl);letter-spacing:-0.02em;line-height:1.1;color:var(--color-text);margin-bottom:var(--space-4);max-width:18ch}
+.subscribe-h em{font-style:italic;color:var(--color-gold)}
+.subscribe-p{font-size:var(--text-base);color:var(--color-text-muted);line-height:1.7;max-width:56ch;margin-bottom:var(--space-8)}
+.subscribe-form{display:flex;gap:var(--space-3);align-items:stretch;max-width:520px;flex-wrap:wrap}
+.subscribe-input{flex:1 1 240px;min-width:0;padding:var(--space-4) var(--space-5);background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-sm);color:var(--color-text);font-family:var(--font-body);font-size:var(--text-base);letter-spacing:0;transition:border-color var(--transition)}
+.subscribe-input::placeholder{color:var(--color-text-faint)}
+.subscribe-input:focus{outline:none;border-color:var(--color-gold)}
+.subscribe-btn{padding:var(--space-4) var(--space-6);background:var(--color-gold);color:#0e0d0b;border:none;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:var(--text-sm);font-weight:500;letter-spacing:0.02em;cursor:pointer;transition:background var(--transition);white-space:nowrap}
+.subscribe-btn:hover{background:var(--color-gold-light)}
+.subscribe-meta{margin-top:var(--space-5);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.04em;font-family:var(--font-body);max-width:60ch}
+.subscribe-meta a{color:var(--color-text-muted);border-bottom:1px solid var(--color-divider);padding:0}
+.subscribe-meta a:hover{color:var(--color-text);border-color:var(--color-text-faint)}
+.subscribe-success{margin-top:var(--space-4);font-size:var(--text-sm);color:var(--color-gold);font-family:var(--font-body);display:none}
+.subscribe-section.sent .subscribe-success{display:block}
+@media(max-width:520px){.subscribe-section{padding:var(--space-12) var(--space-5)}.subscribe-inner{padding:var(--space-8) var(--space-6)}.subscribe-form{flex-direction:column;align-items:stretch}.subscribe-btn{width:100%}.subscribe-h{font-size:var(--text-xl)}}
+
 /* Card hover refinements */
 .thesis-card,.watch-card{transition:border-color 280ms var(--ease-soft),transform 280ms var(--ease-soft),box-shadow 280ms var(--ease-soft)}
 .thesis-card:hover,.watch-card:hover{transform:translateY(-2px);border-color:oklch(from var(--color-gold) l c h/0.4);box-shadow:0 12px 32px oklch(0 0 0/0.2),0 0 0 1px oklch(from var(--color-gold) l c h/0.1) inset}
@@ -684,6 +705,21 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
   </div>
 </section>
 
+<!-- SUBSCRIBE -->
+<section class="subscribe-section" id="subscribe" data-subscribe>
+  <div class="subscribe-inner">
+    <p class="subscribe-eyebrow">The Halvren letter</p>
+    <h2 class="subscribe-h">Get the next <em>letter.</em></h2>
+    <p class="subscribe-p">One quarterly letter. Every research piece as it lands. The watchlist refresh after each Canadian and U.S. earnings season. No price targets. No referral noise. The list goes through Substack, which means you can leave any time and read everything for free without one.</p>
+    <form class="subscribe-form" action="https://substack.com/@halvrencapital/subscribe" method="get" target="_blank" data-subscribe-form>
+      <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" class="subscribe-input" aria-label="Your email address">
+      <button type="submit" class="subscribe-btn">Get the letter</button>
+    </form>
+    <p class="subscribe-meta">Public letters and writeups stay free. The position commentary and weekly working notes go to <a href="/access">private letters</a>. Read the <a href="/privacy">privacy note</a>.</p>
+    <p class="subscribe-success" data-subscribe-success>Sent. Confirm your subscription in the Substack tab that just opened.</p>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="section" id="about">
   <div class="section-inner">
@@ -897,6 +933,21 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
     },{threshold:0.5});
     counters.forEach(function(el){cio.observe(el)});
   }
+
+  // Subscribe form — submit opens Substack subscribe page in new tab with email pre-filled, then marks .sent
+  document.querySelectorAll('[data-subscribe-form]').forEach(function(form){
+    form.addEventListener('submit',function(e){
+      var input=form.querySelector('input[type="email"]');
+      var email=input&&input.value?input.value.trim():'';
+      if(!email)return;
+      e.preventDefault();
+      var url='https://substack.com/@halvrencapital/subscribe?email='+encodeURIComponent(email);
+      window.open(url,'_blank','noopener,noreferrer');
+      var section=form.closest('[data-subscribe]');
+      if(section)section.classList.add('sent');
+      input.value='';
+    });
+  });
 })();
 </script>
 </body>

@@ -147,11 +147,19 @@
       </div>
     </section>
 
-    <div class="cta-strip">
-      <h2>Want the next one in your <em>inbox?</em></h2>
-      <p>Halvren publishes one public essay per month on Substack. Founding members of the paid tier also get two full writeups per month on new Canadian names, a quarterly portfolio update, and a subscriber-only chat with the principal.</p>
-      <a href="/access" class="cta-btn">See pricing &amp; join the waitlist &rarr;</a>
-    </div>
+    <aside class="subscribe" data-subscribe>
+      <p class="subscribe-eyebrow">The Halvren letter</p>
+      <h2 class="subscribe-h">Get the next one in your <em>inbox.</em></h2>
+      <p class="subscribe-p">Every research piece as it lands. The quarterly Halvren letter. The Canadian and U.S. watchlist refresh after each earnings season. No price targets, no referral noise.</p>
+      <form class="subscribe-form" action="https://substack.com/@halvrencapital/subscribe" method="get" target="_blank" data-subscribe-form>
+        <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" class="subscribe-input" aria-label="Your email address">
+        <button type="submit" class="subscribe-btn">Get the letter</button>
+      </form>
+      <p class="subscribe-meta">Public letters and writeups stay free. The position commentary goes to <a href="/access">private letters</a>.</p>
+      <p class="subscribe-success" data-subscribe-success>Sent. Confirm your subscription in the Substack tab that just opened.</p>
+    </aside>
+
+    <script>(function(){document.querySelectorAll('[data-subscribe-form]').forEach(function(form){form.addEventListener('submit',function(e){var input=form.querySelector('input[type="email"]');var email=input&&input.value?input.value.trim():'';if(!email)return;e.preventDefault();window.open('https://substack.com/@halvrencapital/subscribe?email='+encodeURIComponent(email),'_blank','noopener,noreferrer');var s=form.closest('[data-subscribe]');if(s)s.classList.add('sent');input.value='';});});})();</script>
   </article>
 </main>
 
