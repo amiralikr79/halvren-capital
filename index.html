@@ -181,7 +181,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:var(--space-5) var(-
 .watch-stats dt{color:var(--color-text-muted);letter-spacing:0.01em;font-weight:400}
 .watch-stats dd{margin:0;color:var(--color-text);font-variant-numeric:tabular-nums;font-feature-settings:"tnum";text-align:right}
 .watch-symbol{font-variant-numeric:tabular-nums}
-.watchlist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)}
+.watchlist-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4)}
 .watch-card{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg);padding:var(--space-8);display:flex;flex-direction:column}
 .watch-card:hover{border-color:oklch(from var(--color-gold) l c h/0.3);box-shadow:var(--shadow-md)}
 .watch-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-3);padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider);margin-bottom:var(--space-5);flex-wrap:wrap}
@@ -376,7 +376,7 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
       <p class="stat-label">Operators in the working universe</p>
     </div>
     <div class="stat">
-      <span class="big-num" data-count="4"></span>
+      <span class="big-num" data-count="5"></span>
       <p class="stat-label">Public research writeups, growing</p>
     </div>
     <div class="stat">
@@ -475,7 +475,7 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
   <div class="section-inner">
     <div class="watchlist-header">
       <p class="section-label">On the desk</p>
-      <h2 class="thesis-heading">Three Canadian names we're reading <em>right now.</em></h2>
+      <h2 class="thesis-heading">Canadian names we're reading <em>right now.</em></h2>
       <p class="watchlist-intro">No price targets. No conviction levels. No pretending we know what the stock does next month. Just what we're actually working through under the hood: business health, who's at the helm, where we sit in the cycle.</p>
       <p class="watchlist-updated"><span>Last reviewed April 2026</span> <span class="watchlist-updated-sep">·</span> <span>FY 2025 filings (Feb–Mar 2026)</span></p>
     </div>
@@ -537,8 +537,27 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
         <p class="watch-track"><span class="watch-track-label">What we track</span>All-in sustaining cost · Production-per-share · Mexico tax posture · Reserve quality · Hedge book</p>
         <p style="margin-top:var(--space-4)"><a href="/research/first-majestic-ag" style="font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:2px;font-family:var(--font-body);font-weight:500">Read full research &rarr;</a></p>
       </article>
+      <article class="watch-card">
+        <div class="watch-head">
+          <span class="watch-symbol">ENB</span>
+          <span class="watch-name">Enbridge<br>TSX / NYSE</span>
+        </div>
+        <p class="watch-sector">Infrastructure</p>
+        <p class="watch-body">A pipeline is not an oil bet. Owning Enbridge is closer to owning a turnpike with a thirty-year toll structure. The corridor between the WCSB and the U.S. Midwest and Gulf Coast does not get rebuilt every cycle, and roughly 98% of group EBITDA is take-or-pay or cost-of-service. Thirty-one years of dividend raises is the receipt for that arithmetic. The honest question is whether management keeps treating it like the toll-road it is.</p>
+        <dl class="watch-stats">
+          <dt class="watch-stats-caption">By the numbers — FY 2025</dt>
+          <dt>Adj. EBITDA</dt><dd>~C$19.7B (record)</dd>
+          <dt>DCF / share</dt><dd>~C$5.65</dd>
+          <dt>Mainline throughput</dt><dd>~3.0 Mbbl/d</dd>
+          <dt>Take-or-pay / COS</dt><dd>~98% of EBITDA</dd>
+          <dt>2026 dividend</dt><dd>C$3.89/sh (~31st consec.)</dd>
+          <dt>Leadership</dt><dd>Greg Ebel (CEO, since 2023)</dd>
+        </dl>
+        <p class="watch-track"><span class="watch-track-label">What we track</span>Mainline apportionment · Dominion utility rate cases · U.S. gas backlog conversion · Leverage trajectory · Transition capital discipline</p>
+        <p style="margin-top:var(--space-4)"><a href="/research/enbridge-enb" style="font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:2px;font-family:var(--font-body);font-weight:500">Read full research &rarr;</a></p>
+      </article>
     </div>
-    <p class="watchlist-footnote">Figures compiled from Cameco, Canadian Natural Resources, and First Majestic FY 2025 earnings releases (released February–March 2026). Reviewed quarterly; next refresh expected after Q1 2026 earnings. None of the above is a recommendation, a solicitation, or a price call. The author may hold positions in any of these names and may transact in them at any time without notice. Full writeups live on <a href="https://substack.com/@halvrencapital" target="_blank" rel="noopener noreferrer" style="color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3)">Substack</a>. See the footer for the full disclaimer.</p>
+    <p class="watchlist-footnote">Figures compiled from Cameco, Canadian Natural Resources, First Majestic, and Enbridge FY 2025 disclosure (released February–March 2026). Reviewed quarterly; next refresh expected after Q1 2026 earnings. None of the above is a recommendation, a solicitation, or a price call. The author may hold positions in any of these names and may transact in them at any time without notice. Full writeups live on <a href="https://substack.com/@halvrencapital" target="_blank" rel="noopener noreferrer" style="color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3)">Substack</a>. See the footer for the full disclaimer.</p>
   </div>
 </section>
 
