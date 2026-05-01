@@ -411,8 +411,8 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
       <p class="stat-label">Public research writeups, growing</p>
     </div>
     <div class="stat">
-      <span class="big-num" data-count="2"></span>
-      <p class="stat-label">Markets covered &mdash; Canada and the U.S.</p>
+      <span class="big-num" data-count="19.2"><span class="big-num-suffix">%</span></span>
+      <p class="stat-label"><a href="/performance" style="color:inherit;border:none;padding:0">Annualized return since 2019, net of fees &mdash; verified</a></p>
     </div>
     <div class="stat">
       <span class="big-num" data-count="1"></span>
@@ -954,17 +954,19 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
       entries.forEach(function(e){
         if(!e.isIntersecting)return;
         var el=e.target;
-        var target=parseInt(el.getAttribute('data-count'),10);
+        var raw=el.getAttribute('data-count');
+        var target=parseFloat(raw);
+        var decimals=(raw.indexOf('.')>=0)?(raw.length-raw.indexOf('.')-1):0;
         var suffix=el.querySelector('.big-num-suffix');
         var suffixHTML=suffix?suffix.outerHTML:'';
         var dur=900,start=performance.now();
         function tick(now){
           var p=Math.min(1,(now-start)/dur);
           var eased=1-Math.pow(1-p,3);
-          var val=Math.round(target*eased);
+          var val=(target*eased).toFixed(decimals);
           el.firstChild.nodeValue=val;
           if(p<1)requestAnimationFrame(tick);
-          else {el.innerHTML=target+suffixHTML;}
+          else {el.innerHTML=target.toFixed(decimals)+suffixHTML;}
         }
         // Prepare element: set text node = "0", keep suffix
         el.innerHTML='0'+suffixHTML;
