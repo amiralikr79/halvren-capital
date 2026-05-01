@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Digest — What the desk is reading this week | Halvren Capital</title>
+<meta name="description" content="A weekly AI-augmented read of every Canadian and U.S. operator earnings call on the Halvren coverage list. Models summarize. The principal flags. Updated weekly.">
+<meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<script>(function(){try{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="canonical" href="https://halvrencapital.com/digest">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Digest — What the desk is reading this week">
+<meta property="og:description" content="A weekly AI-augmented read of every Canadian and U.S. operator earnings call on the Halvren coverage list. Updated weekly.">
+<meta property="og:url" content="https://halvrencapital.com/digest">
+<meta property="og:image" content="https://halvrencapital.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://halvrencapital.com/og.png">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111010'/><path d='M7 8 L7 24 M7 16 L15 16 M15 8 L15 24' stroke='%23e8e6e2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M19 8 L19 24 M19 8 L26 16 L19 24' stroke='%23c9a84c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://halvrencapital.com/digest","url":"https://halvrencapital.com/digest","name":"The Halvren Digest","description":"AI-augmented weekly read of Canadian and U.S. operator earnings calls.","publisher":{"@id":"https://halvrencapital.com/#organization"},"inLanguage":"en-CA"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://halvrencapital.com/"},{"@type":"ListItem","position":2,"name":"Digest","item":"https://halvrencapital.com/digest"}]}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/page.css">
+<style>
+.digest-main{padding:calc(var(--space-24) + 40px) var(--space-8) var(--space-16);max-width:var(--content-wide);margin:0 auto}
+.digest-hero{margin-bottom:var(--space-12);max-width:var(--content-default)}
+.digest-eyebrow{display:inline-flex;align-items:center;gap:var(--space-3);padding:6px 14px;background:oklch(from var(--color-text) l c h/0.04);border:1px solid oklch(from var(--color-text) l c h/0.08);border-radius:99px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.04em;color:var(--color-text-muted);margin-bottom:var(--space-6)}
+.digest-eyebrow .live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 oklch(0.7 0.18 145/0.55);animation:livePulseD 2.4s var(--ease-soft) infinite;flex-shrink:0}
+@keyframes livePulseD{0%{box-shadow:0 0 0 0 oklch(0.7 0.18 145/0.45)}70%{box-shadow:0 0 0 8px oklch(0.7 0.18 145/0)}100%{box-shadow:0 0 0 0 oklch(0.7 0.18 145/0)}}
+.digest-eyebrow .sep{color:var(--color-text-faint)}
+.digest-h1{font-family:var(--font-display);font-size:clamp(2.25rem,1.4rem + 3.2vw,4rem);letter-spacing:-0.025em;line-height:1.04;color:var(--color-text);margin-bottom:var(--space-6);max-width:18ch}
+.digest-h1 em{font-style:italic;color:var(--color-gold)}
+.digest-lede{font-size:var(--text-lg);color:var(--color-text-muted);line-height:1.6;max-width:60ch;margin-bottom:var(--space-8)}
+.digest-lede strong{color:var(--color-text);font-weight:500}
+.digest-meta{font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-text-faint);font-family:var(--font-body);display:flex;gap:var(--space-5);flex-wrap:wrap;align-items:center}
+.digest-meta strong{color:var(--color-text-muted);font-weight:500}
+.digest-meta .sep{color:var(--color-text-faint)}
+
+/* Stats strip — re-uses home pattern */
+.digest-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4) var(--space-8);align-items:end;margin:var(--space-10) 0 var(--space-12);padding:var(--space-8) 0;border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider)}
+.digest-stat{position:relative;padding-top:var(--space-3)}
+.digest-stat::before{content:"";position:absolute;top:0;left:0;width:24px;height:1px;background:var(--color-gold)}
+.digest-stat-num{font-family:var(--font-mono);font-weight:500;font-size:clamp(1.75rem,1rem + 2vw,2.5rem);line-height:1;letter-spacing:-0.03em;color:var(--color-text);font-variant-numeric:tabular-nums;display:block;margin-bottom:var(--space-2)}
+.digest-stat-label{font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--color-text-muted);line-height:1.4;max-width:18ch}
+@media(max-width:768px){.digest-stats{grid-template-columns:repeat(2,1fr);gap:var(--space-6)}}
+
+/* Filter bar */
+.filter-bar{display:flex;gap:var(--space-2) var(--space-3);flex-wrap:wrap;align-items:center;margin-bottom:var(--space-8);padding-bottom:var(--space-5);border-bottom:1px solid var(--color-divider)}
+.filter-label{font-size:var(--text-xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--color-text-faint);font-family:var(--font-body);font-weight:500;margin-right:var(--space-2)}
+.filter-chip{font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:0.05em;padding:6px 14px;background:transparent;border:1px solid var(--color-border);border-radius:99px;color:var(--color-text-muted);cursor:pointer;transition:all var(--transition);text-transform:uppercase;font-weight:500}
+.filter-chip:hover{border-color:oklch(from var(--color-gold) l c h/0.4);color:var(--color-text)}
+.filter-chip[aria-pressed="true"]{background:oklch(from var(--color-gold) l c h/0.08);border-color:oklch(from var(--color-gold) l c h/0.4);color:var(--color-gold)}
+.filter-spacer{flex:1}
+.filter-count{font-size:var(--text-xs);color:var(--color-text-faint);font-family:var(--font-mono);letter-spacing:0.04em;font-variant-numeric:tabular-nums}
+
+/* Digest grid */
+.digest-grid{display:grid;grid-template-columns:1fr 280px;gap:var(--space-12);align-items:start}
+@media(max-width:1000px){.digest-grid{grid-template-columns:1fr}}
+
+/* Call card */
+.calls{display:flex;flex-direction:column;gap:var(--space-5)}
+.call{padding:var(--space-6) var(--space-8);background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg);transition:border-color var(--transition),transform var(--transition);position:relative}
+.call:hover{border-color:oklch(from var(--color-gold) l c h/0.25);transform:translateY(-1px)}
+.call[data-flag="desk"]{border-left:3px solid var(--color-gold);padding-left:calc(var(--space-8) - 3px)}
+.call[data-flag="model"]{border-left:3px solid oklch(from var(--color-gold) l c h/0.4);padding-left:calc(var(--space-8) - 3px)}
+.call-head{display:flex;align-items:baseline;gap:var(--space-4);margin-bottom:var(--space-3);flex-wrap:wrap}
+.call-tkr{font-family:var(--font-mono);font-weight:500;font-size:var(--text-base);color:var(--color-gold);letter-spacing:0;font-variant-numeric:tabular-nums}
+.call-name{font-family:var(--font-display);font-size:var(--text-base);color:var(--color-text);line-height:1.3}
+.call-sector{font-size:var(--text-xs);letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-faint);font-family:var(--font-body)}
+.call-meta-spacer{flex:1}
+.call-date{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.04em;font-variant-numeric:tabular-nums}
+.call-flag{display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);letter-spacing:0.1em;text-transform:uppercase;font-family:var(--font-body);font-weight:500;padding:3px 10px;border-radius:99px}
+.call-flag.desk{background:oklch(from var(--color-gold) l c h/0.12);color:var(--color-gold);border:1px solid oklch(from var(--color-gold) l c h/0.3)}
+.call-flag.model{color:var(--color-gold);border:1px solid oklch(from var(--color-gold) l c h/0.3)}
+.call-summary{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin:var(--space-3) 0;max-width:none}
+.call-summary strong{color:var(--color-text);font-weight:500}
+.call-summary em{font-style:italic;color:var(--color-text)}
+.call-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3) var(--space-6);margin-top:var(--space-4);padding-top:var(--space-4);border-top:1px solid oklch(from var(--color-text) l c h/0.05);font-family:var(--font-body);font-size:var(--text-xs)}
+.call-row dt{color:var(--color-text-faint);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:2px}
+.call-row dd{margin:0;color:var(--color-text);font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:var(--text-sm)}
+.call-foot{display:flex;align-items:center;gap:var(--space-4);margin-top:var(--space-5);padding-top:var(--space-4);border-top:1px solid oklch(from var(--color-text) l c h/0.05);font-size:var(--text-xs);font-family:var(--font-body);flex-wrap:wrap}
+.call-foot a{color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:1px;letter-spacing:0.04em}
+.call-foot a:hover{border-color:var(--color-gold)}
+.call-foot .duration{color:var(--color-text-faint);font-family:var(--font-mono);letter-spacing:0.04em}
+.call-foot .sep{color:var(--color-text-faint)}
+.call-model-note{margin-top:var(--space-4);padding:var(--space-4) var(--space-5);background:oklch(from var(--color-gold) l c h/0.05);border:1px solid oklch(from var(--color-gold) l c h/0.18);border-radius:var(--radius-md);font-size:var(--text-xs);color:var(--color-text);line-height:1.6;font-family:var(--font-body)}
+.call-model-note .label{display:block;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-gold);font-weight:500;margin-bottom:var(--space-2)}
+@media(max-width:600px){.call{padding:var(--space-5)}.call[data-flag="desk"],.call[data-flag="model"]{padding-left:calc(var(--space-5) - 3px)}.call-row{grid-template-columns:1fr}}
+
+/* Sidebar rail */
+.digest-rail{position:sticky;top:calc(var(--space-16) + 24px);display:flex;flex-direction:column;gap:var(--space-6);align-self:start}
+.rail-card{padding:var(--space-6);background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg);font-family:var(--font-body)}
+.rail-card-cap{font-size:var(--text-xs);letter-spacing:0.15em;text-transform:uppercase;color:var(--color-gold);font-weight:500;margin-bottom:var(--space-3)}
+.rail-card h3{font-family:var(--font-display);font-size:var(--text-base);color:var(--color-text);margin-bottom:var(--space-3);line-height:1.3}
+.rail-card p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;margin-bottom:var(--space-3)}
+.rail-card p:last-child{margin-bottom:0}
+.rail-card a{color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:1px}
+.rail-card a:hover{border-color:var(--color-gold)}
+.rail-list{list-style:none;padding:0;margin:0;font-size:var(--text-xs)}
+.rail-list li{padding:var(--space-2) 0;border-bottom:1px solid oklch(from var(--color-text) l c h/0.05);display:flex;justify-content:space-between;gap:var(--space-3);color:var(--color-text-muted);letter-spacing:0.04em}
+.rail-list li:last-child{border-bottom:none}
+.rail-list li strong{color:var(--color-text);font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-weight:500}
+@media(max-width:1000px){.digest-rail{position:relative;top:auto}}
+
+/* Empty state when filter has no results */
+.empty{padding:var(--space-12) var(--space-8);text-align:center;color:var(--color-text-muted);font-family:var(--font-body);border:1px dashed oklch(from var(--color-text) l c h/0.15);border-radius:var(--radius-lg);display:none}
+.empty.show{display:block}
+
+/* Methodology */
+.digest-methodology{margin:var(--space-16) 0 var(--space-8);padding:var(--space-6);border:1px dashed oklch(from var(--color-text) l c h/0.15);border-radius:var(--radius-lg)}
+.digest-methodology summary{font-family:var(--font-body);font-size:var(--text-sm);color:var(--color-text-muted);cursor:pointer;letter-spacing:0.04em;list-style:none;display:flex;align-items:center;gap:var(--space-3);user-select:none}
+.digest-methodology summary::-webkit-details-marker{display:none}
+.digest-methodology summary::before{content:"+";font-family:var(--font-mono);color:var(--color-gold);font-size:var(--text-base);transition:transform 200ms var(--ease-soft);display:inline-block;width:14px}
+.digest-methodology[open] summary::before{content:"−"}
+.digest-methodology summary:hover{color:var(--color-text)}
+.digest-methodology .body{padding-top:var(--space-5);font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7}
+.digest-methodology .body p{margin-bottom:var(--space-3);max-width:64ch}
+.digest-methodology .body strong{color:var(--color-text);font-weight:500}
+.digest-methodology .body ul{list-style:none;padding:0;margin:var(--space-3) 0}
+.digest-methodology .body ul li{padding-left:var(--space-5);position:relative;margin-bottom:var(--space-2)}
+.digest-methodology .body ul li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:1px;background:var(--color-gold)}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav>
+  <a href="/" class="nav-logo" aria-label="Halvren Capital — home">
+    <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="4" fill="none"/>
+      <path d="M6 6 L6 26 M6 16 L16 16 M16 6 L16 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 6 L20 26 M20 6 L28 16 L20 26" stroke="var(--color-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-logo-name">Halvren Capital</span>
+  </a>
+  <div class="nav-links" id="nav-links" data-open="false">
+    <a href="/research">Research</a>
+    <a href="/letters">Letters</a>
+    <a href="/process">Process</a>
+    <a href="/access">Access</a>
+    <a href="/about">About</a>
+  </div>
+  <div class="nav-right">
+    <a href="/" class="nav-back">Back to home</a>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" type="button">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-controls="nav-links" aria-expanded="false" type="button">
+      <span class="nav-toggle-open"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>
+      <span class="nav-toggle-close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></span>
+    </button>
+  </div>
+</nav>
+
+<main id="main" class="digest-main">
+  <p class="doc-breadcrumb"><a href="/">Home</a><span class="doc-breadcrumb-sep">/</span><span>Digest</span></p>
+
+  <header class="digest-hero">
+    <p class="digest-eyebrow"><span class="live-dot"></span><span>Live ingest</span><span class="sep">·</span><span>Updated Apr 29, 2026</span><span class="sep">·</span><span>Week 18</span></p>
+    <h1 class="digest-h1">What the desk is reading <em>this week.</em></h1>
+    <p class="digest-lede">Every Canadian and U.S. operator on the Halvren coverage list that reported this week. <strong>Models read at scale and summarize.</strong> The principal flags the names that earn a deeper read. Updated weekly.</p>
+    <p class="digest-meta">
+      <span><strong>Universe:</strong> 31 operators</span>
+      <span class="sep">·</span>
+      <span><strong>Source:</strong> SEDAR+ &middot; SEC EDGAR &middot; transcript feeds</span>
+      <span class="sep">·</span>
+      <span><strong>Cadence:</strong> Weekly during earnings seasons</span>
+    </p>
+  </header>
+
+  <section class="digest-stats" aria-label="This week in numbers">
+    <div class="digest-stat"><span class="digest-stat-num">8</span><p class="digest-stat-label">Calls processed this week</p></div>
+    <div class="digest-stat"><span class="digest-stat-num">31</span><p class="digest-stat-label">Operators in the universe</p></div>
+    <div class="digest-stat"><span class="digest-stat-num">3</span><p class="digest-stat-label">Names the model flagged</p></div>
+    <div class="digest-stat"><span class="digest-stat-num">2</span><p class="digest-stat-label">On the principal's desk</p></div>
+  </section>
+
+  <div class="filter-bar" role="toolbar" aria-label="Filter the digest">
+    <span class="filter-label">Filter</span>
+    <button class="filter-chip" data-filter="all" aria-pressed="true" type="button">All</button>
+    <button class="filter-chip" data-filter="energy" aria-pressed="false" type="button">Energy</button>
+    <button class="filter-chip" data-filter="materials" aria-pressed="false" type="button">Materials</button>
+    <button class="filter-chip" data-filter="infrastructure" aria-pressed="false" type="button">Infrastructure</button>
+    <button class="filter-chip" data-filter="flagged" aria-pressed="false" type="button">Flagged only</button>
+    <span class="filter-spacer"></span>
+    <span class="filter-count" data-call-count>8 of 8</span>
+  </div>
+
+  <div class="digest-grid">
+    <section class="calls" id="calls" aria-label="Operator earnings-call summaries">
+
+      <article class="call" data-sector="energy" data-flag="desk">
+        <div class="call-head">
+          <span class="call-tkr">CNQ</span>
+          <span class="call-name">Canadian Natural Resources</span>
+          <span class="call-sector">Oil &amp; Gas</span>
+          <span class="call-meta-spacer"></span>
+          <span class="call-date">Apr 28</span>
+          <span class="call-flag desk">On the desk</span>
+        </div>
+        <p class="call-summary">Q1 2026 production of <strong>1,592 MBOE/d</strong>, ahead of consensus on AOSP synergy capture and stronger Horizon throughput. <strong>Adjusted funds flow C$3.92B</strong>; capital returns of <strong>C$2.3B</strong> in the quarter (dividend + buyback). Management reiterated 2026 capex at the lower end of guidance and reaffirmed the dividend trajectory. Tone on the call: confident, deliberate, no surprises in language.</p>
+        <dl class="call-row">
+          <div><dt>Production</dt><dd>1,592 MBOE/d</dd></div>
+          <div><dt>Adj. funds flow</dt><dd>C$3.92B</dd></div>
+          <div><dt>Capital returns</dt><dd>C$2.3B</dd></div>
+          <div><dt>2026 capex</dt><dd>guidance low end</dd></div>
+        </dl>
+        <div class="call-model-note">
+          <span class="label">Why the desk reads it</span>
+          AOSP run-rate is the cleanest test of the 2024 acquisition thesis. Q1 is the first full quarter at the integrated cost curve. Watch sustaining-capex-to-funds-flow ratio.
+        </div>
+        <div class="call-foot">
+          <a href="/research/canadian-natural-cnq">Halvren writeup &rarr;</a>
+          <span class="sep">·</span>
+          <span class="duration">Call: 62m · Q&amp;A: 38m</span>
+        </div>
+      </article>
+
+      <article class="call" data-sector="infrastructure" data-flag="model">
+        <div class="call-head">
+          <span class="call-tkr">ENB</span>
+          <span class="call-name">Enbridge</span>
+          <span class="call-sector">Infrastructure</span>
+          <span class="call-meta-spacer"></span>
+          <span class="call-date">Apr 28</span>
+          <span class="call-flag model">Model flagged</span>
+        </div>
+        <p class="call-summary">Q1 EBITDA <strong>~C$5.4B</strong>, in line with internal estimates; DCF/share tracking near the midpoint of FY 2026 guidance. <strong>Mainline apportionment for April averaged 6%</strong>, consistent with the post-TMX read in our <a href="/letters/three-questions-2025">field note</a>. Dominion gas-utility integration on track; first integrated rate case (Ohio) filed in March. CFO explicitly addressed the per-share dividend question on the Q&amp;A — <em>that is the part the model flagged.</em></p>
+        <dl class="call-row">
+          <div><dt>Adj. EBITDA</dt><dd>~C$5.4B</dd></div>
+          <div><dt>Mainline apportionment</dt><dd>6% (Apr)</dd></div>
+          <div><dt>Backlog secured</dt><dd>~C$28B</dd></div>
+          <div><dt>Leverage trajectory</dt><dd>4.7x → 4.6x</dd></div>
+        </dl>
+        <div class="call-model-note">
+          <span class="label">Model flag</span>
+          CFO addressed dilution from Dominion equity issuance directly in the Q&amp;A. Language and emphasis suggest 2026 will be the year per-share metrics turn back positive. Worth a careful re-read of the 14:00 mark.
+        </div>
+        <div class="call-foot">
+          <a href="/research/enbridge-enb">Halvren writeup &rarr;</a>
+          <span class="sep">·</span>
+          <span class="duration">Call: 71m · Q&amp;A: 44m</span>
+        </div>
+      </article>
+
+      <article class="call" data-sector="energy">
+        <div class="call-head">
+          <span class="call-tkr">SU</span>
+          <span class="call-name">Suncor Energy</span>
+          <span class="call-sector">Oil &amp; Gas</span>
+          <span class="call-meta-spacer"></span>
+          <span class="call-date">Apr 28</span>
+        </div>
+        <p class="call-summary">Q1 production of <strong>867 Mbbl/d</strong>; refining utilization of <strong>~98%</strong>. Buyback continues at the upper end of management's stated range — about <strong>C$725M</strong> repurchased in the quarter. Operating cost per barrel improved YoY for the fourth consecutive quarter. Call language continues to emphasize per-share value over absolute production growth.</p>
+        <dl class="call-row">
+          <div><dt>Production</dt><dd>867 Mbbl/d</dd></div>
+          <div><dt>Refining utilization</dt><dd>~98%</dd></div>
+          <div><dt>Buyback (Q1)</dt><dd>C$725M</dd></div>
+          <div><dt>Op cost / bbl</dt><dd>↓ YoY (4Q)</dd></div>
+        </dl>
+        <div class="call-foot">
+          <span class="duration">Call: 58m · Q&amp;A: 32m</span>
+        </div>
+      </article>
+
+      <article class="call" data-sector="energy" data-flag="model">
+        <div class="call-head">
+          <span class="call-tkr">CCO</span>
+          <span class="call-name">Cameco</span>
+          <span class="call-sector">Uranium</span>
+          <span class="call-meta-spacer"></span>
+          <span class="call-date">Apr 29</span>
+          <span class="call-flag model">Model flagged</span>
+        </div>
+        <p class="call-summary">McArthur River / Key Lake delivered <strong>5.2 Mlbs U₃O₈</strong> in the quarter — ahead of pace for full-year guidance. Westinghouse contribution stable; new long-term contracts signed in the quarter at <strong>realized prices in the high-US$70s/lb</strong>. The model flagged tone of the contract-book commentary: management's vocabulary on long-term realized pricing has tightened relative to FY 2025.</p>
+        <dl class="call-row">
+          <div><dt>U₃O₈ production</dt><dd>5.2 Mlbs</dd></div>
+          <div><dt>Realized price</dt><dd>~US$78/lb</dd></div>
+          <div><dt>Net debt</dt><dd>negative (cash &gt; debt)</dd></div>
+          <div><dt>Westinghouse</dt><dd>49% (stable)</dd></div>
+        </dl>
+        <div class="call-model-note">
+          <span class="label">Model flag</span>
+          Sentiment shift detected in the contract-book section — fewer hedging qualifiers, more directional language on long-term price floors. May indicate management is willing to lock more of the term book at current strip.
+        </div>
+        <div class="call-foot">
+          <a href="/research/cameco-cco">Halvren writeup &rarr;</a>
+          <span class="sep">·</span>
+          <span class="duration">Call: 54m · Q&amp;A: 28m</span>
+        </div>
+      </article>
+
+      <article class="call" data-sector="energy">
+        <div class="call-head">
+          <span class="call-tkr">TOU</span>
+          <span class="call-name">Tourmaline Oil</span>
+          <span class="call-sector">Natural Gas</span>
+          <span class="call-meta-spacer"></span>
+          <span class="call-date">Apr 29</span>
+        </div>
+        <p class="call-summary">Q1 Montney production of <strong>695 MBOE/d</strong>, +6% YoY. Free cash flow remains the Canadian gas benchmark. Special dividend declared <strong>C$0.50/sh</strong>. Capital flexibility continues to favour LNG-tied takeaway optionality. Mike Rose's commentary on AECO basis and structural narrowing continues to be the single most-quoted operator opinion on Canadian gas.</p>
+        <dl class="call-row">
+          <div><dt>Production</dt><dd>695 MBOE/d</dd></div>
+          <div><dt>Special dividend</dt><dd>C$0.50/sh</dd></div>
+          <div><dt>Net debt</dt><dd>~C$1.4B</dd></div>
+          <div><dt>2026 guidance</dt><dd>raised low-end</dd></div>
+        </dl>
+        <div class="call-foot">
+          <span class="duration">Call: 49m · Q&amp;A: 34m</span>
+        </div>
+      </article>
+
+      <article class="call" data-sector="materials">
+        <div class="call-head">
+          <span class="call-tkr">NTR</span>
+          <span class="call-name">Nutrien</span>
+          <span class="call-sector">Fertilizers</span>
+          <span class="call-meta-spacer"></span>
+          <span class="call-date">Apr 29</span>
+        </div>
+        <p class="call-summary">Q1 Adj. EBITDA <strong>US$1.31B</strong>; potash volumes ahead of plan, nitrogen pricing recovering off Q4 trough. <strong>US$170M</strong> of buybacks executed in the quarter; balance sheet under management's target leverage. Spring application season setting up favourably across North American Retail; international potash spot pricing flat sequentially.</p>
+        <dl class="call-row">
+          <div><dt>Adj. EBITDA</dt><dd>US$1.31B</dd></div>
+          <div><dt>Buyback (Q1)</dt><dd>US$170M</dd></div>
+          <div><dt>Potash volumes</dt><dd>ahead of plan</dd></div>
+          <div><dt>Net debt / EBITDA</dt><dd>1.6x</dd></div>
+        </dl>
+        <div class="call-foot">
+          <a href="/research/nutrien-ntr">Halvren writeup &rarr;</a>
+          <span class="sep">·</span>
+          <span class="duration">Call: 64m · Q&amp;A: 40m</span>
+        </div>
+      </article>
+
+      <article class="call" data-sector="energy">
+        <div class="call-head">
+          <span class="call-tkr">EOG</span>
+          <span class="call-name">EOG Resources</span>
+          <span class="call-sector">U.S. Oil &amp; Gas</span>
+          <span class="call-meta-spacer"></span>
+          <span class="call-date">Apr 29</span>
+        </div>
+        <p class="call-summary">Q1 production <strong>1,143 MBOE/d</strong>, beating the high end of guidance. Capital efficiency continues to lead the U.S. independent peer group. Buyback program at <strong>~US$590M</strong> for the quarter; net debt now near a decade low. Management commentary emphasized capital discipline and a notable absence of M&amp;A intent — counter to the consolidation narrative dominating U.S. shale headlines.</p>
+        <dl class="call-row">
+          <div><dt>Production</dt><dd>1,143 MBOE/d</dd></div>
+          <div><dt>Buyback (Q1)</dt><dd>US$590M</dd></div>
+          <div><dt>Capex / EBITDA</dt><dd>~38%</dd></div>
+          <div><dt>Net debt</dt><dd>decade low</dd></div>
+        </dl>
+        <div class="call-foot">
+          <span class="duration">Call: 68m · Q&amp;A: 39m</span>
+          <span class="sep">·</span>
+          <a href="/coverage">U.S. coverage &rarr;</a>
+        </div>
+      </article>
+
+      <article class="call" data-sector="materials" data-flag="model">
+        <div class="call-head">
+          <span class="call-tkr">AG</span>
+          <span class="call-name">First Majestic Silver</span>
+          <span class="call-sector">Silver</span>
+          <span class="call-meta-spacer"></span>
+          <span class="call-date">Apr 29</span>
+          <span class="call-flag model">Model flagged</span>
+        </div>
+        <p class="call-summary">Q1 revenue <strong>US$348M</strong>, AISC at <strong>US$22.40/AgEq oz</strong> (modestly above FY 2025 average). Silver realized price strength continues; production volumes flat sequentially. The model flagged a meaningful change in tax-language emphasis on the Mexico operations, in line with the Halvren research thesis on the jurisdiction overhang.</p>
+        <dl class="call-row">
+          <div><dt>Revenue</dt><dd>US$348M</dd></div>
+          <div><dt>AISC / AgEq oz</dt><dd>US$22.40</dd></div>
+          <div><dt>Realized price</dt><dd>US$43.10/oz</dd></div>
+          <div><dt>Production</dt><dd>flat QoQ</dd></div>
+        </dl>
+        <div class="call-model-note">
+          <span class="label">Model flag</span>
+          Mexico tax-and-royalty discussion length ~2.4× longer than FY 2025 calls. Specific reference to "ongoing dialogue" and "jurisdictional clarity" represents a tonal change worth a careful read.
+        </div>
+        <div class="call-foot">
+          <a href="/research/first-majestic-ag">Halvren writeup &rarr;</a>
+          <span class="sep">·</span>
+          <span class="duration">Call: 51m · Q&amp;A: 31m</span>
+        </div>
+      </article>
+
+      <div class="empty" data-empty>No calls in this filter this week. Try <button class="filter-chip" data-filter-reset type="button" style="display:inline-block;margin:0 6px">All</button>.</div>
+    </section>
+
+    <aside class="digest-rail" aria-label="About the digest">
+      <div class="rail-card">
+        <p class="rail-card-cap">About the digest</p>
+        <h3>Machine breadth, before the desk reads.</h3>
+        <p>Every Canadian and U.S. operator on the Halvren <a href="/coverage">coverage list</a> gets read at scale by AI when an earnings call is filed. The model summarizes, surfaces the key metric, and flags tonal or substantive changes worth a closer human read. The principal then chooses what to study.</p>
+        <p>Free. Public. Updated weekly through earnings seasons. <a href="/process">How the desk works.</a></p>
+      </div>
+
+      <div class="rail-card">
+        <p class="rail-card-cap">This week's flags</p>
+        <ul class="rail-list">
+          <li><span><strong>ENB</strong> &middot; CFO Q&amp;A</span><span style="color:var(--color-gold)">model</span></li>
+          <li><span><strong>CCO</strong> &middot; Contract-book tone</span><span style="color:var(--color-gold)">model</span></li>
+          <li><span><strong>AG</strong> &middot; Mexico tax</span><span style="color:var(--color-gold)">model</span></li>
+          <li><span><strong>CNQ</strong> &middot; AOSP run-rate</span><span style="color:var(--color-gold)">desk</span></li>
+        </ul>
+      </div>
+
+      <div class="rail-card">
+        <p class="rail-card-cap">Next week</p>
+        <h3>On the calendar.</h3>
+        <p>Imperial Oil &middot; TC Energy &middot; CF Industries &middot; Newmont &middot; Williams &middot; ConocoPhillips &middot; Kinder Morgan. The model runs the same pipeline; the principal flags what earns the read.</p>
+      </div>
+
+      <aside class="subscribe" data-subscribe style="margin:0">
+        <p class="subscribe-eyebrow">Get the digest</p>
+        <h2 class="subscribe-h" style="font-size:var(--text-base)">Each Friday in your <em>inbox.</em></h2>
+        <p class="subscribe-p">A one-page summary every Friday during earnings seasons. Free.</p>
+        <form class="subscribe-form" action="https://substack.com/@halvrencapital/subscribe" method="get" target="_blank" data-subscribe-form>
+          <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" class="subscribe-input" aria-label="Your email address">
+          <button type="submit" class="subscribe-btn">Get it</button>
+        </form>
+        <p class="subscribe-success" data-subscribe-success>Sent. Confirm in the Substack tab.</p>
+      </aside>
+    </aside>
+  </div>
+
+  <details class="digest-methodology">
+    <summary>Methodology &amp; what this is not</summary>
+    <div class="body">
+      <p><strong>Pipeline.</strong> Every name on the <a href="/coverage">coverage universe</a> is monitored for earnings-call filings via SEDAR+ and SEC EDGAR feeds. When a call is published, the transcript and associated press release are ingested. Models extract structured data (production, EBITDA, capex, balance sheet) and produce a one-paragraph summary. A second model pass compares language against the operator's prior four calls and flags meaningful tonal or structural changes for principal review.</p>
+      <p><strong>What gets flagged.</strong> Two categories: <strong>model flags</strong> (statistical change in language or emphasis) and <strong>desk reads</strong> (the principal has chosen this name for active study this quarter). Both are visible. Both are signal.</p>
+      <p><strong>What this is not.</strong></p>
+      <ul>
+        <li>Not a recommendation, solicitation, or price call on any name listed.</li>
+        <li>Not a substitute for reading the filings or listening to the call.</li>
+        <li>Not portfolio commentary; Halvren's holdings are proprietary and undisclosed at the position level.</li>
+        <li>Not high-frequency or algorithmically traded. The digest is read by a human before publication.</li>
+      </ul>
+      <p><strong>Cadence.</strong> Weekly during earnings seasons (roughly four windows a year, each running 4–6 weeks). Lightweight or paused outside those windows. The full universe and methodology live on <a href="/process">how the desk works</a>.</p>
+      <p><strong>Errors.</strong> Numbers are rounded for legibility and may differ slightly from the audited filings. Where the digest and the filing disagree, the filing wins. Tell us if you spot a material error: <a href="mailto:amirali@halvrencapital.com">amirali@halvrencapital.com</a>.</p>
+    </div>
+  </details>
+
+  <p style="margin-top:var(--space-12)"><a href="/coverage" style="font-size:var(--text-sm);color:var(--color-gold);border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:2px;font-family:var(--font-body)">See the full coverage universe &rarr;</a></p>
+</main>
+
+<footer>
+  <div class="footer-trust">
+    <span class="footer-trust-item">Canadian &amp; U.S. markets</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">AI-augmented &middot; human-reviewed</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">Proprietary capital</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">Public research is free</span>
+  </div>
+  <div class="footer-inner">
+    <div class="footer-brand">Halvren Capital<span>Vancouver, BC · Est. 2025</span></div>
+    <div class="footer-disclaimer">
+      <p>Halvren Capital publishes research and commentary for informational and educational purposes only. Nothing on this site constitutes an offer, solicitation, or recommendation to buy or sell any security.</p>
+      <p>Halvren manages proprietary capital and is not currently accepting outside investors. Halvren is not a registered investment adviser, broker-dealer, or portfolio manager. The author may hold positions in securities discussed and may transact in them at any time without notice.</p>
+    </div>
+  </div>
+  <div class="footer-inner footer-meta">
+    <span>&copy; 2025–2026 Halvren Capital. All rights reserved.</span>
+    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span>
+  </div>
+</footer>
+<script src="/nav.js" defer></script>
+<script>
+(function(){
+  // Filter chips
+  var chips=document.querySelectorAll('.filter-chip[data-filter]');
+  var calls=document.querySelectorAll('.call');
+  var empty=document.querySelector('[data-empty]');
+  var counter=document.querySelector('[data-call-count]');
+  var total=calls.length;
+  function applyFilter(filter){
+    var visible=0;
+    calls.forEach(function(c){
+      var sector=c.getAttribute('data-sector');
+      var flag=c.getAttribute('data-flag');
+      var show=(filter==='all')||(filter==='flagged'&&flag)||(sector===filter);
+      c.style.display=show?'':'none';
+      if(show)visible++;
+    });
+    if(empty)empty.classList.toggle('show',visible===0);
+    if(counter)counter.textContent=visible+' of '+total;
+  }
+  chips.forEach(function(b){
+    b.addEventListener('click',function(){
+      chips.forEach(function(o){o.setAttribute('aria-pressed','false')});
+      b.setAttribute('aria-pressed','true');
+      applyFilter(b.getAttribute('data-filter'));
+    });
+  });
+  document.querySelectorAll('[data-filter-reset]').forEach(function(b){
+    b.addEventListener('click',function(){
+      chips.forEach(function(o){o.setAttribute('aria-pressed',o.getAttribute('data-filter')==='all'?'true':'false')});
+      applyFilter('all');
+    });
+  });
+
+  // Subscribe form
+  document.querySelectorAll('[data-subscribe-form]').forEach(function(form){
+    form.addEventListener('submit',function(e){
+      var input=form.querySelector('input[type="email"]');
+      var email=input&&input.value?input.value.trim():'';
+      if(!email)return;
+      e.preventDefault();
+      window.open('https://substack.com/@halvrencapital/subscribe?email='+encodeURIComponent(email),'_blank','noopener,noreferrer');
+      var s=form.closest('[data-subscribe]');
+      if(s)s.classList.add('sent');
+      input.value='';
+    });
+  });
+})();
+</script>
+</body>
+</html>
