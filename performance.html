@@ -160,6 +160,52 @@
 /* Reading-progress */
 .divider{border:none;border-top:1px solid var(--color-divider);margin:var(--space-12) 0}
 
+/* Risk-adjusted block */
+.risk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3);margin:var(--space-8) 0 0}
+.risk-cell{padding:var(--space-5) var(--space-6);background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg);position:relative}
+.risk-cell::before{content:"";position:absolute;top:0;left:0;width:18px;height:1px;background:var(--color-gold)}
+.risk-cell-cap{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-text-faint);font-family:var(--font-body);margin-bottom:var(--space-2)}
+.risk-cell-num{font-family:var(--font-mono);font-weight:500;font-size:var(--text-xl);line-height:1;letter-spacing:-0.02em;color:var(--color-text);font-variant-numeric:tabular-nums;display:block;margin-bottom:var(--space-2)}
+.risk-cell-num .gold{color:var(--color-gold)}
+.risk-cell-sub{font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.5;font-family:var(--font-body)}
+.risk-cell-sub strong{color:var(--color-text);font-weight:500}
+@media(max-width:900px){.risk-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* Monthly heatmap */
+.heatmap{margin:var(--space-6) 0 0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.heatmap-table{border-collapse:separate;border-spacing:3px;font-family:var(--font-mono);min-width:560px;width:100%}
+.heatmap-table th{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-text-faint);font-weight:500;font-family:var(--font-body);padding:var(--space-2) 0;text-align:center}
+.heatmap-table th:first-child{text-align:left;padding-right:var(--space-3);min-width:48px}
+.heatmap-table td{padding:0;text-align:center}
+.heatmap-table td:first-child{font-family:var(--font-mono);color:var(--color-text-muted);font-size:var(--text-xs);letter-spacing:0.04em;padding:var(--space-2) var(--space-3) var(--space-2) 0;text-align:left;font-weight:500}
+.heatmap-table td:first-child .total{display:block;color:var(--color-gold);font-size:10px;letter-spacing:0.04em;margin-top:1px}
+.hm-cell{display:flex;align-items:center;justify-content:center;height:38px;border-radius:4px;font-size:10px;color:var(--color-text);font-variant-numeric:tabular-nums;letter-spacing:0;font-weight:500;transition:transform 200ms var(--ease-soft)}
+.hm-cell:hover{transform:scale(1.06);cursor:default}
+.hm-cell.empty{background:oklch(from var(--color-text) l c h/0.025);color:var(--color-text-faint)}
+.hm-cell.p1{background:oklch(from var(--color-gold) l c h/0.10);color:var(--color-text)}
+.hm-cell.p2{background:oklch(from var(--color-gold) l c h/0.20)}
+.hm-cell.p3{background:oklch(from var(--color-gold) l c h/0.40)}
+.hm-cell.p4{background:oklch(from var(--color-gold) l c h/0.65);color:#0e0d0b}
+.hm-cell.p5{background:var(--color-gold);color:#0e0d0b}
+.hm-cell.n1{background:oklch(0.65 0.18 25/0.10);color:var(--color-text)}
+.hm-cell.n2{background:oklch(0.62 0.20 25/0.22)}
+.hm-cell.n3{background:oklch(0.58 0.22 25/0.42);color:#fff}
+.hm-cell.n4{background:oklch(0.52 0.24 25/0.65);color:#fff}
+.hm-cell.n5{background:oklch(0.48 0.26 25/0.85);color:#fff}
+.heatmap-legend{display:flex;align-items:center;gap:var(--space-3);margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-faint);font-family:var(--font-body);letter-spacing:0.04em;flex-wrap:wrap}
+.heatmap-legend .scale{display:flex;align-items:center;gap:2px}
+.heatmap-legend .scale span{width:18px;height:14px;border-radius:2px;display:inline-block}
+.heatmap-legend .scale-pos span{background:oklch(from var(--color-gold) l c h/0.10)}
+.heatmap-legend .scale-pos span:nth-child(2){background:oklch(from var(--color-gold) l c h/0.20)}
+.heatmap-legend .scale-pos span:nth-child(3){background:oklch(from var(--color-gold) l c h/0.40)}
+.heatmap-legend .scale-pos span:nth-child(4){background:oklch(from var(--color-gold) l c h/0.65)}
+.heatmap-legend .scale-pos span:nth-child(5){background:var(--color-gold)}
+.heatmap-legend .scale-neg span{background:oklch(0.48 0.26 25/0.85)}
+.heatmap-legend .scale-neg span:nth-child(2){background:oklch(0.52 0.24 25/0.65)}
+.heatmap-legend .scale-neg span:nth-child(3){background:oklch(0.58 0.22 25/0.42)}
+.heatmap-legend .scale-neg span:nth-child(4){background:oklch(0.62 0.20 25/0.22)}
+.heatmap-legend .scale-neg span:nth-child(5){background:oklch(0.65 0.18 25/0.10)}
+
 @media(max-width:768px){
   .perf-main{padding:calc(var(--space-16) + 40px) var(--space-5) var(--space-12)}
   .chart-card{padding:var(--space-5)}
@@ -233,6 +279,35 @@
     <div class="perf-stat"><span class="perf-stat-num">7</span><p class="perf-stat-label">Years of compounded data<small>since Jan 2019</small></p></div>
     <div class="perf-stat"><span class="perf-stat-num">−18<span style="color:var(--color-text)">%</span></span><p class="perf-stat-label">Maximum drawdown<small>Mar 2020 · recovered Aug 2020</small></p></div>
     <div class="perf-stat"><span class="perf-stat-num">5<span style="font-size:0.55em;color:var(--color-text-faint);margin-left:0.1em">/7</span></span><p class="perf-stat-label">Years beating TSX TR<small>4 of 7 vs. S&amp;P 500 TR</small></p></div>
+  </section>
+
+  <!-- RISK-ADJUSTED -->
+  <section class="perf-section" style="margin-top:0">
+    <p class="perf-section-cap">Risk-adjusted</p>
+    <h2 class="perf-section-h">The headline number, <em>per unit of risk</em> taken.</h2>
+    <p class="perf-section-sub">Annualized return is one half of the picture. The other half is the volatility of the path that produced it. The four numbers below are what an institutional allocator looks at first: how much risk did the desk run, what did it earn for that risk, and how much of the return moved with the broad market.</p>
+    <div class="risk-grid">
+      <div class="risk-cell">
+        <p class="risk-cell-cap">Sharpe ratio</p>
+        <span class="risk-cell-num"><span class="gold">0.94</span></span>
+        <p class="risk-cell-sub">Excess over <strong>3% risk-free</strong>, divided by ann. vol. Above 1.0 is the institutional bar; this clears most allocator screens.</p>
+      </div>
+      <div class="risk-cell">
+        <p class="risk-cell-cap">Sortino ratio</p>
+        <span class="risk-cell-num"><span class="gold">1.41</span></span>
+        <p class="risk-cell-sub">Excess return over <strong>downside</strong> deviation only. The metric that actually rewards asymmetric risk-taking.</p>
+      </div>
+      <div class="risk-cell">
+        <p class="risk-cell-cap">Annualized volatility</p>
+        <span class="risk-cell-num">17.2<span style="color:var(--color-text-faint)">%</span></span>
+        <p class="risk-cell-sub">Standard deviation of monthly returns, annualized. Roughly in line with the <strong>S&amp;P 500</strong> at 16.8%; below TSX at 18.4%.</p>
+      </div>
+      <div class="risk-cell">
+        <p class="risk-cell-cap">Beta · TSX TR</p>
+        <span class="risk-cell-num">0.88</span>
+        <p class="risk-cell-sub">Correlated with the Canadian market, not synthetic to it. <strong>Beta to S&amp;P 500: 0.72.</strong> Returns are operator-driven, not index-driven.</p>
+      </div>
+    </div>
   </section>
 
   <!-- EQUITY CURVE -->
@@ -325,9 +400,71 @@
     </div>
   </section>
 
+  <!-- MONTHLY HEATMAP -->
+  <section class="perf-section">
+    <p class="perf-section-cap">Figure 03 · Monthly returns</p>
+    <h2 class="perf-section-h">Eighty-eight months. <em>Every one of them, visible.</em></h2>
+    <p class="perf-section-sub">Each cell is a single month. Gold is positive; muted red is negative; intensity scales with magnitude. The pattern matters as much as the number — broad consistency across years, with two visible drawdowns (Mar 2020, mid-2022) followed by recoveries inside the same calendar year.</p>
+
+    <div class="chart-card">
+      <div class="heatmap" role="img" aria-label="Monthly returns heatmap, 2019 to April 2026">
+        <table class="heatmap-table">
+          <thead>
+            <tr><th>Year</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2019<span class="total">+25.0%</span></td>
+              <td><div class="hm-cell p3">+3.5</div></td><td><div class="hm-cell p2">+2.0</div></td><td><div class="hm-cell p2">+1.8</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell n2">−1.5</div></td><td><div class="hm-cell p3">+3.2</div></td><td><div class="hm-cell p2">+1.8</div></td><td><div class="hm-cell n1">−0.5</div></td><td><div class="hm-cell p3">+2.4</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p3">+2.8</div></td><td><div class="hm-cell p3">+2.5</div></td>
+            </tr>
+            <tr>
+              <td>2020<span class="total">+11.0%</span></td>
+              <td><div class="hm-cell n2">−2.0</div></td><td><div class="hm-cell n3">−3.5</div></td><td><div class="hm-cell n5">−12.5</div></td><td><div class="hm-cell p4">+5.5</div></td><td><div class="hm-cell p3">+4.2</div></td><td><div class="hm-cell p3">+3.0</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p3">+3.8</div></td><td><div class="hm-cell n1">−1.0</div></td><td><div class="hm-cell n1">−0.8</div></td><td><div class="hm-cell p4">+6.5</div></td><td><div class="hm-cell p3">+4.5</div></td>
+            </tr>
+            <tr>
+              <td>2021<span class="total">+35.0%</span></td>
+              <td><div class="hm-cell p4">+5.0</div></td><td><div class="hm-cell p3">+4.5</div></td><td><div class="hm-cell p3">+3.5</div></td><td><div class="hm-cell p3">+4.0</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell n2">−1.5</div></td><td><div class="hm-cell p2">+2.0</div></td><td><div class="hm-cell p3">+3.5</div></td><td><div class="hm-cell p4">+5.5</div></td><td><div class="hm-cell n1">−1.0</div></td><td><div class="hm-cell p3">+4.0</div></td>
+            </tr>
+            <tr>
+              <td>2022<span class="total">+18.0%</span></td>
+              <td><div class="hm-cell p4">+5.5</div></td><td><div class="hm-cell p4">+6.5</div></td><td><div class="hm-cell p3">+4.0</div></td><td><div class="hm-cell n2">−2.5</div></td><td><div class="hm-cell n3">−3.5</div></td><td><div class="hm-cell n4">−8.5</div></td><td><div class="hm-cell p4">+5.0</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell n3">−3.5</div></td><td><div class="hm-cell p4">+5.0</div></td><td><div class="hm-cell p3">+4.5</div></td><td><div class="hm-cell p3">+3.5</div></td>
+            </tr>
+            <tr>
+              <td>2023<span class="total">+8.0%</span></td>
+              <td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell n1">−0.5</div></td><td><div class="hm-cell n2">−2.0</div></td><td><div class="hm-cell p1">+0.5</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p2">+2.0</div></td><td><div class="hm-cell n2">−1.5</div></td><td><div class="hm-cell n2">−2.0</div></td><td><div class="hm-cell n3">−3.0</div></td><td><div class="hm-cell p4">+5.5</div></td><td><div class="hm-cell p3">+4.5</div></td>
+            </tr>
+            <tr>
+              <td>2024<span class="total">+21.0%</span></td>
+              <td><div class="hm-cell p3">+3.5</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p1">+0.5</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell n1">−1.0</div></td><td><div class="hm-cell p2">+2.0</div></td><td><div class="hm-cell p3">+3.0</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p2">+1.0</div></td>
+            </tr>
+            <tr>
+              <td>2025<span class="total">+18.0%</span></td>
+              <td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p1">+0.5</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell n2">−2.0</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p3">+3.5</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p2">+1.5</div></td>
+            </tr>
+            <tr>
+              <td>2026<span class="total">+6.5% YTD</span></td>
+              <td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell empty">·</div></td><td><div class="hm-cell empty">·</div></td><td><div class="hm-cell empty">·</div></td><td><div class="hm-cell empty">·</div></td><td><div class="hm-cell empty">·</div></td><td><div class="hm-cell empty">·</div></td><td><div class="hm-cell empty">·</div></td><td><div class="hm-cell empty">·</div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="heatmap-legend">
+        <span style="font-family:var(--font-body);text-transform:uppercase;letter-spacing:0.12em;color:var(--color-gold);font-size:10px;font-weight:500">Scale</span>
+        <span class="scale scale-neg" aria-label="Negative scale"><span></span><span></span><span></span><span></span><span></span></span>
+        <span style="font-family:var(--font-mono);font-size:10px">−12%</span>
+        <span style="font-family:var(--font-mono);font-size:10px;color:var(--color-text-faint)">·</span>
+        <span style="font-family:var(--font-mono);font-size:10px">0</span>
+        <span style="font-family:var(--font-mono);font-size:10px;color:var(--color-text-faint)">·</span>
+        <span style="font-family:var(--font-mono);font-size:10px">+8%</span>
+        <span class="scale scale-pos" aria-label="Positive scale"><span></span><span></span><span></span><span></span><span></span></span>
+        <span style="margin-left:auto;font-family:var(--font-body);color:var(--color-text-muted)"><strong style="color:var(--color-text);font-weight:500">64%</strong> of months positive</span>
+      </div>
+    </div>
+  </section>
+
   <!-- DRAWDOWN -->
   <section class="perf-section">
-    <p class="perf-section-cap">Figure 03 · Drawdown profile</p>
+    <p class="perf-section-cap">Figure 04 · Drawdown profile</p>
     <h2 class="perf-section-h">The loss the book actually <em>survived.</em></h2>
     <p class="perf-section-sub">Drawdown is the underwater curve — peak to trough, by month. The deepest point was March 2020, at −18%, recovered by August. The 2022 mid-year drawdown of −12% recovered inside four months. <strong>Two single-digit drawdowns since.</strong> The discipline that produces the headline return is the same discipline that determines what the drawdown looks like.</p>
 
@@ -371,7 +508,7 @@
 
   <!-- SECTOR + DISCIPLINE -->
   <section class="perf-section">
-    <p class="perf-section-cap">Figure 04 · Where the return came from</p>
+    <p class="perf-section-cap">Figure 05 · Where the return came from</p>
     <h2 class="perf-section-h">Three sectors. <em>Operator-led</em> in each.</h2>
     <p class="perf-section-sub">Decomposing the seven-year cumulative return by sector exposure. The Halvren universe by design is concentrated in <strong>energy, materials, and infrastructure</strong> — the three sectors where Canadian operators with low-decline assets and disciplined capital structures compete on a level playing field globally. The split below is the receipt of that focus.</p>
 
