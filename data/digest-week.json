@@ -30,6 +30,14 @@
     "ConocoPhillips",
     "Kinder Morgan"
   ],
+  "insider_txns": [
+    {"ticker": "EOG", "name": "EOG Resources", "code": "P", "date": "2026-04-30", "shares": 4500, "price": 122.40, "value": 550800, "reporter_name": "Ezra Y. Yacob", "reporter_titles": ["Chairman, CEO"]},
+    {"ticker": "CCO", "name": "Cameco",        "code": "P", "date": "2026-04-29", "shares": 8200, "price": 76.10,  "value": 624020, "reporter_name": "Tim Gitzel",     "reporter_titles": ["President, CEO"]},
+    {"ticker": "ENB", "name": "Enbridge",      "code": "P", "date": "2026-04-28", "shares": 5000, "price": 58.20,  "value": 291000, "reporter_name": "Greg Ebel",      "reporter_titles": ["President, CEO"]},
+    {"ticker": "NTR", "name": "Nutrien",       "code": "S", "date": "2026-04-29", "shares": 12000,"price": 67.40,  "value": 808800, "reporter_name": "Ken Seitz",      "reporter_titles": ["CEO"]},
+    {"ticker": "CNQ", "name": "Canadian Natural","code": "A","date": "2026-04-28","shares": 18000,"price": 0.00,    "value": 0,      "reporter_name": "Murray Edwards", "reporter_titles": ["Executive Chairman"]},
+    {"ticker": "AG",  "name": "First Majestic","code": "P", "date": "2026-04-29", "shares": 25000,"price": 8.95,   "value": 223750, "reporter_name": "Keith Neumeyer","reporter_titles": ["President, CEO"]}
+  ],
   "items": [
     {
       "id": "cnq-2026q1",

@@ -78,6 +78,12 @@ COVERAGE = [
 # Form 4 is insider; DEF 14A is proxy.
 RELEVANT_FORMS = {"10-K", "10-Q", "8-K", "40-F", "6-K", "20-F", "DEF 14A"}
 
+# Form 4: Statement of Changes in Beneficial Ownership. Filed within 2
+# business days of an insider transaction. We treat 4 separately from the
+# narrative-filing forms above because we parse them mechanically (XML)
+# rather than sending them to the language model.
+FORM4 = "4"
+
 
 # ---------- HTTP helper ---------------------------------------------------
 
@@ -149,6 +155,115 @@ def edgar_recent_filings(cik: int, *, since: dt.date) -> list[dict]:
                 f"https://www.sec.gov/cgi-bin/browse-edgar?"
                 f"action=getcompany&CIK={cik_str}&type={quote(form)}"
             ),
+        })
+    return out
+
+
+def edgar_recent_form4s(cik: int, *, since: dt.date) -> list[dict]:
+    """Return list of recent Form 4 filings for the CIK. Newest first."""
+    cik_str = str(cik).zfill(10)
+    url = f"https://data.sec.gov/submissions/CIK{cik_str}.json"
+    raw = fetch(url)
+    payload = json.loads(raw)
+    recent = payload.get("filings", {}).get("recent", {})
+    out = []
+    for form, date_str, acc, doc in zip(
+        recent.get("form", []),
+        recent.get("filingDate", []),
+        recent.get("accessionNumber", []),
+        recent.get("primaryDocument", []),
+    ):
+        if form != FORM4:
+            continue
+        try:
+            filed = dt.date.fromisoformat(date_str)
+        except ValueError:
+            continue
+        if filed < since:
+            continue
+        # The primary doc on a Form 4 is the XML payload (e.g. "wf-form4_xxx.xml").
+        # The XML can also appear as a sibling in the index. We prefer the
+        # primary document — falls back to the index page if not XML.
+        acc_no_dashes = acc.replace("-", "")
+        out.append({
+            "form": form,
+            "date": date_str,
+            "accession": acc,
+            "primary_doc_url": (
+                f"https://www.sec.gov/Archives/edgar/data/{cik}/"
+                f"{acc_no_dashes}/{doc}"
+            ),
+        })
+    return out
+
+
+def parse_form4(xml_bytes: bytes) -> list[dict]:
+    """Parse a Form 4 XML payload and return cleaned transactions.
+
+    Returns a list of dicts with: code (P/S/A/M/F/etc.), date, shares,
+    price, value (shares*price), reporter_name, reporter_titles.
+
+    We keep only NON-DERIVATIVE transactions — the common-stock activity
+    that allocators care about — and only TRANSACTION CODES that signal
+    something (P, S, A). Tax withholding (F), exercises (M), conversions,
+    bona fide gifts (G), etc. are filtered out at render time."""
+    import xml.etree.ElementTree as ET
+    try:
+        root = ET.fromstring(xml_bytes)
+    except ET.ParseError:
+        return []
+
+    def _t(node, path):
+        n = node.find(path)
+        if n is None:
+            return ""
+        v = n.findtext("value") if n.find("value") is not None else (n.text or "")
+        return (v or "").strip()
+
+    # Reporter
+    owner = root.find("reportingOwner")
+    name = ""
+    titles = []
+    if owner is not None:
+        oid = owner.find("reportingOwnerId")
+        if oid is not None:
+            name = (oid.findtext("rptOwnerName") or "").strip()
+        rel = owner.find("reportingOwnerRelationship")
+        if rel is not None:
+            if (rel.findtext("isDirector") or "").strip() in ("1", "true"):
+                titles.append("Director")
+            if (rel.findtext("isOfficer") or "").strip() in ("1", "true"):
+                officer_title = (rel.findtext("officerTitle") or "Officer").strip()
+                titles.append(officer_title)
+            if (rel.findtext("isTenPercentOwner") or "").strip() in ("1", "true"):
+                titles.append("10% holder")
+
+    out = []
+    nd = root.find("nonDerivativeTable")
+    if nd is None:
+        return out
+    for tx in nd.findall("nonDerivativeTransaction"):
+        date = _t(tx, "transactionDate")
+        amounts = tx.find("transactionAmounts")
+        coding = tx.find("transactionCoding")
+        if amounts is None or coding is None:
+            continue
+        code = (coding.findtext("transactionCode") or "").strip()
+        try:
+            shares = float(_t(amounts, "transactionShares") or 0)
+            price = float(_t(amounts, "transactionPricePerShare") or 0)
+        except ValueError:
+            continue
+        if shares <= 0:
+            continue
+        out.append({
+            "code": code,
+            "date": date,
+            "shares": shares,
+            "price": price,
+            "value": shares * price,
+            "reporter_name": name,
+            "reporter_titles": titles,
         })
     return out
 
@@ -253,6 +368,7 @@ def ingest(days: int = 7) -> None:
     filings_count = 0
     flags_count = 0
     pages_count = 0
+    insider_txns: list[dict] = []
 
     edgar_attempted = 0
     edgar_failed = 0
@@ -267,6 +383,25 @@ def ingest(days: int = 7) -> None:
             edgar_failed += 1
             print(f"  ! {ticker}: {e}", file=sys.stderr)
             continue
+
+        # Form 4 ingestion — parse XML for insider transactions. Skipped
+        # silently on any error per ticker; never blocks the main pipeline.
+        try:
+            for f4 in edgar_recent_form4s(cik, since=since):
+                xml_raw = fetch(f4["primary_doc_url"], accept="application/xml")
+                for tx in parse_form4(xml_raw):
+                    if tx["code"] not in ("P", "S", "A"):
+                        # Filter to material codes: P=open-mkt buy, S=sale, A=award
+                        continue
+                    insider_txns.append({
+                        "ticker": ticker,
+                        "name": name,
+                        **tx,
+                    })
+                time.sleep(0.15)
+        except Exception as e:
+            print(f"  ! {ticker} Form 4: {e}", file=sys.stderr)
+
         # Polite: SEC asks for <= 10 req/sec; one per ticker is fine.
         time.sleep(0.15)
         if not filings:
@@ -325,6 +460,14 @@ def ingest(days: int = 7) -> None:
 
     promoted = sum(1 for i in new_items if i.get("note") and (i.get("flag") == "desk"))
 
+    # Insider transactions: deduplicate, sort by value desc, cap at 12 for display.
+    # Preserve full count in pipeline_strip; render shows the top slice.
+    insider_txns.sort(key=lambda t: (
+        0 if t["code"] == "P" else (1 if t["code"] == "S" else 2),  # buys first
+        -t["value"],
+    ))
+    insider_txns_display = insider_txns[:12]
+
     payload = {
         "$schema": "./digest-week.schema.json",
         "week_label": f"Week {today.isocalendar().week} · {since.strftime('%b %d')} – {today.strftime('%b %d, %Y')}",
@@ -343,13 +486,14 @@ def ingest(days: int = 7) -> None:
             "filter_pct": int(100 * (1 - promoted / max(1, flags_count))),
         },
         "pipeline_strip": {
-            "insider_transactions": 0,
+            "insider_transactions": len(insider_txns),
             "ceo_letters": 0,
             "tonal_shifts_flagged": flags_count,
             "model_baseline": "trailing-4-call rolling baseline",
         },
         "next_week": [],
         "items": new_items,
+        "insider_txns": insider_txns_display,
     }
 
     # Safety rail: if we lost more than half the EDGAR fetches AND ended up
@@ -472,6 +616,72 @@ def render_calls(d: dict) -> str:
     return "\n\n      ".join(blocks)
 
 
+def _fmt_money(v: float) -> str:
+    """Compact money formatter for insider transactions."""
+    if v >= 1_000_000:
+        return f"${v/1_000_000:.1f}M"
+    if v >= 1_000:
+        return f"${v/1_000:.0f}k"
+    return f"${v:.0f}"
+
+
+def _fmt_shares(n: float) -> str:
+    if n >= 1_000_000:
+        return f"{n/1_000_000:.1f}M sh"
+    if n >= 1_000:
+        return f"{n/1_000:.0f}k sh"
+    return f"{int(n)} sh"
+
+
+def render_insiders(d: dict) -> str:
+    """Render the 'Insiders this week' rail card. Form 4 P (buys), S (sales),
+    and A (awards) only — derivatives, tax withholding, and exercises are
+    filtered upstream."""
+    txns = d.get("insider_txns") or []
+    code_label = {"P": "Buy", "S": "Sell", "A": "Award"}
+    code_color = {"P": "var(--color-gold)", "S": "var(--color-text-muted)", "A": "var(--color-text-faint)"}
+    if not txns:
+        body = '<p style="font-size:var(--text-xs);color:var(--color-text-faint);font-family:var(--font-body);margin:var(--space-3) 0 0">No material insider transactions this week.</p>'
+    else:
+        rows = []
+        for t in txns[:6]:
+            label = code_label.get(t["code"], t["code"])
+            color = code_color.get(t["code"], "var(--color-text)")
+            who = escape((t.get("reporter_name") or "").title() or "Insider")
+            titles = ", ".join(t.get("reporter_titles") or [])
+            value = _fmt_money(t.get("value") or 0)
+            shares = _fmt_shares(t.get("shares") or 0)
+            ticker = escape(t.get("ticker", ""))
+            date = escape(t.get("date", ""))
+            rows.append(
+                f'<li style="display:grid;grid-template-columns:auto 1fr auto;'
+                f'gap:var(--space-2);align-items:baseline;padding:var(--space-2) 0;'
+                f'border-bottom:1px solid oklch(from var(--color-text) l c h/0.05);'
+                f'font-family:var(--font-body);font-size:var(--text-xs);line-height:1.4">'
+                f'<span style="font-family:var(--font-display);font-weight:500;color:var(--color-gold);font-size:var(--text-sm)">{ticker}</span>'
+                f'<span style="color:var(--color-text-muted);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{who}<small style="display:block;color:var(--color-text-faint);font-size:10px;letter-spacing:0.04em;text-transform:uppercase;font-family:var(--font-mono);margin-top:2px">{escape(titles)}</small></span>'
+                f'<span style="font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:{color};text-align:right;white-space:nowrap"><strong style="color:{color};font-weight:500">{label}</strong> {value}<small style="display:block;color:var(--color-text-faint);font-size:10px;margin-top:2px">{shares} · {date}</small></span>'
+                f'</li>'
+            )
+        body = (
+            '<ul style="list-style:none;padding:0;margin:var(--space-3) 0 0">'
+            + "".join(rows)
+            + "</ul>"
+        )
+        if len(txns) > 6:
+            body += (
+                f'<p style="margin-top:var(--space-3);font-size:11px;font-family:var(--font-mono);'
+                f'letter-spacing:0.04em;color:var(--color-text-faint)">'
+                f'+{len(txns) - 6} more &middot; full list at next quarterly letter</p>'
+            )
+    return f'''<div class="rail-card">
+        <p class="rail-card-cap">Insiders this week</p>
+        <h3>Form 4 reads.</h3>
+        <p style="font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.5">Open-market activity by named officers and directors. <strong style="color:var(--color-text-muted);font-weight:500">P/S/A</strong> only — derivatives, exercises, and tax-withholding filtered out.</p>
+        {body}
+      </div>'''
+
+
 def render_flags(d: dict) -> str:
     flagged = [i for i in d["items"] if i.get("flag")]
     if not flagged:
@@ -521,10 +731,11 @@ def render() -> None:
     d = json.loads(DATA_JSON.read_text())
     html = DIGEST_HTML.read_text()
 
-    html = splice(html, "EYEBROW", render_eyebrow(d))
-    html = splice(html, "STATS",   render_stats(d))
-    html = splice(html, "CALLS",   render_calls(d))
-    html = splice(html, "FLAGS",   render_flags(d))
+    html = splice(html, "EYEBROW",  render_eyebrow(d))
+    html = splice(html, "STATS",    render_stats(d))
+    html = splice(html, "CALLS",    render_calls(d))
+    html = splice(html, "FLAGS",    render_flags(d))
+    html = splice(html, "INSIDERS", render_insiders(d))
 
     DIGEST_HTML.write_text(html)
     print(f"== rendered {DIGEST_HTML.relative_to(ROOT)} "
