@@ -1,0 +1,13 @@
+# Python bytecode (build_digest runtime artefacts)
+__pycache__/
+*.pyc
+*.pyo
+
+# Local env files (script reads ANTHROPIC_API_KEY from env, never committed)
+.env
+.env.local
+.envrc
+
+# OS clutter
+.DS_Store
+Thumbs.db
