@@ -254,12 +254,17 @@ def ingest(days: int = 7) -> None:
     flags_count = 0
     pages_count = 0
 
+    edgar_attempted = 0
+    edgar_failed = 0
+
     for ticker, cik, name, sector_filter, sector_label in COVERAGE:
         if cik is None:
             continue  # SEDAR-only; needs separate adapter
+        edgar_attempted += 1
         try:
             filings = edgar_recent_filings(cik, since=since)
         except Exception as e:
+            edgar_failed += 1
             print(f"  ! {ticker}: {e}", file=sys.stderr)
             continue
         # Polite: SEC asks for <= 10 req/sec; one per ticker is fine.
@@ -346,6 +351,21 @@ def ingest(days: int = 7) -> None:
         "next_week": [],
         "items": new_items,
     }
+
+    # Safety rail: if we lost more than half the EDGAR fetches AND ended up
+    # with fewer items than the previous JSON had, treat this as an outage
+    # and refuse to overwrite. The existing week's data stays put; the next
+    # scheduled run will try again. Prevents a transient SEC 403 wave or
+    # network blip from silently wiping the page.
+    fail_rate = edgar_failed / max(1, edgar_attempted)
+    prev_count = len(existing)
+    if fail_rate > 0.5 and len(new_items) < prev_count:
+        sys.exit(
+            f"abort: EDGAR failed {edgar_failed}/{edgar_attempted} "
+            f"({fail_rate:.0%}) and only produced {len(new_items)} items "
+            f"vs {prev_count} previously — refusing to overwrite "
+            f"{DATA_JSON.relative_to(ROOT)}"
+        )
 
     DATA_JSON.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
     print(f"== wrote {DATA_JSON.relative_to(ROOT)} "
