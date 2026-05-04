@@ -125,18 +125,50 @@ warning and re-render the existing JSON, which is a no-op.
 - **Forcing a fresh look at a specific name.** Bump `--days` to 30 or 60
   and re-run ingest.
 
-### What's not in v1
+### Canadian-only names — IR feed adapter
 
-- **SEDAR+ ingestion.** TOU, FM, FTS, KEY, NPI, BEP.UN, BIP.UN, etc. file
-  primarily on SEDAR+. Currently skipped. The model still flags them in
-  the right-rail but the article cards come from the ingest pass.
-- **Earnings call transcripts.** EDGAR carries the press releases and
-  10-Q/10-K, not transcripts. Adding a transcript provider (Seeking Alpha,
-  Tikr, AlphaSense API) gives the model significantly more to work with.
-- **Insider transaction (Form 4) parsing.** EDGAR has them; we just don't
-  render them yet. The pipeline_strip in the JSON has a placeholder field.
-- **Email newsletter.** The "Get the digest" form on `/digest` points at
-  Substack; the script doesn't push to subscribers. Substack handles that.
+SEDAR+ has no clean public API. Rather than scrape its SPA (fragile,
+breaks without notice), the script falls back to whatever press-release
+feed each Canadian-only operator publishes directly. Map a ticker to a
+stable RSS or Atom URL via the `MANUAL_FEEDS` dict in
+`build_digest.py`:
+
+```python
+MANUAL_FEEDS = {
+    "TOU":    "https://www.globenewswire.com/RssFeed/orgclass/4/feedTitle/Tourmaline-Oil-Corp",
+    "FM":     "https://www.first-quantum.com/_resources/news/news.xml",
+    # ...
+}
+```
+
+Once a feed URL is set, the same downstream pipeline (extract +
+flag via Anthropic) handles it identically to an EDGAR filing — it
+just enters the loop through a different door. Most Canadian
+operators publish either:
+
+- **Globe Newswire** at `https://www.globenewswire.com/RssFeed/orgclass/4/feedTitle/<slug>`
+- **Newsfile** at `https://api.newsfilecorp.com/issuer/<id>/recent`
+- A self-hosted RSS/Atom feed on the IR page
+
+Check the issuer's "News &amp; events" page for the RSS icon. Leaving
+the value `None` cleanly suppresses that ticker from the digest.
+
+The parser handles both RSS 2.0 and Atom feeds.
+
+### What's deliberately deferred
+
+- **Earnings call transcripts.** EDGAR carries press releases and
+  10-Q/10-K, not full transcripts. Adding a transcript provider
+  (Seeking Alpha, Tikr, AlphaSense API) gives the model materially
+  more to work with — the digest's tonal-shift detection becomes much
+  sharper with a verbatim transcript than with an IR press release.
+- **Insider transaction granularity.** Form 4 ingestion is live; the
+  current renderer caps at 6 in the right rail. A standalone
+  /insiders page with the full firehose, sortable by ticker / value /
+  reporter, is the next obvious extension.
+- **Email newsletter.** The "Get the digest" form on `/digest` points
+  at Substack; the script doesn't push to subscribers directly.
+  Substack handles delivery, the script handles content.
 
 These are the obvious extensions; each is a few hours of work on top of
 the v1 scaffolding.

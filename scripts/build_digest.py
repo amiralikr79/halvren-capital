@@ -84,6 +84,35 @@ RELEVANT_FORMS = {"10-K", "10-Q", "8-K", "40-F", "6-K", "20-F", "DEF 14A"}
 # rather than sending them to the language model.
 FORM4 = "4"
 
+# Canadian-only names — listed on TSX/TSXV but not cross-listed with
+# the SEC. SEDAR+ has no clean public API; rather than scrape its SPA
+# (fragile, undocumented endpoints that may break without notice), we
+# fall back to whatever press-release feed each company publishes
+# directly. Map a ticker to a stable RSS/Atom URL and the rest of the
+# pipeline (extract + flag via Anthropic) takes over unchanged.
+#
+# To wire a name: paste its IR press-release feed URL below. Most
+# Canadian operators publish one; check the issuer's "News & events"
+# page for the RSS icon. Globe Newswire and Newsfile carry many of
+# them at a stable URL of the form:
+#   https://www.globenewswire.com/RssFeed/orgclass/4/feedTitle/<slug>
+# When unsure, leaving the value None just suppresses that ticker
+# from the digest cleanly.
+MANUAL_FEEDS = {
+    # ticker: feed_url_or_None
+    "TOU":    None,   # Tourmaline Oil — IR feed pending
+    "FM":     None,   # First Quantum Minerals — IR feed pending
+    "FTS":    None,   # Fortis — IR feed pending
+    "KEY":    None,   # Keyera — IR feed pending (cross-listed name has cik fallback)
+    "CNR":    None,   # Canadian National Railway — IR feed pending
+    "CP":     None,   # Canadian Pacific Kansas City — IR feed pending
+    "WFG":    None,   # West Fraser Timber — IR feed pending
+    "WSP":    None,   # WSP Global — IR feed pending
+    "NPI":    None,   # Northland Power — IR feed pending
+    "BEP.UN": None,   # Brookfield Renewable — IR feed pending
+    "BIP.UN": None,   # Brookfield Infrastructure — IR feed pending
+}
+
 
 # ---------- HTTP helper ---------------------------------------------------
 
@@ -268,6 +297,66 @@ def parse_form4(xml_bytes: bytes) -> list[dict]:
     return out
 
 
+def feed_recent_items(url: str, *, since: dt.date) -> list[dict]:
+    """Parse an RSS 2.0 or Atom feed and return recent items as dicts
+    matching the EDGAR-filing shape so the rest of ingest() can treat
+    them uniformly. Returns: {form, date, accession, primary_doc_url, title}."""
+    import xml.etree.ElementTree as ET
+
+    raw = fetch(url, accept="application/rss+xml, application/atom+xml, application/xml")
+    try:
+        root = ET.fromstring(raw)
+    except ET.ParseError:
+        return []
+
+    out: list[dict] = []
+
+    def _strip_ns(tag: str) -> str:
+        return tag.split("}", 1)[-1] if "}" in tag else tag
+
+    items = []
+    for child in root.iter():
+        if _strip_ns(child.tag) in ("item", "entry"):
+            items.append(child)
+
+    for it in items:
+        title, link, date_str = "", "", ""
+        for c in it:
+            t = _strip_ns(c.tag)
+            if t == "title":
+                title = (c.text or "").strip()
+            elif t == "link" and not link:
+                # RSS: text content; Atom: href attribute
+                link = (c.get("href") or c.text or "").strip()
+            elif t == "pubDate" and not date_str:
+                date_str = (c.text or "").strip()
+            elif t in ("updated", "published") and not date_str:
+                date_str = (c.text or "").strip()
+        # Best-effort date parsing
+        filed = None
+        for fmt in ("%a, %d %b %Y %H:%M:%S %z", "%Y-%m-%dT%H:%M:%S%z",
+                    "%Y-%m-%dT%H:%M:%SZ", "%Y-%m-%d"):
+            try:
+                filed = dt.datetime.strptime(date_str.replace("GMT", "+0000"), fmt).date()
+                break
+            except ValueError:
+                continue
+        if filed is None:
+            continue
+        if filed < since:
+            continue
+        if not link:
+            continue
+        out.append({
+            "form": "Press release",
+            "date": filed.isoformat(),
+            "accession": "",
+            "primary_doc_url": link,
+            "title": title,
+        })
+    return out
+
+
 def edgar_doc_text(url: str, *, max_chars: int = 60_000) -> str:
     """Download a filing's primary HTML doc and strip to plain text.
     Trimmed to max_chars to keep API costs sane."""
@@ -375,7 +464,56 @@ def ingest(days: int = 7) -> None:
 
     for ticker, cik, name, sector_filter, sector_label in COVERAGE:
         if cik is None:
-            continue  # SEDAR-only; needs separate adapter
+            # SEDAR-only — try a manual RSS/Atom feed if configured.
+            feed_url = MANUAL_FEEDS.get(ticker)
+            if not feed_url:
+                continue
+            try:
+                feed_items = feed_recent_items(feed_url, since=since)
+            except Exception as e:
+                print(f"  ! {ticker} feed: {e}", file=sys.stderr)
+                continue
+            if not feed_items:
+                continue
+            primary = feed_items[0]
+            filings_count += len(feed_items)
+            try:
+                body = edgar_doc_text(primary["primary_doc_url"])
+                pages_count += max(1, len(body) // 3000)
+            except Exception as e:
+                print(f"  ! {ticker} feed-doc fetch failed: {e}", file=sys.stderr)
+                continue
+            meta = {**primary, "ticker": ticker, "name": name}
+            extracted = extract_with_claude(meta, body)
+            if not extracted:
+                continue
+            item_id = f"{ticker.lower()}-{primary['date'].replace('-','')}"
+            prev = existing.get(item_id, {})
+            flag = extracted.get("flag")
+            if flag:
+                flags_count += 1
+            new_items.append({
+                "id": item_id,
+                "ticker": ticker,
+                "name": name,
+                "sector_label": sector_label,
+                "sector_filter": sector_filter,
+                "date_label": dt.date.fromisoformat(primary["date"]).strftime("%b %d"),
+                "filing_iso": primary["date"],
+                "flag": flag,
+                "summary_html": extracted.get("summary_html", ""),
+                "metrics": extracted.get("metrics", [])[:4],
+                "note": prev.get("note") or (
+                    {"label": f"Model flag · {extracted.get('flag_reason', 'signal')}",
+                     "body_html": escape(extracted.get("flag_reason", "")),
+                     "meta": []} if flag else None
+                ),
+                "writeup_url": prev.get("writeup_url"),
+                "duration": prev.get("duration", "Press release · IR feed"),
+            })
+            print(f"  + {ticker:6} feed   {primary['date']}  flag={flag}")
+            time.sleep(0.15)
+            continue
         edgar_attempted += 1
         try:
             filings = edgar_recent_filings(cik, since=since)
