@@ -276,6 +276,85 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
 .op-back a{font-size:var(--text-sm);color:var(--color-gold);border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:2px;font-family:var(--font-body)}
 .op-back a:hover{border-color:var(--color-gold)}
 
+/* COVERAGE PAGE — header, legend, controls, sortable + filterable table */
+.cov-header{margin-bottom:var(--space-8)}
+.cov-lede{font-size:var(--text-base);color:var(--color-text-muted);line-height:1.7;max-width:72ch;margin-top:var(--space-4)}
+.cov-lede strong{color:var(--color-text);font-weight:500}
+
+/* legend (4 status cards) */
+.legend{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3);margin:var(--space-8) 0;padding:var(--space-5);background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.06);border-radius:var(--radius-lg)}
+.legend-item{display:flex;flex-direction:column;gap:var(--space-2)}
+.legend-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;font-family:var(--font-body);padding:3px 8px;border-radius:99px;align-self:flex-start;border:1px solid transparent}
+.legend-label.published{background:oklch(from var(--color-gold) l c h/0.12);color:var(--color-gold);border-color:oklch(from var(--color-gold) l c h/0.3)}
+.legend-label.desk{background:oklch(0.75 0.15 145/0.10);color:#1a7e3f;border-color:oklch(0.75 0.15 145/0.30)}
+.legend-label.watching{background:oklch(from var(--color-text) l c h/0.06);color:var(--color-text);border-color:oklch(from var(--color-text) l c h/0.12)}
+.legend-label.monitoring{background:transparent;color:var(--color-text-muted);border-color:var(--color-divider)}
+.legend-desc{font-size:11px;color:var(--color-text-muted);line-height:1.5;margin:0;font-family:var(--font-body)}
+[data-theme="dark"] .legend-label.desk{color:#86efac}
+@media(max-width:900px){.legend{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.legend{grid-template-columns:1fr}}
+
+/* controls bar — filter chips and exports */
+.cov-controls{display:grid;grid-template-columns:1fr 1fr auto;gap:var(--space-6);margin:var(--space-8) 0 var(--space-5);padding-top:var(--space-6);border-top:1px solid var(--color-divider);font-family:var(--font-body)}
+.cov-chips{display:flex;flex-direction:column;gap:var(--space-2);min-width:0}
+.cov-chips-label{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-gold);font-weight:500;margin:0}
+.cov-chip{display:inline-flex;align-items:center;font-family:var(--font-body);font-size:11px;letter-spacing:0.04em;color:var(--color-text-muted);background:transparent;border:1px solid var(--color-divider);border-radius:99px;padding:4px 10px;margin-right:6px;margin-bottom:4px;cursor:pointer;transition:color var(--transition),background var(--transition),border-color var(--transition)}
+.cov-chip:hover{color:var(--color-text);border-color:oklch(from var(--color-text) l c h/0.2)}
+.cov-chip.is-active{background:var(--color-gold);color:#0e0d0b;border-color:var(--color-gold)}
+.cov-chip:focus-visible{outline:2px solid var(--color-gold);outline-offset:2px}
+.cov-export{display:flex;flex-direction:column;align-items:flex-end;gap:var(--space-2);min-width:160px}
+.cov-export-link{font-family:var(--font-mono);font-size:11px;letter-spacing:0.04em;color:var(--color-gold);border:1px solid oklch(from var(--color-gold) l c h/0.3);border-radius:var(--radius-sm);padding:4px 10px;text-decoration:none;background:transparent}
+.cov-export-link:hover{background:oklch(from var(--color-gold) l c h/0.08);border-color:var(--color-gold)}
+.cov-result-count{font-family:var(--font-mono);font-size:11px;color:var(--color-text-faint);letter-spacing:0.02em;margin-top:var(--space-2)}
+.cov-result-count #cov-result-count{color:var(--color-text);font-weight:500}
+@media(max-width:900px){.cov-controls{grid-template-columns:1fr}.cov-export{align-items:flex-start}}
+
+/* table */
+.cov-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:var(--space-3) 0 var(--space-10);border:1px solid var(--color-divider);border-radius:var(--radius-lg);background:var(--color-surface)}
+.cov-table.cov-table--full{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:var(--text-sm)}
+.cov-table--full thead th{text-align:left;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-text-faint);font-weight:500;padding:var(--space-4) var(--space-4);background:oklch(from var(--color-surface) l c h/0.6);border-bottom:1px solid var(--color-divider);cursor:pointer;user-select:none;position:sticky;top:0;white-space:nowrap}
+.cov-table--full thead th:hover{color:var(--color-text)}
+.cov-table--full thead th[aria-sort]{color:var(--color-gold)}
+.cov-table--full thead .sort-ind{display:inline-block;margin-left:4px;font-family:var(--font-mono);width:0.7em;text-align:center;color:var(--color-gold)}
+.cov-table--full tbody td{padding:var(--space-4);border-bottom:1px solid oklch(from var(--color-text) l c h/0.04);color:var(--color-text-muted);vertical-align:top;line-height:1.4}
+.cov-table--full tbody tr:last-child td{border-bottom:none}
+.cov-table--full tbody tr:hover td{background:oklch(from var(--color-text) l c h/0.025)}
+.cov-table--full td.cov-tkr{padding-right:var(--space-3)}
+.cov-tkr-mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:var(--color-gold);font-size:var(--text-sm);letter-spacing:0.02em}
+.cov-tkr-mono a{color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:1px}
+.cov-tkr-mono a:hover{border-color:var(--color-gold)}
+.cov-table--full td.cov-name{color:var(--color-text);min-width:160px}
+.cov-table--full td.cov-name a{color:var(--color-text);text-decoration:none;border-bottom:1px solid var(--color-divider);padding-bottom:1px}
+.cov-table--full td.cov-name a:hover{color:var(--color-gold);border-color:oklch(from var(--color-gold) l c h/0.4)}
+.cov-table--full td.cov-sub{font-size:var(--text-sm);min-width:160px}
+.cov-table--full .cov-sub-detail{display:block;font-size:11px;color:var(--color-text-faint);margin-top:2px;letter-spacing:0.01em}
+.cov-table--full td.cov-date{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:var(--text-xs);color:var(--color-text-muted);white-space:nowrap}
+.cov-table--full td.cov-score{font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:var(--color-text);font-weight:500;white-space:nowrap}
+
+/* status pills (legend has the same swatches) */
+.cov-st{display:inline-block;font-size:10px;letter-spacing:0.10em;text-transform:uppercase;font-weight:500;font-family:var(--font-body);padding:3px 9px;border-radius:99px;border:1px solid transparent;white-space:nowrap}
+.cov-st--published{background:oklch(from var(--color-gold) l c h/0.12);color:var(--color-gold);border-color:oklch(from var(--color-gold) l c h/0.3)}
+.cov-st--published a{color:inherit;text-decoration:none;border:none}
+.cov-st--on_the_desk{background:oklch(0.75 0.15 145/0.10);color:#1a7e3f;border-color:oklch(0.75 0.15 145/0.30)}
+[data-theme="dark"] .cov-st--on_the_desk{color:#86efac}
+.cov-st--watching{background:oklch(from var(--color-text) l c h/0.06);color:var(--color-text);border-color:oklch(from var(--color-text) l c h/0.12)}
+.cov-st--monitoring{background:transparent;color:var(--color-text-muted);border-color:var(--color-divider)}
+.cov-st--queued{background:oklch(from var(--color-gold) l c h/0.05);color:var(--color-text-muted);border-color:oklch(from var(--color-gold) l c h/0.18);border-style:dashed}
+
+/* bottom note */
+.bottom-note{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;max-width:72ch;margin-top:var(--space-8)}
+
+/* mobile: keep table readable; allow horizontal scroll on the wrap */
+@media(max-width:768px){
+  .cov-table--full thead th,.cov-table--full tbody td{padding:var(--space-3) var(--space-3)}
+  .cov-controls{gap:var(--space-4)}
+}
+@media(max-width:480px){
+  .cov-table--full td.cov-name{min-width:140px}
+  .cov-table--full td.cov-sub{min-width:130px}
+  .cov-chip{font-size:10.5px;padding:3px 9px}
+}
+
 /* MOBILE: keep ticker + dates from breaking out at 375px */
 @media(max-width:480px){
   .op-header{padding:var(--space-4) 0}
