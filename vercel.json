@@ -12,6 +12,10 @@
     {
       "source": "/checklist/score",
       "destination": "/api/checklist/page"
+    },
+    {
+      "source": "/version",
+      "destination": "/api/version"
     }
   ],
   "headers": [
@@ -41,6 +45,10 @@
     },
     "api/cron/digest-draft.js": {
       "maxDuration": 30
+    },
+    "api/version.js": {
+      "maxDuration": 5,
+      "includeFiles": "{content/changelog.md,content/site-meta.json}"
     }
   }
 }
