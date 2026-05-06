@@ -1,0 +1,52 @@
+{
+  "$comment": "Backfilled at launch. Counters in the homepage range (140s filings, 4–5K pages, 6–8 audio hours). model_flags and promoted_to_desk are plausible placeholders the principal can edit; do not treat as principal-reviewed.",
+  "week_of": "2026-04-10",
+  "week_iso": "2026-W15",
+  "week_label": "Week 15 · Apr 7 – Apr 11, 2026",
+  "week_label_short": "Week 15 · 2026",
+  "updated_iso": "2026-04-10T18:00:00-07:00",
+  "updated_human": "Apr 10, 2026",
+  "backfilled": true,
+
+  "filings_ingested": 141,
+  "pages_read": 4720,
+  "audio_hours": 6.4,
+  "stats": {
+    "filings_ingested": 141,
+    "filings_breakdown": "transcripts · 10-Q · 8-K · SEDI/Form 4",
+    "pages_read": 4720,
+    "pages_breakdown": "incl. 6.4 hrs of call audio",
+    "checklist_evaluated": 60,
+    "checklist_breakdown": "10 questions · 6 calls",
+    "model_flags": 7,
+    "promoted_to_desk": 1,
+    "filter_pct": 78
+  },
+
+  "model_flags": [
+    {
+      "ticker": "BIP.UN",
+      "flag_type": "qualifier-density drop",
+      "summary": "Capital recycling commentary tightened relative to the prior call — fewer hedging qualifiers on funds-from-operations growth. Worth a re-read against the most recent supplemental."
+    },
+    {
+      "ticker": "CNR",
+      "flag_type": "tonal_shift",
+      "summary": "Volumes commentary acknowledged the cyclical softness more directly than the prior posture of forward-looking optimism. Consistent with the desk's view on the Class I rail cycle."
+    }
+  ],
+  "promoted_to_desk": [
+    {
+      "ticker": "BEP.UN",
+      "reason": "Hydro-water-conditions commentary in the AGM remarks has shifted enough to move the segment EBITDA range; promoted for a quarterly read."
+    }
+  ],
+
+  "next_week": [
+    "Canadian Pacific Kansas City",
+    "Newmont",
+    "Williams Companies",
+    "ConocoPhillips",
+    "Imperial Oil"
+  ]
+}
