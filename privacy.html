@@ -66,17 +66,22 @@
     <p class="doc-p">We collect as little as possible.</p>
     <ul class="doc-ul">
       <li><strong>Standard server logs.</strong> Our hosting provider (Vercel) automatically records request metadata such as IP address, user agent, referrer, and timestamp. This is used to operate the service, investigate abuse, and measure aggregate performance. Retention follows Vercel's policies.</li>
+      <li><strong>Aggregate, cookieless analytics.</strong> We use <a href="https://plausible.io/data-policy" target="_blank" rel="noopener noreferrer">Plausible Analytics</a> to count visits and identify which pages get read. Plausible does not use cookies, does not track visitors across sites, does not collect personal data, and is GDPR/PECR/CCPA-compliant by default. The data Plausible reports to us is fully anonymous and aggregate; we cannot identify individual readers from it. No browser fingerprinting, no advertising pixels, no session replay, no cross-site tracking.</li>
       <li><strong>Email.</strong> If you contact us at <a href="mailto:amirali@halvrencapital.com">amirali@halvrencapital.com</a>, your message and email address are retained so we can reply.</li>
-      <li><strong>Newsletter.</strong> If you subscribe to our Substack, the signup and all subsequent engagement data are handled by Substack under Substack's own privacy policy. Halvren does not operate an independent mailing list.</li>
+      <li><strong>Newsletter.</strong> If you subscribe to our Substack, the signup and all subsequent engagement data are handled by <a href="https://substack.com/privacy" target="_blank" rel="noopener noreferrer">Substack</a> under Substack's own privacy policy. Halvren does not operate an independent mailing list and does not store subscriber emails on this site &mdash; the subscribe forms across the site open Substack in a new tab and the handoff happens there.</li>
+      <li><strong>Checklist tool rate-limit + cache.</strong> The live <a href="/checklist">Checklist scoring tool</a> stores two short-lived items in <a href="https://upstash.com/privacy" target="_blank" rel="noopener noreferrer">Upstash Redis</a> on Vercel: (1) a SHA-256 <em>hash</em> of your IP address paired with a per-hour counter, used to enforce the 5-scores-per-hour rate limit (the raw IP is never stored; the hashed counter expires after one hour); and (2) the JSON output of any score generated for a given ticker that month, cached so subsequent readers don't re-run the model unnecessarily. The cached score expires after 30 days. Neither item is associated with you personally.</li>
     </ul>
-    <p class="doc-p">We do not run third-party analytics on this site. We do not use advertising pixels, tracking cookies, or session replay.</p>
 
     <h2 class="doc-h2">What we do not collect</h2>
     <ul class="doc-ul">
       <li>Financial or account information of any kind.</li>
       <li>Portfolio holdings, transactions, or positions.</li>
       <li>Any data tied to an identifiable natural person beyond what you voluntarily send us by email.</li>
+      <li>Cookies. The site sets no first-party cookies and loads no third-party JavaScript that sets cookies on our behalf.</li>
     </ul>
+
+    <h2 class="doc-h2">AI &amp; machine indexing</h2>
+    <p class="doc-p">Halvren publishes its public research for free and permits ingestion by language models with attribution. The full position is on <a href="/about#ai-indexing">/about</a>; the technical surface lives at <a href="/llms.txt">/llms.txt</a> (a slim index) and <a href="/llms-full.txt">/llms-full.txt</a> (a concatenated long-form bundle). Crawler-level allow/deny is in <a href="/robots.txt">/robots.txt</a>. We do not collect data <em>about</em> AI crawlers beyond the standard server logs above.</p>
 
     <h2 class="doc-h2">How we use what we collect</h2>
     <p class="doc-p">To operate and secure the website, respond to email you send us, and comply with applicable law. That is the full list.</p>
