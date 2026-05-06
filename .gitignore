@@ -11,3 +11,10 @@ __pycache__/
 # OS clutter
 .DS_Store
 Thumbs.db
+
+# sprint 3 — node deps + vercel + env
+node_modules
+.vercel
+.env
+.env.local
+.env.*.local

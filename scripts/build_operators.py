@@ -36,7 +36,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data" / "operators"
 CONTENT_DIR = ROOT / "content" / "operators"
 OUT_DIR = ROOT / "research"
-QUESTIONS_FILE = ROOT / "scripts" / "checklist_questions.json"
+QUESTIONS_FILE = ROOT / "content" / "checklist.json"
 
 REQUIRED_FIELDS = (
     "slug ticker exchange name short_name url sector sub_industry "

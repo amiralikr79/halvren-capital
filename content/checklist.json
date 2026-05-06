@@ -1,9 +1,34 @@
 {
-  "_source": "/checklist.html — verbatim, do not edit by hand",
+  "$comment_1": "Halvren Checklist — canonical 10-question source of truth.",
+  "$comment_2": "Used by: scripts/build_operators.py (operator scorecard), api/checklist/score.js (live scoring tool), checklist.html (landing — duplicated by hand for now).",
+  "$comment_3": "When updating: update this file first, regenerate operator pages with python3 scripts/build_operators.py, then update /checklist.html and /index.html to match.",
+  "version": "2026-04-17",
   "_pillars": {
-    "I":   {"label": "The business", "questions": [1, 2, 3, 4]},
-    "II":  {"label": "The people",   "questions": [5, 6, 7, 8]},
-    "III": {"label": "The cycle",    "questions": [9, 10]}
+    "I": {
+      "label": "The business",
+      "questions": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "II": {
+      "label": "The people",
+      "questions": [
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "III": {
+      "label": "The cycle",
+      "questions": [
+        9,
+        10
+      ]
+    }
   },
   "questions": [
     {
