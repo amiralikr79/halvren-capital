@@ -91,6 +91,21 @@
 
     <p class="doc-p">Nothing below is proprietary. Much of it is a grown-up version of questions Peter Lynch, Howard Marks, and the Canadian value tradition (Francis Chou, Peter Cundill, the Irwin family at Morningstar-Canada) have been asking for decades. What we add is the operator's seat: one of us has actually built, capitalized, and sold businesses in energy, software, and real estate, and it changes what you notice on page 47 of a 10-K. Use the checklist. Argue with it. Steal it. It is most useful when it is read slowly.</p>
 
+    <section class="cl-tool" aria-labelledby="cl-tool-h">
+      <p class="cl-tool-eyebrow">Run a name through the Checklist</p>
+      <h2 class="cl-tool-h" id="cl-tool-h">Score any operator <em>against the same ten questions.</em></h2>
+      <p class="cl-tool-p">Enter a ticker. The desk pulls public filings via web search, applies the ten questions, and returns a one-page read with citations. Names already on coverage show the principal's read alongside the machine's, side by side.</p>
+      <form class="cl-tool-form" data-cl-form action="/checklist/score" method="GET" autocomplete="off">
+        <div class="cl-tool-input-wrap">
+          <input class="cl-tool-input" type="text" name="ticker" placeholder="Ticker (e.g. CCO, RY, AAPL)" maxlength="10" pattern="[A-Za-z][A-Za-z0-9.\-]{0,9}" required aria-label="Ticker symbol" data-cl-input>
+          <div class="cl-tool-suggest" role="listbox" data-cl-suggest></div>
+        </div>
+        <button class="cl-tool-submit" type="submit">Score it</button>
+      </form>
+      <p class="cl-tool-error" data-cl-error aria-live="polite"></p>
+      <p class="cl-tool-meta">5 scores per IP per hour. Cached one month. Machine output is not principal-reviewed and is not investment advice. The shareable URL renders to a one-page summary you can send to a colleague.</p>
+    </section>
+
     <div class="cl-grid">
       <div class="cl-pillar">
         <p class="cl-pillar-label">Pillar I</p>
@@ -180,6 +195,64 @@
   </div>
 </footer>
 <script>(function(){var f=document.querySelector('.progress-bar-fill');if(!f)return;function u(){var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;f.style.width=(m>0?Math.min(100,Math.max(0,(h.scrollTop/m)*100)):0)+'%';}addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})();</script>
+<script>
+(function () {
+  var form = document.querySelector('[data-cl-form]');
+  if (!form) return;
+  var input = form.querySelector('[data-cl-input]');
+  var sugg  = form.querySelector('[data-cl-suggest]');
+  var err   = document.querySelector('[data-cl-error]');
+  var TICKER_RE = /^[A-Z][A-Z0-9.\-]{0,9}$/;
+
+  // load coverage list lazily for autocomplete (graceful if it 404s)
+  var coverage = [];
+  fetch('/coverage/coverage.json').then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (j) { coverage = (j && j.operators) || []; })
+    .catch(function () {});
+
+  function setError(msg) { if (err) { err.textContent = msg || ''; err.setAttribute('data-state', msg ? 'error' : ''); } }
+  function close() { sugg.removeAttribute('data-open'); sugg.innerHTML = ''; }
+
+  input.addEventListener('input', function () {
+    var v = input.value.toUpperCase().trim();
+    setError('');
+    if (v.length < 1 || !coverage.length) { close(); return; }
+    var matches = coverage.filter(function (o) {
+      return o.ticker.startsWith(v) || (o.short_name || '').toUpperCase().includes(v);
+    }).slice(0, 8);
+    if (!matches.length) { close(); return; }
+    sugg.innerHTML = matches.map(function (o, i) {
+      return '<div class="cl-tool-suggest-item" role="option" data-tkr="' + o.ticker + '"' + (i === 0 ? ' aria-selected="true"' : '') + '>' +
+        '<span class="tkr">' + o.ticker + '</span>' +
+        '<span class="name">' + (o.short_name || '') + ' · ' + o.sector + '</span>' +
+      '</div>';
+    }).join('');
+    sugg.setAttribute('data-open', 'true');
+  });
+
+  sugg.addEventListener('mousedown', function (e) {
+    var item = e.target.closest('[data-tkr]');
+    if (!item) return;
+    e.preventDefault();
+    input.value = item.getAttribute('data-tkr');
+    close();
+    form.requestSubmit ? form.requestSubmit() : form.submit();
+  });
+
+  input.addEventListener('blur', function () { setTimeout(close, 150); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = (input.value || '').toUpperCase().trim();
+    if (!TICKER_RE.test(v)) {
+      setError('Use uppercase letters/digits and . or - only (e.g. CCO, RY, TECK.B, BIP.UN, BRK-B). Max 10 characters.');
+      input.focus();
+      return;
+    }
+    window.location.href = '/checklist/score/' + encodeURIComponent(v);
+  });
+})();
+</script>
 <script src="/nav.js" defer></script>
 </body>
 </html>

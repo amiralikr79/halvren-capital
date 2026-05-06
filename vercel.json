@@ -3,5 +3,24 @@
   "trailingSlash": false,
   "redirects": [
     { "source": "/pricing", "destination": "/access", "permanent": true }
-  ]
+  ],
+  "rewrites": [
+    {
+      "source": "/checklist/score/:ticker",
+      "destination": "/api/checklist/page?ticker=:ticker"
+    },
+    {
+      "source": "/checklist/score",
+      "destination": "/api/checklist/page"
+    }
+  ],
+  "functions": {
+    "api/checklist/score.js": {
+      "maxDuration": 30,
+      "includeFiles": "{content/checklist.json,coverage/coverage.json}"
+    },
+    "api/checklist/page.js": {
+      "maxDuration": 5
+    }
+  }
 }
