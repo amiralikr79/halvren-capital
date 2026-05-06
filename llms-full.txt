@@ -1,0 +1,496 @@
+# Halvren Capital — full text bundle
+
+This file concatenates the principal-authored long-form text on the site (founding memo, the Halvren Checklist, every operator research note, and the most recent digest entries) for offline ingestion by an LLM. Generated on 2026-05-06 by scripts/build_machine_readable.py. The canonical site is https://halvrencapital.com. AI training is permitted with attribution; see https://halvrencapital.com/about.
+
+---
+
+## Founding memo
+Source: https://halvrencapital.com/memo/founding
+
+Home/Memo
+
+The founding memo
+
+On patience, capital, and the long game.
+Amirali Karimi
+
+Founder, Halvren Capital · Vancouver, BC · SFU Economics · CFA candidate
+
+Published 2025 · Reviewed Apr 2026
+
+There is a certain kind of investor who treats uncertainty as the enemy. They build models to defeat it, buy protection against it, and measure their competence by how seldom it appears in their portfolio. We are not that investor.
+
+Uncertainty is the job. The question is never whether uncertainty exists (it always does), but whether the price you paid reflects it honestly. Our edge is not superior information. It is superior patience. We are willing to hold through the quarters where being right feels identical to being wrong.
+
+Why Halvren exists
+Canada is a country of unusual businesses. The list of high-quality, long-lived, cash-generative operators quietly running the real economy, in the oil sands, in potash, in the uranium basins, in pipelines, in railroads, in the regional utilities, is longer than most Canadians realize and longer still than most international capital knows about. Home-bias investing has a bad reputation because it is usually dressed up as patriotism. Our version of home bias is simpler: it is easier to know a Canadian business well, from the inside, than to guess at a Dutch or a Malaysian one. So we build where we can know.
+
+Halvren was started to do three things, in this order: manage our own capital with discipline; write the research that capital deserves; and share that research with anyone in Canada who reads 10-Ks, runs spreadsheets on the weekend, and has grown tired of sell-side notes that are press releases with better formatting. The capital comes first. The writing exists to sharpen the capital. The public version exists because it costs us nothing to share what we would be writing anyway.
+
+Why a closed book
+We manage proprietary capital only and do not currently accept outside investors. This is a deliberate choice, not a statement about fundraising. Three reasons.
+
+First, outside capital changes behaviour. Once you are managing it, the job quietly becomes keeping it, which means smoothing volatility, demonstrating activity, and explaining moves you would not otherwise need to explain. None of those things make the underlying returns better. We would rather hold a position through an uncomfortable four years of quiet than manage a client's patience through it.
+
+Second, operating businesses are the other half of what this desk does. Real estate development and software operating are, in practical terms, full-time work. We do not have capacity to also be a registered investment adviser, and we are not willing to pretend otherwise.
+
+Third, the research is more honest when the only reader we are ultimately writing for is the person spending the money. Nothing we publish is hedged to keep an LP happy.
+
+Our edge is not superior information. It is superior patience. We are willing to hold through the quarters where being right feels identical to being wrong.
+
+What we believe, honestly
+We also believe in being honest about what we don't know. We don't know which AI model wins. We don't know when Canadian real estate corrects, or by how much. We don't know which of today's platform businesses will look like railroads in thirty years: essential, regulated, and only mildly profitable. What we believe is that the businesses we own will still be operating, still compounding, and still relevant when those answers become obvious.
+
+The consensus is always already priced. Edge lives in the horizons others have abandoned, the industries that have embarrassed themselves, and the operators too boring to make a conference panel. We are comfortable being boring. Most of what we study never becomes a position. Most of what becomes a position is held for a long time. The Halvren Checklist is the public version of the screen that does that work.
+
+What this site is, and what it isn't
+This site is not investment advice. It is research, writeup, and commentary, often opinionated, always sourced, published when we have something worth saying. We care about accuracy. We do not care about being the first to cover a name. If the read arrives a quarter late, the read still arrives.
+
+Our first full writeups live on our Substack. The home page carries our current watchlist with summary numbers and a live timestamp. Everything here is free to read, and will stay that way.
+
+Who we hope reads this
+Canadian DIY investors. Operators in energy, materials, infrastructure, real estate, and software. Family offices and allocators. The portion of the professional community that reads filings before headlines. Anyone for whom the phrase "home bias" is a reason for work rather than an apology. If you are any of those, welcome. You are the reason we publish.
+
+We apologize for the length of this memo. We are not sorry about the conviction behind it.
+
+The Halvren letter
+
+If the memo lands, the quarterly letter will too.
+Halvren publishes one letter per quarter and a small, irregular cadence of single-name research. Subscribe on Substack — emails are handled there, not here.
+
+No emails are stored on this site — the form opens Substack in a new tab. Privacy.
+
+Keep reading
+
+The lens
+
+The Halvren Checklist.
+
+Ten questions we run through before a Canadian operator earns the writeup. Business, people, cycle.
+
+Archive
+
+Every Halvren writeup, by sector.
+
+Canadian operators in energy, materials, and infrastructure. FY 2025 data and the Checklist applied.
+
+— Halvren Capital, 2025. Last reviewed April 2026.
+
+← Back to home
+
+---
+
+## The Halvren Checklist — ten questions
+Source: https://halvrencapital.com/checklist
+
+### Pillar I — The business
+   1. Does it generate free cash flow through the full cycle, or only the top half of it?
+      Standard note: Reported earnings lie in commodities. Ten years of FCF tells the truth.
+   2. Do the unit economics still work at the worst price of the last decade?
+      Standard note: If the thesis needs a new commodity regime to work, it isn't a business yet.
+   3. What does the balance sheet look like at trough pricing: net debt, covenants, maturity ladder?
+      Standard note: The next crisis won't ask what you projected. It asks what you owe and when.
+   4. When they reinvest a dollar (capex, M&A, or buyback), what actually comes back?
+      Standard note: ROIC on incremental capital, not reported ROE on the whole book.
+
+### Pillar II — The people
+   5. How much of the operator's own net worth, bought and not granted, sits in this name?
+      Standard note: Options are loyalty to a quarter. Open-market purchases are loyalty to a decade.
+   6. What did management actually do in 2015 and 2020: issue, buy back, or sit still?
+      Standard note: Every operator on the desk has been stress-tested twice in the last decade. The record is public.
+   7. Is compensation tied to per-share value, or to production, revenue, and size?
+      Standard note: Growth at the expense of the share count is a tax the operator quietly charges you.
+   8. Who succeeds the operator, and is that person already visible on the page?
+      Standard note: Every owner-operator story ends. The question is whether the business does too.
+
+### Pillar III — The cycle
+   9. Where are we on the cost curve that matters: the real one, not the one in the pitch deck?
+      Standard note: Every operator is first-quartile when they pick the quartile. Ask who sets the denominator.
+  10. What does a “normal” year look like a decade from now, and does this business still work at that price?
+      Standard note: If the thesis only works at the top of the cycle, it's a trade. Halvren doesn't trade.
+
+---
+
+## Operator research notes
+
+### First Majestic (AG) — Materials · Silver
+Source: https://halvrencapital.com/research/first-majestic-ag
+Last reviewed: 2026-04-18
+Listings: NYSE: AG · TSX: AG
+
+Machine-readable abstract: Silver-focused primary producer, Mexico (San Dimas, Santa Elena, Gatos JV) and Nevada (Jerritt Canyon). FY 2025 revenue US$1.26B (+124%), AISC US$21.17/AgEq oz. Mexico tax dispute liability ~US$200M+. Per-share metrics lag production due to equity-funded acquisitions.
+
+**FY snapshot.** Revenue: US$1,257M (+124% YoY); AISC / AgEq oz: US$21.17 (≈ flat vs FY24); Realized AgEq price: US$41.52 (+47% YoY); Payable AgEq sold: +50% YoY; CEO: Keith Neumeyer (co-founder); Key jurisdictions: Mexico · Nevada; Listings: NYSE: AG · TSX: AG
+
+**What we track.** All-in sustaining cost · Production-per-share · Mexico tax posture · Reserve quality · Hedge book
+
+First Majestic is the hardest of our three watchlist names to own honestly, and that is exactly why it is on the desk. Silver is a narrative metal. The company has had more operational resets than closes at a new high. The 2025 revenue print was spectacular and the stock responded, but the interesting question, the Halvren question, is not whether the metal went up. It is whether per-share value was actually created, or whether we have simply watched a torque-machine do its thing while the share count quietly tells a different story. That question has a real answer, and it is uncomfortable for both bulls and bears.
+
+The business, in one paragraph
+First Majestic is a silver-focused primary producer with a portfolio concentrated in Mexico (San Dimas, Santa Elena, La Encantada, La Parrilla legacy, and the Los Gatos JV interest via the 2024 Gatos Silver acquisition) and Nevada via the Jerritt Canyon gold operation acquired in 2021. The company was founded by Keith Neumeyer in 2002 and has been built through a long string of acquisitions aimed at scaling primary silver production, a deliberately counter-positioned strategy in a metal that most majors have de-emphasized. The business proposition is torque: when silver moves, revenues move more than linearly. The business challenge is that the torque works symmetrically, and primary silver is a structurally difficult place to create per-share value.
+
+What FY 2025 actually said
+Record revenue of US$1.26B (+124%) was driven by two things in roughly equal measure: a 50% increase in payable silver-equivalent ounces sold, and a 47% increase in the realized average selling price to US$41.52/AgEq oz. Those are real numbers against a real tape. The per-share story is more nuanced: the 2024 Gatos acquisition was equity-funded, so the ounce growth is substantially inorganic, and the share count is materially higher coming into 2026 than it was in 2023.
+
+AISC of US$21.17 per AgEq ounce is essentially flat year-over-year, which, in a year when realized prices rose 47%, is a revealing data point. The cost curve does not reward you for a strong year; it only punishes you for a weak one. FY 2025's AISC leaves First Majestic comfortably profitable at realized prices, uncomfortably close to breakeven at a US$22–24 environment, and in real trouble at anything approaching US$18. That asymmetry is what Pillar I question 2 asks about, and it is not solved by a good year.
+
+Three things we are reading carefully
+
+1. The real cost curve, not the guidance print
+First Majestic's reported AISC is an accounting number. The more honest read is the all-in cash operating cost per ounce after by-product credits from gold, lead, and zinc at mid-cycle assumptions, which is what a real cost curve looks like to a silver investor. On that basis, First Majestic sits in the second quartile of primary silver producers globally, and the differential between reported AISC and &ldquo;real&rdquo; AISC can be several dollars depending on metal price assumptions. The guidance language around metal-price assumptions and the gold-to-silver ratio in 2025 disclosure is particularly worth reading slowly; the company's explanation of how AgEq ounces are calculated when the ratio compresses is, in plain English, an admission that &ldquo;ounces produced&rdquo; moves around meaningfully depending on which metal is the denominator.
+
+2. The Mexico tax and royalty overhang
+First Majestic has been in an ongoing tax dispute with the Mexican government (Servicio de Administración Tributaria) for several years regarding transfer pricing on historical San Dimas production. The company has accrued a substantial liability in the range of US$200M+ depending on how the dispute resolves, and the broader Mexican fiscal environment for mining, including recent royalty and water-permit changes under the Sheinbaum administration, has been trending less friendly to foreign operators. This is a Pillar III question that the sell-side often footnotes. It is not a footnote. A worst-case resolution of the historical dispute meaningfully reshapes the balance sheet. We track the Mexican legal and fiscal headlines weekly because, on this one, the headlines are the data.
+
+3. Per-share value versus production growth
+This is the single most important question on First Majestic, and it is the one most silver bulls skip. Over the last eight years, production has roughly tripled while the share count has roughly doubled, and the relevant per-share metric, silver-equivalent ounces per share, reserves per share, cash flow per share at a constant silver deck, has moved far less than production has. Acquisitions financed with equity work when the acquired asset is acquired below the acquirer's own intrinsic value per share; they destroy per-share value when it is the other way around. We have not yet convinced ourselves that Gatos was accretive on per-share metrics ex the silver tailwind. We are withholding judgment for two more quarters of integration data and a consolidated reserve and resource update.
+
+What we are watching into FY 2026
+- AISC guidance for 2026 against a more normalized metal-price assumption, and whether the company discloses an explicit real-AISC or by-product-adjusted number.
+- Mexico tax dispute resolution or settlement, any directional news moves the thesis materially.
+- Per-share AgEq reserves and resources post-Gatos integration. This is the cleanest read on whether the acquisition actually created value.
+- Share count trajectory, any further equity issuance is a red flag at current prices.
+- Jerritt Canyon economics now that the gold segment is a meaningful contributor; the company's willingness to divest if returns disappoint will be a Pillar II signal.
+
+> Sometimes the most useful output of research is &ldquo;not yet.&rdquo; First Majestic is on the desk, not in the book. That distinction is the whole job.
+
+Pillar I. The business. FCF through the full cycle: marginal. 2020 was difficult; 2022–2023 were operationally rough even with reasonable prices. Unit economics at worst price (silver in the mid-teens): uncomfortable. Balance sheet at trough: the combination of the Mexico liability contingency and a silver-low environment is the stress test to have ready. ROIC on incremental capital: this is the Gatos question, and it is unresolved.
+
+Pillar II. The people. Keith Neumeyer is a founder and long-tenured capital allocator with a genuine conviction about silver's place in the monetary system. That conviction has driven both the best and the hardest decisions in the company's history. Insider ownership exists but is not the defining feature it is at a Dundee or a Franco-Nevada. Compensation has historically been tilted toward production and scale rather than per-share value, which is Pillar II question 7 speaking. Behaviour in 2020: held through; no capital destruction but no counter-cyclical buybacks of the kind CNQ would have done. Succession is not clearly visible.
+
+Pillar III. The cycle. First Majestic is a levered bet on silver with a jurisdictional tax overhang. Where we are in the cycle matters more here than it does in Cameco or CNQ. A normal-decade read at US$25–28 silver keeps the business profitable but not exceptional. A normal-decade read at US$35+ makes the torque work for shareholders; a normal-decade read at US$18–22 is a genuinely hard business to own.
+
+---
+
+### Cameco (CCO) — Energy · Uranium
+Source: https://halvrencapital.com/research/cameco-cco
+Last reviewed: 2026-04-18
+Listings: TSX: CCO · NYSE: CCJ
+
+Machine-readable abstract: Saskatchewan uranium miner, world's second-largest pure-play. Tier-1 mines (McArthur River, Cigar Lake) keep cash costs first-quartile. Owns 49% of Westinghouse with Brookfield. FY 2025 net cash position; 2026 production guidance 19.5–21.5 Mlbs.
+
+**FY snapshot.** Revenue: C$3.48B (+11% YoY); Adj. net earnings: C$627M (vs C$292M FY24); U₃O₈ production: 21.0 Mlbs (beat guidance); 2026 guidance: 19.5–21.5 Mlbs; Cash / total debt: C$1.2B / C$1.0B; Westinghouse: 49% (w/ Brookfield); Listings: TSX: CCO · NYSE: CCJ
+
+**What we track.** All-in mining cost · Westinghouse contribution · Long-term contract book · Capital discipline vs. peers
+
+Uranium has become a narrative asset. Cameco is still a mine with a cost structure. That disconnect, between a commodity that trades on talking points and a Saskatchewan business that trades on pounds produced, is the reason Cameco keeps coming back to our desk. The bull case needs the commodity. The business is fine without it. We spend our time on the second sentence.
+
+The business, in one paragraph
+Cameco is the world's second-largest pure-play uranium producer and one of the most important Western sources of conversion and enrichment services. Its Tier-1 mines, McArthur River / Key Lake and Cigar Lake, both in Saskatchewan, are among the highest-grade uranium deposits ever developed, which means per-pound cash costs stay among the lowest in the industry even as tonnage moves around. It also owns a 40% stake in Inkai (Kazakhstan, JV with Kazatomprom), and since late 2023 has held 49% of Westinghouse Electric Company in partnership with Brookfield. In other words: a mining business with a services business bolted on, both leveraged to the nuclear build-out, but capitalized and managed for survival through the last one.
+
+What FY 2025 actually said
+Headline numbers are strong. Revenue grew 11% to C$3.48B, adjusted net earnings more than doubled to C$627M, and the company beat its revised production guidance with 21 Mlbs from McArthur/Key and Cigar. The more interesting story lives two levels down. Cameco generated enough free cash in 2025 to hold C$1.2B of cash and investments against C$1.0B of total debt, a negative net debt position at a moment when most uranium producers still trade on promises rather than prints. For a cyclical, that is a non-trivial place to be.
+
+2026 guidance of 19.5–21.5 Mlbs is a step down from 2025 at the midpoint, and management has been explicit that this is a discipline choice rather than a capacity ceiling. That discipline is the part the market keeps mispricing when uranium runs.
+
+Three things we are reading carefully
+
+1. The McArthur River restart economics
+McArthur was placed on care and maintenance from 2018 through 2022, which is the single most important piece of capital allocation in Cameco's modern history. Most high-cost producers keep producing through a bear market, destroying value on every pound. Cameco did not. The mine came back in 2022 at a restart cost substantially below consensus, and the per-pound economics post-restart are meaningfully better than they were pre-shutdown. We track the &ldquo;licensed capacity vs. mined tonnage&rdquo; gap each quarter because it tells you the shape of the option Cameco is choosing to exercise, or not, on behalf of shareholders.
+
+2. The Westinghouse contribution
+Westinghouse is the most important thing to happen to Cameco's earnings profile since Cigar Lake. It added roughly C$170–200M of annual adjusted EBITDA contribution in 2025 on Cameco's 49%, and that number grows into 2026–27 as the AP1000 project pipeline in Poland, Bulgaria, Ukraine, and the U.S. converts from talking points to construction progress payments. The question we keep sitting with is: how much of Westinghouse's forward earnings is a repeatable, franchise-quality service business (fuel, maintenance, engineering) versus a reactor-build cycle that could slip another decade? The right answer changes the multiple by several turns. We do not have a confident answer yet.
+
+3. The contract book as the utilities roll
+Cameco sells most of its pounds under long-term contracts, many of which carry market-reference pricing with floors and ceilings negotiated years ago. As utilities' term books roll, new contracts reset against today's spot and term indications. Realized-price lag is the reason Cameco's reported selling price trails the spot run-up, and also the reason it will trail a spot crash. For a long-horizon investor this is a feature, not a bug. We watch the long-term contract book and average realized price disclosures every quarter because they tell you what the business will earn over the next three to five years, not what the commodity did last week.
+
+What we are watching into FY 2026
+- All-in mining cost at McArthur and Cigar as tonnage ramps toward licensed capacity. The gap between cash cost and AISC is where the operating leverage shows up first.
+- Westinghouse adjusted EBITDA run-rate and, more importantly, management disclosure on the fuel/services vs. new-build contribution split. The ratio matters more than the total.
+- Long-term contract book volume and average realized price each quarter. A rising contract book at rising average prices is the single most important number in the deck.
+- Capital return discipline. Cameco has been conservative on buybacks during the run. Whether that continues, or flips, into a weaker tape tells you what management thinks of the intrinsic value.
+
+> Cameco is the rare uranium name we think about as an operating business first and a commodity call second. That reversal, in either direction, is usually where the mispricing lives.
+
+Pillar I. The business. FCF through the full cycle: yes, including 2015–2019. Unit economics at worst price (uranium in the high-$20s): McArthur/Cigar still work; the marginal mines do not, which is why Cameco mothballed the marginal mines. Balance sheet at trough: net cash. ROIC on incremental capital: the Westinghouse deal is the key test, we will know in three to five years whether that was a generational acquisition or a pricey one. Early read: the operating leverage is already showing up, and Brookfield's participation is a soft quality signal.
+
+Pillar II. The people. Tim Gitzel has run Cameco since 2011, which means he has managed the business through both the post-Fukushima collapse and the current renaissance. Insider ownership is modest, Cameco is a public-market story, not an owner-operator one, so the weight falls on capital allocation behaviour. That record is genuinely strong: the 2018 McArthur shutdown, the 2022 restart, and the 2023 Westinghouse acquisition are three decisions that all looked contrarian at the time and have aged well. Succession is visible at the executive level but not obviously concentrated in one named successor. We keep an eye on it.
+
+Pillar III. The cycle. On the real uranium cost curve (not the one in slide decks), McArthur/Cigar sit comfortably in the first quartile. The question is not whether the mines are competitive, they are, but whether the commodity cycle is closer to its beginning or its middle. We do not know. Neither does anyone honest. What we do know is that a mid-cycle realized price is enough to make the business work, and the Westinghouse earnings stream is materially less cyclical than the mining earnings stream. That combination is what pays the waiting.
+
+---
+
+### Canadian Natural (CNQ) — Energy · Oil & Gas
+Source: https://halvrencapital.com/research/canadian-natural-cnq
+Last reviewed: 2026-04-18
+Listings: TSX: CNQ · NYSE: CNQ
+
+Machine-readable abstract: Canada's largest heavy-oil and natural-gas producer. Low corporate decline (10–14%) drives free-cash margin. FY 2025 production 1,571 MBOE/d, adj. funds flow C$15.5B, 26 consecutive dividend raises. Edwards as Executive Chair; Stauth as President since 2023.
+
+**FY snapshot.** Production: 1,571 MBOE/d (+15% YoY, record); Liquids production: 1,146 Mbbl/d (65% SCO/light/NGLs); Adj. funds flow: C$15.5B ($7.39/sh); Adj. net earnings: C$7.4B ($3.56/sh); Shareholder returns: C$9.0B (div + buyback + debt); 2026 dividend: C$2.50/sh (26th consec. raise); Leadership: Edwards (Exec Chair) · Stauth (Pres); Listings: TSX: CNQ · NYSE: CNQ
+
+**What we track.** Sustaining capex · Free cash flow at strip · Buyback pace · Insider alignment · Succession
+
+Murray Edwards built a business that does not need $100 oil to matter. The thesis on Canadian Natural Resources (&ldquo;CNQ&rdquo;) has never really been about the commodity. It has been about a specific kind of arithmetic, long-life, low-decline assets operated by a team that thinks and acts like owners because many of them, quite literally, are. Twenty-six consecutive years of dividend raises is not a marketing story. It is the balance-sheet receipt of that arithmetic.
+
+The business, in one paragraph
+CNQ is Canada's largest heavy-oil and natural-gas producer and one of the most operationally diversified upstream companies in North America. Production spans oil sands mining and SCO upgrading (Horizon, AOSP interest), thermal in-situ (Primrose, Wolf Lake, Kirby), conventional heavy oil in western Saskatchewan and eastern Alberta, light oil and NGLs across the WCSB, and a meaningful natural gas and NGL complex. The asset base carries one of the lowest corporate decline rates in North American oil and gas, roughly 10–14%, which translates directly into low maintenance capex, which translates directly into the free-cash-flow profile that funds the dividend streak.
+
+What FY 2025 actually said
+Record production of 1,571 MBOE/d, up 15% year-over-year, driven substantially by the 2024 acquisition of Chevron's Athabasca Oil Sands Project (&ldquo;AOSP&rdquo;) interest and Duvernay assets. Adjusted funds flow of C$15.5B funded roughly C$9.0B of shareholder returns, C$4.9B in dividends, C$1.4B in buybacks, and C$2.7B of net debt reduction. Management raised the quarterly dividend another 6.4% to C$0.625/share, putting the 2026 annualized dividend at C$2.50 and extending the streak to 26 consecutive years with a compound growth rate of roughly 20% over that period.
+
+None of those numbers is new if you have been reading CNQ. What is new, and worth underlining, is the composition of the 2025 shareholder return. A year ago the C$9B was skewed toward debt reduction; in 2025 it rebalanced meaningfully toward dividends and buybacks as the balance sheet hit management's target leverage. Capital allocation priority shifts are the single most important thing to watch in a mature upstream business, because they tell you what management thinks the incremental dollar is worth inside the firm versus returned to shareholders.
+
+Three things we are reading carefully
+
+1. The decline rate and the maintenance capex math
+CNQ's corporate decline rate is the quietest advantage in Canadian energy. A shale producer with a 30–40% base decline is effectively running to stand still; roughly every dollar of cash flow at mid-cycle pricing has to go back into the ground to hold production flat. CNQ's 10–14% decline means a much higher proportion of cash flow is genuinely free. We rebuild the maintenance-capex-to-funds-flow ratio each quarter at strip pricing, and we stress-test it at US$55 WTI to make sure the dividend's margin of safety is still wide. In 2025 it clears comfortably. In 2020 it cleared uncomfortably. That is the test that matters.
+
+2. The AOSP acquisition return
+Chevron's AOSP interest was acquired in late 2024 at a headline that looked expensive to casual readers and looked correct to anyone who had read CNQ's operating synergies commentary on the 2017 Shell transaction. The early returns in 2025, full-year AOSP production contribution, synergy capture, and the impact on consolidated decline rate, have been at or slightly above guidance. We are tracking incremental ROIC on the AOSP and Duvernay capital specifically, because a long string of accretive bolt-ons is what separates a compounder from a cyclical, and CNQ has been running the playbook for two decades.
+
+3. Succession
+Tim McKay retired as President in 2023 after a long tenure; Scott Stauth, previously COO of Oil Sands, succeeded him. Murray Edwards remains Executive Chairman. The succession has been managed deliberately and visibly, which is the right answer on Pillar II question 8, but the deeper question is not who is named President today, it is what the capital allocation culture looks like a full cycle after Edwards is no longer sitting at the head of the table. We do not have a confident read yet. We are comfortable being patient here because Edwards himself remains meaningfully invested and publicly engaged, but this is the single largest item on the watch list rather than the hold list.
+
+What we are watching into FY 2026
+- Sustaining capex as % of adjusted funds flow at both strip and stress-test pricing. The gap is the dividend's margin of safety.
+- AOSP synergy capture and incremental ROIC on the acquired interest. Early reads are encouraging; we want two more quarters of operating data before confident.
+- Buyback cadence into any tape weakness. CNQ has historically been counter-cyclical on buybacks, watching whether that holds.
+- Insider behaviour in the named-officer filings. Open-market activity from Edwards and Stauth is a higher-signal read than earnings-call tone.
+- Succession clarity. Board composition and officer tenure over the next 24–36 months.
+
+> Canadian Natural is a rare kind of business for a public market: one where the right thing to do, most of the time, is nothing. That is the arithmetic paying.
+
+Pillar I. The business. FCF through the full cycle: yes, through 2015 and 2020, at significantly lower strip pricing than today. Unit economics at worst price: CNQ's corporate netback at US$40 WTI is still positive, a remarkably small set of public E&Ps can say that. Balance sheet at trough: manageable, with the important caveat that the company carries more term debt than a pure defensive would, and leverage work matters. ROIC on incremental capital: AOSP and Duvernay are testing it in real time; the long-term track record on Horizon, Kirby, and the 2017 Shell deal is strong.
+
+Pillar II. The people. This is the part of the deck most outsiders underweight. Insider ownership is meaningful and, importantly, has been purchased as well as granted across Edwards's 30+ years of tenure. Behaviour in 2015 and 2020 is the Canadian E&P gold standard: CNQ did not cut the dividend in either downturn, did not issue equity, and used the depressed prints to acquire. Compensation is tied to per-share value and the dividend track, not to absolute production growth. Succession is visible but un-finished. On balance, very strong.
+
+Pillar III. The cycle. CNQ is in the first quartile on the real North American oil cost curve, and the oil sands mining/SCO segment is structurally lower on the curve than most sell-side models capture because its decline rate is closer to zero than to 30%. The normal-decade question, “does this still work at US$55 WTI in 2035?”, reads affirmatively today. The bigger cycle question is the longer-dated one about oil demand and Canadian basin takeaway capacity, and that is where a lot of the honest work lives.
+
+---
+
+### Enbridge (ENB) — Infrastructure · Pipelines
+Source: https://halvrencapital.com/research/enbridge-enb
+Last reviewed: 2026-04-27
+Listings: TSX: ENB · NYSE: ENB
+
+Machine-readable abstract: Canadian energy infrastructure operator. Liquids Pipelines (Mainline ~3.0 Mbbl/d), Gas Transmission, Gas Distribution (post-2024 Dominion acquisition), and Renewables. ~98% of group EBITDA take-or-pay or cost-of-service. 2026 dividend C$3.89/sh, ~31st consecutive raise.
+
+**FY snapshot.** Adj. EBITDA: ~C$19.7B (record); Distributable cash flow / sh: ~C$5.65; Mainline throughput: ~3.0 Mbbl/d; Take-or-pay / cost-of-service: ~98% of EBITDA; 2026 dividend: C$3.89/sh (~31st consec. raise); Secured capital backlog: ~C$28B (through 2028+); Leadership: Greg Ebel (CEO, since 2023); Listings: TSX: ENB · NYSE: ENB
+
+**What we track.** Mainline apportionment · Dominion utility rate cases · U.S. gas backlog conversion · Leverage trajectory · Transition capital discipline
+
+A pipeline is not an oil bet. Owning Enbridge is closer to owning a turnpike with a thirty-year toll structure than it is to owning a barrel of crude. The thesis has always lived in that distinction. The corridor between the Western Canadian Sedimentary Basin and the U.S. Midwest and Gulf Coast does not get rebuilt every cycle, and the company that runs the largest piece of it earns a fee whether the underlying barrel sells for forty dollars or ninety. Thirty consecutive years of dividend raises is the receipt for that arithmetic. The honest question is not whether the toll-road still works. It is whether management is going to keep treating it like one.
+
+The business, in one paragraph
+Enbridge runs four segments. Liquids Pipelines is the headline asset: the Mainline system that carries roughly three million barrels a day of Canadian crude into the U.S., plus regional oil-sands gathering and the Gulf Coast and offshore extension. Gas Transmission &amp; Midstream moves natural gas across roughly thirty thousand kilometres of pipe, principally in the U.S. Gas Distribution &amp; Storage serves about seven million customers across Ontario, Ohio, North Carolina, Utah, Wyoming, and Idaho, the last three of which were added in 2024 through the US$14B acquisition of three Dominion gas utilities. Renewable Power is the smallest segment, anchored by European offshore wind. Roughly 98% of group EBITDA is take-or-pay, cost-of-service, or otherwise structurally insulated from commodity price. That number is not an accident. It is the entire point.
+
+What FY 2025 actually said
+Adjusted EBITDA of approximately C$19.7B, a fresh record, with the year's growth coming roughly two-thirds from the first full year of the Dominion utilities and one-third from organic in-service capital across Liquids and Gas Transmission. Distributable cash flow per share landed near C$5.65, supporting the December 2025 dividend raise to a 2026 annualized C$3.89, which extends the streak to roughly thirty-one consecutive years. The capital backlog cleared C$28B of secured projects, weighted toward U.S. gas transmission expansions tied to LNG demand, Gulf Coast offshore tie-backs, and rate-base utility investment.
+
+The print itself is rarely the news on a name like this. The news is in the composition. In 2025 the composition kept tilting toward U.S. gas. That matters because gas is where contracted demand is genuinely growing, between LNG export terminals on the Gulf and data-centre power load in the Mid-Atlantic and Midwest, while the Liquids segment is in a maturing demand environment. The story Enbridge wants to tell over the next five years is not really about pipelines for crude. It is about being the boring infrastructure layer underneath the U.S. gas-and-power decade.
+
+Three things we are reading carefully
+
+1. The Mainline tolling structure
+The Mainline is the largest single asset in Canadian energy infrastructure, and the way shippers pay to use it is being renegotiated on a multi-year cadence. The current incentive tolling settlement, approved by the Canada Energy Regulator, runs through the late 2020s and replaces the long-running competitive tolling proposal the company had earlier sought. It preserves cost-of-service economics with upside for utilization, which is the right risk profile for a regulated corridor. The deeper question is what the next settlement looks like in a world where Trans Mountain Expansion now offers shippers a real, if smaller, second egress to the Pacific. We are watching apportionment, throughput, and shipper commentary every quarter; we are not assuming that the Mainline gets to set its own terms forever.
+
+2. The Dominion gas-utility integration
+In 2024 Enbridge closed on three U.S. gas distribution utilities purchased from Dominion Energy: East Ohio Gas, Public Service of North Carolina, and Questar in the Mountain West. The total deal was roughly US$14B, financed with a mix of equity and debt and immediately accretive to distributable cash flow. The strategic logic was straightforward: take an over-indexed Liquids pipeline mix and rebalance it toward regulated gas distribution earnings in growing U.S. states. The execution question is rate-base growth, regulatory relationships in three new state utility commissions, and synergy capture against the underwriting case. Year one came in at or modestly ahead of plan. We want two to three more rate cases under Enbridge ownership before we are confident we know what the steady-state ROIC on this transaction is.
+
+3. Capital discipline on the energy-transition pivot
+Enbridge has been deliberately measured on energy transition. Renewables are roughly three percent of EBITDA. Offshore wind in the North Sea and France contributes most of it; low-carbon hydrogen and carbon-capture pilots remain pilots. The discipline is the right discipline. Where we want to keep reading carefully is at the margin: every dollar deployed into renewables is a dollar not deployed into a U.S. gas pipeline expansion or a utility rate base, and the historical ROIC on the latter is well-understood while the former is still being priced. So far Ebel's team has chosen what we would call patient, partnered exposure rather than headline-grabbing capital deployment. We expect that to continue. We will be uncomfortable if it stops.
+
+What we are watching into FY 2026
+- Mainline apportionment. Sustained zero-to-low apportionment in a post-TMX world is the cleanest signal that the corridor is still demand-saturated.
+- Dominion utilities rate-case outcomes in Ohio, North Carolina, and the Mountain West. Allowed ROE and rate-base growth are the plumbing of the thesis.
+- U.S. gas transmission backlog conversion. Specifically the LNG-tied projects on the Gulf and the data-centre-tied expansions in the Mid-Atlantic.
+- Leverage trajectory. Debt-to-EBITDA glide back inside management's range as the Dominion EBITDA fully consolidates is a precondition for sustained dividend growth.
+- Capital-allocation discipline on transition. Renewable and low-carbon spend remaining a single-digit share of total capital, and partner-funded where possible.
+
+> Enbridge is not a bet on the price of oil. It is a bet on the things that move oil staying necessary, and on the things that own them staying boring. The boring is the asset.
+
+Pillar I. The business. FCF through the full cycle: yes, including 2014–16, 2020, and the 2022–23 rate-shock. Unit economics at worst price: ~98% take-or-pay or cost-of-service insulates the EBITDA print from commodity moves. Balance sheet at trough: investment-grade with debt-to-EBITDA running near the high end of management's 4.5–5.0x range, which is fine for a regulated business with this much contracted cash flow but is the part of the deck a bear case correctly anchors on. ROIC on incremental capital: high and stable for utility rate-base, more variable for greenfield pipelines, modest and partner-shared for renewables.
+
+Pillar II. The people. Greg Ebel took the CEO role in early 2023 after a long tenure running Spectra Energy, which Enbridge acquired in 2017. He inherited a company that had spent the prior cycle on heavy capital projects, balance-sheet repair, and a partial corporate simplification. His track record so far reads as a return to the playbook the firm ran best, regulated assets, contracted growth, dividend discipline, with the Dominion deal as his largest single capital allocation decision. Insider ownership is low in absolute terms, normal for a Canadian regulated infrastructure company. Compensation is tied to DCF per share and capital-project on-time/on-budget, which is closer to right than wrong.
+
+Pillar III. The cycle. Enbridge sits at or near the bottom of the corridor cost curve for moving Western Canadian crude to U.S. refining, and at the bottom of the cost curve for U.S. natural-gas transmission in several of its key footprints. Greenfield permitting in North America is functionally closed for new long-haul oil pipelines, which structurally protects the existing position. The longer-dated cycle question is whether U.S. gas demand from LNG export and data-centre power load is a decade-long tailwind or a five-year one. We think the former, with conviction; we underwrite for the latter to be safe.
+
+---
+
+### EOG (EOG) — Energy · Oil & Gas
+Source: https://halvrencapital.com/research/eog-resources
+Last reviewed: 2026-05-04
+Listings: NYSE: EOG
+
+Machine-readable abstract: Largest non-major U.S. onshore oil and gas producer. Eagle Ford, Delaware, Permian, Bakken, Powder River, Utica, Dorado. "Premium" drilling threshold: every well clears 30%+ IRR at flat US$40 WTI. FY 2025 ~US$5.4B FCF, net debt at decade low.
+
+**FY snapshot.** Production: ~1,090 MBOE/d (full-year avg.); Adj. EBITDA: ~US$11.4B; Capital expenditures: ~US$6.2B; Free cash flow: ~US$5.4B; Buybacks (FY 2025): ~US$2.3B; Net debt: near decade low (≪ 0.5x EBITDA); Dividend (regular): US$3.78/sh annualized; Listing: NYSE: EOG · Houston, TX
+
+**What we track.** Premium-eligible inventory at sustaining capex · Utica well-cost trajectory and differentials · Buyback price discipline · Capex-to-EBITDA ratio at strip and stress · Insider behaviour (Form 4)
+
+The American shale industry has destroyed more capital, more efficiently, than any other sub-sector in modern public-market history. Between 2010 and 2020, U.S. independent E&amp;Ps drilled out of every cycle, issued equity at every peak, and delivered a cumulative return that trailed the broader market by a margin that is, frankly, embarrassing. EOG Resources did not. It is a U.S. shale producer that has, for two decades, behaved like a long-life Canadian owner-operator. That gap, between what shale companies usually do and what EOG actually does, is the entire thesis.
+
+The business, in one paragraph
+EOG is the largest &ldquo;non-major&rdquo; U.S. onshore oil and gas producer, with positions in the Eagle Ford (the play it pioneered as a pure oil resource), the Delaware Basin, the Permian Midland, the Bakken, the Powder River oil window, the Utica liquids window, and the Dorado dry-gas play in South Texas. It does not own midstream of consequence, does not refine, and does not market to retail. It is an upstream business that drills wells. The thesis sits on a single discipline: every well it drills must clear the firm's &ldquo;premium&rdquo; return threshold, defined as a direct after-tax rate of return above 30% at flat US$40 WTI and US$2.50 Henry Hub. Wells that do not clear are not drilled. The opportunity set, not the calendar, sets the pace of capital deployment.
+
+What FY 2025 actually said
+A clean print. Production averaged roughly 1,090 MBOE/d, modestly above the high end of original 2025 guidance, with Eagle Ford and Delaware Basin as the workhorses. Adjusted EBITDA in the high US$11B range generated roughly US$5.4B of free cash flow after capex of ~US$6.2B. The capital return composition was the part worth reading carefully: buybacks of about US$2.3B for the year, the regular dividend held at US$3.78/share, plus a periodic special. Net debt continued its trend toward a decade low; the leverage ratio sits well below 0.5x at strip and would still clear management's stress test at meaningfully lower prices.
+
+The most material item on the FY 2025 call was not a number. It was a non-event: management explicitly addressed and dismissed the consolidation narrative that has dominated U.S. shale headlines since the 2023–2024 ExxonMobil/Pioneer and Chevron/Hess transactions. EOG did not pursue a major acquisition in 2025 and signalled clearly that it does not need to. That posture has cost it some sell-side enthusiasm and almost no capital. We read it as the right answer.
+
+Three things we are reading carefully
+
+1. The premium drilling philosophy as a moat
+EOG's &ldquo;premium&rdquo; framework, set up under Bill Thomas and maintained by Ezra Yacob, is a structural commitment that the rest of the U.S. independent peer group does not match. The threshold has been raised over time, from 30% IRR at US$40 WTI to a higher &ldquo;double-premium&rdquo; tier at US$45–50, and the company has been willing to slow the program when the inventory does not clear. That is the unusual thing. Most shale producers absorb whatever capital their balance sheet will lend them; EOG is willing to drill less. Returning the unspent capital as buybacks at depressed multiples is the corollary, and EOG has done it consistently. We track the inventory-clearing metric (premium-eligible locations at sustaining capex) each quarter; the read at end-2025 was healthy.
+
+2. The Utica oil-window expansion
+EOG has been building its position in the Utica oil window quietly for several years, and the 2025 disclosure was the first year in which the play stood up as a third meaningful oil leg behind Eagle Ford and Delaware. The early type-curves are encouraging, the acreage cost is reasonable relative to Permian comps, and the operating intensity inside the play is low because EOG is the operator with the longest local history. We are tracking three things: well-cost trajectory (always the first signal of a play's real economics), parent-child interference as density increases, and the realized differential to WTI given the play's Appalachian midstream constraints. None of those reads are negative yet; one or more could become negative in 2026, and that is the right level of vigilance.
+
+3. The buyback discipline at higher prices
+EOG bought back roughly US$2.3B of stock in 2025 across a year when the share price spent meaningful time above the long-run trend. We are not, in general, fans of buybacks executed at full multiples. The Halvren preference is for repurchases concentrated counter-cyclically, the way Canadian Natural and Cameco have run their programs. EOG's record is mixed on this dimension: the 2020–2021 program was textbook counter-cyclical; the 2024–2025 program has been more steady-state. Management's framing on the FY 2025 call was that the regular component of the buyback should be read as a substitute for a higher fixed dividend, not as opportunistic capital allocation. That is a defensible answer, but it is one we plan to keep testing against the trailing five-year average price-paid versus the trailing five-year average market price.
+
+What we are watching into FY 2026
+- Premium-eligible inventory at sustaining capex. The headline that protects the dividend is the depth of the eligible drilling list at flat US$40.
+- Utica well-cost trajectory and differentials. The play's economics are the single biggest positive variance against today's model; both inputs are still being discovered.
+- Buyback price discipline. Trailing-12-month average price paid versus trailing-12-month VWAP, watching for a re-tilt toward counter-cyclicality.
+- Capex-to-EBITDA ratio at strip and stress prices. The ratio is the cleanest read on whether EOG is letting the cycle dictate pace, or letting the calendar.
+- Insider behaviour. Form 4 activity from named officers; we treat this as a higher-signal read than earnings-call tone.
+
+> EOG is the part of the American shale story that did not embarrass itself. Halvren's read is that the discipline that produced the last fifteen years is the discipline that will produce the next.
+
+Pillar I. The business. Free cash flow through the cycle: yes, including 2015 and 2020, both genuinely difficult years for U.S. independents. Unit economics at worst price: EOG's premium framework is designed precisely for the trough; the company can hold production roughly flat at strip pricing well below today's. Balance sheet at trough: investment-grade, conservatively levered, with the strongest net-debt trajectory in the U.S. independent peer group. ROIC on incremental capital: the firm has historically led its peer group on a rolling five-year basis, and the 2024–2025 reads have been at the top of the pack again.
+
+Pillar II. The people. The cultural lineage from Mark Papa (CEO 1999–2013) to Bill Thomas (2013–2021) to Ezra Yacob (2021–) has been unusually clean and unusually durable for a Houston-listed E&P. Insider ownership is meaningful but not exceptional by Canadian-operator standards; we read EOG as a strong-culture, strong-process company more than a strong-insider-skin company. Behaviour in 2020 was the right answer: cut capex, did not cut the regular dividend, used the trough to retire debt and accumulate inventory. Compensation is tied to per-share metrics and capital efficiency, not to absolute production growth. Solid Pillar II.
+
+Pillar III. The cycle. The longer-dated questions on U.S. shale are real: parent-child interference inside maturing plays, well-productivity declines as core inventory is exhausted, and the structural decline rate of the basin as a whole. EOG has positioned itself for those questions better than its peers — the premium framework is, at root, an admission that not every barrel is worth drilling. The cycle question we cannot answer is what U.S. shale's terminal output looks like in the 2030s; nobody can. The cycle question we can answer is whether EOG would still be a healthy business at materially lower realized pricing, and that read clears comfortably.
+
+---
+
+### Nutrien (NTR) — Materials · Fertilizers
+Source: https://halvrencapital.com/research/nutrien-ntr
+Last reviewed: 2026-04-19
+Listings: TSX: NTR · NYSE: NTR
+
+Machine-readable abstract: World's largest potash producer (six Saskatchewan mines), nitrogen producer (US, Trinidad, Canada), and largest North American agricultural retailer (~2,000 stores). FY 2025 sales US$26.9B, adj. EBITDA US$6.05B. Saskatchewan first-quartile on global potash cost curve.
+
+**FY snapshot.** Sales: US$26.9B; Adj. EBITDA: US$6.05B; Net earnings: US$2.30B; Potash adj. EBITDA: US$2.25B (record vol.); Nitrogen adj. EBITDA: US$2.15B; Buybacks: US$551M (≈ 2% of shares); Quarterly dividend: US$0.55/sh (US$2.20 annualized); Listings: TSX: NTR · NYSE: NTR
+
+**What we track.** Realized potash netbacks by region · Retail segment margin at constant Nutrien-product mix · Buyback execution velocity · Brownfield expansion announcements · Insider activity (bought, not granted)
+
+Saskatchewan sits on roughly half of the world's economically minable potash reserves. Three countries, Canada, Russia, and Belarus, produce most of the global supply, and only one of them is reliably part of the Western trade system. That structure is the entire reason Nutrien exists in the form it does, and the reason most readers underestimate it. Nutrien is not a fertilizer story. It is a geographically privileged oligopoly with a captive distribution network, and it is one of the most quietly Canadian businesses in the public market.
+
+The business, in one paragraph
+Nutrien was created in January 2018 by the merger of PotashCorp and Agrium, combining the world's largest potash producer with North America's largest agricultural retailer. The company today operates in three segments: Potash (six Saskatchewan mines, headlined by Rocanville, plus Allan, Cory, Lanigan, Patience Lake, and Vanscoy), Nitrogen (a portfolio of ammonia and urea plants in the U.S., Trinidad, and the Canadian prairies), and Retail, roughly 2,000 farm-input stores across the U.S., Canada, Australia, and Latin America selling fertilizer, crop protection, seed, and agronomy services to growers under the Loveland and Crop Production Services banners. The result is a vertically integrated business where the same company mines potash in Saskatchewan and sells it, alongside crop protection products and seed, to a corn farmer in Iowa.
+
+What FY 2025 actually said
+FY 2025 was the snap-back year. Sales rose to US$26.9B, adjusted EBITDA reached US$6.05B, and net earnings landed at US$2.30B as both potash and nitrogen prices recovered from the post-2022 reset. Potash delivered record sales volumes on US$2.25B of segment EBITDA, meaningful because record volume at higher prices is the economist's holy trinity in commodities, and Nutrien hit it. Nitrogen contributed US$2.15B on stronger urea and ammonia realizations.
+
+Capital returns were the genuine signal. Nutrien repurchased ~2% of shares outstanding in 2025 for US$551M and raised the quarterly dividend to US$0.55 (US$2.20 annualized). 2026 guidance is steady-state: retail EBITDA US$1.75–1.95B, potash volumes 14.1–14.8 Mt, nitrogen 9.2–9.7 Mt, capex US$2.0–2.1B. Nothing flashy. That is the point.
+
+Three things we are reading carefully
+
+1. Potash market structure post-Belarus
+The 2022 Russian sanctions and the collapse of Belarusian export logistics through Klaipeda removed a meaningful share of global supply for several quarters. Some of it has come back; some of it has not, and likely will not at pre-2022 economics. Nutrien sits in the first quartile of the global potash cost curve from Saskatchewan, with marginal cash costs in the low US$60s/tonne and an FOB delivered cost that puts it inside the moat regardless of where global price clears. The honest question is not whether potash prices stay above US$300/tonne (they probably do) but whether the floor under prices is structurally higher than it was pre-2022. We think yes, but with a wide error bar.
+
+2. The Retail segment: captive channel or real distributor?
+Retail generated US$1.6B of segment EBITDA in 2025 on roughly US$15B of sales. Read as a standalone business, that is a low-double-digit-margin agricultural distributor with national scale across two continents. Read inside Nutrien, it is also the channel through which Nutrien's own potash and nitrogen reach the end farm. The two readings produce very different multiples. We track Retail EBITDA margin ex-Nutrien-product mix and the proprietary product penetration, Loveland-branded crop protection at higher margin than third-party, because those are the two numbers that tell you whether Retail is a distributor wearing producer clothes or vice versa.
+
+3. Capital allocation through the cycle
+Nutrien's record on this is improving but not yet pristine. The 2018 merger created scale that took several years to unwind operationally. The 2022 commodity peak produced a buyback program that, in retrospect, was front-loaded into expensive equity. The 2024–2025 buybacks at materially lower share prices have been more constructive. We watch buyback timing relative to the company's own cycle-adjusted EV/EBITDA and the gap between announced and executed authorizations. CEO Ken Seitz has been clear about prioritizing per-share value, and the post-Mayo-Schmidt board reset cleaned up a governance overhang. So far so good. The proof is in the next trough.
+
+What we are watching into FY 2026
+- Realized potash netbacks by region (offshore, North America) and the term-contract cadence with India and China.
+- Retail segment margin at constant Nutrien-product mix, the cleanest read on whether the distributor business is genuinely earning its keep.
+- Buyback execution velocity against the company's own cycle-adjusted intrinsic-value range. Pace into weakness is the signal; pace into strength is the warning.
+- Brownfield expansion announcements, Saskatchewan capex creep is the most credible threat to per-share value at this kind of operator.
+- Insider activity from the C-suite and board. Bought, not granted.
+
+> Nutrien is the rare Canadian commodity story where the structural moat (Saskatchewan reserves, distribution scale) is more interesting than the cycle. We watch the cycle anyway.
+
+Pillar I. The business. FCF through the full cycle: yes; even 2019–2020 generated enough cash to maintain the dividend and reduce debt. Unit economics at worst price: Saskatchewan potash works at US$200/tonne; the marginal Belarusian and Russian tonnes do not. Balance sheet at trough: investment-grade, conservatively levered, well-laddered debt. ROIC on incremental capital: mixed historically, improving in the Seitz era. Brownfield potash expansion economics are excellent; the question is whether management has the discipline to keep capex at sustaining-plus-modest-growth rather than chasing volume.
+
+Pillar II. The people. Insider ownership is modest, Nutrien is a public-market institutional name, not an owner-operator story, so the weight falls on capital allocation behaviour and compensation design. Compensation is increasingly tied to per-share metrics post-2022 reset. The 2018 merger executed cleanly; the dividend held through 2020. Succession is settled at the CEO level for now. Halvren's view: this is a B+ Pillar II, not the A you get at CNQ, but materially better than two cycles ago.
+
+Pillar III. The cycle. Saskatchewan potash is structurally the lowest-cost source in the world. Nitrogen is more contested but Nutrien's natural-gas-advantaged Trinidad and U.S. assets keep it competitive. Underwriting at mid-cycle potash (US$300–350/tonne) and mid-cycle nitrogen, Nutrien earns a healthy mid-teens free-cash yield at current prices and an unspectacular but acceptable yield at trough. The thesis does not require a commodity peak. That is what makes it boring, and that is why it is interesting.
+
+---
+
+## Performance — proprietary book
+Source: https://halvrencapital.com/performance
+
+Vehicle: proprietary book (single account, single principal). Inception: 2019-01-01. As of: 2025-12-31. Reporting currency: CAD. Custodian: Interactive Brokers. Method: time-weighted (Modified Dietz), monthly chained to annual. Fees: zero — no clients, no management fees, no performance fees. Leverage/derivatives/short book: none.
+
+Annualized return (net): 17.1%. Cumulative return: +202% over 7 years. Years positive: 7/7 (worst calendar year +6.0%). vs. S&P/TSX TR (annualized): +4.1 pp. vs. S&P 500 TR (annualized): +0.2 pp.
+
+Year-by-year (Halvren / TSX TR / S&P 500 TR / vs TSX / vs S&P):
+  2019: +12.0% / +22.9% / +31.5% / -10.9 pp / -19.5 pp [reconciled]
+  2020: +10.0% / +5.6% / +18.4% / +4.4 pp / -8.4 pp [reconciled]
+  2021: +29.0% / +25.1% / +28.7% / +3.9 pp / +0.3 pp [reconciled]
+  2022: +6.0% / -5.8% / -18.1% / +11.8 pp / +24.1 pp [reconciled]
+  2023: +30.0% / +11.8% / +26.3% / +18.2 pp / +3.7 pp [reconciled]
+  2024: +17.0% / +22.5% / +25.0% / -5.5 pp / -8.0 pp [reconciled]
+  2025: +18.0% / +12.0% / +15.0% / +6.0 pp / +3.0 pp [reconciled]
+
+Audit trail: records held by Interactive Brokers; monthly account statements (PDF), retained since inception; available to qualified counterparties on request, under appropriate confidentiality on request to amirali@halvrencapital.com. Third-party attestation planned: 2026.
+
+Past performance is not indicative of future results. Halvren is not a registered investment adviser, broker-dealer, or portfolio manager and does not currently accept outside capital. See terms at https://halvrencapital.com/terms.
+
+---
+
+## Recent digest entries (most recent 8)
+
+### Week 18 · Apr 28 – May 2, 2026
+Source: https://halvrencapital.com/digest/2026-W18
+Counters: 0 filings, 0 pages, 7.4 audio hrs.
+
+Q1 reporting season hit its first heavy week, and the desk had its hands full.
+
+Eight calls of consequence — CNQ, ENB, SU, CCO, TOU, NTR, EOG, AG — landed across two days. Three earned model flags worth a slow read, and one (Canadian Natural) earned a same-week promotion to the desk's working note. The flags clustered around tonal shifts in long-dated commentary: Enbridge on per-share dividend, Cameco on contract-book pricing, First Majestic on the Mexico jurisdiction overhang.
+
+Five of the six insider transactions ingested this week were open-market purchases by named officers. That is the part that matters more than the printed quarter.
+
+The full per-operator read is below; the principal's commentary lives next to each model flag.
+
+- CNQ Canadian Natural Resources (Oil & Gas): Q1 2026 production of 1,592 MBOE/d, ahead of consensus on AOSP synergy capture and stronger Horizon throughput. Adjusted funds flow C$3.92B; capital returns of C$2.3B in the quarter (dividend + buyback). Management reiterated 2026 capex at the lower end of guidance and reaffirmed the dividend trajectory. Tone on the call: confident, deliberate, no surprises in language.
+    Note (On the desk · principal note): AOSP run-rate is the cleanest test of the 2024 acquisition thesis. Q1 is the first full quarter at the integrated cost curve. Watching sustaining-capex-to-funds-flow ratio at strip and at US$55 stress.
+- ENB Enbridge (Infrastructure): Q1 EBITDA ~C$5.4B, in line with internal estimates; DCF/share tracking near the midpoint of FY 2026 guidance. Mainline apportionment for April averaged 6%, consistent with the post-TMX read in our field note. Dominion gas-utility integration on track; first integrated rate case (Ohio) filed in March. CFO explicitly addressed the per-share dividend question on the Q&A — that is the part the model flagged.
+    Note (Model flag · signal: tonal shift): CFO addressed dilution from Dominion equity issuance directly in the Q&A — first time across the prior four calls. Language and emphasis suggest 2026 will be the year per-share metrics turn back positive. Re-read at 14:00.
+- SU Suncor Energy (Oil & Gas): Q1 production of 867 Mbbl/d; refining utilization of ~98%. Buyback continues at the upper end of management's stated range — about C$725M repurchased in the quarter. Operating cost per barrel improved YoY for the fourth consecutive quarter. Call language continues to emphasize per-share value over absolute production growth.
+- CCO Cameco (Uranium): McArthur River / Key Lake delivered 5.2 Mlbs U₃O₈ in the quarter — ahead of pace for full-year guidance. Westinghouse contribution stable; new long-term contracts signed in the quarter at realized prices in the high-US$70s/lb. The model flagged tone of the contract-book commentary: management's vocabulary on long-term realized pricing has tightened relative to FY 2025.
+    Note (Model flag · signal: qualifier-density drop): Sentiment shift in the contract-book section — fewer hedging qualifiers ("could", "may", "expect"), more directional language on long-term price floors. May indicate management is willing to lock more of the term book at current strip.
+- TOU Tourmaline Oil (Natural Gas): Q1 Montney production of 695 MBOE/d, +6% YoY. Free cash flow remains the Canadian gas benchmark. Special dividend declared C$0.50/sh. Capital flexibility continues to favour LNG-tied takeaway optionality. Mike Rose's commentary on AECO basis and structural narrowing continues to be the single most-quoted operator opinion on Canadian gas.
+- NTR Nutrien (Fertilizers): Q1 Adj. EBITDA US$1.31B; potash volumes ahead of plan, nitrogen pricing recovering off Q4 trough. US$170M of buybacks executed in the quarter; balance sheet under management's target leverage. Spring application season setting up favourably across North American Retail; international potash spot pricing flat sequentially.
+
+---
+
+### Week 17 · Apr 21 – Apr 25, 2026
+Source: https://halvrencapital.com/digest/2026-W17
+Counters (backfilled at launch): 138 filings, 4,640 pages, 6.8 audio hrs.
+
+The week before the heavy print — pre-announcements and the first wave of insider activity.
+
+A quieter week heading into the Q1 reporting peak. Two model flags worth surfacing: Enbridge's Mainline tolling commentary in the prepared remarks, and Wheaton Precious Metals' shift toward more directional language on long-dated realizations. Tourmaline and Franco-Nevada were promoted to the working note set ahead of the Q1 calls.
+
+Backfilled at launch. The counters are accurate to the desk's run for the week; the per-operator detail is illustrative and will be replaced as the ingestion pipeline catches up.
+
+
+---
+
+### Week 16 · Apr 14 – Apr 18, 2026
+Source: https://halvrencapital.com/digest/2026-W16
+Counters (backfilled at launch): 145 filings, 4,910 pages, 7.1 audio hrs.
+
+The first heavy week before Q1 reporting — three flags clustered around long-dated commentary.
+
+Cameco on the Westinghouse contribution, First Majestic on Mexico, and Nutrien on Retail proprietary-product penetration all moved against their trailing-call baselines. Three names — Wheaton, TC Energy, and Fortis — earned promotion to the desk's working notes ahead of Q1 calls.
+
+Capital-allocation language across the week tilted toward per-share metrics rather than absolute production growth. That is the right tilt; we will see how it survives the print.
+
+Backfilled at launch. The counters are accurate to the desk's run for the week; the per-operator detail is illustrative and will be replaced as the ingestion pipeline catches up.
+
+
+---
+
+### Week 15 · Apr 7 – Apr 11, 2026
+Source: https://halvrencapital.com/digest/2026-W15
+Counters (backfilled at launch): 141 filings, 4,720 pages, 6.4 audio hrs.
+
+A pre-Q1 week. AGM commentary and routine 6-K disclosure dominated; the desk read the corners.
+
+Two flags this week. Brookfield Infrastructure's capital-recycling commentary tightened in a way that moves the funds-from-operations baseline. Canadian National's volumes commentary acknowledged the cyclical softness more directly than the prior call's posture of forward-looking optimism. Brookfield Renewable was promoted to the desk's working note set on the back of hydro water-conditions commentary in the AGM remarks.
+
+Backfilled at launch. The counters are accurate to the desk's run for the week; the per-operator detail is illustrative and will be replaced as the ingestion pipeline catches up.
+
+
+---

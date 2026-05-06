@@ -1,0 +1,148 @@
+{
+  "slug": "eog-resources",
+  "ticker": "EOG",
+  "exchange": "NYSE: EOG",
+  "name": "EOG Resources, Inc.",
+  "short_name": "EOG",
+  "url": "https://www.eogresources.com/",
+  "sector": "Energy",
+  "sub_industry": "Oil & Gas",
+  "page_eyebrow": "First U.S. coverage · Oil &amp; Gas",
+  "headline_html": "EOG Resources: The shale producer <em>that doesn't act</em> like one.",
+  "page_title": "EOG Resources (EOG) — The shale producer that doesn't act like one | Halvren Capital",
+  "meta_description": "EOG Resources runs U.S. shale assets with the capital discipline of a long-life owner-operator. Halvren's read on the premium drilling philosophy, the FY 2025 print, and why EOG sat out the 2024–25 consolidation wave.",
+  "og_title": "EOG Resources (EOG) — The shale producer that doesn't act like one",
+  "og_description": "Halvren's read on EOG. Premium drilling, capital discipline, the buyback, and why EOG sat out the 2024–25 consolidation wave.",
+  "og_image": "/og-research-eog.png",
+  "published_iso": "2026-05-04",
+  "modified_iso": "2026-05-04",
+  "the_read": {
+    "summary": "Largest non-major U.S. onshore oil and gas producer. Eagle Ford, Delaware, Permian, Bakken, Powder River, Utica, Dorado. \"Premium\" drilling threshold: every well clears 30%+ IRR at flat US$40 WTI. FY 2025 ~US$5.4B FCF, net debt at decade low.",
+    "generated_iso": "2026-05-06",
+    "source_filing": "EOG FY 2025 earnings release and corporate disclosure",
+    "principal_reviewed_iso": "2026-05-06"
+  },
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {
+        "label": "Production",
+        "value": "~1,090 MBOE/d (full-year avg.)"
+      },
+      {
+        "label": "Adj. EBITDA",
+        "value": "~US$11.4B"
+      },
+      {
+        "label": "Capital expenditures",
+        "value": "~US$6.2B"
+      },
+      {
+        "label": "Free cash flow",
+        "value": "~US$5.4B"
+      },
+      {
+        "label": "Buybacks (FY 2025)",
+        "value": "~US$2.3B"
+      },
+      {
+        "label": "Net debt",
+        "value": "near decade low (≪ 0.5x EBITDA)"
+      },
+      {
+        "label": "Dividend (regular)",
+        "value": "US$3.78/sh annualized"
+      },
+      {
+        "label": "Listing",
+        "value": "NYSE: EOG · Houston, TX"
+      }
+    ]
+  },
+  "guidance": null,
+  "leadership": {
+    "ceo": "Ezra Yacob",
+    "ceo_since": 2021,
+    "chair": "Ezra Yacob (Chairman, CEO)",
+    "succession_visible": true,
+    "note": "Cultural lineage Mark Papa (1999–2013) → Bill Thomas (2013–2021) → Ezra Yacob (2021–) has been unusually clean and durable for a Houston-listed E&P."
+  },
+  "what_we_track": [
+    "Premium-eligible inventory at sustaining capex",
+    "Utica well-cost trajectory and differentials",
+    "Buyback price discipline",
+    "Capex-to-EBITDA ratio at strip and stress",
+    "Insider behaviour (Form 4)"
+  ],
+  "checklist": {
+    "scoring": [
+      {
+        "q": 1,
+        "status": null,
+        "note": null
+      },
+      {
+        "q": 2,
+        "status": null,
+        "note": null
+      },
+      {
+        "q": 3,
+        "status": null,
+        "note": null
+      },
+      {
+        "q": 4,
+        "status": null,
+        "note": null
+      },
+      {
+        "q": 5,
+        "status": null,
+        "note": null
+      },
+      {
+        "q": 6,
+        "status": null,
+        "note": null
+      },
+      {
+        "q": 7,
+        "status": null,
+        "note": null
+      },
+      {
+        "q": 8,
+        "status": null,
+        "note": null
+      },
+      {
+        "q": 9,
+        "status": null,
+        "note": null
+      },
+      {
+        "q": 10,
+        "status": null,
+        "note": null
+      }
+    ],
+    "pillar_commentary": {
+      "I": "<strong>Pillar I. The business.</strong> Free cash flow through the cycle: yes, including 2015 and 2020, both genuinely difficult years for U.S. independents. Unit economics at worst price: EOG's premium framework is designed precisely for the trough; the company can hold production roughly flat at strip pricing well below today's. Balance sheet at trough: investment-grade, conservatively levered, with the strongest net-debt trajectory in the U.S. independent peer group. ROIC on incremental capital: the firm has historically led its peer group on a rolling five-year basis, and the 2024–2025 reads have been at the top of the pack again.",
+      "II": "<strong>Pillar II. The people.</strong> The cultural lineage from Mark Papa (CEO 1999–2013) to Bill Thomas (2013–2021) to Ezra Yacob (2021–) has been unusually clean and unusually durable for a Houston-listed E&amp;P. Insider ownership is meaningful but not exceptional by Canadian-operator standards; we read EOG as a strong-culture, strong-process company more than a strong-insider-skin company. Behaviour in 2020 was the right answer: cut capex, did not cut the regular dividend, used the trough to retire debt and accumulate inventory. Compensation is tied to per-share metrics and capital efficiency, not to absolute production growth. Solid Pillar II.",
+      "III": "<strong>Pillar III. The cycle.</strong> The longer-dated questions on U.S. shale are real: parent-child interference inside maturing plays, well-productivity declines as core inventory is exhausted, and the structural decline rate of the basin as a whole. EOG has positioned itself for those questions better than its peers — the premium framework is, at root, an admission that not every barrel is worth drilling. The cycle question we cannot answer is what U.S. shale's terminal output looks like in the 2030s; nobody can. The cycle question we <em>can</em> answer is whether EOG would still be a healthy business at materially lower realized pricing, and that read clears comfortably."
+    }
+  },
+  "last_reviewed_iso": "2026-05-04",
+  "next_earnings_iso": null,
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in EOG Resources, Inc. and may transact at any time without notice. Figures are sourced from EOG's FY 2025 earnings release and corporate disclosure; readers should verify against the filings themselves before making any capital-allocation decision. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup of EOG may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+  "back_link": {
+    "href": "/#watchlist",
+    "label": "Back to the watchlist"
+  },
+  "related_slugs": [
+    "canadian-natural-cnq",
+    "enbridge-enb"
+  ]
+}

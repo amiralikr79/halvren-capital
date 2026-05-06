@@ -1,0 +1,14 @@
+{
+  "name": "halvren-capital",
+  "private": true,
+  "description": "Halvren Capital — static site with serverless API functions on Vercel.",
+  "engines": {
+    "node": "22.x"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.95.0",
+    "@upstash/redis": "^1.38.0",
+    "@vercel/og": "^0.11.1",
+    "zod": "^4.4.3"
+  }
+}

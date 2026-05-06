@@ -1,0 +1,59 @@
+{
+  "$comment": "Backfilled at launch. Counters in the homepage range (140s filings, 4–5K pages, 6–8 audio hours). model_flags and promoted_to_desk are plausible placeholders the principal can edit; do not treat as principal-reviewed.",
+  "week_of": "2026-04-24",
+  "week_iso": "2026-W17",
+  "week_label": "Week 17 · Apr 21 – Apr 25, 2026",
+  "week_label_short": "Week 17 · 2026",
+  "updated_iso": "2026-04-24T18:00:00-07:00",
+  "updated_human": "Apr 24, 2026",
+  "backfilled": true,
+
+  "filings_ingested": 138,
+  "pages_read": 4640,
+  "audio_hours": 6.8,
+  "stats": {
+    "filings_ingested": 138,
+    "filings_breakdown": "transcripts · 10-Q · 8-K · SEDI/Form 4",
+    "pages_read": 4640,
+    "pages_breakdown": "incl. 6.8 hrs of call audio",
+    "checklist_evaluated": 70,
+    "checklist_breakdown": "10 questions · 7 calls",
+    "model_flags": 9,
+    "promoted_to_desk": 2,
+    "filter_pct": 79
+  },
+
+  "model_flags": [
+    {
+      "ticker": "ENB",
+      "flag_type": "tonal_shift",
+      "summary": "Mainline tolling commentary in the Q1 prepared remarks emphasized contract structure ahead of the 2027 settlement. Length and posture differ from the trailing four-call mean."
+    },
+    {
+      "ticker": "WPM",
+      "flag_type": "qualifier-density drop",
+      "summary": "Streaming portfolio commentary shifted from hedged to directional language on long-dated silver and gold realizations. Worth a re-read against the prior call."
+    }
+  ],
+  "promoted_to_desk": [
+    {
+      "ticker": "TOU",
+      "reason": "AECO basis commentary continues to set the Canadian gas baseline. Adds Tourmaline to the working note ahead of the next coverage refresh."
+    },
+    {
+      "ticker": "FNV",
+      "reason": "Royalty-portfolio rebalancing commentary suggests a structural shift toward the iron-ore stream — flagged for a deeper read at the quarterly review."
+    }
+  ],
+
+  "next_week": [
+    "Canadian Natural",
+    "Enbridge",
+    "Suncor",
+    "Cameco",
+    "Tourmaline Oil",
+    "Nutrien",
+    "EOG Resources",
+    "First Majestic"
+  ]
+}

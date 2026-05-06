@@ -3,5 +3,52 @@
   "trailingSlash": false,
   "redirects": [
     { "source": "/pricing", "destination": "/access", "permanent": true }
-  ]
+  ],
+  "rewrites": [
+    {
+      "source": "/checklist/score/:ticker",
+      "destination": "/api/checklist/page?ticker=:ticker"
+    },
+    {
+      "source": "/checklist/score",
+      "destination": "/api/checklist/page"
+    },
+    {
+      "source": "/version",
+      "destination": "/api/version"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/digest/latest.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400"
+        }
+      ]
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/digest-draft",
+      "schedule": "0 14 * * 5"
+    }
+  ],
+  "functions": {
+    "api/checklist/score.js": {
+      "maxDuration": 30,
+      "includeFiles": "{content/checklist.json,coverage/coverage.json}"
+    },
+    "api/checklist/page.js": {
+      "maxDuration": 5
+    },
+    "api/cron/digest-draft.js": {
+      "maxDuration": 30
+    },
+    "api/version.js": {
+      "maxDuration": 5,
+      "includeFiles": "{content/changelog.md,content/site-meta.json}"
+    }
+  }
 }

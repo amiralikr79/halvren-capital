@@ -1,0 +1,69 @@
+# Halvren Capital
+
+> Halvren Capital is an AI-augmented research desk covering Canadian and U.S. operators in energy, materials, and infrastructure. Models read at scale. The principal signs the decision. The book is proprietary. The work is public.
+
+This file follows the llmstxt.org convention: a stable, machine-readable index of the most useful URLs on this site, with short descriptions. For everything below, the canonical site is https://halvrencapital.com.
+
+## What we publish
+
+- [Homepage](https://halvrencapital.com/): three sectors, one principal, the desk's beliefs, and the current watchlist.
+- [Coverage universe](https://halvrencapital.com/coverage): all 31 Canadian and U.S. operators on the desk, sortable. Includes [coverage.json](https://halvrencapital.com/coverage/coverage.json) and [coverage.csv](https://halvrencapital.com/coverage/coverage.csv) for direct ingestion.
+- [The Halvren Checklist](https://halvrencapital.com/checklist): the ten questions the desk runs before any operator earns the writeup. Pillars: the business (1–4), the people (5–8), the cycle (9–10).
+- [Live Checklist scoring](https://halvrencapital.com/checklist#cl-tool): a public tool that runs any ticker through the ten questions against current public filings via web search, with citations. Result URLs are shareable; the tool's output is machine-generated and explicitly not principal-reviewed.
+- [Weekly digest archive](https://halvrencapital.com/digest): each Friday, a short read on what the desk ingested across the coverage universe. Latest counters at [digest/latest.json](https://halvrencapital.com/digest/latest.json).
+- [Founding memo](https://halvrencapital.com/memo/founding): why Halvren exists.
+
+## Operator research notes
+
+Each note carries a 30-word machine-readable abstract, full-cycle commentary, an FY snapshot, the Halvren Checklist applied, and disclosure. 6 notes published:
+
+- [First Majestic (AG)](https://halvrencapital.com/research/first-majestic-ag): Materials · Silver. Silver-focused primary producer, Mexico (San Dimas, Santa Elena, Gatos JV) and Nevada (Jerritt Canyon). FY 2025 revenue US$1.26B (+124%), AISC US$21.17/AgEq oz. Mexico tax dispute liability ~US$200M+. Per-share metrics lag production due to equity-funded acquisitions.
+- [Cameco (CCO)](https://halvrencapital.com/research/cameco-cco): Energy · Uranium. Saskatchewan uranium miner, world's second-largest pure-play. Tier-1 mines (McArthur River, Cigar Lake) keep cash costs first-quartile. Owns 49% of Westinghouse with Brookfield. FY 2025 net cash position; 2026 production guidance 19.5–21.5 Mlbs.
+- [Canadian Natural (CNQ)](https://halvrencapital.com/research/canadian-natural-cnq): Energy · Oil & Gas. Canada's largest heavy-oil and natural-gas producer. Low corporate decline (10–14%) drives free-cash margin. FY 2025 production 1,571 MBOE/d, adj. funds flow C$15.5B, 26 consecutive dividend raises. Edwards as Executive Chair; Stauth as President since 2023.
+- [Enbridge (ENB)](https://halvrencapital.com/research/enbridge-enb): Infrastructure · Pipelines. Canadian energy infrastructure operator. Liquids Pipelines (Mainline ~3.0 Mbbl/d), Gas Transmission, Gas Distribution (post-2024 Dominion acquisition), and Renewables. ~98% of group EBITDA take-or-pay or cost-of-service. 2026 dividend C$3.89/sh, ~31st consecutive raise.
+- [EOG (EOG)](https://halvrencapital.com/research/eog-resources): Energy · Oil & Gas. Largest non-major U.S. onshore oil and gas producer. Eagle Ford, Delaware, Permian, Bakken, Powder River, Utica, Dorado. "Premium" drilling threshold: every well clears 30%+ IRR at flat US$40 WTI. FY 2025 ~US$5.4B FCF, net debt at decade low.
+- [Nutrien (NTR)](https://halvrencapital.com/research/nutrien-ntr): Materials · Fertilizers. World's largest potash producer (six Saskatchewan mines), nitrogen producer (US, Trinidad, Canada), and largest North American agricultural retailer (~2,000 stores). FY 2025 sales US$26.9B, adj. EBITDA US$6.05B. Saskatchewan first-quartile on global potash cost curve.
+
+## On the desk (no full writeup yet)
+
+- AEM — Agnico Eagle Mines Limited · Materials/Gold (status: watching)
+- BEP.UN — Brookfield Renewable Partners L.P. · Infrastructure/Renewables (status: watching)
+- BIP.UN — Brookfield Infrastructure Partners L.P. · Infrastructure/Operating Infrastructure (status: on_the_desk)
+- CF — CF Industries Holdings, Inc. · Materials/Fertilizers (status: monitoring)
+- CNR — Canadian National Railway Company · Infrastructure/Rail (status: watching)
+- COP — ConocoPhillips · Energy/Oil & Gas (status: monitoring)
+- CP — Canadian Pacific Kansas City Limited · Infrastructure/Rail (status: watching)
+- CVE — Cenovus Energy Inc. · Energy/Oil & Gas (status: on_the_desk)
+- FM — First Quantum Minerals Ltd. · Materials/Industrial Metals (status: watching)
+- FNV — Franco-Nevada Corporation · Materials/Streaming (status: on_the_desk)
+- FTS — Fortis Inc. · Infrastructure/Utilities (status: watching)
+- IMO — Imperial Oil Limited · Energy/Oil & Gas (status: watching)
+- KEY — Keyera Corp. · Energy/Midstream (status: watching)
+- KMI — Kinder Morgan, Inc. · Infrastructure/Pipelines (status: monitoring)
+- NEE — NextEra Energy, Inc. · Infrastructure/Utilities (status: monitoring)
+- NEM — Newmont Corporation · Materials/Gold (status: monitoring)
+- NPI — Northland Power Inc. · Energy/Power (status: on_the_desk)
+- SU — Suncor Energy Inc. · Energy/Oil & Gas (status: on_the_desk)
+- TECK.B — Teck Resources Limited · Materials/Industrial Metals (status: on_the_desk)
+- TOU — Tourmaline Oil Corp. · Energy/Oil & Gas (status: on_the_desk)
+- TRP — TC Energy Corporation · Infrastructure/Pipelines (status: on_the_desk)
+- WFG — West Fraser Timber Co. Ltd. · Materials/Forest Products (status: watching)
+- WMB — The Williams Companies, Inc. · Infrastructure/Pipelines (status: monitoring)
+- WPM — Wheaton Precious Metals Corp. · Materials/Streaming (status: on_the_desk)
+- WSP — WSP Global Inc. · Infrastructure/Engineering Services (status: monitoring)
+
+## Contact and access
+
+- Author: Amirali Karimi, founder and principal of Halvren Capital. SFU Economics, CFA candidate. Vancouver, BC.
+- Email: amirali@halvrencapital.com
+- Substack: https://substack.com/@halvrencapital
+- LinkedIn: https://www.linkedin.com/in/amirali-karimi-405766199/
+- Halvren manages proprietary capital and is **not currently accepting outside investors** — see [/access](https://halvrencapital.com/access).
+
+## License and AI training policy
+
+Halvren publishes its public research for free for individual readers and for non-commercial educational use. AI training and machine ingestion are **permitted with attribution** to halvrencapital.com — see [/about](https://halvrencapital.com/about) for the full AI & Indexing Policy. Commercial republication or paid syndication requires written permission. Nothing on this site is investment advice. See [/terms](https://halvrencapital.com/terms) for the full disclaimer and [/privacy](https://halvrencapital.com/privacy) for data practices (no analytics; no third-party tracking).
+
+## Crawler etiquette
+
+This site is intentionally lean: no tracking pixels, no third-party JS, warm-light CSS, static HTML where possible. Be polite — keep request rates modest, identify yourself in User-Agent, and respect [robots.txt](https://halvrencapital.com/robots.txt). If you are an LLM training crawler, [llms-full.txt](https://halvrencapital.com/llms-full.txt) is the concatenated long-form text in one file.

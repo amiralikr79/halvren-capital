@@ -1,0 +1,32 @@
+ticker,name,short_name,sector,sub_industry,sub_industry_detail,region,status,last_reviewed_iso,next_earnings_iso,checklist_score,exchange,research_url,url
+EOG,"EOG Resources, Inc.",EOG,Energy,Oil & Gas,,United States,published,2026-05-04,,,NYSE: EOG,/research/eog-resources,https://www.eogresources.com/
+ENB,Enbridge Inc.,Enbridge,Infrastructure,Pipelines,,Canada,published,2026-04-27,,,TSX: ENB · NYSE: ENB,/research/enbridge-enb,https://www.enbridge.com/
+NTR,Nutrien Ltd.,Nutrien,Materials,Fertilizers,,Canada,published,2026-04-19,,,TSX: NTR · NYSE: NTR,/research/nutrien-ntr,https://www.nutrien.com/
+AG,First Majestic Silver Corp.,First Majestic,Materials,Silver,,Canada,published,2026-04-18,,,NYSE: AG · TSX: AG,/research/first-majestic-ag,https://www.firstmajestic.com/
+CCO,Cameco Corporation,Cameco,Energy,Uranium,,Canada,published,2026-04-18,,,TSX: CCO · NYSE: CCJ,/research/cameco-cco,https://www.cameco.com/
+CNQ,Canadian Natural Resources Limited,Canadian Natural,Energy,Oil & Gas,,Canada,published,2026-04-18,,,TSX: CNQ · NYSE: CNQ,/research/canadian-natural-cnq,https://www.cnrl.com/
+AEM,Agnico Eagle Mines Limited,Agnico Eagle Mines,Materials,Gold,Gold · Canada,Canada,watching,,,,TSX: AEM · NYSE: AEM,,
+BEP.UN,Brookfield Renewable Partners L.P.,Brookfield Renewable,Infrastructure,Renewables,Renewables · Hydro · Wind,Canada,watching,,,,TSX: BEP.UN · NYSE: BEP,,
+BIP.UN,Brookfield Infrastructure Partners L.P.,Brookfield Infrastructure,Infrastructure,Operating Infrastructure,Diversified infrastructure,Canada,on_the_desk,,,,TSX: BIP.UN · NYSE: BIP,,
+CF,"CF Industries Holdings, Inc.",CF Industries,Materials,Fertilizers,Nitrogen fertilizer · U.S. Gulf,United States,monitoring,,,,NYSE: CF,,
+CNR,Canadian National Railway Company,Canadian National Railway,Infrastructure,Rail,Class I rail,Canada,watching,,,,TSX: CNR · NYSE: CNI,,
+COP,ConocoPhillips,ConocoPhillips,Energy,Oil & Gas,Integrated independent · Permian · Alaska · LNG,United States,monitoring,,,,NYSE: COP,,
+CP,Canadian Pacific Kansas City Limited,Canadian Pacific Kansas City,Infrastructure,Rail,Class I rail · North-South,Canada,watching,,,,TSX: CP · NYSE: CP,,
+CVE,Cenovus Energy Inc.,Cenovus Energy,Energy,Oil & Gas,Oil sands · Integrated,Canada,on_the_desk,,,,TSX: CVE · NYSE: CVE,,
+FM,First Quantum Minerals Ltd.,First Quantum Minerals,Materials,Industrial Metals,Copper · Africa · Latin America,Canada,watching,,,,TSX: FM,,
+FNV,Franco-Nevada Corporation,Franco-Nevada,Materials,Streaming,Royalty · Diversified,Canada,on_the_desk,,,,TSX: FNV · NYSE: FNV,,
+FTS,Fortis Inc.,Fortis,Infrastructure,Utilities,Regulated utility · North America,Canada,watching,,,,TSX: FTS · NYSE: FTS,,
+IMO,Imperial Oil Limited,Imperial Oil,Energy,Oil & Gas,Oil sands · Refining,Canada,watching,,,,TSX: IMO · NYSE Amer: IMO,,
+KEY,Keyera Corp.,Keyera,Energy,Midstream,Midstream · NGLs,Canada,watching,,,,TSX: KEY,,
+KMI,"Kinder Morgan, Inc.",Kinder Morgan,Infrastructure,Pipelines,Energy infrastructure · Gas · Liquids,United States,monitoring,,,,NYSE: KMI,,
+NEE,"NextEra Energy, Inc.",NextEra Energy,Infrastructure,Utilities,Regulated utility · Renewables (FPL · NEER),United States,monitoring,,,,NYSE: NEE,,
+NEM,Newmont Corporation,Newmont,Materials,Gold,Gold · Copper · Largest pure-play,United States,monitoring,,,,NYSE: NEM,,
+NPI,Northland Power Inc.,Northland Power,Energy,Power,Renewables · Offshore wind,Canada,on_the_desk,,,,TSX: NPI,,
+SU,Suncor Energy Inc.,Suncor Energy,Energy,Oil & Gas,Oil sands · Integrated,Canada,on_the_desk,,,,TSX: SU · NYSE: SU,,
+TECK.B,Teck Resources Limited,Teck Resources,Materials,Industrial Metals,Copper · Zinc,Canada,on_the_desk,,,,TSX: TECK.B · NYSE: TECK,,
+TOU,Tourmaline Oil Corp.,Tourmaline Oil,Energy,Oil & Gas,Natural gas · Montney,Canada,on_the_desk,,,,TSX: TOU,,
+TRP,TC Energy Corporation,TC Energy,Infrastructure,Pipelines,Pipelines · Gas · Power,Canada,on_the_desk,,,,TSX: TRP · NYSE: TRP,,
+WFG,West Fraser Timber Co. Ltd.,West Fraser Timber,Materials,Forest Products,Lumber · OSB,Canada,watching,,,,TSX: WFG · NYSE: WFG,,
+WMB,"The Williams Companies, Inc.",Williams Companies,Infrastructure,Pipelines,Pipelines · Gas transmission · Transco,United States,monitoring,,,,NYSE: WMB,,
+WPM,Wheaton Precious Metals Corp.,Wheaton Precious Metals,Materials,Streaming,Streaming · Silver & gold,Canada,on_the_desk,,,,TSX: WPM · NYSE: WPM,,
+WSP,WSP Global Inc.,WSP Global,Infrastructure,Engineering Services,Engineering services,Canada,monitoring,,,,TSX: WSP,,

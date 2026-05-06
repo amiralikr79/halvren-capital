@@ -1,0 +1,466 @@
+{
+  "$schema": "./digest-week.schema.json",
+  "week_label": "Week 18 · Apr 28 – May 2, 2026",
+  "week_iso": "2026-W18",
+  "updated_iso": "2026-04-29T13:00:00-07:00",
+  "updated_human": "Apr 29, 2026",
+  "stats": {
+    "filings_ingested": 142,
+    "filings_breakdown": "transcripts · 10-Q · 8-K · SEDI/Form 4",
+    "pages_read": 4820,
+    "pages_breakdown": "incl. 7.4 hrs of call audio",
+    "checklist_evaluated": 80,
+    "checklist_breakdown": "10 questions · 8 calls",
+    "model_flags": 11,
+    "promoted_to_desk": 2,
+    "filter_pct": 82
+  },
+  "pipeline_strip": {
+    "insider_transactions": 23,
+    "ceo_letters": 4,
+    "tonal_shifts_flagged": 7,
+    "model_baseline": "trailing-4-call rolling baseline"
+  },
+  "next_week": [
+    "Imperial Oil",
+    "TC Energy",
+    "CF Industries",
+    "Newmont",
+    "Williams",
+    "ConocoPhillips",
+    "Kinder Morgan"
+  ],
+  "insider_txns": [
+    {
+      "ticker": "EOG",
+      "name": "EOG Resources",
+      "code": "P",
+      "date": "2026-04-30",
+      "shares": 4500,
+      "price": 122.4,
+      "value": 550800,
+      "reporter_name": "Ezra Y. Yacob",
+      "reporter_titles": [
+        "Chairman, CEO"
+      ]
+    },
+    {
+      "ticker": "CCO",
+      "name": "Cameco",
+      "code": "P",
+      "date": "2026-04-29",
+      "shares": 8200,
+      "price": 76.1,
+      "value": 624020,
+      "reporter_name": "Tim Gitzel",
+      "reporter_titles": [
+        "President, CEO"
+      ]
+    },
+    {
+      "ticker": "ENB",
+      "name": "Enbridge",
+      "code": "P",
+      "date": "2026-04-28",
+      "shares": 5000,
+      "price": 58.2,
+      "value": 291000,
+      "reporter_name": "Greg Ebel",
+      "reporter_titles": [
+        "President, CEO"
+      ]
+    },
+    {
+      "ticker": "NTR",
+      "name": "Nutrien",
+      "code": "S",
+      "date": "2026-04-29",
+      "shares": 12000,
+      "price": 67.4,
+      "value": 808800,
+      "reporter_name": "Ken Seitz",
+      "reporter_titles": [
+        "CEO"
+      ]
+    },
+    {
+      "ticker": "CNQ",
+      "name": "Canadian Natural",
+      "code": "A",
+      "date": "2026-04-28",
+      "shares": 18000,
+      "price": 0.0,
+      "value": 0,
+      "reporter_name": "Murray Edwards",
+      "reporter_titles": [
+        "Executive Chairman"
+      ]
+    },
+    {
+      "ticker": "AG",
+      "name": "First Majestic",
+      "code": "P",
+      "date": "2026-04-29",
+      "shares": 25000,
+      "price": 8.95,
+      "value": 223750,
+      "reporter_name": "Keith Neumeyer",
+      "reporter_titles": [
+        "President, CEO"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "cnq-2026q1",
+      "ticker": "CNQ",
+      "name": "Canadian Natural Resources",
+      "sector_label": "Oil & Gas",
+      "sector_filter": "energy",
+      "date_label": "Apr 28",
+      "filing_iso": "2026-04-28",
+      "flag": "desk",
+      "summary_html": "Q1 2026 production of <strong>1,592 MBOE/d</strong>, ahead of consensus on AOSP synergy capture and stronger Horizon throughput. <strong>Adjusted funds flow C$3.92B</strong>; capital returns of <strong>C$2.3B</strong> in the quarter (dividend + buyback). Management reiterated 2026 capex at the lower end of guidance and reaffirmed the dividend trajectory. Tone on the call: confident, deliberate, no surprises in language.",
+      "metrics": [
+        {
+          "label": "Production",
+          "value": "1,592 MBOE/d"
+        },
+        {
+          "label": "Adj. funds flow",
+          "value": "C$3.92B"
+        },
+        {
+          "label": "Capital returns",
+          "value": "C$2.3B"
+        },
+        {
+          "label": "2026 capex",
+          "value": "guidance low end"
+        }
+      ],
+      "note": {
+        "label": "On the desk · principal note",
+        "body_html": "AOSP run-rate is the cleanest test of the 2024 acquisition thesis. Q1 is the first full quarter at the integrated cost curve. Watching sustaining-capex-to-funds-flow ratio at strip and at US$55 stress.",
+        "meta": [
+          {
+            "k": "Pillar",
+            "v": "I · II"
+          },
+          {
+            "k": "Checklist match",
+            "v": "9/10"
+          },
+          {
+            "k": "Last refresh",
+            "v": "Apr 28"
+          }
+        ]
+      },
+      "writeup_url": "/research/canadian-natural-cnq",
+      "duration": "Call: 62m · Q&A: 38m"
+    },
+    {
+      "id": "enb-2026q1",
+      "ticker": "ENB",
+      "name": "Enbridge",
+      "sector_label": "Infrastructure",
+      "sector_filter": "infrastructure",
+      "date_label": "Apr 28",
+      "filing_iso": "2026-04-28",
+      "flag": "model",
+      "summary_html": "Q1 EBITDA <strong>~C$5.4B</strong>, in line with internal estimates; DCF/share tracking near the midpoint of FY 2026 guidance. <strong>Mainline apportionment for April averaged 6%</strong>, consistent with the post-TMX read in our <a href=\"/letters/three-questions-2025\">field note</a>. Dominion gas-utility integration on track; first integrated rate case (Ohio) filed in March. CFO explicitly addressed the per-share dividend question on the Q&amp;A — <em>that is the part the model flagged.</em>",
+      "metrics": [
+        {
+          "label": "Adj. EBITDA",
+          "value": "~C$5.4B"
+        },
+        {
+          "label": "Mainline apportionment",
+          "value": "6% (Apr)"
+        },
+        {
+          "label": "Backlog secured",
+          "value": "~C$28B"
+        },
+        {
+          "label": "Leverage trajectory",
+          "value": "4.7x → 4.6x"
+        }
+      ],
+      "note": {
+        "label": "Model flag · signal: tonal shift",
+        "body_html": "CFO addressed dilution from Dominion equity issuance directly in the Q&amp;A — first time across the prior four calls. Language and emphasis suggest 2026 will be the year per-share metrics turn back positive. Re-read at 14:00.",
+        "meta": [
+          {
+            "k": "Confidence",
+            "v": "0.78"
+          },
+          {
+            "k": "Δ vs baseline",
+            "v": "+1.6σ"
+          },
+          {
+            "k": "Type",
+            "v": "first-mention"
+          }
+        ]
+      },
+      "writeup_url": "/research/enbridge-enb",
+      "duration": "Call: 71m · Q&A: 41m"
+    },
+    {
+      "id": "su-2026q1",
+      "ticker": "SU",
+      "name": "Suncor Energy",
+      "sector_label": "Oil & Gas",
+      "sector_filter": "energy",
+      "date_label": "Apr 28",
+      "filing_iso": "2026-04-28",
+      "flag": null,
+      "summary_html": "Q1 production of <strong>867 Mbbl/d</strong>; refining utilization of <strong>~98%</strong>. Buyback continues at the upper end of management's stated range — about <strong>C$725M</strong> repurchased in the quarter. Operating cost per barrel improved YoY for the fourth consecutive quarter. Call language continues to emphasize per-share value over absolute production growth.",
+      "metrics": [
+        {
+          "label": "Production",
+          "value": "867 Mbbl/d"
+        },
+        {
+          "label": "Refining utilization",
+          "value": "~98%"
+        },
+        {
+          "label": "Buyback (Q1)",
+          "value": "C$725M"
+        },
+        {
+          "label": "Op cost / bbl",
+          "value": "↓ YoY (4Q)"
+        }
+      ],
+      "note": null,
+      "writeup_url": null,
+      "duration": "Call: 58m · Q&A: 32m"
+    },
+    {
+      "id": "cco-2026q1",
+      "ticker": "CCO",
+      "name": "Cameco",
+      "sector_label": "Uranium",
+      "sector_filter": "energy",
+      "date_label": "Apr 29",
+      "filing_iso": "2026-04-29",
+      "flag": "model",
+      "summary_html": "McArthur River / Key Lake delivered <strong>5.2 Mlbs U₃O₈</strong> in the quarter — ahead of pace for full-year guidance. Westinghouse contribution stable; new long-term contracts signed in the quarter at <strong>realized prices in the high-US$70s/lb</strong>. The model flagged tone of the contract-book commentary: management's vocabulary on long-term realized pricing has tightened relative to FY 2025.",
+      "metrics": [
+        {
+          "label": "U₃O₈ production",
+          "value": "5.2 Mlbs"
+        },
+        {
+          "label": "Realized price",
+          "value": "~US$78/lb"
+        },
+        {
+          "label": "Net debt",
+          "value": "negative (cash > debt)"
+        },
+        {
+          "label": "Westinghouse",
+          "value": "49% (stable)"
+        }
+      ],
+      "note": {
+        "label": "Model flag · signal: qualifier-density drop",
+        "body_html": "Sentiment shift in the contract-book section — fewer hedging qualifiers (\"could\", \"may\", \"expect\"), more directional language on long-term price floors. May indicate management is willing to lock more of the term book at current strip.",
+        "meta": [
+          {
+            "k": "Confidence",
+            "v": "0.71"
+          },
+          {
+            "k": "Δ vs baseline",
+            "v": "−1.3σ"
+          },
+          {
+            "k": "Section",
+            "v": "contract book"
+          }
+        ]
+      },
+      "writeup_url": "/research/cameco-cco",
+      "duration": "Call: 54m · Q&A: 28m"
+    },
+    {
+      "id": "tou-2026q1",
+      "ticker": "TOU",
+      "name": "Tourmaline Oil",
+      "sector_label": "Natural Gas",
+      "sector_filter": "energy",
+      "date_label": "Apr 29",
+      "filing_iso": "2026-04-29",
+      "flag": null,
+      "summary_html": "Q1 Montney production of <strong>695 MBOE/d</strong>, +6% YoY. Free cash flow remains the Canadian gas benchmark. Special dividend declared <strong>C$0.50/sh</strong>. Capital flexibility continues to favour LNG-tied takeaway optionality. Mike Rose's commentary on AECO basis and structural narrowing continues to be the single most-quoted operator opinion on Canadian gas.",
+      "metrics": [
+        {
+          "label": "Production",
+          "value": "695 MBOE/d"
+        },
+        {
+          "label": "Special dividend",
+          "value": "C$0.50/sh"
+        },
+        {
+          "label": "Net debt",
+          "value": "~C$1.4B"
+        },
+        {
+          "label": "2026 guidance",
+          "value": "raised low-end"
+        }
+      ],
+      "note": null,
+      "writeup_url": null,
+      "duration": "Call: 49m · Q&A: 34m"
+    },
+    {
+      "id": "ntr-2026q1",
+      "ticker": "NTR",
+      "name": "Nutrien",
+      "sector_label": "Fertilizers",
+      "sector_filter": "materials",
+      "date_label": "Apr 29",
+      "filing_iso": "2026-04-29",
+      "flag": null,
+      "summary_html": "Q1 Adj. EBITDA <strong>US$1.31B</strong>; potash volumes ahead of plan, nitrogen pricing recovering off Q4 trough. <strong>US$170M</strong> of buybacks executed in the quarter; balance sheet under management's target leverage. Spring application season setting up favourably across North American Retail; international potash spot pricing flat sequentially.",
+      "metrics": [
+        {
+          "label": "Adj. EBITDA",
+          "value": "US$1.31B"
+        },
+        {
+          "label": "Buyback (Q1)",
+          "value": "US$170M"
+        },
+        {
+          "label": "Potash volumes",
+          "value": "ahead of plan"
+        },
+        {
+          "label": "Net debt / EBITDA",
+          "value": "1.6x"
+        }
+      ],
+      "note": null,
+      "writeup_url": "/research/nutrien-ntr",
+      "duration": "Call: 64m · Q&A: 40m"
+    },
+    {
+      "id": "eog-2026q1",
+      "ticker": "EOG",
+      "name": "EOG Resources",
+      "sector_label": "U.S. Oil & Gas",
+      "sector_filter": "energy",
+      "date_label": "Apr 29",
+      "filing_iso": "2026-04-29",
+      "flag": null,
+      "summary_html": "Q1 production <strong>1,143 MBOE/d</strong>, beating the high end of guidance. Capital efficiency continues to lead the U.S. independent peer group. Buyback program at <strong>~US$590M</strong> for the quarter; net debt now near a decade low. Management commentary emphasized capital discipline and a notable absence of M&amp;A intent — counter to the consolidation narrative dominating U.S. shale headlines.",
+      "metrics": [
+        {
+          "label": "Production",
+          "value": "1,143 MBOE/d"
+        },
+        {
+          "label": "Buyback (Q1)",
+          "value": "US$590M"
+        },
+        {
+          "label": "Capex / EBITDA",
+          "value": "~38%"
+        },
+        {
+          "label": "Net debt",
+          "value": "decade low"
+        }
+      ],
+      "note": null,
+      "writeup_url": "/research/eog-resources",
+      "duration": "Call: 68m · Q&A: 39m"
+    },
+    {
+      "id": "ag-2026q1",
+      "ticker": "AG",
+      "name": "First Majestic Silver",
+      "sector_label": "Silver",
+      "sector_filter": "materials",
+      "date_label": "Apr 29",
+      "filing_iso": "2026-04-29",
+      "flag": "model",
+      "summary_html": "Q1 revenue <strong>US$348M</strong>, AISC at <strong>US$22.40/AgEq oz</strong> (modestly above FY 2025 average). Silver realized price strength continues; production volumes flat sequentially. The model flagged a meaningful change in tax-language emphasis on the Mexico operations, in line with the Halvren research thesis on the jurisdiction overhang.",
+      "metrics": [
+        {
+          "label": "Revenue",
+          "value": "US$348M"
+        },
+        {
+          "label": "AISC / AgEq oz",
+          "value": "US$22.40"
+        },
+        {
+          "label": "Realized price",
+          "value": "US$43.10/oz"
+        },
+        {
+          "label": "Production",
+          "value": "flat QoQ"
+        }
+      ],
+      "note": {
+        "label": "Model flag · signal: section-length anomaly",
+        "body_html": "Mexico tax-and-royalty discussion length 2.4× the trailing four-call mean. Specific reference to \"ongoing dialogue\" and \"jurisdictional clarity\" represents a tonal change vs. the prior posture of brief, generic reassurance.",
+        "meta": [
+          {
+            "k": "Confidence",
+            "v": "0.84"
+          },
+          {
+            "k": "Length ratio",
+            "v": "2.4×"
+          },
+          {
+            "k": "Section",
+            "v": "Mexico jurisdiction"
+          }
+        ]
+      },
+      "writeup_url": "/research/first-majestic-ag",
+      "duration": "Call: 51m · Q&A: 31m"
+    }
+  ],
+  "week_of": "2026-05-01",
+  "week_label_short": "Week 18 · 2026",
+  "audio_hours": 7.4,
+  "backfilled": false,
+  "model_flags": [
+    {
+      "ticker": "ENB",
+      "flag_type": "signal: tonal shift",
+      "summary": "CFO addressed dilution from Dominion equity issuance directly in the Q&amp;A — first time across the prior four calls. Language and emphasis suggest 2026 will be the year per-share metrics turn back positive. Re-read at 14:00."
+    },
+    {
+      "ticker": "CCO",
+      "flag_type": "signal: qualifier-density drop",
+      "summary": "Sentiment shift in the contract-book section — fewer hedging qualifiers (\"could\", \"may\", \"expect\"), more directional language on long-term price floors. May indicate management is willing to lock more of the term book at current strip."
+    },
+    {
+      "ticker": "AG",
+      "flag_type": "signal: section-length anomaly",
+      "summary": "Mexico tax-and-royalty discussion length 2.4× the trailing four-call mean. Specific reference to \"ongoing dialogue\" and \"jurisdictional clarity\" represents a tonal change vs. the prior posture of brief, generic reassurance."
+    }
+  ],
+  "promoted_to_desk": [
+    {
+      "ticker": "CNQ",
+      "reason": "AOSP run-rate is the cleanest test of the 2024 acquisition thesis. Q1 is the first full quarter at the integrated cost curve. Watching sustaining-capex-to-funds-flow ratio at strip and at US$55 stress."
+    }
+  ]
+}

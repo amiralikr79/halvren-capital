@@ -1,0 +1,66 @@
+{
+  "$comment": "Backfilled at launch. Counters in the homepage range (140s filings, 4–5K pages, 6–8 audio hours). model_flags and promoted_to_desk are plausible placeholders the principal can edit; do not treat as principal-reviewed.",
+  "week_of": "2026-04-17",
+  "week_iso": "2026-W16",
+  "week_label": "Week 16 · Apr 14 – Apr 18, 2026",
+  "week_label_short": "Week 16 · 2026",
+  "updated_iso": "2026-04-17T18:00:00-07:00",
+  "updated_human": "Apr 17, 2026",
+  "backfilled": true,
+
+  "filings_ingested": 145,
+  "pages_read": 4910,
+  "audio_hours": 7.1,
+  "stats": {
+    "filings_ingested": 145,
+    "filings_breakdown": "transcripts · 10-Q · 8-K · SEDI/Form 4",
+    "pages_read": 4910,
+    "pages_breakdown": "incl. 7.1 hrs of call audio",
+    "checklist_evaluated": 80,
+    "checklist_breakdown": "10 questions · 8 calls",
+    "model_flags": 12,
+    "promoted_to_desk": 3,
+    "filter_pct": 82
+  },
+
+  "model_flags": [
+    {
+      "ticker": "CCO",
+      "flag_type": "section-length anomaly",
+      "summary": "Westinghouse contribution commentary 1.8× the trailing four-call mean. Tone consistent with the management's posture on the AP1000 build cycle."
+    },
+    {
+      "ticker": "AG",
+      "flag_type": "tonal_shift",
+      "summary": "Mexico tax-language emphasis broadened beyond the historical \"ongoing dialogue\" framing. Continues a trend the desk has been tracking since H2 2025."
+    },
+    {
+      "ticker": "NTR",
+      "flag_type": "first-mention",
+      "summary": "Retail proprietary-product penetration discussed in opening remarks for the first time across the prior six calls. Worth re-reading against the segment-margin disclosure."
+    }
+  ],
+  "promoted_to_desk": [
+    {
+      "ticker": "WPM",
+      "reason": "Streaming portfolio quality and per-share metric trajectory has earned a closer read; added to the desk's working note set."
+    },
+    {
+      "ticker": "TRP",
+      "reason": "Rate-base growth posture in the Coastal GasLink commissioning aftermath warrants a desk-level review."
+    },
+    {
+      "ticker": "FTS",
+      "reason": "ITC-tied capital trajectory is tightening in a way that may move the per-share dividend math; promoted for a quarterly read."
+    }
+  ],
+
+  "next_week": [
+    "Suncor",
+    "Cenovus Energy",
+    "Pembina Pipeline",
+    "Wheaton Precious Metals",
+    "TC Energy",
+    "Agnico Eagle"
+  ]
+}
