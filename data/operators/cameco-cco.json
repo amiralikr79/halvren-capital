@@ -1,0 +1,89 @@
+{
+  "slug": "cameco-cco",
+  "ticker": "CCO",
+  "exchange": "TSX: CCO · NYSE: CCJ",
+  "name": "Cameco Corporation",
+  "short_name": "Cameco",
+  "url": "https://www.cameco.com/",
+
+  "sector": "Energy",
+  "sub_industry": "Uranium",
+  "page_eyebrow": "On the desk · Uranium",
+
+  "headline_html": "Cameco (CCO): A mine with a cost structure, read <em>honestly.</em>",
+
+  "page_title": "Cameco (CCO) — A mine with a cost structure, read honestly | Halvren Capital",
+  "meta_description": "Cameco is a uranium miner, a 49% owner of Westinghouse, and one of the few operators priced against a narrative rather than a cash flow. Halvren's under-the-hood read, with FY 2025 numbers.",
+  "og_title": "Cameco (CCO) — A mine with a cost structure, read honestly",
+  "og_description": "Halvren's under-the-hood read on Cameco. FY 2025 numbers, the Westinghouse contribution, the contract book, and what passes the Checklist.",
+  "og_image": "/og-research-cco.png",
+  "published_iso": "2026-04-18",
+  "modified_iso":  "2026-04-18",
+
+  "the_read": {
+    "summary": null,
+    "generated_iso": null,
+    "source_filing": "Cameco FY 2025 earnings release (Feb 2026)",
+    "principal_reviewed_iso": null
+  },
+
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {"label": "Revenue",            "value": "C$3.48B (+11% YoY)"},
+      {"label": "Adj. net earnings",  "value": "C$627M (vs C$292M FY24)"},
+      {"label": "U₃O₈ production",    "value": "21.0 Mlbs (beat guidance)"},
+      {"label": "2026 guidance",      "value": "19.5–21.5 Mlbs"},
+      {"label": "Cash / total debt",  "value": "C$1.2B / C$1.0B"},
+      {"label": "Westinghouse",       "value": "49% (w/ Brookfield)"},
+      {"label": "Listings",           "value": "TSX: CCO · NYSE: CCJ"}
+    ]
+  },
+
+  "guidance": null,
+
+  "leadership": {
+    "ceo": "Tim Gitzel",
+    "ceo_since": 2011,
+    "chair": null,
+    "succession_visible": false,
+    "note": "Visible at the executive level but not obviously concentrated in one named successor."
+  },
+
+  "what_we_track": [
+    "All-in mining cost",
+    "Westinghouse contribution",
+    "Long-term contract book",
+    "Capital discipline vs. peers"
+  ],
+
+  "checklist": {
+    "scoring": [
+      {"q":  1, "status": null, "note": null},
+      {"q":  2, "status": null, "note": null},
+      {"q":  3, "status": null, "note": null},
+      {"q":  4, "status": null, "note": null},
+      {"q":  5, "status": null, "note": null},
+      {"q":  6, "status": null, "note": null},
+      {"q":  7, "status": null, "note": null},
+      {"q":  8, "status": null, "note": null},
+      {"q":  9, "status": null, "note": null},
+      {"q": 10, "status": null, "note": null}
+    ],
+    "pillar_commentary": {
+      "I":   "<strong>Pillar I. The business.</strong> FCF through the full cycle: yes, including 2015–2019. Unit economics at worst price (uranium in the high-$20s): McArthur/Cigar still work; the marginal mines do not, which is why Cameco mothballed the marginal mines. Balance sheet at trough: net cash. ROIC on incremental capital: the Westinghouse deal is the key test, we will know in three to five years whether that was a generational acquisition or a pricey one. Early read: the operating leverage is already showing up, and Brookfield's participation is a soft quality signal.",
+      "II":  "<strong>Pillar II. The people.</strong> Tim Gitzel has run Cameco since 2011, which means he has managed the business through both the post-Fukushima collapse and the current renaissance. Insider ownership is modest, Cameco is a public-market story, not an owner-operator one, so the weight falls on capital allocation behaviour. That record is genuinely strong: the 2018 McArthur shutdown, the 2022 restart, and the 2023 Westinghouse acquisition are three decisions that all looked contrarian at the time and have aged well. Succession is visible at the executive level but not obviously concentrated in one named successor. We keep an eye on it.",
+      "III": "<strong>Pillar III. The cycle.</strong> On the real uranium cost curve (not the one in slide decks), McArthur/Cigar sit comfortably in the first quartile. The question is not whether the mines are competitive, they are, but whether the <em>commodity</em> cycle is closer to its beginning or its middle. We do not know. Neither does anyone honest. What we do know is that a mid-cycle realized price is enough to make the business work, and the Westinghouse earnings stream is materially less cyclical than the mining earnings stream. That combination is what pays the waiting."
+    }
+  },
+
+  "last_reviewed_iso": "2026-04-18",
+  "next_earnings_iso": null,
+
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in Cameco Corporation and may transact at any time without notice. Figures are sourced from Cameco's FY 2025 earnings release (Feb 2026). See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup of Cameco may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+
+  "back_link": {"href": "/#watchlist", "label": "Back to the watchlist"},
+
+  "related_slugs": ["canadian-natural-cnq", "enbridge-enb"]
+}

@@ -1,0 +1,91 @@
+{
+  "slug": "enbridge-enb",
+  "ticker": "ENB",
+  "exchange": "TSX: ENB · NYSE: ENB",
+  "name": "Enbridge Inc.",
+  "short_name": "Enbridge",
+  "url": "https://www.enbridge.com/",
+
+  "sector": "Infrastructure",
+  "sub_industry": "Pipelines",
+  "page_eyebrow": "On the desk · Infrastructure",
+
+  "headline_html": "Enbridge: The <em>toll-road,</em> read honestly.",
+
+  "page_title": "Enbridge (ENB) — The toll-road, read honestly | Halvren Capital",
+  "meta_description": "Halvren's read on Enbridge. The Mainline as a corridor that doesn't get rebuilt, the Dominion gas-utility integration after the 2024 acquisition, and capital discipline on the energy-transition pivot.",
+  "og_title": "Enbridge (ENB) — The toll-road, read honestly",
+  "og_description": "Halvren's read on ENB. The Mainline corridor, the Dominion gas-utility integration, the capital-discipline question on energy transition, and the dividend streak.",
+  "og_image": "/og-research-enb.png",
+  "published_iso": "2026-04-27",
+  "modified_iso":  "2026-04-27",
+
+  "the_read": {
+    "summary": null,
+    "generated_iso": null,
+    "source_filing": "Enbridge FY 2025 disclosure (Q4 2025 results released February 2026) and corporate communications",
+    "principal_reviewed_iso": null
+  },
+
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {"label": "Adj. EBITDA",                "value": "~C$19.7B (record)"},
+      {"label": "Distributable cash flow / sh","value": "~C$5.65"},
+      {"label": "Mainline throughput",         "value": "~3.0 Mbbl/d"},
+      {"label": "Take-or-pay / cost-of-service","value": "~98% of EBITDA"},
+      {"label": "2026 dividend",               "value": "C$3.89/sh (~31st consec. raise)"},
+      {"label": "Secured capital backlog",     "value": "~C$28B (through 2028+)"},
+      {"label": "Leadership",                  "value": "Greg Ebel (CEO, since 2023)"},
+      {"label": "Listings",                    "value": "TSX: ENB · NYSE: ENB"}
+    ]
+  },
+
+  "guidance": null,
+
+  "leadership": {
+    "ceo": "Greg Ebel",
+    "ceo_since": 2023,
+    "chair": null,
+    "succession_visible": true,
+    "note": "Ebel inherited a cleaned-up balance sheet and has returned the firm to its strongest playbook: regulated assets, contracted growth, dividend discipline."
+  },
+
+  "what_we_track": [
+    "Mainline apportionment",
+    "Dominion utility rate cases",
+    "U.S. gas backlog conversion",
+    "Leverage trajectory",
+    "Transition capital discipline"
+  ],
+
+  "checklist": {
+    "scoring": [
+      {"q":  1, "status": null, "note": null},
+      {"q":  2, "status": null, "note": null},
+      {"q":  3, "status": null, "note": null},
+      {"q":  4, "status": null, "note": null},
+      {"q":  5, "status": null, "note": null},
+      {"q":  6, "status": null, "note": null},
+      {"q":  7, "status": null, "note": null},
+      {"q":  8, "status": null, "note": null},
+      {"q":  9, "status": null, "note": null},
+      {"q": 10, "status": null, "note": null}
+    ],
+    "pillar_commentary": {
+      "I":   "<strong>Pillar I. The business.</strong> FCF through the full cycle: yes, including 2014–16, 2020, and the 2022–23 rate-shock. Unit economics at worst price: ~98% take-or-pay or cost-of-service insulates the EBITDA print from commodity moves. Balance sheet at trough: investment-grade with debt-to-EBITDA running near the high end of management's 4.5–5.0x range, which is fine for a regulated business with this much contracted cash flow but is the part of the deck a bear case correctly anchors on. ROIC on incremental capital: high and stable for utility rate-base, more variable for greenfield pipelines, modest and partner-shared for renewables.",
+      "II":  "<strong>Pillar II. The people.</strong> Greg Ebel took the CEO role in early 2023 after a long tenure running Spectra Energy, which Enbridge acquired in 2017. He inherited a company that had spent the prior cycle on heavy capital projects, balance-sheet repair, and a partial corporate simplification. His track record so far reads as a return to the playbook the firm ran best, regulated assets, contracted growth, dividend discipline, with the Dominion deal as his largest single capital allocation decision. Insider ownership is low in absolute terms, normal for a Canadian regulated infrastructure company. Compensation is tied to DCF per share and capital-project on-time/on-budget, which is closer to right than wrong.",
+      "III": "<strong>Pillar III. The cycle.</strong> Enbridge sits at or near the bottom of the corridor cost curve for moving Western Canadian crude to U.S. refining, and at the bottom of the cost curve for U.S. natural-gas transmission in several of its key footprints. Greenfield permitting in North America is functionally closed for new long-haul oil pipelines, which structurally protects the existing position. The longer-dated cycle question is whether U.S. gas demand from LNG export and data-centre power load is a decade-long tailwind or a five-year one. We think the former, with conviction; we underwrite for the latter to be safe."
+    }
+  },
+
+  "last_reviewed_iso": "2026-04-27",
+  "next_earnings_iso": null,
+
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in Enbridge Inc. and may transact at any time without notice. Figures are sourced from Enbridge's FY 2025 disclosure (Q4 2025 results released February 2026) and corporate communications; some are approximate and will be reconciled to filed statements at quarterly review. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup of ENB may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+
+  "back_link": {"href": "/research", "label": "Back to the research archive"},
+
+  "related_slugs": ["canadian-natural-cnq", "cameco-cco"]
+}

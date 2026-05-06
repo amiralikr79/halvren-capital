@@ -1,0 +1,70 @@
+{
+  "_source": "/checklist.html — verbatim, do not edit by hand",
+  "_pillars": {
+    "I":   {"label": "The business", "questions": [1, 2, 3, 4]},
+    "II":  {"label": "The people",   "questions": [5, 6, 7, 8]},
+    "III": {"label": "The cycle",    "questions": [9, 10]}
+  },
+  "questions": [
+    {
+      "q": 1,
+      "pillar": "I",
+      "question_html": "Does it generate free cash flow through the <em>full</em> cycle, or only the top half of it?",
+      "default_note": "Reported earnings lie in commodities. Ten years of FCF tells the truth."
+    },
+    {
+      "q": 2,
+      "pillar": "I",
+      "question_html": "Do the unit economics still work at the <em>worst</em> price of the last decade?",
+      "default_note": "If the thesis needs a new commodity regime to work, it isn't a business yet."
+    },
+    {
+      "q": 3,
+      "pillar": "I",
+      "question_html": "What does the balance sheet look like at <em>trough</em> pricing: net debt, covenants, maturity ladder?",
+      "default_note": "The next crisis won't ask what you projected. It asks what you owe and when."
+    },
+    {
+      "q": 4,
+      "pillar": "I",
+      "question_html": "When they reinvest a dollar (capex, M&amp;A, or buyback), what actually <em>comes back</em>?",
+      "default_note": "ROIC on incremental capital, not reported ROE on the whole book."
+    },
+    {
+      "q": 5,
+      "pillar": "II",
+      "question_html": "How much of the operator's own net worth, <em>bought</em> and not granted, sits in this name?",
+      "default_note": "Options are loyalty to a quarter. Open-market purchases are loyalty to a decade."
+    },
+    {
+      "q": 6,
+      "pillar": "II",
+      "question_html": "What did management actually <em>do</em> in 2015 and 2020: issue, buy back, or sit still?",
+      "default_note": "Every operator on the desk has been stress-tested twice in the last decade. The record is public."
+    },
+    {
+      "q": 7,
+      "pillar": "II",
+      "question_html": "Is compensation tied to <em>per-share</em> value, or to production, revenue, and size?",
+      "default_note": "Growth at the expense of the share count is a tax the operator quietly charges you."
+    },
+    {
+      "q": 8,
+      "pillar": "II",
+      "question_html": "Who <em>succeeds</em> the operator, and is that person already visible on the page?",
+      "default_note": "Every owner-operator story ends. The question is whether the business does too."
+    },
+    {
+      "q": 9,
+      "pillar": "III",
+      "question_html": "Where are we on the cost curve that <em>matters</em>: the real one, not the one in the pitch deck?",
+      "default_note": "Every operator is first-quartile when they pick the quartile. Ask who sets the denominator."
+    },
+    {
+      "q": 10,
+      "pillar": "III",
+      "question_html": "What does a &ldquo;normal&rdquo; year look like a <em>decade</em> from now, and does this business still work at that price?",
+      "default_note": "If the thesis only works at the top of the cycle, it's a trade. Halvren doesn't trade."
+    }
+  ]
+}

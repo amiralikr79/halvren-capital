@@ -1,0 +1,90 @@
+{
+  "slug": "first-majestic-ag",
+  "ticker": "AG",
+  "exchange": "NYSE: AG · TSX: AG",
+  "name": "First Majestic Silver Corp.",
+  "short_name": "First Majestic",
+  "url": "https://www.firstmajestic.com/",
+
+  "sector": "Materials",
+  "sub_industry": "Silver",
+  "page_eyebrow": "On the desk · Silver",
+
+  "headline_html": "First Majestic Silver (AG): The <em>honest skeptic's</em> read.",
+
+  "page_title": "First Majestic Silver (AG) — The honest skeptic's read | Halvren Capital",
+  "meta_description": "First Majestic is the hardest of our three watchlist names to own honestly. Halvren's under-the-hood read on the real cost curve, the Mexico tax overhang, and whether per-share value has actually been created.",
+  "og_title": "First Majestic Silver (AG) — The honest skeptic's read",
+  "og_description": "Silver is a narrative metal. First Majestic has had more operational resets than new-high closes. Halvren's honest-skeptic read.",
+  "og_image": "/og-research-ag.png",
+  "published_iso": "2026-04-18",
+  "modified_iso":  "2026-04-18",
+
+  "the_read": {
+    "summary": null,
+    "generated_iso": null,
+    "source_filing": "First Majestic FY 2025 earnings release (February 2026) and corporate disclosure",
+    "principal_reviewed_iso": null
+  },
+
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {"label": "Revenue",             "value": "US$1,257M (+124% YoY)"},
+      {"label": "AISC / AgEq oz",      "value": "US$21.17 (≈ flat vs FY24)"},
+      {"label": "Realized AgEq price", "value": "US$41.52 (+47% YoY)"},
+      {"label": "Payable AgEq sold",   "value": "+50% YoY"},
+      {"label": "CEO",                 "value": "Keith Neumeyer (co-founder)"},
+      {"label": "Key jurisdictions",   "value": "Mexico · Nevada"},
+      {"label": "Listings",            "value": "NYSE: AG · TSX: AG"}
+    ]
+  },
+
+  "guidance": null,
+
+  "leadership": {
+    "ceo": "Keith Neumeyer",
+    "ceo_since": 2002,
+    "chair": null,
+    "succession_visible": false,
+    "note": "Neumeyer is the founder and long-tenured capital allocator; succession is not clearly visible."
+  },
+
+  "what_we_track": [
+    "All-in sustaining cost",
+    "Production-per-share",
+    "Mexico tax posture",
+    "Reserve quality",
+    "Hedge book"
+  ],
+
+  "checklist": {
+    "scoring": [
+      {"q":  1, "status": null, "note": null},
+      {"q":  2, "status": null, "note": null},
+      {"q":  3, "status": null, "note": null},
+      {"q":  4, "status": null, "note": null},
+      {"q":  5, "status": null, "note": null},
+      {"q":  6, "status": null, "note": null},
+      {"q":  7, "status": null, "note": null},
+      {"q":  8, "status": null, "note": null},
+      {"q":  9, "status": null, "note": null},
+      {"q": 10, "status": null, "note": null}
+    ],
+    "pillar_commentary": {
+      "I":   "<strong>Pillar I. The business.</strong> FCF through the full cycle: marginal. 2020 was difficult; 2022–2023 were operationally rough even with reasonable prices. Unit economics at worst price (silver in the mid-teens): uncomfortable. Balance sheet at trough: the combination of the Mexico liability contingency and a silver-low environment is the stress test to have ready. ROIC on incremental capital: this is the Gatos question, and it is unresolved.",
+      "II":  "<strong>Pillar II. The people.</strong> Keith Neumeyer is a founder and long-tenured capital allocator with a genuine conviction about silver's place in the monetary system. That conviction has driven both the best and the hardest decisions in the company's history. Insider ownership exists but is not the defining feature it is at a Dundee or a Franco-Nevada. Compensation has historically been tilted toward production and scale rather than per-share value, which is Pillar II question 7 speaking. Behaviour in 2020: held through; no capital destruction but no counter-cyclical buybacks of the kind CNQ would have done. Succession is not clearly visible.",
+      "III": "<strong>Pillar III. The cycle.</strong> First Majestic is a levered bet on silver with a jurisdictional tax overhang. Where we are in the cycle matters more here than it does in Cameco or CNQ. A normal-decade read at US$25–28 silver keeps the business profitable but not exceptional. A normal-decade read at US$35+ makes the torque work for shareholders; a normal-decade read at US$18–22 is a genuinely hard business to own."
+    }
+  },
+
+  "last_reviewed_iso": "2026-04-18",
+  "next_earnings_iso": null,
+
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may or may not hold a position in First Majestic Silver Corp. and may transact at any time without notice. Figures are sourced from First Majestic's FY 2025 earnings release (February 2026) and corporate disclosure. Discussion of the Mexican tax dispute reflects publicly disclosed company statements and Canadian media reporting; it is not legal advice and should not be treated as a forecast of any outcome. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup of First Majestic may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+
+  "back_link": {"href": "/#watchlist", "label": "Back to the watchlist"},
+
+  "related_slugs": ["cameco-cco", "canadian-natural-cnq"]
+}
