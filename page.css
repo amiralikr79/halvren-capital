@@ -452,6 +452,40 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
   .cscore-header-row{gap:var(--space-2)}
 }
 
+/* DIGEST ARCHIVE — list of weeks (newest first) */
+.dx-archive-list{display:flex;flex-direction:column;gap:var(--space-4);margin:var(--space-10) 0;max-width:var(--content-default)}
+.dx-archive-card{display:flex;flex-direction:column;gap:var(--space-3);padding:var(--space-6) var(--space-7);background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg);text-decoration:none;color:inherit;border-bottom:1px solid oklch(from var(--color-text) l c h/0.07);transition:border-color var(--transition),transform var(--transition)}
+.dx-archive-card:hover{border-color:oklch(from var(--color-gold) l c h/0.3);transform:translateY(-2px)}
+.dx-archive-row{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);flex-wrap:wrap}
+.dx-archive-eyebrow{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-gold);font-weight:500;font-family:var(--font-mono)}
+.dx-list-pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;font-family:var(--font-body);background:transparent;color:var(--color-text-faint);border:1px dashed var(--color-text-faint)}
+.dx-archive-title{font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:-0.01em;line-height:1.2;color:var(--color-text);margin:0}
+.dx-archive-counters{display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-3);font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-text-muted);font-variant-numeric:tabular-nums}
+.dx-archive-counters strong{color:var(--color-text);font-weight:500}
+.dx-archive-cta{font-size:11px;letter-spacing:0.10em;text-transform:uppercase;color:var(--color-gold);font-family:var(--font-body);font-weight:500;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:1px;align-self:flex-start;margin-top:var(--space-2)}
+
+/* DIGEST PER-WEEK PAGE (backfilled or auto-rendered) */
+.dx-counters{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);margin:var(--space-8) 0 var(--space-10);padding:var(--space-5);background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg)}
+.dx-counter{display:flex;flex-direction:column;gap:var(--space-1)}
+.dx-counter-num{font-family:var(--font-display);font-size:clamp(1.5rem,2.5vw,2.25rem);color:var(--color-gold);font-variant-numeric:tabular-nums;line-height:1.05}
+.dx-counter-arrow{font-size:0.55em;color:var(--color-gold);margin:0 0.15em;font-family:var(--font-mono)}
+.dx-counter-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-text-muted);font-family:var(--font-body)}
+@media(max-width:700px){.dx-counters{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.dx-counters{grid-template-columns:1fr}}
+
+.dx-section{margin:var(--space-10) 0}
+.dx-list{list-style:none;padding:0;margin:var(--space-4) 0;display:flex;flex-direction:column;gap:var(--space-3)}
+.dx-flag,.dx-prom{display:grid;grid-template-columns:auto auto 1fr;gap:var(--space-3) var(--space-4);padding:var(--space-4) var(--space-5);background:oklch(from var(--color-text) l c h/0.03);border:1px solid oklch(from var(--color-text) l c h/0.06);border-left:2px solid var(--color-gold);border-radius:var(--radius-md);align-items:baseline}
+.dx-prom{border-left-color:var(--color-text-muted)}
+.dx-flag-tkr{font-family:var(--font-mono);color:var(--color-gold);font-size:var(--text-base);letter-spacing:0.02em}
+.dx-flag-type{font-size:10px;letter-spacing:0.10em;text-transform:uppercase;color:var(--color-text-muted);font-family:var(--font-body)}
+.dx-flag-summary{grid-column:1/-1;font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.65;margin:0;max-width:72ch}
+.dx-backfill-note{margin-top:var(--space-8);padding:var(--space-4) var(--space-5);background:oklch(from var(--color-gold) l c h/0.05);border:1px dashed oklch(from var(--color-gold) l c h/0.3);border-radius:var(--radius-md);font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6}
+.dx-backfill-note strong{color:var(--color-gold);font-weight:500}
+
+/* italic intro paragraph in digest body */
+.doc-p--italic{font-family:var(--font-display);font-style:italic;font-size:var(--text-lg);color:var(--color-text);line-height:1.5;margin-bottom:var(--space-6);max-width:64ch}
+
 /* MOBILE: keep ticker + dates from breaking out at 375px */
 @media(max-width:480px){
   .op-header{padding:var(--space-4) 0}
