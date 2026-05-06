@@ -486,6 +486,56 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
 /* italic intro paragraph in digest body */
 .doc-p--italic{font-family:var(--font-display);font-style:italic;font-size:var(--text-lg);color:var(--color-text);line-height:1.5;margin-bottom:var(--space-6);max-width:64ch}
 
+/* /VERSION PAGE — debug surface (rendered by api/version.js) */
+.version-stat{display:grid;grid-template-columns:max-content 1fr;column-gap:var(--space-6);row-gap:var(--space-2);margin:var(--space-8) 0;font-family:var(--font-body);font-size:var(--text-sm);line-height:1.65;max-width:64ch}
+.version-stat > div{display:contents}
+.version-stat dt{font-size:11px;letter-spacing:0.10em;text-transform:uppercase;color:var(--color-text-muted);font-weight:500;padding-top:0.2em}
+.version-stat dd{margin:0;color:var(--color-text);font-family:var(--font-mono);font-size:var(--text-sm);padding-bottom:var(--space-2);border-bottom:1px solid oklch(from var(--color-text) l c h/0.04);word-break:break-all}
+.version-stat dd code{font-family:var(--font-mono);background:transparent;padding:0;color:var(--color-gold)}
+@media(max-width:520px){.version-stat{grid-template-columns:1fr}.version-stat dt{padding-top:var(--space-2)}}
+
+/* LETTERCAPTURE — three variants (sprint 7) */
+
+/* (1) inline variant: compact, fits inside an article body */
+.lc-inline{margin:var(--space-10) 0;padding:var(--space-5) var(--space-6);background:oklch(from var(--color-gold) l c h/0.05);border:1px solid oklch(from var(--color-gold) l c h/0.20);border-left:2px solid var(--color-gold);border-radius:var(--radius-md);font-family:var(--font-body)}
+.lc-inline-eyebrow{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-gold);font-weight:500;font-family:var(--font-mono);margin:0 0 var(--space-2)}
+.lc-inline-h{font-family:var(--font-display);font-size:var(--text-lg);line-height:1.2;color:var(--color-text);margin:0 0 var(--space-2);max-width:34ch}
+.lc-inline-h em{font-style:italic;color:var(--color-gold)}
+.lc-inline-p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;margin:0 0 var(--space-4);max-width:60ch}
+.lc-inline-form{display:flex;flex-wrap:wrap;gap:var(--space-2);align-items:stretch;max-width:520px}
+.lc-inline-input{flex:1 1 220px;min-width:0;padding:var(--space-3) var(--space-4);background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-sm);color:var(--color-text);font-family:var(--font-body);font-size:var(--text-sm)}
+.lc-inline-input:focus{outline:none;border-color:var(--color-gold)}
+.lc-inline-submit{padding:var(--space-3) var(--space-5);background:var(--color-gold);color:#0e0d0b;border:none;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:var(--text-sm);font-weight:500;letter-spacing:0.02em;cursor:pointer;white-space:nowrap}
+.lc-inline-submit:hover{background:var(--color-gold-light)}
+.lc-inline-meta{font-size:10px;letter-spacing:0.04em;color:var(--color-text-faint);font-family:var(--font-body);margin:var(--space-3) 0 0;line-height:1.5}
+.lc-inline-meta a{color:var(--color-text-muted);border-bottom:1px solid var(--color-divider);padding-bottom:1px}
+
+/* (2) standalone variant: reuses existing .subscribe block — see /index.html, /access, /performance */
+
+/* (3) mobile sticky footer: dismissible, persists 30 days in localStorage */
+.lc-sticky{position:fixed;left:0;right:0;bottom:0;z-index:140;display:none;flex-direction:row;align-items:center;gap:var(--space-3);padding:var(--space-3) var(--space-4) calc(var(--space-3) + env(safe-area-inset-bottom));background:var(--color-bg);border-top:1px solid var(--color-border);box-shadow:0 -8px 24px oklch(0 0 0/0.10);font-family:var(--font-body)}
+.lc-sticky[data-show="true"]{display:flex}
+.lc-sticky-text{flex:1 1 auto;min-width:0;font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.45}
+.lc-sticky-text strong{color:var(--color-text);font-weight:500}
+.lc-sticky-cta{flex-shrink:0;padding:var(--space-2) var(--space-4);background:var(--color-gold);color:#0e0d0b;border-radius:var(--radius-sm);font-size:11px;font-weight:500;letter-spacing:0.02em;text-decoration:none;border:none;white-space:nowrap}
+.lc-sticky-cta:hover{background:var(--color-gold-light)}
+.lc-sticky-dismiss{flex-shrink:0;background:transparent;border:1px solid var(--color-border);color:var(--color-text-muted);width:30px;height:30px;border-radius:var(--radius-sm);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;line-height:1;padding:0}
+.lc-sticky-dismiss:hover{color:var(--color-text);border-color:var(--color-text-faint)}
+.lc-sticky-dismiss:focus-visible{outline:2px solid var(--color-gold);outline-offset:2px}
+@media(min-width:768px){.lc-sticky{display:none !important}}
+
+/* tighten "by the numbers" stacking on very narrow viewports (sprint 7 mobile audit) */
+@media(max-width:480px){
+  .doc-stats{grid-template-columns:1fr;column-gap:var(--space-3);row-gap:var(--space-2);padding:var(--space-5) var(--space-4)}
+  .doc-stats dt{padding-top:var(--space-2)}
+  .doc-stats dd{text-align:left;padding-bottom:var(--space-2);border-bottom:1px solid oklch(from var(--color-text) l c h/0.04)}
+  .doc-stats dd:last-child{border-bottom:none}
+}
+
+/* footer: site-meta last-reviewed line */
+.footer-last-reviewed{font-size:11px;color:var(--color-text-faint);letter-spacing:0.04em;font-family:var(--font-body);margin:0 var(--space-2);white-space:nowrap}
+.footer-last-reviewed strong{color:var(--color-text-muted);font-weight:500}
+
 /* MOBILE: keep ticker + dates from breaking out at 375px */
 @media(max-width:480px){
   .op-header{padding:var(--space-4) 0}

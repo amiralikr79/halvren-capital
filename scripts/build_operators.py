@@ -320,6 +320,21 @@ def render_scorecard(op: dict, questions: list[dict], pillars: dict) -> str:
     </section>"""
 
 
+def render_inline_lettercapture(op: dict) -> str:
+    """Inline subscribe block — sits between The Note and Disclosure."""
+    return f"""
+    <aside class="lc-inline" aria-labelledby="lc-inline-h-{op['slug']}">
+      <p class="lc-inline-eyebrow">The Halvren letter</p>
+      <h2 class="lc-inline-h" id="lc-inline-h-{op['slug']}">When the next read on <em>{op['short_name']}</em> ships, get it in your inbox.</h2>
+      <p class="lc-inline-p">Halvren publishes a quarterly letter and a small, irregular cadence of single-name research. Subscribe on Substack &mdash; emails are handled there, not here.</p>
+      <form class="lc-inline-form" action="https://substack.com/@halvrencapital/subscribe" method="get" target="_blank" rel="noopener noreferrer">
+        <input class="lc-inline-input" type="email" name="email" placeholder="your@email.com" autocomplete="email" aria-label="Your email address">
+        <button class="lc-inline-submit" type="submit">Subscribe</button>
+      </form>
+      <p class="lc-inline-meta">No emails are stored on this site &mdash; the form opens Substack in a new tab. <a href="/privacy">Privacy</a>.</p>
+    </aside>"""
+
+
 def render_disclosure_footer(op: dict) -> str:
     bl = op["back_link"]
     return f"""
@@ -500,6 +515,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 {what_we_track}
 {the_note}
 {scorecard}
+{lettercapture}
 {disclosure_footer}
 {related}
   </article>
@@ -589,6 +605,7 @@ def build_one(slug: str, all_ops: dict[str, dict], questions_doc: dict) -> Path:
         what_we_track=render_what_we_track(op),
         the_note=render_the_note(body_html),
         scorecard=render_scorecard(op, questions_doc["questions"], questions_doc["_pillars"]),
+        lettercapture=render_inline_lettercapture(op),
         disclosure_footer=render_disclosure_footer(op),
         related=render_related(op, all_ops),
     )

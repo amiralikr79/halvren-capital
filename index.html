@@ -791,9 +791,17 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
   </div>
   <div class="footer-inner footer-meta">
     <span>&copy; 2025–2026 Halvren Capital. All rights reserved.</span>
-    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/performance">Performance</a> &middot; <a href="/press">Press</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span>
+    <span class="footer-last-reviewed"><strong>Last full-site review:</strong> May 6, 2026</span>
+    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/performance">Performance</a> &middot; <a href="/press">Press</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/version">Version</a></span>
   </div>
 </footer>
+
+<!-- mobile sticky LetterCapture (sprint 7) — hidden above 768px and after dismissal -->
+<aside class="lc-sticky" data-lc-sticky aria-label="Subscribe to the Halvren letter">
+  <p class="lc-sticky-text"><strong>Halvren letter</strong> — quarterly, on Substack.</p>
+  <a class="lc-sticky-cta" href="https://substack.com/@halvrencapital/subscribe" target="_blank" rel="noopener noreferrer">Subscribe</a>
+  <button class="lc-sticky-dismiss" type="button" data-lc-dismiss aria-label="Dismiss for 30 days">×</button>
+</aside>
 
 <script>
 (function(){
@@ -983,5 +991,8 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
     .catch(function () { /* silent — keep fallback values */ });
 })();
 </script>
+<!-- Plausible Analytics — privacy-respecting, no cookies, no personal data. See /privacy. -->
+<script defer data-domain="halvrencapital.com" src="https://plausible.io/js/script.js"></script>
+<script src="/lc-sticky.js" defer></script>
 </body>
 </html>
