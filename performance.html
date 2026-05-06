@@ -71,6 +71,21 @@
 .perf-stat-num .pos{color:var(--color-gold)}
 .perf-stat-label{font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--color-text-muted);line-height:1.4;max-width:18ch}
 .perf-stat-label small{display:block;margin-top:4px;font-family:var(--font-mono);font-size:10px;color:var(--color-text-faint);letter-spacing:0.04em;text-transform:none}
+/* Scope + audit-trail blocks (sprint 6) */
+.perf-scope{display:grid;grid-template-columns:max-content 1fr;column-gap:var(--space-6);row-gap:var(--space-3);margin:var(--space-6) 0 0;font-family:var(--font-body);font-size:var(--text-sm);line-height:1.65}
+.perf-scope > div{display:contents}
+.perf-scope dt{font-size:11px;letter-spacing:0.10em;text-transform:uppercase;color:var(--color-text-muted);font-weight:500;padding-top:0.2em;font-family:var(--font-body)}
+.perf-scope dd{margin:0;color:var(--color-text-muted);max-width:64ch;padding-bottom:var(--space-3);border-bottom:1px solid oklch(from var(--color-text) l c h/0.04)}
+.perf-scope > div:last-child dd{border-bottom:none;padding-bottom:0}
+.perf-scope dd strong{color:var(--color-text);font-weight:500}
+.perf-scope code{font-family:var(--font-mono);font-size:0.85em;background:oklch(from var(--color-text) l c h/0.04);padding:1px 6px;border-radius:var(--radius-sm)}
+@media(max-width:680px){.perf-scope{grid-template-columns:1fr}.perf-scope dt{padding-top:var(--space-2)}.perf-scope dd{padding-bottom:var(--space-4)}}
+.perf-audit{margin:var(--space-10) 0;padding:var(--space-5) var(--space-6);background:oklch(from var(--color-gold) l c h/0.05);border:1px solid oklch(from var(--color-gold) l c h/0.18);border-left:2px solid var(--color-gold);border-radius:var(--radius-md);font-family:var(--font-body)}
+.perf-audit-cap{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-gold);font-weight:500;font-family:var(--font-mono);margin:0 0 var(--space-3)}
+.perf-audit-text{font-size:var(--text-sm);color:var(--color-text);line-height:1.7;margin:0;max-width:72ch}
+.perf-audit-text strong{color:var(--color-gold);font-weight:500}
+.perf-cfa-footnote{margin-top:var(--space-12);padding-top:var(--space-5);border-top:1px solid var(--color-divider);font-size:11px;color:var(--color-text-faint);line-height:1.6;font-family:var(--font-body);max-width:64ch}
+.perf-cfa-footnote strong{color:var(--color-text-muted);font-weight:500}
 @media(max-width:768px){.perf-stats{grid-template-columns:repeat(2,1fr);gap:var(--space-6)}}
 
 /* Section */
@@ -339,6 +354,26 @@
     <div class="perf-stat"><span class="perf-stat-num">+6<span style="color:var(--color-gold)">%</span></span><p class="perf-stat-label">Worst calendar year<small>2022 · TSX −5.8% &middot; S&amp;P −18.1%</small></p></div>
     <div class="perf-stat"><span class="perf-stat-num">5<span style="font-size:0.55em;color:var(--color-text-faint);margin-left:0.1em">/7</span></span><p class="perf-stat-label">Years beating TSX TR<small>4 of 7 vs. S&amp;P 500 TR</small></p></div>
   </section>
+
+  <!-- SCOPE — added Sprint 6 to make the perimeter of the claim explicit -->
+  <section class="perf-section" id="scope" aria-labelledby="scope-h">
+    <p class="perf-section-cap">Scope</p>
+    <h2 class="perf-section-h" id="scope-h">What this performance number <em>covers,</em> and what it does not.</h2>
+    <dl class="perf-scope">
+      <div><dt>Vehicle</dt><dd>The principal's <strong>proprietary book</strong> — a single brokerage account, single principal, no outside investors, no co-mingled capital.</dd></div>
+      <div><dt>Calculation period</dt><dd>1 January 2019 (inception) through 31 December 2025 — seven full calendar years. The page is reconciled at quarter-end; the next refresh follows the close of Q1 2026.</dd></div>
+      <div><dt>Reporting currency</dt><dd>Canadian dollars (CAD) at the book level. Multi-currency activity uses the custodian's reported close FX. Benchmarks are reported in their native currency (TSX TR in CAD, S&amp;P 500 TR in USD); cross-currency contribution is included in the Halvren figure where applicable, not in the benchmark.</dd></div>
+      <div><dt>Fees</dt><dd>Zero. There are <strong>no clients</strong>, no management fees, no performance fees. The only deductions from gross return are trading commissions, custody fees, FX conversion costs, and incidental settlement interest — all reflected in the &ldquo;net&rdquo; figure on this page.</dd></div>
+      <div><dt>What is excluded</dt><dd>No leverage, no derivatives, no short book, no margin strategy, no private positions, no real-estate or operating-business returns. Only public-equity positions held through the named custodian.</dd></div>
+      <div><dt>Canonical data</dt><dd>The structured year-by-year data this page renders against lives at <a href="/content/performance/annual.json"><code>content/performance/annual.json</code></a>. Aggregates on this page are derived from the same rows.</dd></div>
+    </dl>
+  </section>
+
+  <!-- AUDIT TRAIL — added Sprint 6 to consolidate the custodian-reference into one block -->
+  <aside class="perf-audit" aria-label="Audit trail">
+    <p class="perf-audit-cap">Audit trail</p>
+    <p class="perf-audit-text">Records held by <strong>Interactive Brokers</strong> as the principal's custodian and prime broker since inception. Monthly account statements are retained, time-stamped, and reconcilable; <strong>available for review on request to verified institutional readers</strong> under appropriate confidentiality. A third-party performance attestation of the full monthly series is planned for 2026. Errors get fixed in public; the page records the change. Write to <a href="mailto:amirali@halvrencapital.com">amirali@halvrencapital.com</a>.</p>
+  </aside>
 
   <!-- RISK-ADJUSTED -->
   <section class="perf-section" style="margin-top:0">
@@ -661,6 +696,8 @@
   <hr class="divider">
 
   <p style="font-size:var(--text-sm);color:var(--color-text-faint);line-height:1.7;max-width:64ch">This page is provided for informational and educational purposes only. It is not an offer, solicitation, or recommendation to buy, sell, or hold any security. Past performance is not indicative of future results. Halvren is not a registered investment adviser, broker-dealer, or portfolio manager and does not currently accept outside capital. See the <a href="/terms" style="color:var(--color-gold);border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:1px;text-decoration:none">Terms of Use</a> for the full disclaimer.</p>
+
+  <p class="perf-cfa-footnote"><strong>A note on the CFA reference.</strong> Per the CFA Institute Standard of Professional Conduct VII(B), the term &ldquo;CFA candidate&rdquo; applies only when the principal is registered for the next sitting of a CFA exam. Where the term is used on this site, it reflects an active registration; if a sitting is missed without re-enrollment, the references will be updated to &ldquo;studying toward the CFA&rdquo; and this page will record the change.</p>
 
   <aside class="subscribe" data-subscribe style="margin-top:var(--space-12)">
     <p class="subscribe-eyebrow">The Halvren letter</p>

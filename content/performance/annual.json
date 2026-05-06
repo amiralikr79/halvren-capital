@@ -1,0 +1,55 @@
+{
+  "$comment_1": "Halvren proprietary book — annual returns. Canonical machine-readable form of the year-by-year data already published in /performance.",
+  "$comment_2": "PROVENANCE — every row mirrors a number the principal has already published on /performance, sourced from Interactive Brokers monthly account statements per the methodology section on that page. Do not invent values; do not edit a row without re-checking against the custodian statement for that calendar year. Annual figures are time-weighted (Modified Dietz), net of trading commissions, custody fees, FX conversion costs, and any other frictional cost.",
+  "$comment_3": "SCHEMA — each row: { year:int, halvren_return_pct:number, tsx_tr_pct:number, sp500_tr_pct:number, halvren_vs_tsx_pp:number, halvren_vs_sp500_pp:number, source:str, status: \"reconciled\" | \"sample\" | \"draft\" }. Fields starting in `_` are derivable, kept here for serialization convenience.",
+  "$comment_4": "When extending: append new years; never edit an existing reconciled year without (a) re-running the reconciliation against the custodian statement and (b) updating /performance Methodology section to match.",
+
+  "scope": {
+    "vehicle": "proprietary book (single account, single principal)",
+    "outside_capital": false,
+    "inception": "2019-01-01",
+    "as_of": "2025-12-31",
+    "reporting_currency": "CAD",
+    "fees": "zero — no clients, no management fees, no performance fees",
+    "leverage": "none",
+    "derivatives": "none",
+    "short_book": "none",
+    "custodian": "Interactive Brokers",
+    "method": "time-weighted (Modified Dietz), monthly chained to annual"
+  },
+
+  "headline": {
+    "annualized_return_pct": 17.1,
+    "cumulative_return_pct": 202,
+    "years_positive": 7,
+    "years_total": 7,
+    "worst_calendar_year_pct": 6.0,
+    "vs_tsx_tr_annualized_pp": 4.1,
+    "vs_sp500_tr_annualized_pp": 0.2,
+    "$source_note": "Aggregates derived from the annual rows below; reconciled to the custodian statement set."
+  },
+
+  "annual": [
+    {"year": 2019, "halvren_return_pct": 12.0, "tsx_tr_pct": 22.9, "sp500_tr_pct": 31.5, "halvren_vs_tsx_pp": -10.9, "halvren_vs_sp500_pp": -19.5, "status": "reconciled", "source": "Interactive Brokers monthly statements (Jan–Dec 2019)"},
+    {"year": 2020, "halvren_return_pct": 10.0, "tsx_tr_pct":  5.6, "sp500_tr_pct": 18.4, "halvren_vs_tsx_pp":   4.4, "halvren_vs_sp500_pp":  -8.4, "status": "reconciled", "source": "Interactive Brokers monthly statements (Jan–Dec 2020)"},
+    {"year": 2021, "halvren_return_pct": 29.0, "tsx_tr_pct": 25.1, "sp500_tr_pct": 28.7, "halvren_vs_tsx_pp":   3.9, "halvren_vs_sp500_pp":   0.3, "status": "reconciled", "source": "Interactive Brokers monthly statements (Jan–Dec 2021)"},
+    {"year": 2022, "halvren_return_pct":  6.0, "tsx_tr_pct": -5.8, "sp500_tr_pct":-18.1, "halvren_vs_tsx_pp":  11.8, "halvren_vs_sp500_pp":  24.1, "status": "reconciled", "source": "Interactive Brokers monthly statements (Jan–Dec 2022)"},
+    {"year": 2023, "halvren_return_pct": 30.0, "tsx_tr_pct": 11.8, "sp500_tr_pct": 26.3, "halvren_vs_tsx_pp":  18.2, "halvren_vs_sp500_pp":   3.7, "status": "reconciled", "source": "Interactive Brokers monthly statements (Jan–Dec 2023)"},
+    {"year": 2024, "halvren_return_pct": 17.0, "tsx_tr_pct": 22.5, "sp500_tr_pct": 25.0, "halvren_vs_tsx_pp":  -5.5, "halvren_vs_sp500_pp":  -8.0, "status": "reconciled", "source": "Interactive Brokers monthly statements (Jan–Dec 2024)"},
+    {"year": 2025, "halvren_return_pct": 18.0, "tsx_tr_pct": 12.0, "sp500_tr_pct": 15.0, "halvren_vs_tsx_pp":   6.0, "halvren_vs_sp500_pp":   3.0, "status": "reconciled", "source": "Interactive Brokers monthly statements (Jan–Dec 2025)"}
+  ],
+
+  "audit_trail": {
+    "custodian": "Interactive Brokers",
+    "records_form": "monthly account statements (PDF), retained since inception",
+    "available_to": "qualified counterparties on request, under appropriate confidentiality",
+    "request_email": "amirali@halvrencapital.com",
+    "third_party_attestation_planned": "2026"
+  },
+
+  "version": "2026-05-06",
+  "PRINCIPAL_NOTES": [
+    "If the existing /performance figures are wrong in any line, fix this file FIRST, then re-run scripts/build_machine_readable.py and verify the year-by-year table on the live page still matches.",
+    "Add a 2026 row when Q4 2026 closes and the December custodian statement is reconciled. Do not preview a year before reconciliation — set status: \"draft\" and exclude from the page table until reconciled."
+  ]
+}
