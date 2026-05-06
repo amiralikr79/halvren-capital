@@ -512,11 +512,11 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
           <p style="font-size:var(--text-base);color:var(--color-text-muted);max-width:56ch;line-height:1.7;margin-bottom:var(--space-5)">An AI-augmented read of every Canadian and U.S. operator earnings call on the Halvren coverage list. <strong style="color:var(--color-text);font-weight:500">142 filings, 4,820 pages, 7.4 hours of call audio</strong> processed this week — eleven model flags, eighty checklist questions evaluated, two names promoted to principal review.</p>
           <span style="display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--text-sm);color:var(--color-gold);font-family:var(--font-body);font-weight:500;letter-spacing:0.02em;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:1px">Read the digest <span aria-hidden="true">→</span></span>
         </div>
-        <div style="display:flex;flex-direction:column;gap:var(--space-3);min-width:180px;font-family:var(--font-mono);font-variant-numeric:tabular-nums">
-          <div style="display:flex;justify-content:space-between;font-size:var(--text-xs);color:var(--color-text-muted);padding-bottom:var(--space-2);border-bottom:1px solid oklch(from var(--color-text) l c h/0.06)"><span style="letter-spacing:0.08em;text-transform:uppercase;font-family:var(--font-body);color:var(--color-text-faint)">Filings ingested</span><span style="color:var(--color-text);font-weight:500;font-size:var(--text-base)">142</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:var(--text-xs);color:var(--color-text-muted);padding-bottom:var(--space-2);border-bottom:1px solid oklch(from var(--color-text) l c h/0.06)"><span style="letter-spacing:0.08em;text-transform:uppercase;font-family:var(--font-body);color:var(--color-text-faint)">Pages read</span><span style="color:var(--color-text);font-weight:500;font-size:var(--text-base)">4,820</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:var(--text-xs);color:var(--color-text-muted);padding-bottom:var(--space-2);border-bottom:1px solid oklch(from var(--color-text) l c h/0.06)"><span style="letter-spacing:0.08em;text-transform:uppercase;font-family:var(--font-body);color:var(--color-text-faint)">Model flags</span><span style="color:var(--color-gold);font-weight:500;font-size:var(--text-base)">11</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:var(--text-xs);color:var(--color-text-muted)"><span style="letter-spacing:0.08em;text-transform:uppercase;font-family:var(--font-body);color:var(--color-text-faint)">Promoted to desk</span><span style="color:var(--color-gold);font-weight:500;font-size:var(--text-base)">2</span></div>
+        <div style="display:flex;flex-direction:column;gap:var(--space-3);min-width:180px;font-family:var(--font-mono);font-variant-numeric:tabular-nums" data-digest-block>
+          <div style="display:flex;justify-content:space-between;font-size:var(--text-xs);color:var(--color-text-muted);padding-bottom:var(--space-2);border-bottom:1px solid oklch(from var(--color-text) l c h/0.06)"><span style="letter-spacing:0.08em;text-transform:uppercase;font-family:var(--font-body);color:var(--color-text-faint)">Filings ingested</span><span style="color:var(--color-text);font-weight:500;font-size:var(--text-base)" data-digest-counter="filings_ingested">142</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:var(--text-xs);color:var(--color-text-muted);padding-bottom:var(--space-2);border-bottom:1px solid oklch(from var(--color-text) l c h/0.06)"><span style="letter-spacing:0.08em;text-transform:uppercase;font-family:var(--font-body);color:var(--color-text-faint)">Pages read</span><span style="color:var(--color-text);font-weight:500;font-size:var(--text-base)" data-digest-counter="pages_read">4,820</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:var(--text-xs);color:var(--color-text-muted);padding-bottom:var(--space-2);border-bottom:1px solid oklch(from var(--color-text) l c h/0.06)"><span style="letter-spacing:0.08em;text-transform:uppercase;font-family:var(--font-body);color:var(--color-text-faint)">Model flags</span><span style="color:var(--color-gold);font-weight:500;font-size:var(--text-base)" data-digest-counter="model_flags">11</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:var(--text-xs);color:var(--color-text-muted)"><span style="letter-spacing:0.08em;text-transform:uppercase;font-family:var(--font-body);color:var(--color-text-faint)">Promoted to desk</span><span style="color:var(--color-gold);font-weight:500;font-size:var(--text-base)" data-digest-counter="promoted_to_desk">2</span></div>
         </div>
       </div>
     </a>
@@ -955,6 +955,32 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
       input.value='';
     });
   });
+})();
+</script>
+<script>
+// digest counter hydration — fetch /digest/latest.json and update the four cells
+// in the digest-feature block. Falls back silently if the fetch fails so the
+// hardcoded fallback values remain visible.
+(function () {
+  var cells = document.querySelectorAll('[data-digest-counter]');
+  if (!cells.length) return;
+  fetch('/digest/latest.json', { headers: { 'Accept': 'application/json' } })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (j) {
+      if (!j) return;
+      cells.forEach(function (el) {
+        var key = el.getAttribute('data-digest-counter');
+        if (j[key] == null) return;
+        var v = j[key];
+        // simple thousand-separator for integers
+        if (typeof v === 'number' && Number.isFinite(v) && key !== 'audio_hours') {
+          v = v.toLocaleString('en-US');
+        }
+        el.textContent = v;
+        el.setAttribute('data-hydrated', 'true');
+      });
+    })
+    .catch(function () { /* silent — keep fallback values */ });
 })();
 </script>
 </body>

@@ -14,6 +14,23 @@
       "destination": "/api/checklist/page"
     }
   ],
+  "headers": [
+    {
+      "source": "/digest/latest.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400"
+        }
+      ]
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/digest-draft",
+      "schedule": "0 14 * * 5"
+    }
+  ],
   "functions": {
     "api/checklist/score.js": {
       "maxDuration": 30,
@@ -21,6 +38,9 @@
     },
     "api/checklist/page.js": {
       "maxDuration": 5
+    },
+    "api/cron/digest-draft.js": {
+      "maxDuration": 30
     }
   }
 }
