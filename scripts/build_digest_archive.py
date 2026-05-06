@@ -420,6 +420,7 @@ def render_index_page(weeks: list[dict]) -> str:
           <span class="dx-archive-cta">Read principal note &rarr;</span>
         </a>"""
 
+    latest_iso = (weeks[0].get("updated_iso") or weeks[0].get("week_of") or dt.date.today().isoformat())[:10]
     collection_jsonld = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
@@ -429,6 +430,8 @@ def render_index_page(weeks: list[dict]) -> str:
         "publisher": {"@id": "https://halvrencapital.com/#organization"},
         "author":    {"@id": "https://halvrencapital.com/#amirali"},
         "inLanguage": "en-CA",
+        "datePublished": "2026-04-10",
+        "dateModified": latest_iso,
     }
     breadcrumbs_jsonld = {
         "@context": "https://schema.org",

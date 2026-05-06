@@ -351,6 +351,8 @@ def render_collection_jsonld(operators: list[dict]) -> str:
                 "publisher": {"@id": f"{base}/#organization"},
                 "author":    {"@id": f"{base}/#amirali"},
                 "inLanguage": "en-CA",
+                "datePublished": "2026-04-19",
+                "dateModified": date.today().isoformat(),
             },
             {
                 "@type": "BreadcrumbList",
