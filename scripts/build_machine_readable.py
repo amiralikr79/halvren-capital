@@ -306,6 +306,64 @@ def render_llms_full_txt() -> str:
         parts.append("---")
         parts.append("")
 
+    # performance scope + methodology + annual rows
+    perf_path = ROOT / "content" / "performance" / "annual.json"
+    if perf_path.exists():
+        try:
+            perf = json.loads(perf_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            perf = None
+        if perf:
+            parts.append("## Performance — proprietary book")
+            parts.append(f"Source: {SITE}/performance")
+            parts.append("")
+            scope = perf.get("scope", {})
+            head = perf.get("headline", {})
+            parts.append(
+                f"Vehicle: {scope.get('vehicle')}. "
+                f"Inception: {scope.get('inception')}. "
+                f"As of: {scope.get('as_of')}. "
+                f"Reporting currency: {scope.get('reporting_currency')}. "
+                f"Custodian: {scope.get('custodian')}. "
+                f"Method: {scope.get('method')}. "
+                f"Fees: {scope.get('fees')}. "
+                f"Leverage/derivatives/short book: none."
+            )
+            parts.append("")
+            parts.append(
+                f"Annualized return (net): {head.get('annualized_return_pct')}%. "
+                f"Cumulative return: +{head.get('cumulative_return_pct')}% over "
+                f"{head.get('years_total')} years. "
+                f"Years positive: {head.get('years_positive')}/{head.get('years_total')} "
+                f"(worst calendar year +{head.get('worst_calendar_year_pct')}%). "
+                f"vs. S&P/TSX TR (annualized): +{head.get('vs_tsx_tr_annualized_pp')} pp. "
+                f"vs. S&P 500 TR (annualized): +{head.get('vs_sp500_tr_annualized_pp')} pp."
+            )
+            parts.append("")
+            parts.append("Year-by-year (Halvren / TSX TR / S&P 500 TR / vs TSX / vs S&P):")
+            for row in perf.get("annual", []):
+                parts.append(
+                    f"  {row['year']}: {row['halvren_return_pct']:+}% / "
+                    f"{row['tsx_tr_pct']:+}% / "
+                    f"{row['sp500_tr_pct']:+}% / "
+                    f"{row['halvren_vs_tsx_pp']:+} pp / "
+                    f"{row['halvren_vs_sp500_pp']:+} pp "
+                    f"[{row.get('status')}]"
+                )
+            parts.append("")
+            audit = perf.get("audit_trail", {})
+            parts.append(
+                f"Audit trail: records held by {audit.get('custodian')}; "
+                f"{audit.get('records_form')}; available to {audit.get('available_to')} "
+                f"on request to {audit.get('request_email')}. "
+                f"Third-party attestation planned: {audit.get('third_party_attestation_planned')}."
+            )
+            parts.append("")
+            parts.append("Past performance is not indicative of future results. Halvren is not a registered investment adviser, broker-dealer, or portfolio manager and does not currently accept outside capital. See terms at " + SITE + "/terms.")
+            parts.append("")
+            parts.append("---")
+            parts.append("")
+
     # recent digest entries
     parts.append("## Recent digest entries (most recent 8)")
     parts.append("")

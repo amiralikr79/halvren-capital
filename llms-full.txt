@@ -399,6 +399,28 @@ Pillar III. The cycle. Saskatchewan potash is structurally the lowest-cost sourc
 
 ---
 
+## Performance — proprietary book
+Source: https://halvrencapital.com/performance
+
+Vehicle: proprietary book (single account, single principal). Inception: 2019-01-01. As of: 2025-12-31. Reporting currency: CAD. Custodian: Interactive Brokers. Method: time-weighted (Modified Dietz), monthly chained to annual. Fees: zero — no clients, no management fees, no performance fees. Leverage/derivatives/short book: none.
+
+Annualized return (net): 17.1%. Cumulative return: +202% over 7 years. Years positive: 7/7 (worst calendar year +6.0%). vs. S&P/TSX TR (annualized): +4.1 pp. vs. S&P 500 TR (annualized): +0.2 pp.
+
+Year-by-year (Halvren / TSX TR / S&P 500 TR / vs TSX / vs S&P):
+  2019: +12.0% / +22.9% / +31.5% / -10.9 pp / -19.5 pp [reconciled]
+  2020: +10.0% / +5.6% / +18.4% / +4.4 pp / -8.4 pp [reconciled]
+  2021: +29.0% / +25.1% / +28.7% / +3.9 pp / +0.3 pp [reconciled]
+  2022: +6.0% / -5.8% / -18.1% / +11.8 pp / +24.1 pp [reconciled]
+  2023: +30.0% / +11.8% / +26.3% / +18.2 pp / +3.7 pp [reconciled]
+  2024: +17.0% / +22.5% / +25.0% / -5.5 pp / -8.0 pp [reconciled]
+  2025: +18.0% / +12.0% / +15.0% / +6.0 pp / +3.0 pp [reconciled]
+
+Audit trail: records held by Interactive Brokers; monthly account statements (PDF), retained since inception; available to qualified counterparties on request, under appropriate confidentiality on request to amirali@halvrencapital.com. Third-party attestation planned: 2026.
+
+Past performance is not indicative of future results. Halvren is not a registered investment adviser, broker-dealer, or portfolio manager and does not currently accept outside capital. See terms at https://halvrencapital.com/terms.
+
+---
+
 ## Recent digest entries (most recent 8)
 
 ### Week 18 · Apr 28 – May 2, 2026
