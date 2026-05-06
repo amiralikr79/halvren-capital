@@ -206,3 +206,82 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
 .subscribe-success{margin-top:var(--space-3);font-size:var(--text-sm);color:var(--color-gold);font-family:var(--font-body);display:none}
 .subscribe.sent .subscribe-success{display:block}
 @media(max-width:520px){.subscribe{padding:var(--space-6)}.subscribe-form{flex-direction:column;align-items:stretch}.subscribe-btn{width:100%}}
+
+/* OPERATOR PAGE — HEADER STRIP (ticker, exchange, sector, last-reviewed, next earnings + countdown) */
+.op-header{margin:var(--space-8) 0 var(--space-10);padding:var(--space-5) 0;border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);display:flex;flex-direction:column;gap:var(--space-3);font-family:var(--font-body)}
+.op-header-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--space-3) var(--space-4);font-size:var(--text-sm);color:var(--color-text-muted)}
+.op-header-row--dates{font-size:var(--text-xs);letter-spacing:0.04em}
+.op-header-tkr{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:var(--text-base);color:var(--color-gold);letter-spacing:0.02em}
+.op-header-listing{font-family:var(--font-mono);color:var(--color-text);font-size:var(--text-xs);letter-spacing:0.04em}
+.op-header-sector{color:var(--color-text);font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase}
+.op-header-sep{color:var(--color-text-faint)}
+.op-header-meta{color:var(--color-text-muted);display:inline-flex;align-items:baseline;gap:var(--space-2);flex-wrap:wrap}
+.op-header-meta-label{color:var(--color-text-faint);text-transform:uppercase;letter-spacing:0.12em;font-size:10px}
+.op-header-countdown{display:inline-flex;align-items:center;padding:2px 8px;border-radius:99px;background:oklch(from var(--color-text) l c h/0.05);border:1px solid oklch(from var(--color-text) l c h/0.08);font-family:var(--font-mono);font-size:11px;letter-spacing:0;color:var(--color-text-muted);font-variant-numeric:tabular-nums}
+.op-header-countdown[data-state="future"]{color:var(--color-gold);border-color:oklch(from var(--color-gold) l c h/0.25)}
+.op-header-countdown[data-state="today"]{color:#0e0d0b;background:var(--color-gold);border-color:var(--color-gold)}
+.op-header-countdown[data-state="past"]{color:var(--color-text-faint)}
+
+/* OPERATOR PAGE — THE READ (machine block) */
+.op-read{margin:var(--space-10) 0;padding:var(--space-6) var(--space-8);background:oklch(from var(--color-text) l c h/0.03);border:1px solid oklch(from var(--color-text) l c h/0.06);border-left:2px solid var(--color-gold);border-radius:var(--radius-md)}
+.op-read-eyebrow{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-gold);font-weight:500;font-family:var(--font-mono);margin-bottom:var(--space-3)}
+.op-read-summary{font-family:var(--font-mono);font-size:var(--text-sm);line-height:1.65;color:var(--color-text);font-weight:400;margin-bottom:var(--space-3);max-width:72ch}
+.op-read-summary--placeholder{color:var(--color-text-faint);font-style:italic}
+.op-read-stamp{font-size:11px;letter-spacing:0.04em;color:var(--color-text-faint);font-family:var(--font-body);margin:0;max-width:72ch}
+
+/* OPERATOR PAGE — SECTION SHELL (numbers, what we track, the note, scorecard) */
+.op-section{margin:var(--space-12) 0}
+.op-section .doc-h2{margin-top:0}
+.op-track-list{margin-top:var(--space-4)}
+.op-track-list li{margin-bottom:var(--space-2)}
+.op-stat-note{display:block;font-size:11px;color:var(--color-text-faint);margin-top:2px;letter-spacing:0.02em;font-family:var(--font-body)}
+
+/* OPERATOR PAGE — SCORECARD (10 questions, 3 pillars, status dots) */
+.op-scorecard .op-sc-intro{font-size:var(--text-sm);color:var(--color-text-muted);max-width:64ch;line-height:1.7;margin-bottom:var(--space-8)}
+.op-scorecard .op-sc-intro a{color:var(--color-gold);border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:1px}
+.sc-grid{display:grid;grid-template-columns:1.1fr 1.1fr 0.8fr;gap:var(--space-4);align-items:start;margin:var(--space-4) 0 var(--space-10)}
+.sc-pillar{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg);padding:var(--space-6) var(--space-5)}
+.sc-pillar-label{font-size:var(--text-xs);letter-spacing:0.15em;text-transform:uppercase;color:var(--color-gold);font-weight:500;margin-bottom:var(--space-2);font-family:var(--font-body)}
+.sc-pillar-title{font-family:var(--font-display);font-size:var(--text-lg);line-height:1.2;color:var(--color-text);margin-bottom:var(--space-4);padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider)}
+.sc-item{display:grid;grid-template-columns:2.2ch 1fr;gap:var(--space-3);padding:var(--space-4) 0;border-bottom:1px solid oklch(from var(--color-text) l c h/0.05)}
+.sc-item:last-child{border-bottom:none;padding-bottom:0}
+.sc-num{font-size:var(--text-xs);color:var(--color-text-faint);font-family:var(--font-body);padding-top:0.4em;letter-spacing:0.05em}
+.sc-row{display:grid;grid-template-columns:14px 1fr;gap:var(--space-3);align-items:start}
+.sc-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-top:7px;flex-shrink:0;background:var(--color-text-faint)}
+.sc-dot[data-status="pass"]{background:#22c55e;box-shadow:0 0 0 3px oklch(0.75 0.18 145/0.15)}
+.sc-dot[data-status="not_yet"]{background:transparent;border:1.5px solid var(--color-gold);width:10px;height:10px;box-sizing:border-box}
+.sc-dot[data-status="fail"]{background:var(--color-text);position:relative}
+.sc-dot[data-status="fail"]::after{content:"";position:absolute;left:1px;right:1px;top:4px;height:1.5px;background:var(--color-bg);transform:rotate(-45deg)}
+.sc-dot[data-status="null"]{background:transparent;border:1px dashed var(--color-text-faint);box-sizing:border-box}
+.sc-q{font-family:var(--font-display);font-style:italic;font-size:var(--text-sm);line-height:1.4;color:var(--color-text);margin:0}
+.sc-q em{font-style:italic;color:var(--color-gold)}
+.sc-status{margin:var(--space-2) 0 var(--space-1) calc(14px + var(--space-3));font-size:10px;letter-spacing:0.12em;text-transform:uppercase;font-family:var(--font-body);font-weight:500}
+.sc-status[data-status="pass"]{color:#22c55e}
+.sc-status[data-status="not_yet"]{color:var(--color-gold)}
+.sc-status[data-status="fail"]{color:var(--color-text)}
+.sc-status[data-status="null"]{color:var(--color-text-faint)}
+.sc-note{margin:0 0 0 calc(14px + var(--space-3));font-size:11px;color:var(--color-text-muted);line-height:1.65;font-family:var(--font-body);max-width:48ch}
+.op-sc-commentary{margin-top:var(--space-8);padding-top:var(--space-6);border-top:1px solid var(--color-divider)}
+.op-sc-commentary .doc-p{margin-bottom:var(--space-4)}
+.op-sc-commentary .doc-p:last-child{margin-bottom:0}
+@media(max-width:1000px){.sc-grid{grid-template-columns:1fr 1fr}.sc-pillar:last-child{grid-column:span 2}}
+@media(max-width:700px){.sc-grid{grid-template-columns:1fr}.sc-pillar:last-child{grid-column:span 1}}
+
+/* OPERATOR PAGE — DISCLOSURE FOOTER */
+.op-disclosure{margin-top:var(--space-12)}
+.op-disclosure .op-disc-h{font-size:var(--text-lg)}
+.op-disc-text{font-size:var(--text-sm);color:var(--color-text-faint);max-width:72ch}
+.op-disc-meta{font-size:11px;color:var(--color-text-faint);letter-spacing:0.08em;text-transform:uppercase;font-family:var(--font-body);margin-top:var(--space-3)}
+.op-back{margin-top:var(--space-6)}
+.op-back a{font-size:var(--text-sm);color:var(--color-gold);border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:2px;font-family:var(--font-body)}
+.op-back a:hover{border-color:var(--color-gold)}
+
+/* MOBILE: keep ticker + dates from breaking out at 375px */
+@media(max-width:480px){
+  .op-header{padding:var(--space-4) 0}
+  .op-header-row{gap:var(--space-2) var(--space-3)}
+  .op-header-meta{flex-direction:row}
+  .op-read{padding:var(--space-5) var(--space-5)}
+  .sc-pillar{padding:var(--space-5) var(--space-4)}
+  .sc-status,.sc-note{margin-left:calc(14px + var(--space-2))}
+}
