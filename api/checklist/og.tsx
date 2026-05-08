@@ -63,6 +63,18 @@ export default function handler(req) {
               "radial-gradient(ellipse 70% 55% at 65% 30%, rgba(184,134,11,0.08), transparent 70%)",
           }}
         />
+        {/* V3-2 dotted hairline border — newspaper, not app */}
+        <div
+          style={{
+            position: "absolute",
+            top: 32,
+            left: 32,
+            right: 32,
+            bottom: 32,
+            border: `1px dotted ${COLORS.border}`,
+            pointerEvents: "none",
+          }}
+        />
 
         {/* top: wordmark + eyebrow */}
         <div

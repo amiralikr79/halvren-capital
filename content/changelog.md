@@ -4,11 +4,9 @@ A principal-voice changelog of substantive, reader-facing changes to the Halvren
 
 ---
 
-## 2026-05-15 — V3-2 _(placeholder)_
+## 2026-05-08 — V3-2 Checklist tool, brand-finished
 
-<!-- PRINCIPAL: write this when V3-2 ships. Two sentences in principal voice; describe what a reader actually notices. -->
-
-_Placeholder — V3-2 has not shipped yet._
+The interactive Checklist tool grew up. Type a ticker on `/checklist`, get a one-page read against the same ten questions the desk asks, with a citation per answer and a 90-word summary in the principal's register; on a coverage name, the principal's own scorecard sits in the next column with a hairline gutter that ticks where the two voices agree and diamonds where they differ. The model reads breadth; the principal signs conviction.
 
 ---
 
