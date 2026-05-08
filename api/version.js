@@ -231,6 +231,7 @@ export default function handler(req, res) {
   </div>
   <div class="footer-inner footer-meta">
     <span>&copy; 2025–2026 Halvren Capital. All rights reserved.</span>
+    <a href="/version" class="footer-last-reviewed" title="Build provenance and changelog"><strong>Last reviewed:</strong> ${escapeHtml(meta.last_full_site_review_human || meta.last_full_site_review || "—")}</a>
     <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/checklist">Checklist</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/version" aria-current="page">Version</a></span>
   </div>
 </footer>
