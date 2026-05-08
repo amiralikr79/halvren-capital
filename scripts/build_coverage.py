@@ -94,7 +94,27 @@ def checklist_score(op: dict) -> int | None:
     return sum(1 for s in scoring if s.get("status") == "pass")
 
 
+def _country_from_region(region: str | None) -> str:
+    """V3-3: 'CA' | 'US'. Defaults to CA when the region is missing or unrecognized."""
+    if not region:
+        return "CA"
+    r = region.strip().lower()
+    return "US" if r in {"united states", "us", "usa"} else "CA"
+
+
+def _country_from_exchange(exchange: str | None) -> str:
+    """Fallback: derive country from exchange listing when region is absent."""
+    if not exchange:
+        return "CA"
+    if "TSX" in exchange:
+        return "CA"
+    if "NYSE" in exchange or "NASDAQ" in exchange:
+        return "US"
+    return "CA"
+
+
 def normalize_deep(op: dict) -> dict:
+    region = _region_from_exchange(op["exchange"])
     return {
         "ticker": op["ticker"],
         "exchange": op["exchange"],
@@ -103,17 +123,20 @@ def normalize_deep(op: dict) -> dict:
         "sector": op["sector"],
         "sub_industry": op["sub_industry"],
         "sub_industry_detail": None,  # detail lives in the research page for deep ops
-        "region": _region_from_exchange(op["exchange"]),
+        "region": region,
+        "country": op.get("country") or _country_from_region(region),
         "status": "published",
         "last_reviewed_iso": op.get("last_reviewed_iso"),
         "next_earnings_iso": op.get("next_earnings_iso"),
         "checklist_score": checklist_score(op),
+        "cost_curve_subsector": op.get("cost_curve_subsector"),
         "research_url": f"/research/{op['slug']}",
         "url": op.get("url"),
     }
 
 
 def normalize_queued(op: dict) -> dict:
+    region = op.get("region")
     return {
         "ticker": op["ticker"],
         "exchange": op.get("exchange"),
@@ -122,11 +145,13 @@ def normalize_queued(op: dict) -> dict:
         "sector": op["sector"],
         "sub_industry": op["sub_industry"],
         "sub_industry_detail": op.get("sub_industry_detail"),
-        "region": op.get("region"),
+        "region": region,
+        "country": op.get("country") or _country_from_region(region),
         "status": op.get("status") or "queued",
         "last_reviewed_iso": op.get("last_reviewed_iso"),
         "next_earnings_iso": op.get("next_earnings_iso"),
         "checklist_score": None,
+        "cost_curve_subsector": None,
         "research_url": None,
         "url": op.get("url"),
     }
@@ -165,7 +190,7 @@ def _neg(s: str) -> str:
 # --------------------------------------------------------------------------- #
 
 CSV_FIELDS = (
-    "ticker name short_name sector sub_industry sub_industry_detail region "
+    "ticker name short_name sector sub_industry sub_industry_detail region country "
     "status last_reviewed_iso next_earnings_iso checklist_score "
     "exchange research_url url"
 ).split()
@@ -218,6 +243,15 @@ def _score_cell(score: int | None) -> str:
     return "&mdash;" if score is None else f"{score}/10"
 
 
+def _country_glyph(country: str | None) -> str:
+    """V3-3: a small text glyph for country — CA in maple-leaf-warm or US plain.
+    Kept text-only to avoid a flag-emoji dependency and to read clean in cream + warm dark."""
+    c = (country or "CA").upper()
+    if c == "US":
+        return '<span class="cov-country" data-country="US" aria-label="United States">US</span>'
+    return '<span class="cov-country" data-country="CA" aria-label="Canada">CA</span>'
+
+
 def render_row(o: dict) -> str:
     rurl = o.get("research_url")
     if rurl:
@@ -236,11 +270,13 @@ def render_row(o: dict) -> str:
     nxt  = _date_human(o.get("next_earnings_iso"))
     score = _score_cell(o.get("checklist_score"))
     status = o["status"]
+    country = o.get("country") or "CA"
 
     return (
-        f'<tr data-sector="{_esc(o["sector"])}" data-sub="{_esc(o["sub_industry"] or "")}" data-status="{status}" data-region="{_esc(o.get("region") or "")}">'
+        f'<tr data-sector="{_esc(o["sector"])}" data-sub="{_esc(o["sub_industry"] or "")}" data-status="{status}" data-country="{_esc(country)}" data-ticker="{_esc(o["ticker"])}" data-name="{_esc(o["short_name"])}">'
         f'<td class="cov-tkr"><span class="cov-tkr-mono">{ticker_cell}</span></td>'
         f'<td class="cov-name">{name_cell}</td>'
+        f'<td class="cov-country-cell">{_country_glyph(country)}</td>'
         f'<td>{_esc(o["sector"])}</td>'
         f'<td class="cov-sub">{sub}{sub_detail}</td>'
         f'<td class="cov-date">{last}</td>'
@@ -252,37 +288,44 @@ def render_row(o: dict) -> str:
 
 
 def render_filter_chips(operators: list[dict]) -> str:
-    sub_set = sorted({o["sub_industry"] for o in operators if o.get("sub_industry")})
     sector_chips = (
-        '<button type="button" class="cov-chip is-active" data-filter="sector" data-value="">All sectors</button>'
+        '<button type="button" class="cov-chip is-active" data-filter="sector" data-value="">All</button>'
         + "".join(
             f'<button type="button" class="cov-chip" data-filter="sector" data-value="{_esc(s)}">{_esc(s)}</button>'
             for s in CANONICAL_SECTORS
         )
     )
-    sub_chips = (
-        '<button type="button" class="cov-chip is-active" data-filter="sub" data-value="">All sub-industries</button>'
-        + "".join(
-            f'<button type="button" class="cov-chip" data-filter="sub" data-value="{_esc(s)}">{_esc(s)}</button>'
-            for s in sub_set
-        )
+    country_chips = (
+        '<button type="button" class="cov-chip is-active" data-filter="country" data-value="">All</button>'
+        '<button type="button" class="cov-chip" data-filter="country" data-value="CA">Canada</button>'
+        '<button type="button" class="cov-chip" data-filter="country" data-value="US">U.S.</button>'
+    )
+    status_chips = (
+        '<button type="button" class="cov-chip is-active" data-filter="status" data-value="">All</button>'
+        '<button type="button" class="cov-chip" data-filter="status" data-value="published">Published</button>'
+        '<button type="button" class="cov-chip" data-filter="status" data-value="on_the_desk">On the desk</button>'
+        '<button type="button" class="cov-chip" data-filter="status" data-value="watching">Watching</button>'
+        '<button type="button" class="cov-chip" data-filter="status" data-value="monitoring">Monitoring</button>'
     )
     return f"""
-    <div class="cov-controls" role="region" aria-label="Coverage filters and exports">
+    <div class="cov-controls cov-controls--v3" role="region" aria-label="Coverage filters">
+      <div class="cov-search">
+        <label for="cov-search-input" class="cov-chips-label">Search</label>
+        <input id="cov-search-input" type="search" class="cov-search-input" placeholder="Ticker or name (e.g. CCO, Cameco)" autocomplete="off" aria-label="Filter by ticker or company name" data-cov-search>
+      </div>
       <div class="cov-chips" role="group" aria-label="Filter by sector">
         <p class="cov-chips-label">Sector</p>
         {sector_chips}
       </div>
-      <div class="cov-chips" role="group" aria-label="Filter by sub-industry">
-        <p class="cov-chips-label">Sub-industry</p>
-        {sub_chips}
+      <div class="cov-chips" role="group" aria-label="Filter by country">
+        <p class="cov-chips-label">Country</p>
+        {country_chips}
       </div>
-      <div class="cov-export">
-        <p class="cov-chips-label">Export</p>
-        <a href="/coverage/coverage.json" class="cov-export-link">JSON</a>
-        <a href="/coverage/coverage.csv" class="cov-export-link">CSV</a>
-        <span class="cov-result-count" aria-live="polite"><span id="cov-result-count">{len(operators)}</span> operators</span>
+      <div class="cov-chips" role="group" aria-label="Filter by status">
+        <p class="cov-chips-label">Status</p>
+        {status_chips}
       </div>
+      <p class="cov-result-count" aria-live="polite"><span id="cov-result-count">{len(operators)}</span> operators shown.</p>
     </div>"""
 
 
@@ -294,9 +337,10 @@ def render_table(operators: list[dict]) -> str:
         <thead>
           <tr>
             <th data-sort="ticker"            tabindex="0" role="columnheader">Ticker <span class="sort-ind"></span></th>
-            <th data-sort="short_name"        tabindex="0" role="columnheader">Name <span class="sort-ind"></span></th>
+            <th data-sort="short_name"        tabindex="0" role="columnheader">Company <span class="sort-ind"></span></th>
+            <th data-sort="country"           tabindex="0" role="columnheader">Country <span class="sort-ind"></span></th>
             <th data-sort="sector"            tabindex="0" role="columnheader">Sector <span class="sort-ind"></span></th>
-            <th data-sort="sub_industry"      tabindex="0" role="columnheader">Sub-industry <span class="sort-ind"></span></th>
+            <th data-sort="sub_industry"      tabindex="0" role="columnheader">Subsector <span class="sort-ind"></span></th>
             <th data-sort="last_reviewed_iso" tabindex="0" role="columnheader" aria-sort="descending">Last reviewed <span class="sort-ind">&darr;</span></th>
             <th data-sort="checklist_score"   tabindex="0" role="columnheader">Checklist <span class="sort-ind"></span></th>
             <th data-sort="next_earnings_iso" tabindex="0" role="columnheader">Next earnings <span class="sort-ind"></span></th>
@@ -307,7 +351,8 @@ def render_table(operators: list[dict]) -> str:
           {rows}
         </tbody>
       </table>
-    </div>"""
+    </div>
+    <ul class="cov-cards" data-cov-cards aria-label="Coverage list (mobile)"></ul>"""
 
 
 def render_itemlist_jsonld(operators: list[dict]) -> str:
@@ -378,8 +423,10 @@ CLIENT_JS = r"""
   try { data = JSON.parse(node.textContent); } catch (e) { return; }
 
   var tbody = document.querySelector('.cov-tbody');
+  var cardsEl = document.querySelector('[data-cov-cards]');
   var countEl = document.getElementById('cov-result-count');
   var headers = document.querySelectorAll('.cov-table--full thead th[data-sort]');
+  var searchInput = document.querySelector('[data-cov-search]');
 
   var STATUS_LABEL = {
     published: 'Published',
@@ -389,7 +436,7 @@ CLIENT_JS = r"""
     queued: 'Queued'
   };
 
-  var state = { sector: '', sub: '', sortKey: 'last_reviewed_iso', sortDir: 'desc' };
+  var state = { sector: '', country: '', status: '', search: '', sortKey: 'last_reviewed_iso', sortDir: 'desc' };
 
   function esc(s) {
     return String(s == null ? '' : s)
@@ -403,6 +450,11 @@ CLIENT_JS = r"""
     return months[d.getUTCMonth()] + ' ' + d.getUTCDate() + ', ' + d.getUTCFullYear();
   }
   function scoreCell(s) { return s == null ? '—' : (s + '/10'); }
+  function countryGlyph(c) {
+    var u = (c || 'CA').toUpperCase();
+    var label = u === 'US' ? 'United States' : 'Canada';
+    return '<span class="cov-country" data-country="' + u + '" aria-label="' + label + '">' + u + '</span>';
+  }
 
   function compare(a, b, key, dir) {
     var av = a[key], bv = b[key];
@@ -421,9 +473,10 @@ CLIENT_JS = r"""
     var tk = rurl ? '<a href="' + rurl + '">' + esc(o.ticker) + '</a>' : esc(o.ticker);
     var nm = rurl ? '<a href="' + rurl + '">' + esc(o.short_name) + '</a>' : esc(o.short_name);
     var subDetail = o.sub_industry_detail ? '<span class="cov-sub-detail">' + esc(o.sub_industry_detail) + '</span>' : '';
-    return '<tr data-sector="' + esc(o.sector) + '" data-sub="' + esc(o.sub_industry || '') + '" data-status="' + o.status + '">' +
+    return '<tr data-sector="' + esc(o.sector) + '" data-sub="' + esc(o.sub_industry || '') + '" data-status="' + o.status + '" data-country="' + esc(o.country || 'CA') + '">' +
       '<td class="cov-tkr"><span class="cov-tkr-mono">' + tk + '</span></td>' +
       '<td class="cov-name">' + nm + '</td>' +
+      '<td class="cov-country-cell">' + countryGlyph(o.country) + '</td>' +
       '<td>' + esc(o.sector) + '</td>' +
       '<td class="cov-sub">' + esc(o.sub_industry || '—') + subDetail + '</td>' +
       '<td class="cov-date">' + dateHuman(o.last_reviewed_iso) + '</td>' +
@@ -431,6 +484,25 @@ CLIENT_JS = r"""
       '<td class="cov-date">' + dateHuman(o.next_earnings_iso) + '</td>' +
       '<td><span class="cov-st cov-st--' + o.status + '">' + (STATUS_LABEL[o.status] || o.status) + '</span></td>' +
       '</tr>';
+  }
+
+  // mobile card markup — surfaces only ticker + name + sector pill + status pill + last reviewed
+  function cardHtml(o) {
+    var rurl = o.research_url;
+    var inner =
+      '<div class="cov-card-row1">' +
+        '<span class="cov-card-tkr">' + esc(o.ticker) + '</span>' +
+        countryGlyph(o.country) +
+        '<span class="cov-st cov-st--' + o.status + '">' + (STATUS_LABEL[o.status] || o.status) + '</span>' +
+      '</div>' +
+      '<p class="cov-card-name">' + esc(o.short_name) + '</p>' +
+      '<p class="cov-card-meta">' +
+        '<span class="cov-card-sector">' + esc(o.sector) + (o.sub_industry ? ' · ' + esc(o.sub_industry) : '') + '</span>' +
+        '<span class="cov-card-date">Reviewed ' + dateHuman(o.last_reviewed_iso) + '</span>' +
+      '</p>';
+    return '<li class="cov-card" data-status="' + o.status + '">' +
+      (rurl ? '<a class="cov-card-link" href="' + rurl + '">' + inner + '</a>' : inner) +
+      '</li>';
   }
 
   function applySortIndicators() {
@@ -447,33 +519,58 @@ CLIENT_JS = r"""
     }
   }
 
+  function matchesSearch(o, q) {
+    if (!q) return true;
+    q = q.toLowerCase();
+    return (o.ticker || '').toLowerCase().indexOf(q) !== -1 ||
+           (o.short_name || '').toLowerCase().indexOf(q) !== -1 ||
+           (o.name || '').toLowerCase().indexOf(q) !== -1;
+  }
+
   function render() {
     var rows = data.filter(function (o) {
-      if (state.sector && o.sector !== state.sector) return false;
-      if (state.sub && o.sub_industry !== state.sub) return false;
+      if (state.sector  && o.sector  !== state.sector)  return false;
+      if (state.country && (o.country || 'CA') !== state.country) return false;
+      if (state.status  && o.status  !== state.status)  return false;
+      if (!matchesSearch(o, state.search)) return false;
       return true;
     }).slice().sort(function (a, b) {
       return compare(a, b, state.sortKey, state.sortDir);
     });
-    tbody.innerHTML = rows.map(rowHtml).join('');
+    if (tbody)   tbody.innerHTML   = rows.map(rowHtml).join('');
+    if (cardsEl) cardsEl.innerHTML = rows.map(cardHtml).join('');
     if (countEl) countEl.textContent = rows.length;
     applySortIndicators();
   }
 
-  // chip handlers
+  // chip handlers — sector / country / status share one handler
   var chips = document.querySelectorAll('.cov-chip');
   for (var i = 0; i < chips.length; i++) {
     chips[i].addEventListener('click', (function (chip) {
       return function () {
         var which = chip.getAttribute('data-filter');
         var value = chip.getAttribute('data-value') || '';
-        state[which === 'sector' ? 'sector' : 'sub'] = value;
+        if (which === 'sector')  state.sector  = value;
+        if (which === 'country') state.country = value;
+        if (which === 'status')  state.status  = value;
         var siblings = document.querySelectorAll('.cov-chip[data-filter="' + which + '"]');
         for (var j = 0; j < siblings.length; j++) siblings[j].classList.remove('is-active');
         chip.classList.add('is-active');
         render();
       };
     })(chips[i]));
+  }
+
+  // search handler — debounced one tick to keep type-ahead snappy
+  if (searchInput) {
+    var t = null;
+    searchInput.addEventListener('input', function () {
+      if (t) clearTimeout(t);
+      t = setTimeout(function () {
+        state.search = searchInput.value.trim();
+        render();
+      }, 80);
+    });
   }
 
   // header sort handlers
@@ -495,6 +592,9 @@ CLIENT_JS = r"""
       return function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); th.click(); } };
     })(headers[k]));
   }
+
+  // initial render — populate mobile cards on first paint
+  render();
 })();
 """.strip()
 
@@ -572,9 +672,17 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <p class="doc-breadcrumb"><a href="/">Home</a><span class="doc-breadcrumb-sep">/</span><span>Coverage</span></p>
     <div class="cov-header">
       <p class="section-label">Coverage universe</p>
-      <h1 class="doc-h1">Thirty-one names we read on a quarterly cadence. Most never become a position. The list <em>is the work.</em></h1>
-      <p class="cov-lede">Halvren covers operators across <strong>Canada and the United States</strong> in energy, materials, and infrastructure. The list below is the working universe. The Canadian sectors are deepest, the legacy of the firm's home market and the SEDAR+ ingestion layer that has been live the longest. The U.S. universe is in the build, ingested through SEC EDGAR at the same standard. A name appears here when it has earned the read, regardless of whether it has earned a position.</p>
+      <h1 class="doc-h1">Thirty-one operators across Canada and the United States. The list <em>is the work.</em></h1>
+      <p class="cov-lede">Thirty-one operators across Canada and the United States. Energy, materials, infrastructure. The list is reviewed quarterly and refreshed in the letter. A name appears here when it has earned the read, regardless of whether it has earned a position. Most never become a position. The list is the work.</p>
+      <p class="cov-download">Download the full universe as <a href="/coverage/coverage.json">JSON</a> or <a href="/coverage/coverage.csv">CSV</a>.</p>
     </div>
+
+    <section class="cov-cost-curve" aria-labelledby="cov-cc-h">
+      <p class="section-label">The Halvren cost curve</p>
+      <h2 class="doc-h2" id="cov-cc-h">Where each operator <em>actually sits</em> on its sector cost curve.</h2>
+      <p class="doc-p" style="max-width:64ch">Checklist Question 9: <em>where are we on the cost curve that matters &mdash; the real one, not the one in the pitch deck?</em> The chart below answers it for the operators we read filings for. Industry peers sit alongside for context. The dashed line is approximate spot.</p>
+      <div class="cost-curve" data-cost-curve role="region" aria-label="Halvren cost curve"></div>
+    </section>
 
     <div class="legend" aria-label="Status legend">
       <div class="legend-item">
@@ -626,6 +734,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 
 <script type="application/json" id="coverage-data">{coverage_data_json}</script>
 <script>{client_js}</script>
+<script src="/cost-curve.js" defer></script>
 <script src="/nav.js" defer></script>
 </body>
 </html>
