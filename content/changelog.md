@@ -4,6 +4,10 @@ A principal-voice changelog of substantive, reader-facing changes to the Halvren
 
 ---
 
+## 2026-05-08 — V3-3 Coverage 2.0 and the Halvren cost curve
+
+`/coverage` became an instrument. Thirty-one operators, one master table, with sector / country / status chips, a type-ahead search, a country column, and a stacked-card collapse on phones. The new `/coverage/cost-curve` is the firm's first signature visual — a horizontal bar chart that answers Checklist Question 9 for five subsectors (oil sands, uranium, copper, silver, Canadian gas), with Halvren-covered names in warm dark, peers muted, and a dashed line at approximate spot. The chart is also embedded on the operator pages where a subsector applies. The schema is shipped with the V3-3 sprint; the data points are populated as the principal reads each filing — sourced or omitted, never invented.
+
 ## 2026-05-08 — V3-2 Checklist tool, brand-finished
 
 The interactive Checklist tool grew up. Type a ticker on `/checklist`, get a one-page read against the same ten questions the desk asks, with a citation per answer and a 90-word summary in the principal's register; on a coverage name, the principal's own scorecard sits in the next column with a hairline gutter that ticks where the two voices agree and diamonds where they differ. The model reads breadth; the principal signs conviction.

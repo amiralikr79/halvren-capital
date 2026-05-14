@@ -134,7 +134,7 @@
     }
   },
   "last_reviewed_iso": "2026-04-27",
-  "next_earnings_iso": null,
+  "next_earnings_iso": "2026-08-07",
   "position_disclosure": "may_hold",
   "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in Enbridge Inc. and may transact at any time without notice. Figures are sourced from Enbridge's FY 2025 disclosure (Q4 2025 results released February 2026) and corporate communications; some are approximate and will be reconciled to filed statements at quarterly review. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup of ENB may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
   "back_link": {
@@ -144,5 +144,6 @@
   "related_slugs": [
     "canadian-natural-cnq",
     "cameco-cco"
-  ]
+  ],
+  "country": "CA"
 }

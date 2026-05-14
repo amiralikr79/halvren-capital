@@ -243,6 +243,23 @@ def render_by_the_numbers(op: dict) -> str:
     </section>"""
 
 
+def render_cost_curve_mini(op: dict) -> str:
+    """V3-3: small embedded cost curve on operator pages — only renders when the
+    operator has a `cost_curve_subsector` mapping. Per the no-invent rule, the
+    chart is empty until the principal populates the subsector JSON; the host
+    div is rendered either way so the page reflows correctly when data lands."""
+    sub = op.get("cost_curve_subsector")
+    if not sub:
+        return ""
+    return f"""
+    <section class="op-section" aria-labelledby="op-cc-h">
+      <h2 class="doc-h2" id="op-cc-h">Where on the cost curve</h2>
+      <p class="doc-p" style="max-width:60ch">Checklist Question 9. The bar in <strong>gold</strong> is {op['short_name']}; the warm-dark bars are the rest of Halvren's coverage in this subsector; muted bars are industry peers. The dashed line is approximate spot.</p>
+      <div class="cost-curve cost-curve--mini" data-cost-curve data-subsector="{sub}" data-highlight="{op['ticker']}" data-fixed role="region" aria-label="{op['short_name']} on the {sub} cost curve"></div>
+      <p class="doc-p" style="font-size:var(--text-sm);color:var(--color-text-faint);margin-top:var(--space-3)">See the <a href="/coverage/cost-curve">full Halvren cost curve</a> across all five subsectors.</p>
+    </section>"""
+
+
 def render_what_we_track(op: dict) -> str:
     items = op.get("what_we_track") or []
     if not items:
@@ -530,6 +547,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 {by_the_numbers}
 {what_we_track}
 {the_note}
+{cost_curve_mini}
 {scorecard}
 {lettercapture}
 {disclosure_footer}
@@ -561,6 +579,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   </div>
 </footer>
 <script>(function(){{var f=document.querySelector('.progress-bar-fill');if(!f)return;function u(){{var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;f.style.width=(m>0?Math.min(100,Math.max(0,(h.scrollTop/m)*100)):0)+'%';}}addEventListener('scroll',u,{{passive:true}});addEventListener('resize',u);u();}})();</script>
+<script src="/cost-curve.js" defer></script>
 <script src="/nav.js" defer></script>
 </body>
 </html>
@@ -627,6 +646,7 @@ def build_one(slug: str, all_ops: dict[str, dict], questions_doc: dict, site_met
         by_the_numbers=render_by_the_numbers(op),
         what_we_track=render_what_we_track(op),
         the_note=render_the_note(body_html),
+        cost_curve_mini=render_cost_curve_mini(op),
         scorecard=render_scorecard(op, questions_doc["questions"], questions_doc["_pillars"]),
         lettercapture=render_inline_lettercapture(op),
         disclosure_footer=render_disclosure_footer(op),

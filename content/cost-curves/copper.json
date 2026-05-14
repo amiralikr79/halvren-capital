@@ -1,0 +1,12 @@
+{
+  "$comment_1": "Halvren cost curve — copper. Scaffold per V3-3 sprint; data points to be populated by the principal from FY 2025 filings.",
+  "$comment_2": "Schema per data point: { ticker, name, cost_metric_value, on_coverage, position_visible, source }. PRINCIPAL: do not invent. Sourced or omitted.",
+  "$comment_3": "metric_label is rendered as the x-axis label on the chart. metric_short is the short form used in tooltips and bar labels. spot_value is rendered as a dashed horizontal line.",
+  "subsector": "copper",
+  "metric_label": "All-in sustaining cost (US$/lb)",
+  "metric_short": "US$/lb",
+  "spot_value": null,
+  "spot_label": null,
+  "halvren_tickers": [],
+  "data_points": []
+}
