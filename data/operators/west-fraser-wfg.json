@@ -1,0 +1,144 @@
+{
+  "slug": "west-fraser-wfg",
+  "ticker": "WFG",
+  "exchange": "TSX: WFG · NYSE: WFG",
+  "name": "West Fraser Timber Co. Ltd.",
+  "short_name": "West Fraser",
+  "url": "https://www.westfraser.com/",
+  "sector": "Materials",
+  "sub_industry": "Forest Products",
+  "page_eyebrow": "On the desk · Forest Products",
+  "headline_html": "West Fraser (WFG): The lumber cycle, <em>read by the family.</em>",
+  "page_title": "West Fraser (WFG) — The lumber cycle, read by the family | Halvren Capital",
+  "meta_description": "West Fraser is the largest lumber and OSB producer in North America. Halvren's read on the post-Norbord business, family stewardship, and the cycle no one writes about.",
+  "og_title": "West Fraser (WFG) — The lumber cycle, read by the family",
+  "og_description": "Lumber and OSB. Halvren's read on FY 2025 numbers, the Ketcham stewardship record, and the cycle.",
+  "og_image": "/og-research.png",
+  "published_iso": "2026-04-30",
+  "modified_iso": "2026-05-14",
+  "the_read": {
+    "summary": "Largest North American lumber and OSB producer post-2021 Norbord acquisition. ~6.4 BBF lumber capacity, ~7.3 BSF OSB capacity. Operations concentrated in BC, Alberta, US South, and the US Midwest. Long-tenured Ketcham family stewardship influence on capital culture.",
+    "generated_iso": "2026-05-14",
+    "source_filing": "West Fraser FY 2025 disclosure and Q4 2025 release (February 2026)",
+    "principal_reviewed_iso": "2026-05-14"
+  },
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {
+        "label": "Lumber capacity",
+        "value": "~6.4 BBF (FY 2025 footprint)"
+      },
+      {
+        "label": "OSB capacity",
+        "value": "~7.3 BSF post-Norbord"
+      },
+      {
+        "label": "BC interior exposure",
+        "value": "Reduced via curtailments 2023–24"
+      },
+      {
+        "label": "US South weighting",
+        "value": "Increasing share of total capacity"
+      },
+      {
+        "label": "Net debt",
+        "value": "Conservative; net cash periodic"
+      },
+      {
+        "label": "Buybacks",
+        "value": "Active when the cycle is generous"
+      },
+      {
+        "label": "Listings",
+        "value": "TSX: WFG · NYSE: WFG"
+      }
+    ]
+  },
+  "guidance": null,
+  "leadership": {
+    "ceo": "Sean McLaren",
+    "ceo_since": 2024,
+    "chair": "Robert Hagerman",
+    "succession_visible": true,
+    "note": "McLaren came from inside. Ketcham family influence at the board level remains material."
+  },
+  "what_we_track": [
+    "BC interior capacity curtailment trajectory",
+    "US South mill utilization and unit cost",
+    "OSB price realization vs. lumber",
+    "Buyback execution at cyclical troughs",
+    "Stumpage and log cost in BC"
+  ],
+  "checklist": {
+    "scoring": [
+      {
+        "q": 1,
+        "status": "not_yet",
+        "note": "FCF through full cycle is positive on average; lumber troughs are real and 2019 was uncomfortable."
+      },
+      {
+        "q": 2,
+        "status": "pass",
+        "note": "US South mills work at trough lumber prices. BC interior mills do not, which is why they are being closed."
+      },
+      {
+        "q": 3,
+        "status": "pass",
+        "note": "Balance sheet is consistently conservative; net cash through several recent years."
+      },
+      {
+        "q": 4,
+        "status": "pass",
+        "note": "Norbord was per-share-accretive at the price paid. The reinvestment record on incremental capex is encouragingly tight."
+      },
+      {
+        "q": 5,
+        "status": "pass",
+        "note": "Ketcham family influence on the board and the executive team is the structural alignment signal."
+      },
+      {
+        "q": 6,
+        "status": "pass",
+        "note": "2015: bought back stock during the cycle. 2020: bought back aggressively at the bottom; held the dividend. Record is clean."
+      },
+      {
+        "q": 7,
+        "status": "pass",
+        "note": "Compensation is per-share-aligned. The buyback record is the proof point."
+      },
+      {
+        "q": 8,
+        "status": "pass",
+        "note": "Succession is visible at the executive level; McLaren came from inside."
+      },
+      {
+        "q": 9,
+        "status": "not_yet",
+        "note": "BC interior mills sit in the higher-cost half of the curve; US South mills are competitive. The mix is rebalancing."
+      },
+      {
+        "q": 10,
+        "status": "pass",
+        "note": "Underwriting at mid-cycle lumber of US$450/Mbf and mid-cycle OSB, West Fraser produces meaningful free cash."
+      }
+    ],
+    "pillar_commentary": {
+      "I": "<strong>Pillar I. The business.</strong> Lumber and OSB are commodity products with regional cost-curve dynamics. West Fraser's BC interior mills are higher-cost; the US South footprint that came in size with the 2021 Norbord acquisition is more competitive. The capital allocation through the cycle has been consistent: build conservative balance sheet at the top, buy back stock at the bottom. The Norbord transaction was per-share-accretive at the price paid and re-weighted the business toward better cost-curve geography.",
+      "II": "<strong>Pillar II. The people.</strong> The Ketcham family stewardship is the structural Pillar II point. Sean McLaren was promoted from inside in 2024 and the operational discipline is continuous with the prior tenure. The 2020 record of aggressive buybacks at distressed lumber prices is the cleanest single capital allocation decision on the desk. Compensation is per-share-aligned.",
+      "III": "<strong>Pillar III. The cycle.</strong> Lumber and OSB are housing-cycle exposures. North American housing demand has structural drivers (household formation, undersupply, demographic) and structural headwinds (affordability, interest rates). The mid-cycle is real and arrives every few years. Underwriting at mid-cycle prices, West Fraser produces meaningful free cash. The decade-out question is whether BC interior mills survive a regulatory environment that is not getting easier."
+    }
+  },
+  "last_reviewed_iso": "2026-05-14",
+  "next_earnings_iso": null,
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in West Fraser Timber Co. Ltd. and may transact at any time without notice. Figures are sourced from West Fraser's FY 2025 disclosure and Q4 2025 release (February 2026). Where a figure is marked &ldquo;(approx.)&rdquo; or &ldquo;&mdash;&rdquo; the source disclosure was either unconfirmed or unreported at the time of writing. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+  "back_link": {
+    "href": "/coverage",
+    "label": "Back to the coverage universe"
+  },
+  "related_slugs": [
+    "nutrien-ntr",
+    "agnico-eagle-aem"
+  ]
+}

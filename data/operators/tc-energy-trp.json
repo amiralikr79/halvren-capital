@@ -1,0 +1,144 @@
+{
+  "slug": "tc-energy-trp",
+  "ticker": "TRP",
+  "exchange": "TSX: TRP · NYSE: TRP",
+  "name": "TC Energy Corporation",
+  "short_name": "TC Energy",
+  "url": "https://www.tcenergy.com/",
+  "sector": "Infrastructure",
+  "sub_industry": "Pipelines",
+  "page_eyebrow": "On the desk · Pipelines",
+  "headline_html": "TC Energy (TRP): The <em>cleanup,</em> finished.",
+  "page_title": "TC Energy (TRP) — The cleanup, finished | Halvren Capital",
+  "meta_description": "TC Energy is post-Coastal-GasLink, post-South-Bow-spinout, and finally a pure-play gas pipeline and power operator. Halvren's read on the simplified structure, rate-base growth, and the dividend trajectory.",
+  "og_title": "TC Energy (TRP) — The cleanup, finished",
+  "og_description": "Gas pipelines + power, post-South-Bow spinout. Halvren's read with FY 2025 numbers, Coastal GasLink in the rear-view, and rate-base discipline.",
+  "og_image": "/og-research.png",
+  "published_iso": "2026-04-30",
+  "modified_iso": "2026-05-14",
+  "the_read": {
+    "summary": "Post-South-Bow-spinout pure-play North American gas pipeline operator with a small but real power segment. Coastal GasLink completed in late 2023. The 2024 spinout separated the liquids pipelines into a standalone (South Bow). Long-life regulated and contracted assets dominate.",
+    "generated_iso": "2026-05-14",
+    "source_filing": "TC Energy FY 2025 disclosure and Q4 2025 release (February 2026)",
+    "principal_reviewed_iso": "2026-05-14"
+  },
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {
+        "label": "Natural gas pipelines",
+        "value": "~93 Bcf/d transported, NA-wide footprint"
+      },
+      {
+        "label": "Power & energy solutions",
+        "value": "Bruce Power (~48%) + smaller"
+      },
+      {
+        "label": "Capital program",
+        "value": "~C$6–7B annual run-rate"
+      },
+      {
+        "label": "Dividend growth",
+        "value": "Targeted 3–5% per year"
+      },
+      {
+        "label": "Net debt / EBITDA",
+        "value": "~4.8× target band"
+      },
+      {
+        "label": "Take-or-pay / contracted share",
+        "value": ">90% of EBITDA"
+      },
+      {
+        "label": "Listings",
+        "value": "TSX: TRP · NYSE: TRP"
+      }
+    ]
+  },
+  "guidance": null,
+  "leadership": {
+    "ceo": "François Poirier",
+    "ceo_since": 2021,
+    "chair": "Siim Vanaselja",
+    "succession_visible": true,
+    "note": "Poirier ran the cleanup; the simplified structure is the result. The bench is visible."
+  },
+  "what_we_track": [
+    "Rate-base growth across NGTL and US gas",
+    "Bruce Power refurbishment progress",
+    "Capital program at the C$6–7B run-rate, not above",
+    "Dividend coverage at the 3–5% growth pace",
+    "South Bow inter-company alignment, where any"
+  ],
+  "checklist": {
+    "scoring": [
+      {
+        "q": 1,
+        "status": "pass",
+        "note": "FCF through the full cycle, every year. Regulated and contracted EBITDA dominates."
+      },
+      {
+        "q": 2,
+        "status": "pass",
+        "note": "Take-or-pay and cost-of-service contracts; unit economics are not commodity-price exposed in the way E&P is."
+      },
+      {
+        "q": 3,
+        "status": "not_yet",
+        "note": "Net debt is at the high end of the target band post-Coastal GasLink. The South Bow spinout cleaned the picture."
+      },
+      {
+        "q": 4,
+        "status": "not_yet",
+        "note": "Coastal GasLink was a multi-billion dollar over-run. ROIC on incremental capital across 2018–2023 trailed the original case meaningfully."
+      },
+      {
+        "q": 5,
+        "status": "not_yet",
+        "note": "Insider ownership is modest. Capital allocation behaviour at the board is what we read, not direct insider buys."
+      },
+      {
+        "q": 6,
+        "status": "pass",
+        "note": "2015 and 2020: dividend held and raised in both years. The regulated cash flow did its job."
+      },
+      {
+        "q": 7,
+        "status": "not_yet",
+        "note": "Compensation is partially per-share-aligned; the legacy plan was production-sized rather than capital-efficient."
+      },
+      {
+        "q": 8,
+        "status": "pass",
+        "note": "Succession is visible; Poirier was promoted from inside, and the executive team is named."
+      },
+      {
+        "q": 9,
+        "status": "pass",
+        "note": "NGTL and the US gas footprint sit on rate base that has rate-base-driven economics. The cost-curve discussion is largely irrelevant."
+      },
+      {
+        "q": 10,
+        "status": "pass",
+        "note": "Underwriting at any realistic North American gas demand path, the regulated and contracted base earns. The decade-out picture is favourable for gas pipeline rate-base."
+      }
+    ],
+    "pillar_commentary": {
+      "I": "<strong>Pillar I. The business.</strong> TC Energy is more than 90% take-or-pay or cost-of-service EBITDA. The post-South-Bow business is structurally simpler than the pre-2024 business. The Bruce Power refurbishment program is a real contributor and a long-life regulated asset in its own right. The legitimate Pillar I weakness is the 2018–2023 capital allocation record, anchored by Coastal GasLink's multi-billion dollar over-run.",
+      "II": "<strong>Pillar II. The people.</strong> François Poirier led the cleanup, including the South Bow spinout and the post-Coastal-GasLink balance-sheet repair. The dividend was held and raised through both 2015 and 2020. Insider ownership is modest. The compensation reset post-2022 is incrementally per-share-aligned; the legacy plan was not.",
+      "III": "<strong>Pillar III. The cycle.</strong> Natural gas pipeline rate base is structurally a long-cycle asset. The decade-out demand picture for North American natural gas — LNG export, gas-fired power generation, industrial — is favourable. The Pillar III risk is regulatory, not commodity. Underwriting at the targeted 3–5% dividend growth and rate-base expansion, TC Energy is a compounder. Not a fast one. A reliable one."
+    }
+  },
+  "last_reviewed_iso": "2026-05-14",
+  "next_earnings_iso": null,
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in TC Energy Corporation and may transact at any time without notice. Figures are sourced from TC Energy's FY 2025 disclosure and Q4 2025 release (February 2026). Where a figure is marked &ldquo;(approx.)&rdquo; or &ldquo;&mdash;&rdquo; the source disclosure was either unconfirmed or unreported at the time of writing. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+  "back_link": {
+    "href": "/coverage",
+    "label": "Back to the coverage universe"
+  },
+  "related_slugs": [
+    "enbridge-enb",
+    "pembina-ppl"
+  ]
+}

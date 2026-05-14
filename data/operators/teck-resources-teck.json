@@ -1,0 +1,144 @@
+{
+  "slug": "teck-resources-teck",
+  "ticker": "TECK",
+  "exchange": "TSX: TECK.B · NYSE: TECK",
+  "name": "Teck Resources Limited",
+  "short_name": "Teck Resources",
+  "url": "https://www.teck.com/",
+  "sector": "Materials",
+  "sub_industry": "Industrial Metals",
+  "page_eyebrow": "On the desk · Copper",
+  "headline_html": "Teck (TECK): The <em>copper company</em> the coal company became.",
+  "page_title": "Teck (TECK) — The copper company the coal company became | Halvren Capital",
+  "meta_description": "Teck Resources is post-coal-divestiture, copper-focused, with Quebrada Blanca 2 as the open ramp question. Halvren's read on Highland Valley, QB2, and the cleaner unit-cost arithmetic.",
+  "og_title": "Teck (TECK) — The copper company the coal company became",
+  "og_description": "Post-coal-divestiture copper miner. Halvren's read with FY 2025 numbers, QB2 ramp, and per-share capital discipline.",
+  "og_image": "/og-research.png",
+  "published_iso": "2026-04-30",
+  "modified_iso": "2026-05-14",
+  "the_read": {
+    "summary": "Post-coal-divestiture copper miner. Highland Valley (BC), Quebrada Blanca 2 (Chile), Antamina (22.5% Peru), Carmen de Andacollo (Chile). Zinc at Red Dog (Alaska) and Trail (BC). Coal business sold to Glencore in 2024.",
+    "generated_iso": "2026-05-14",
+    "source_filing": "Teck Resources FY 2025 disclosure and Q4 2025 release (February 2026)",
+    "principal_reviewed_iso": "2026-05-14"
+  },
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {
+        "label": "Copper production",
+        "value": "~480 kt (FY 2025 mid, approx.)"
+      },
+      {
+        "label": "QB2 share",
+        "value": "Ramp to full capacity 2025–26"
+      },
+      {
+        "label": "Zinc production",
+        "value": "Red Dog + Trail; FY 2025 stable"
+      },
+      {
+        "label": "Post-EVR proceeds",
+        "value": "US$7B+ returned to shareholders (2024–25)"
+      },
+      {
+        "label": "Capital return policy",
+        "value": "30% of FCF base + supplemental"
+      },
+      {
+        "label": "Net debt",
+        "value": "Conservative post-divestiture"
+      },
+      {
+        "label": "Listings",
+        "value": "TSX: TECK.B · NYSE: TECK"
+      }
+    ]
+  },
+  "guidance": null,
+  "leadership": {
+    "ceo": "Jonathan Price",
+    "ceo_since": 2022,
+    "chair": "Sheila Murray",
+    "succession_visible": true,
+    "note": "Price led the coal divestiture and is now running a pure-play copper-and-zinc miner."
+  },
+  "what_we_track": [
+    "QB2 ramp throughput and unit cost",
+    "Highland Valley mine-life extension capex",
+    "Capital return execution post-EVR proceeds",
+    "Zinc segment contribution at Red Dog and Trail",
+    "Per-share economics, not absolute reserve growth"
+  ],
+  "checklist": {
+    "scoring": [
+      {
+        "q": 1,
+        "status": "not_yet",
+        "note": "FCF through the full cycle is better than the legacy reputation suggests; copper is more cyclical than people remember."
+      },
+      {
+        "q": 2,
+        "status": "not_yet",
+        "note": "Copper at US$3/lb is comfortable; at US$2.50 the marginal mine economics are tighter."
+      },
+      {
+        "q": 3,
+        "status": "pass",
+        "note": "Post-EVR divestiture the balance sheet is conservative."
+      },
+      {
+        "q": 4,
+        "status": "not_yet",
+        "note": "QB2 was a multi-billion dollar capex program whose ROIC has been below initial expectations. The ramp will determine the long-term verdict."
+      },
+      {
+        "q": 5,
+        "status": "not_yet",
+        "note": "Insider ownership is modest. The Keevil family stake is meaningful but no longer dominant post-2023 dual-class collapse."
+      },
+      {
+        "q": 6,
+        "status": "not_yet",
+        "note": "2015: deep stress; equity raised at distressed prices. 2020: dividend held; capital plan reduced. The record is mixed."
+      },
+      {
+        "q": 7,
+        "status": "pass",
+        "note": "Compensation is per-share-aligned. The 2023 dual-class collapse improved the governance materially."
+      },
+      {
+        "q": 8,
+        "status": "pass",
+        "note": "Succession is visible; Price came from inside, the executive team is named."
+      },
+      {
+        "q": 9,
+        "status": "not_yet",
+        "note": "On the global copper cost curve Highland Valley and QB2 sit in the second quartile, not the first. Antamina is more competitive."
+      },
+      {
+        "q": 10,
+        "status": "pass",
+        "note": "Underwriting at mid-cycle copper of US$3.50–4.00/lb, Teck compounds meaningfully. The thesis works at mid-cycle, not just at peak."
+      }
+    ],
+    "pillar_commentary": {
+      "I": "<strong>Pillar I. The business.</strong> The coal divestiture cleaned the story. Teck is now a copper-and-zinc miner with a meaningful zinc segment at Red Dog and Trail. Highland Valley is a long-life Canadian mine. QB2 is the open question: a multi-billion dollar capex program whose ROIC has trailed initial expectations and whose full ramp will determine the long-term verdict on the prior management's signature decision. Antamina remains the cleanest single asset in the portfolio.",
+      "II": "<strong>Pillar II. The people.</strong> Jonathan Price was promoted from inside in 2022 and led the coal divestiture cleanly. The 2023 dual-class share collapse was a meaningful governance upgrade. Insider ownership is modest. The Keevil family stake is still meaningful but no longer controlling. The capital allocation record on QB2 specifically is the legitimate Pillar II concern; the post-divestiture record is encouragingly per-share-aligned.",
+      "III": "<strong>Pillar III. The cycle.</strong> Copper demand is structurally favourable on the decade-out picture: electrification, grid build, renewable demand. Teck's mines are not first-quartile on the global cost curve but they are durable. Underwriting at mid-cycle US$3.50–4.00/lb copper, Teck produces meaningful free cash. The decade-out question is whether QB2 was a generationally acquired asset or an over-spent one. The answer is in the ramp."
+    }
+  },
+  "last_reviewed_iso": "2026-05-14",
+  "next_earnings_iso": null,
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in Teck Resources Limited and may transact at any time without notice. Figures are sourced from Teck's FY 2025 disclosure and Q4 2025 release (February 2026). Where a figure is marked &ldquo;(approx.)&rdquo; or &ldquo;&mdash;&rdquo; the source disclosure was either unconfirmed or unreported at the time of writing. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+  "back_link": {
+    "href": "/coverage",
+    "label": "Back to the coverage universe"
+  },
+  "related_slugs": [
+    "freeport-mcmoran-fcx",
+    "agnico-eagle-aem"
+  ]
+}

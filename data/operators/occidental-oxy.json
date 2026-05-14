@@ -1,0 +1,144 @@
+{
+  "slug": "occidental-oxy",
+  "ticker": "OXY",
+  "exchange": "NYSE: OXY",
+  "name": "Occidental Petroleum Corporation",
+  "short_name": "Occidental",
+  "url": "https://www.oxy.com/",
+  "sector": "Energy",
+  "sub_industry": "Oil & Gas",
+  "page_eyebrow": "On the desk · Permian",
+  "headline_html": "Occidental (OXY): The <em>Permian operator</em> Buffett blessed.",
+  "page_title": "Occidental (OXY) — The Permian operator Buffett blessed | Halvren Capital",
+  "meta_description": "Occidental is the Permian-weighted US producer with the CrownRock acquisition behind it, an OxyChem segment that smooths the worst commodity quarter, and a carbon-capture option few competitors have. Halvren's read.",
+  "og_title": "Occidental (OXY) — The Permian operator Buffett blessed",
+  "og_description": "Permian, Anadarko legacy, OxyChem. Halvren's read with FY 2025 numbers, CrownRock integration, and capital discipline.",
+  "og_image": "/og-research.png",
+  "published_iso": "2026-04-30",
+  "modified_iso": "2026-05-14",
+  "the_read": {
+    "summary": "Permian-weighted US producer with a meaningful OxyChem chemicals segment and a developing carbon-capture business at Stratos. The 2024 CrownRock acquisition added Midland Basin acreage. Berkshire Hathaway holds a 28%-plus stake (approx.). Vicki Hollub has been CEO since 2016 and led the Anadarko acquisition and post-acquisition recovery.",
+    "generated_iso": "2026-05-14",
+    "source_filing": "Occidental FY 2025 disclosure and Q4 2025 release (February 2026)",
+    "principal_reviewed_iso": "2026-05-14"
+  },
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {
+        "label": "Total production",
+        "value": "~1.4 MMboe/d (post-CrownRock, approx.)"
+      },
+      {
+        "label": "Permian weight",
+        "value": "~50%+ of total production"
+      },
+      {
+        "label": "OxyChem EBITDA",
+        "value": "Meaningful counter-cyclical contributor"
+      },
+      {
+        "label": "Net debt walk",
+        "value": "Toward US$15B near-term target"
+      },
+      {
+        "label": "Carbon-capture",
+        "value": "Stratos start-up; longer-cycle optionality"
+      },
+      {
+        "label": "Berkshire stake",
+        "value": "~28%+ (approx.)"
+      },
+      {
+        "label": "Listings",
+        "value": "NYSE: OXY"
+      }
+    ]
+  },
+  "guidance": null,
+  "leadership": {
+    "ceo": "Vicki Hollub",
+    "ceo_since": 2016,
+    "chair": "Avedick Poladian",
+    "succession_visible": false,
+    "note": "Hollub has been the principal capital allocator for a decade. The succession question is the open Pillar II point."
+  },
+  "what_we_track": [
+    "Permian per-well productivity post-CrownRock",
+    "OxyChem realized prices and the counter-cyclical contribution",
+    "Net debt walk toward the near-term target",
+    "Stratos and the carbon-capture commercial pathway",
+    "Berkshire activity and warrant exercise"
+  ],
+  "checklist": {
+    "scoring": [
+      {
+        "q": 1,
+        "status": "not_yet",
+        "note": "FCF through full cycle is positive on average; 2015–2016 stress was real and the dividend was cut."
+      },
+      {
+        "q": 2,
+        "status": "pass",
+        "note": "Permian unit economics at US$50 WTI are sound. OxyChem is a counter-cyclical contributor that smooths the worst quarter."
+      },
+      {
+        "q": 3,
+        "status": "not_yet",
+        "note": "Net debt remains elevated post-CrownRock; the walk to the US$15B target is the near-term work."
+      },
+      {
+        "q": 4,
+        "status": "not_yet",
+        "note": "The Anadarko acquisition was the defining capital decision; the verdict has improved since but cost the dividend in 2020."
+      },
+      {
+        "q": 5,
+        "status": "not_yet",
+        "note": "Insider ownership is modest at the executive level. The Berkshire stake is the more important capital signal."
+      },
+      {
+        "q": 6,
+        "status": "not_yet",
+        "note": "2015: dividend cut. 2020: dividend cut to a penny. Both were rational; neither was clean."
+      },
+      {
+        "q": 7,
+        "status": "not_yet",
+        "note": "Compensation is partially per-share-aligned. The legacy Anadarko-era plan was production-sized."
+      },
+      {
+        "q": 8,
+        "status": "not_yet",
+        "note": "Succession is not visible. Hollub has been CEO for a decade. The bench question is real."
+      },
+      {
+        "q": 9,
+        "status": "pass",
+        "note": "Permian acreage post-CrownRock sits in the first quartile of US shale economics."
+      },
+      {
+        "q": 10,
+        "status": "pass",
+        "note": "Underwriting at mid-cycle WTI of US$65–75, Occidental produces meaningful free cash. OxyChem is the structural hedge."
+      }
+    ],
+    "pillar_commentary": {
+      "I": "<strong>Pillar I. The business.</strong> Occidental is the Permian-weighted US producer with a meaningful OxyChem segment that prints counter-cyclical cash. The 2019 Anadarko acquisition was the defining capital decision of the prior cycle and the 2024 CrownRock acquisition extended the Midland Basin position. Per-well productivity in the new acreage is the part FY 2026 will test. The carbon-capture business at Stratos is a longer-cycle option whose commercial pathway is being negotiated rather than proven.",
+      "II": "<strong>Pillar II. The people.</strong> Vicki Hollub has been CEO since 2016 and is the principal capital allocator. The Anadarko decision was bold and costly in 2020; the post-2020 recovery has been impressive. The Berkshire 28%-plus stake is a meaningful Pillar II signal that we read as a quality vote on the capital culture. Compensation is incrementally per-share-aligned. Succession is the open question.",
+      "III": "<strong>Pillar III. The cycle.</strong> Permian per-well productivity has continued to improve through the cycle. OxyChem is a structurally counter-cyclical contributor. Carbon capture is a long-cycle option whose commercial economics are still being built. Underwriting at mid-cycle US$65–75 WTI, Occidental produces meaningful free cash. The decade-out question is what role Permian shale plays as the US gas-and-LNG complex grows, and how Occidental positions for the answer."
+    }
+  },
+  "last_reviewed_iso": "2026-05-14",
+  "next_earnings_iso": null,
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in Occidental Petroleum Corporation and may transact at any time without notice. Figures are sourced from Occidental's FY 2025 disclosure and Q4 2025 release (February 2026). Where a figure is marked &ldquo;(approx.)&rdquo; or &ldquo;&mdash;&rdquo; the source disclosure was either unconfirmed or unreported at the time of writing. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+  "back_link": {
+    "href": "/coverage",
+    "label": "Back to the coverage universe"
+  },
+  "related_slugs": [
+    "eog-resources",
+    "canadian-natural-cnq"
+  ]
+}

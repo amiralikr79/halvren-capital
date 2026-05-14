@@ -1,0 +1,144 @@
+{
+  "slug": "agnico-eagle-aem",
+  "ticker": "AEM",
+  "exchange": "TSX: AEM · NYSE: AEM",
+  "name": "Agnico Eagle Mines Limited",
+  "short_name": "Agnico Eagle",
+  "url": "https://www.agnicoeagle.com/",
+  "sector": "Materials",
+  "sub_industry": "Gold",
+  "page_eyebrow": "On the desk · Gold",
+  "headline_html": "Agnico Eagle (AEM): The boring gold operator, <em>by design.</em>",
+  "page_title": "Agnico Eagle (AEM) — The boring gold operator, by design | Halvren Capital",
+  "meta_description": "Agnico Eagle is a tier-1-jurisdiction gold producer with a long record of disciplined capital allocation. Halvren's read on the Detour-LaRonde-Malartic cost curve and the operating reputation.",
+  "og_title": "Agnico Eagle (AEM) — The boring gold operator, by design",
+  "og_description": "Tier-1 gold operator. Halvren's read on FY 2025 numbers, Canadian Malartic, Detour Lake, and per-ounce discipline.",
+  "og_image": "/og-research.png",
+  "published_iso": "2026-04-30",
+  "modified_iso": "2026-05-14",
+  "the_read": {
+    "summary": "Tier-1-jurisdiction gold producer. ~3.4 Moz annual production from Canadian Malartic, Detour Lake, LaRonde, Meadowbank, Macassa, Fosterville (Australia), and Kittilä (Finland). Disciplined capital allocator; AISC consistently first-quartile within the senior gold cohort.",
+    "generated_iso": "2026-05-14",
+    "source_filing": "Agnico Eagle FY 2025 disclosure and Q4 2025 release (February 2026)",
+    "principal_reviewed_iso": "2026-05-14"
+  },
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {
+        "label": "Production",
+        "value": "~3.4 Moz (FY 2025 mid, approx.)"
+      },
+      {
+        "label": "AISC",
+        "value": "US$1,200–1,300/oz (approx.)"
+      },
+      {
+        "label": "Free cash flow",
+        "value": "Strong at FY 2025 average gold price"
+      },
+      {
+        "label": "Net debt",
+        "value": "Conservative; investment-grade"
+      },
+      {
+        "label": "Quarterly dividend",
+        "value": "US$0.40/sh"
+      },
+      {
+        "label": "Buybacks",
+        "value": "Selective, opportunistic"
+      },
+      {
+        "label": "Listings",
+        "value": "TSX: AEM · NYSE: AEM"
+      }
+    ]
+  },
+  "guidance": null,
+  "leadership": {
+    "ceo": "Ammar Al-Joundi",
+    "ceo_since": 2022,
+    "chair": "Sean Boyd",
+    "succession_visible": true,
+    "note": "Boyd-to-Al-Joundi succession was prepared for years and executed cleanly. The bench is deep."
+  },
+  "what_we_track": [
+    "AISC by mine, particularly Detour and Malartic underground",
+    "Reserve replacement at flat gold prices",
+    "Free cash flow at consensus gold deck",
+    "Insider behaviour — buys vs. grants",
+    "Capital allocation: dividend vs. buyback vs. growth capex"
+  ],
+  "checklist": {
+    "scoring": [
+      {
+        "q": 1,
+        "status": "pass",
+        "note": "FCF through the full cycle, including the 2013–2015 gold trough. The dividend was held."
+      },
+      {
+        "q": 2,
+        "status": "pass",
+        "note": "AISC works at US$1,200–1,400/oz across the portfolio. The 2015 stress was real but survived."
+      },
+      {
+        "q": 3,
+        "status": "pass",
+        "note": "Investment-grade. Net debt is conservative."
+      },
+      {
+        "q": 4,
+        "status": "pass",
+        "note": "Reinvestment record is exceptional; per-share reserves and per-share production both grew through the Kirkland Lake merger."
+      },
+      {
+        "q": 5,
+        "status": "pass",
+        "note": "Insider buying activity by the executive team has been consistent. Sean Boyd's open-market purchases are a reference signal."
+      },
+      {
+        "q": 6,
+        "status": "pass",
+        "note": "2015: dividend held, capital plan reduced. 2020: dividend raised, no equity raised. The record is unusually clean."
+      },
+      {
+        "q": 7,
+        "status": "pass",
+        "note": "Compensation is per-share-aligned. Reserve-per-share is a tracked metric."
+      },
+      {
+        "q": 8,
+        "status": "pass",
+        "note": "Succession is visible and was executed in 2022. The bench is deep."
+      },
+      {
+        "q": 9,
+        "status": "pass",
+        "note": "AISC sits in the first quartile of senior gold producers. Tier-1 jurisdictions reduce the political-risk discount."
+      },
+      {
+        "q": 10,
+        "status": "pass",
+        "note": "Underwriting at a US$1,700/oz mid-cycle gold deck, AEM compounds. The thesis does not require a peak."
+      }
+    ],
+    "pillar_commentary": {
+      "I": "<strong>Pillar I. The business.</strong> Agnico Eagle is the senior gold producer with the cleanest operating record. AISC is first-quartile within the cohort. The 2022 merger with Kirkland Lake added Detour Lake and Macassa and was the rare gold-sector deal that was per-share-accretive on day one. The reinvestment history is exceptional. Reserve replacement at flat gold prices is the metric we track most closely.",
+      "II": "<strong>Pillar II. The people.</strong> Sean Boyd ran Agnico Eagle for two decades and built the capital allocation culture that defines the business. Ammar Al-Joundi was promoted from inside in 2022 in a succession that had been telegraphed for years. Insider buying activity has been consistent. Compensation is per-share-aligned. The 2015 record and the 2020 record are both unusually clean.",
+      "III": "<strong>Pillar III. The cycle.</strong> Gold is a low-correlation commodity with structural demand support. Agnico's mines are not the lowest cost in absolute terms across the global cohort, but they are in tier-1 jurisdictions, which removes a meaningful political-risk discount that the higher-AISC competitors do not have. Underwriting at mid-cycle gold of US$1,700/oz, Agnico produces meaningful free cash. The decade-out question is the same as for any gold operator: what real interest rates do."
+    }
+  },
+  "last_reviewed_iso": "2026-05-14",
+  "next_earnings_iso": null,
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in Agnico Eagle Mines Limited and may transact at any time without notice. Figures are sourced from Agnico Eagle's FY 2025 disclosure and Q4 2025 release (February 2026). Where a figure is marked &ldquo;(approx.)&rdquo; or &ldquo;&mdash;&rdquo; the source disclosure was either unconfirmed or unreported at the time of writing. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+  "back_link": {
+    "href": "/coverage",
+    "label": "Back to the coverage universe"
+  },
+  "related_slugs": [
+    "first-majestic-ag",
+    "teck-resources-teck"
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "slug": "arc-resources-arx",
+  "ticker": "ARX",
+  "exchange": "TSX: ARX",
+  "name": "ARC Resources Ltd.",
+  "short_name": "ARC Resources",
+  "url": "https://www.arcresources.com/",
+  "sector": "Energy",
+  "sub_industry": "Oil & Gas",
+  "page_eyebrow": "On the desk · Montney condensate",
+  "headline_html": "ARC Resources (ARX): The <em>condensate window,</em> read by the resource.",
+  "page_title": "ARC Resources (ARX) — The condensate window, read by the resource | Halvren Capital",
+  "meta_description": "ARC Resources is the largest pure-play Montney operator in Canada. Halvren's read on the Attachie development, capital discipline through the ramp, and condensate-weighted unit economics.",
+  "og_title": "ARC Resources (ARX) — The condensate window, read by the resource",
+  "og_description": "Montney condensate-and-gas. Halvren's read with FY 2025 numbers, Attachie Phase 2, and per-share growth discipline.",
+  "og_image": "/og-research.png",
+  "published_iso": "2026-04-30",
+  "modified_iso": "2026-05-14",
+  "the_read": {
+    "summary": "Largest pure-play Montney operator in Canada. ~370 Mboe/d production weighted toward condensate, NGLs, and gas (FY 2025 mid, approx.). Attachie Phase 2 ramp underway. Investment-grade balance sheet, conservative capital return policy.",
+    "generated_iso": "2026-05-14",
+    "source_filing": "ARC Resources FY 2025 disclosure and Q4 2025 release (February 2026)",
+    "principal_reviewed_iso": "2026-05-14"
+  },
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {
+        "label": "Production",
+        "value": "~370 Mboe/d (FY 2025 mid, approx.)"
+      },
+      {
+        "label": "Liquids weighting",
+        "value": "~40% liquids (condensate + NGLs)"
+      },
+      {
+        "label": "Attachie Phase 2",
+        "value": "Ramp to full capacity 2025–26"
+      },
+      {
+        "label": "Net debt / cash flow",
+        "value": "<1.0× target"
+      },
+      {
+        "label": "Capital return policy",
+        "value": "50–80% of FCF after sustaining"
+      },
+      {
+        "label": "Base dividend",
+        "value": "C$0.18/sh quarterly"
+      },
+      {
+        "label": "Listings",
+        "value": "TSX: ARX"
+      }
+    ]
+  },
+  "guidance": null,
+  "leadership": {
+    "ceo": "Terry Anderson",
+    "ceo_since": 2023,
+    "chair": null,
+    "succession_visible": true,
+    "note": "Anderson was promoted from COO. The bench is visible."
+  },
+  "what_we_track": [
+    "Condensate netback vs. WTI",
+    "Attachie Phase 2 ramp and unit-cost evidence",
+    "Buyback execution velocity",
+    "Capital intensity per BOE post-Attachie",
+    "Per-share production growth, not absolute production growth"
+  ],
+  "checklist": {
+    "scoring": [
+      {
+        "q": 1,
+        "status": "pass",
+        "note": "FCF every full year since the 2021 Seven Generations merger. 2020 (pre-merger ARC) survived intact."
+      },
+      {
+        "q": 2,
+        "status": "pass",
+        "note": "Montney condensate netbacks remain positive at WTI in the US$50s. The marginal Canadian gas does not."
+      },
+      {
+        "q": 3,
+        "status": "pass",
+        "note": "Investment-grade. Net debt under 1× cash flow target."
+      },
+      {
+        "q": 4,
+        "status": "pass",
+        "note": "Reinvestment record at Kakwa and Sunrise has been per-share-accretive. Attachie is the open test."
+      },
+      {
+        "q": 5,
+        "status": "not_yet",
+        "note": "Insider ownership is modest. Management buys are the signal we watch, not the option grants."
+      },
+      {
+        "q": 6,
+        "status": "pass",
+        "note": "2015 (pre-merger): conservative, no equity raised. 2020: dividend reduced but maintained, capex cut hard."
+      },
+      {
+        "q": 7,
+        "status": "pass",
+        "note": "Compensation is increasingly per-share metrics post-2022 reset."
+      },
+      {
+        "q": 8,
+        "status": "pass",
+        "note": "Succession is visible at the executive level. Anderson came from inside; the next CEO is identifiable."
+      },
+      {
+        "q": 9,
+        "status": "pass",
+        "note": "Montney sits in the first quartile of North American liquids-rich gas economics."
+      },
+      {
+        "q": 10,
+        "status": "pass",
+        "note": "Underwriting at mid-cycle WTI of US$65–75 and AECO at C$2.50–3.50/GJ, ARC produces meaningful free cash."
+      }
+    ],
+    "pillar_commentary": {
+      "I": "<strong>Pillar I. The business.</strong> Kakwa, Sunrise, and Attachie are among the highest-quality Montney positions in Canada. Condensate weighting is the structural advantage: condensate prices with WTI; gas prices with the AECO tape; the blend smooths the worst commodity quarter. Reinvestment history is the cleanest in the Canadian gas patch outside Tourmaline. Attachie Phase 2 is the open test on incremental capital.",
+      "II": "<strong>Pillar II. The people.</strong> Terry Anderson was promoted from COO in 2023, which means the operating discipline is continuous with the prior tenure. Insider ownership is modest; Anderson's open-market activity is consistent. Compensation is per-share-tilted. The 2020 record is good: dividend reduced, not eliminated, no equity raised. Succession is visible.",
+      "III": "<strong>Pillar III. The cycle.</strong> Montney condensate has a structurally favourable demand picture (oil-sands diluent), and Canadian LNG export capacity is opening incremental gas markets. At mid-cycle WTI and AECO, ARC compounds. The decade-out question is the same as for Tourmaline: regulatory cost on Canadian gas, not commodity price."
+    }
+  },
+  "last_reviewed_iso": "2026-05-14",
+  "next_earnings_iso": null,
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in ARC Resources Ltd. and may transact at any time without notice. Figures are sourced from ARC Resources's FY 2025 disclosure and Q4 2025 release (February 2026). Where a figure is marked &ldquo;(approx.)&rdquo; or &ldquo;&mdash;&rdquo; the source disclosure was either unconfirmed or unreported at the time of writing. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+  "back_link": {
+    "href": "/coverage",
+    "label": "Back to the coverage universe"
+  },
+  "related_slugs": [
+    "tourmaline-tou",
+    "canadian-natural-cnq"
+  ]
+}

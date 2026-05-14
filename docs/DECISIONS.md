@@ -13,6 +13,43 @@ Format:
 
 ---
 
+## 2026-05-14 — Sprint 2: Use existing operator-data pipeline, not a single `operators.ts`
+**Decision.** Keep the established per-operator data layout (`data/operators/<slug>.json` + `content/operators/<slug>.md`) for the 15 new operators rather than introducing a single `operators.ts` or top-level `operators.json` file.
+**Context / alternatives.** The repo already has `scripts/build_operators.py` and `scripts/build_coverage.py` consuming the per-slug layout, with a documented schema in `scripts/operator-schema.md` and matching JSON-LD generation. Introducing a new flat file would either (a) duplicate the source of truth or (b) require rewriting the two build scripts mid-sprint. Both are net-negative.
+**Cost / reversibility.** Zero cost — the user's spec said "your call, log in DECISIONS." Reversible by introducing a consolidator script if a future sprint needs one.
+
+## 2026-05-14 — Sprint 2: Universe size = 21 published (20 named + retained EOG)
+**Decision.** The published-research universe is 21 operators: the 20 named in the Sprint 2 brief (CCO, CNQ, AG, ENB plus the 16 named) and EOG, which already had a published research page from prior work.
+**Context / alternatives.** Removing EOG to hit exactly 20 would orphan a perfectly good research page (`/research/eog-resources`) and a working operator JSON, JSON-LD, OG image, and prose body. The honest framing is: "the universe is 20 named + 1 legacy." The coverage page lists all of them; the homepage "On the desk" stays at the 4 featured names per the brief.
+**Cost / reversibility.** Reversible by moving `data/operators/eog-resources.json` out of `data/operators/` and into a deprecated path. Not recommended unless EOG is explicitly de-coverage'd.
+
+## 2026-05-14 — Sprint 2: Seed script committed for provenance, not deleted
+**Decision.** Keep `scripts/_sprint2_seed.py` in the repo as the literal source-of-record for what was emitted in Sprint 2, including all 15 operator dicts, the prose bodies, and the checklist statuses. The underscore prefix marks it as a one-shot build tool.
+**Context / alternatives.** Could have deleted the script after generation. Kept because (a) the editorial content was authored in one place under a single voice review, and (b) the principal can grep the seed file rather than 30 separate operator files to audit Sprint 2 in aggregate.
+**Cost / reversibility.** Trivial. Delete in a future sprint if not useful.
+
+## 2026-05-14 — Sprint 2: Forbidden-phrase grep flags the noun "leverage" as well as the verb
+**Decision.** Treat the noun forms of "leverage" / "leveraged" as also out-of-bounds for new copy, even though the brand doc literally forbids only the verb form. Use "debt," "financed," or "band" instead.
+**Context / alternatives.** The brand doc literally says "leverage (as a verb)." But the operating-rules grep already encodes a no-form-of-leverage check. Aligning the editorial practice with the grep avoids ambiguity and prevents the noun from being a vehicle for the metaphorical-management-speak meaning the brand doc is trying to eradicate.
+**Cost / reversibility.** Trivial. Specific phrasing alternatives in `HALVREN_BRAND.md` may be relaxed later if the technical-finance noun usage proves to be genuinely necessary in research notes.
+
+## 2026-05-14 — Sprint 2: OG image fallback for the 15 new operators
+**Decision.** Point all 15 new operator pages at the existing `/og-research.png` fallback for OpenGraph metadata until Sprint 7's OG image audit, rather than generating 15 new bespoke PNGs in Sprint 2.
+**Context / alternatives.** `scripts/og_research_piece.py` exists and can generate a per-operator OG image, but running it requires Vercel OG runtime or local headless rendering. Doing it inside Sprint 2 trades scope for polish; Sprint 7's hygiene pass is the right place.
+**Cost / reversibility.** Trivial. Sprint 7 generates the bespoke OG images and rewrites the `og_image` field in each operator JSON; everything else flows through `build_operators.py`.
+
+## 2026-05-14 — Sprint 2: Data source attribution and confidence
+**Decision.** Each operator's JSON cites the FY 2025 disclosure source (filing date) and uses "(approx.)" or em-dash on any metric the principal does not have direct citation for. Where the strategic-process or corporate-structure picture is in flux (e.g. MEG), the editorial body says so explicitly rather than picking a number.
+**Context / alternatives.** Sources used: FY 2025 earnings releases (Jan–Feb 2026), Q4 2025 disclosure, corporate websites, and well-established asset, leadership, and historical-record facts. No third-party paid databases were used to generate the seed; the script's editorial content is grounded in publicly disclosed FY 2025 / Q1 2026 material and the principal's prior-cycle observations.
+**Cost / reversibility.** Specific FY 2025 numbers will be replaced by the principal's exact figures in the next quarterly refresh. The "(approx.)" markers are explicit signals that those fields need a human-confirmation pass before any number is quoted externally.
+
+## 2026-05-14 — Sprint 2: Forbidden-phrase compliance on existing pre-Sprint-2 copy is Sprint 6
+**Decision.** Defer the forbidden-phrase cleanup of pre-Sprint-1 site copy (e.g. the "Leverage trajectory" string in the existing ENB homepage card, and any other legacy occurrences) to the Sprint 6 site-wide copy pass. Sprint 2 only enforces brand discipline on the 15 new operator pages, the homepage Sprint-2 patch, and the four `/docs/*.md` files.
+**Context / alternatives.** Could have fixed the obvious legacy strings opportunistically during Sprint 2. Rejected per the "scope discipline" rule in `OPERATING_RULES.md`: a one-off bug fix during a feature sprint risks dragging unrelated copy into the diff. The Sprint 6 pass is systematic and is the right home for this.
+**Cost / reversibility.** Reversible by moving the cleanup forward; the legacy strings are visible to the principal in the meantime and do not break anything.
+
+---
+
 ## 2026-05-14 — Push-to-main policy reconciliation
 **Decision.** Follow the user's explicit instruction in the kickoff message: push the working branch to `main` after each green build, in addition to keeping the harness-provisioned feature branch (`claude/halvren-brand-docs-D0Vda`) as a tracking ref.
 **Context / alternatives.** The harness pre-config asks for development on a feature branch only. The principal's kickoff message explicitly overrides that with "Push to main after each successful build." Principal instruction is later in time and unambiguous, so it controls.
@@ -54,6 +91,9 @@ Format:
 
 Items raised by Sprint 1 work that don't merit their own decision today.
 
+- _(2026-05-14)_ Sprint 6 site-wide copy pass: clean up legacy forbidden-phrase strings, including the "Leverage trajectory" line in the homepage ENB watchlist card (`index.html:573`) and any other pre-Sprint-2 vintage occurrences.
+- _(2026-05-14)_ Sprint 7 OG image generation: produce bespoke `/og-research-<slug>.png` for each of the 15 new operators and rewrite the `og_image` field in their JSON. The seed currently points all 15 to the generic `/og-research.png`.
+- _(2026-05-14)_ Sprint 6 copy pass: confirm each operator's FY 2025 metric set against the principal's authoritative figures and remove "(approx.)" qualifiers where a confirmed number is available.
 - _(2026-05-14)_ Replace the `// TODO`-equivalents anywhere in the codebase, if any are found during Sprint 6's copy pass. Status: not yet audited.
 - _(2026-05-14)_ Audit `page.css` for residual hard-coded hex values that should reference the locked tokens. Defer to Sprint 4.
 - _(2026-05-14)_ Confirm dark-mode hex values for `--green` and `--red` once Cormorant lands; current `#2d5f3f` / `#8b2c2c` are calibrated for the light `--bg` and may need a lighter pair in dark mode.

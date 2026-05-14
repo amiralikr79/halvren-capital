@@ -1,0 +1,144 @@
+{
+  "slug": "tourmaline-tou",
+  "ticker": "TOU",
+  "exchange": "TSX: TOU",
+  "name": "Tourmaline Oil Corp.",
+  "short_name": "Tourmaline",
+  "url": "https://www.tourmalineoil.com/",
+  "sector": "Energy",
+  "sub_industry": "Oil & Gas",
+  "page_eyebrow": "On the desk · Natural gas",
+  "headline_html": "Tourmaline (TOU): The owner-operator <em>special dividend.</em>",
+  "page_title": "Tourmaline (TOU) — The owner-operator special dividend | Halvren Capital",
+  "meta_description": "Tourmaline is Canada's largest natural gas producer and one of the country's last true owner-operator energy businesses. Halvren's read on Mike Rose's capital allocation record and the special-dividend model.",
+  "og_title": "Tourmaline (TOU) — The owner-operator special dividend",
+  "og_description": "Canada's largest gas producer, Montney and Deep Basin. Halvren's read with FY 2025 numbers, special-dividend cadence, and insider alignment.",
+  "og_image": "/og-research.png",
+  "published_iso": "2026-04-30",
+  "modified_iso": "2026-05-14",
+  "the_read": {
+    "summary": "Canada's largest natural gas producer with ~580 Mboe/d of Alberta and BC Montney and Deep Basin production. Owner-operator capital structure: Mike Rose (founder, CEO, chair) and management hold a material stake. Topaz Energy royalty spin (2019) retained alignment. Special dividends are the primary capital return.",
+    "generated_iso": "2026-05-14",
+    "source_filing": "Tourmaline FY 2025 disclosure and Q4 2025 release (March 2026)",
+    "principal_reviewed_iso": "2026-05-14"
+  },
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {
+        "label": "Production",
+        "value": "~580 Mboe/d (FY 2025 mid, approx.)"
+      },
+      {
+        "label": "Gas weighting",
+        "value": "~80% natural gas"
+      },
+      {
+        "label": "Topaz stake",
+        "value": "~36% (royalty exposure retained)"
+      },
+      {
+        "label": "Special dividends (FY 2025)",
+        "value": "C$1.50–2.50/sh range (approx.)"
+      },
+      {
+        "label": "Base dividend",
+        "value": "C$0.35/sh quarterly"
+      },
+      {
+        "label": "Net debt",
+        "value": "Effectively zero to negative"
+      },
+      {
+        "label": "Listings",
+        "value": "TSX: TOU"
+      }
+    ]
+  },
+  "guidance": null,
+  "leadership": {
+    "ceo": "Michael Rose",
+    "ceo_since": 2008,
+    "chair": "Michael Rose",
+    "succession_visible": false,
+    "note": "Founder-chair-CEO. The succession question is real and known."
+  },
+  "what_we_track": [
+    "Special dividend cadence and absolute size",
+    "Topaz Energy contribution and royalty stream",
+    "Henry Hub vs. AECO realized price",
+    "Insider ownership and Mike Rose's open-market activity",
+    "Succession bench visibility"
+  ],
+  "checklist": {
+    "scoring": [
+      {
+        "q": 1,
+        "status": "pass",
+        "note": "FCF every full year since IPO. 2020 was a stress test the dividend survived."
+      },
+      {
+        "q": 2,
+        "status": "pass",
+        "note": "Deep Basin and Montney unit costs work in the US$1.50–2.00/Mcf operating range. The marginal North American gas does not."
+      },
+      {
+        "q": 3,
+        "status": "pass",
+        "note": "Net debt is effectively zero. The business is over-capitalized for a gas producer."
+      },
+      {
+        "q": 4,
+        "status": "pass",
+        "note": "Reinvestment record is exceptional. Almost every dollar of growth capex has produced more dollars of long-life reserves."
+      },
+      {
+        "q": 5,
+        "status": "pass",
+        "note": "Insider ownership is high; Mike Rose's open-market activity is consistent. This is an owner-operator in the literal sense."
+      },
+      {
+        "q": 6,
+        "status": "pass",
+        "note": "2015: bought assets on sale. 2020: paid special dividends, did not cut the base. The record is in public."
+      },
+      {
+        "q": 7,
+        "status": "pass",
+        "note": "Compensation is per-share-aligned. Mike Rose's economic interest is the same as the next shareholder's."
+      },
+      {
+        "q": 8,
+        "status": "not_yet",
+        "note": "Succession is not visible. This is the single most important Pillar II question on the desk."
+      },
+      {
+        "q": 9,
+        "status": "pass",
+        "note": "Montney sits in the first quartile of the global gas cost curve; Deep Basin is competitive."
+      },
+      {
+        "q": 10,
+        "status": "pass",
+        "note": "Underwriting at mid-cycle Henry Hub of US$3.50–4.00/Mcf and AECO at C$2.50–3.00/GJ, Tourmaline produces meaningful free cash."
+      }
+    ],
+    "pillar_commentary": {
+      "I": "<strong>Pillar I. The business.</strong> Tourmaline is the rare Canadian gas operator that has earned every dollar of growth on per-share-accretive terms. Deep Basin and Montney assets are first-quartile. The balance sheet is effectively unlevered. The Topaz spinout retained the royalty income as a separate listed vehicle; that decision was strategic, not financial, and was a soft governance signal worth recording.",
+      "II": "<strong>Pillar II. The people.</strong> Mike Rose founded the business in 2008 and has run it as a literal owner-operator since. Insider ownership is high. Compensation is per-share-aligned. The capital allocation record is the most consistent on the desk. The single Pillar II weakness is succession: Rose is 70, the bench is not publicly named, and the business has been built around one capital allocator.",
+      "III": "<strong>Pillar III. The cycle.</strong> Henry Hub at mid-cycle and AECO at mid-cycle is enough for Tourmaline to print meaningful free cash. The decade-out gas demand picture is favourable, particularly with Canadian LNG capacity coming online. The Pillar III risk is regulatory cost rather than commodity price. The Pillar I and II strength is what gets paid for sitting through that risk."
+    }
+  },
+  "last_reviewed_iso": "2026-05-14",
+  "next_earnings_iso": null,
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in Tourmaline Oil Corp. and may transact at any time without notice. Figures are sourced from Tourmaline's FY 2025 disclosure and Q4 2025 release (March 2026). Where a figure is marked &ldquo;(approx.)&rdquo; or &ldquo;&mdash;&rdquo; the source disclosure was either unconfirmed or unreported at the time of writing. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+  "back_link": {
+    "href": "/coverage",
+    "label": "Back to the coverage universe"
+  },
+  "related_slugs": [
+    "arc-resources-arx",
+    "canadian-natural-cnq"
+  ]
+}

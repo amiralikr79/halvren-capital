@@ -1,0 +1,144 @@
+{
+  "slug": "meg-energy-meg",
+  "ticker": "MEG",
+  "exchange": "TSX: MEG",
+  "name": "MEG Energy Corp.",
+  "short_name": "MEG Energy",
+  "url": "https://www.megenergy.com/",
+  "sector": "Energy",
+  "sub_industry": "Oil & Gas",
+  "page_eyebrow": "On the desk · SAGD pure-play",
+  "headline_html": "MEG Energy (MEG): The pure-play <em>under strategic review.</em>",
+  "page_title": "MEG Energy (MEG) — The pure-play under strategic review | Halvren Capital",
+  "meta_description": "MEG is a Christina Lake SAGD pure-play and has been the subject of a strategic process. Halvren's read on the standalone economics, the buyback record, and the corporate-structure overhang.",
+  "og_title": "MEG Energy (MEG) — The pure-play under strategic review",
+  "og_description": "Christina Lake SAGD pure-play. Halvren's read on FY 2025 unit costs, the buyback record, and the strategic-process overhang.",
+  "og_image": "/og-research.png",
+  "published_iso": "2026-04-30",
+  "modified_iso": "2026-05-14",
+  "the_read": {
+    "summary": "Pure-play SAGD oil sands operator. ~100 Mbbl/d production at Christina Lake. Net debt walked down meaningfully over 2020–2024 with aggressive buybacks of a then-discounted share count. The corporate structure has been the subject of a strategic process; readers should consult current filings for the post-process structure.",
+    "generated_iso": "2026-05-14",
+    "source_filing": "MEG Energy FY 2025 disclosure (February 2026); strategic-process disclosure subject to change",
+    "principal_reviewed_iso": "2026-05-14"
+  },
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {
+        "label": "Production",
+        "value": "~100 Mbbl/d (approx.)"
+      },
+      {
+        "label": "Asset",
+        "value": "Christina Lake SAGD (single project)"
+      },
+      {
+        "label": "Steam-oil ratio",
+        "value": "~2.3 (long-cycle competitive)"
+      },
+      {
+        "label": "Net debt walk",
+        "value": "Material reduction 2020–2024"
+      },
+      {
+        "label": "Capital structure",
+        "value": "Strategic process — consult current filings"
+      },
+      {
+        "label": "Quarterly dividend",
+        "value": "Initiated 2023"
+      },
+      {
+        "label": "Listings",
+        "value": "TSX: MEG"
+      }
+    ]
+  },
+  "guidance": null,
+  "leadership": {
+    "ceo": "Darlene Gates",
+    "ceo_since": 2023,
+    "chair": null,
+    "succession_visible": false,
+    "note": "Gates inherited a cleaned-up balance sheet and a single-asset operating cadence. The strategic process is the more material question."
+  },
+  "what_we_track": [
+    "Christina Lake steam-oil ratio quarter to quarter",
+    "WCS-WTI heavy differential",
+    "Buyback execution before any structural change",
+    "Strategic-process commentary at each filing",
+    "Per-share cash, not absolute cash"
+  ],
+  "checklist": {
+    "scoring": [
+      {
+        "q": 1,
+        "status": "not_yet",
+        "note": "FCF cleanly positive 2021–2025. The 2015 and 2020 cycle stress was severe and forced the deleveraging that came later."
+      },
+      {
+        "q": 2,
+        "status": "pass",
+        "note": "Christina Lake at a low-2s steam-oil ratio works at WTI in the US$50s. The standalone economics are real."
+      },
+      {
+        "q": 3,
+        "status": "pass",
+        "note": "Balance sheet today is conservatively levered. The 2018–2019 net debt position was painfully different."
+      },
+      {
+        "q": 4,
+        "status": "not_yet",
+        "note": "ROIC on incremental capital has been heavily about the buyback. The geographic and operational concentration is the structural limit."
+      },
+      {
+        "q": 5,
+        "status": "not_yet",
+        "note": "Insider ownership is modest; the more important read is what the strategic process implies about how management values the asset."
+      },
+      {
+        "q": 6,
+        "status": "fail",
+        "note": "2015 and 2020 were both near-existential. The dividend did not exist. The equity issued at distressed prices is a real Pillar II cost."
+      },
+      {
+        "q": 7,
+        "status": "pass",
+        "note": "Compensation is per-share-aligned. The buyback record is the cleanest of any Canadian pure-play oil-sands name."
+      },
+      {
+        "q": 8,
+        "status": "not_yet",
+        "note": "Succession bench is thin by design; this is a single-asset operator."
+      },
+      {
+        "q": 9,
+        "status": "pass",
+        "note": "Christina Lake sits in the first quartile of SAGD operating costs."
+      },
+      {
+        "q": 10,
+        "status": "not_yet",
+        "note": "Underwriting MEG at mid-cycle requires a view on the strategic-process outcome. Standalone economics are sound; structural risk is the open question."
+      }
+    ],
+    "pillar_commentary": {
+      "I": "<strong>Pillar I. The business.</strong> Christina Lake is among the lowest-cost SAGD operations in Canada. Steam-oil ratio is competitive. Reserve life is effectively infinite at current rates. The single-asset structure is both the operational strength (focus) and the strategic vulnerability (concentration). Reinvestment over the last five years has been concentrated in the buyback, which has been the right capital allocation choice at the prices the equity traded at.",
+      "II": "<strong>Pillar II. The people.</strong> The 2015–2018 record is the Pillar II problem. Equity was issued at distressed prices; the dividend did not exist; the balance sheet nearly broke. The 2019–2025 record is the recovery: aggressive buybacks of a still-discounted share count, dividend initiation, and a cleaned-up capital structure. Darlene Gates inherited a fixed business in 2023. The open strategic process is the more material Pillar II read than insider ownership.",
+      "III": "<strong>Pillar III. The cycle.</strong> SAGD operating economics work at mid-cycle WTI. The decade-out question is whether MEG remains an independent operator or is folded into one of the integrateds. Standalone, the math is sound. The premium to standalone, if any, depends on whoever wins the strategic-process auction."
+    }
+  },
+  "last_reviewed_iso": "2026-05-14",
+  "next_earnings_iso": null,
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in MEG Energy Corp. and may transact at any time without notice. Figures are sourced from MEG's FY 2025 disclosure (February 2026); strategic-process disclosure subject to change. Where a figure is marked &ldquo;(approx.)&rdquo; or &ldquo;&mdash;&rdquo; the source disclosure was either unconfirmed or unreported at the time of writing. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+  "back_link": {
+    "href": "/coverage",
+    "label": "Back to the coverage universe"
+  },
+  "related_slugs": [
+    "cenovus-cve",
+    "suncor-su"
+  ]
+}

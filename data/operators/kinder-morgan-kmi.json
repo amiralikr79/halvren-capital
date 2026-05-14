@@ -1,0 +1,144 @@
+{
+  "slug": "kinder-morgan-kmi",
+  "ticker": "KMI",
+  "exchange": "NYSE: KMI",
+  "name": "Kinder Morgan, Inc.",
+  "short_name": "Kinder Morgan",
+  "url": "https://www.kindermorgan.com/",
+  "sector": "Infrastructure",
+  "sub_industry": "Pipelines",
+  "page_eyebrow": "On the desk · US natural gas",
+  "headline_html": "Kinder Morgan (KMI): The US gas <em>backbone,</em> read for the contract.",
+  "page_title": "Kinder Morgan (KMI) — The US gas backbone, read for the contract | Halvren Capital",
+  "meta_description": "Kinder Morgan operates the largest US natural gas pipeline network. Halvren's read on the take-or-pay contract share, the LNG-export-driven volumes growth, and the capital discipline post-2015.",
+  "og_title": "Kinder Morgan (KMI) — The US gas backbone, read for the contract",
+  "og_description": "Largest US gas pipeline operator. Halvren's read with FY 2025 numbers, LNG-export volumes, and capital culture.",
+  "og_image": "/og-research.png",
+  "published_iso": "2026-04-30",
+  "modified_iso": "2026-05-14",
+  "the_read": {
+    "summary": "Largest US natural gas pipeline operator. ~70,000 miles of gas pipeline; smaller liquids, terminals, and CO2 segments. The 2015 dividend cut and balance-sheet repair defined the post-Rich-Kinder era. Kim Dang became CEO in August 2023. Take-or-pay and demand-driven contracts dominate; LNG export demand is the structural tailwind.",
+    "generated_iso": "2026-05-14",
+    "source_filing": "Kinder Morgan FY 2025 disclosure and Q4 2025 release (January 2026)",
+    "principal_reviewed_iso": "2026-05-14"
+  },
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {
+        "label": "Gas pipeline network",
+        "value": "~70,000 miles"
+      },
+      {
+        "label": "Take-or-pay / demand share",
+        "value": ">90% of EBITDA"
+      },
+      {
+        "label": "LNG-export feedgas exposure",
+        "value": "Material and growing"
+      },
+      {
+        "label": "Net debt / EBITDA",
+        "value": "~4.0× target"
+      },
+      {
+        "label": "Capital program",
+        "value": "~US$2.0–2.5B annual run-rate"
+      },
+      {
+        "label": "Dividend",
+        "value": "Quarterly; per-share growth tied to capital plan"
+      },
+      {
+        "label": "Listings",
+        "value": "NYSE: KMI"
+      }
+    ]
+  },
+  "guidance": null,
+  "leadership": {
+    "ceo": "Kim Dang",
+    "ceo_since": 2023,
+    "chair": "Richard Kinder",
+    "succession_visible": true,
+    "note": "Dang came from inside; Rich Kinder remains as chair and a meaningful insider holder."
+  },
+  "what_we_track": [
+    "Take-or-pay contract roll and re-contracting rates",
+    "LNG-export feedgas demand growth",
+    "Capital program at the US$2.0–2.5B run-rate",
+    "Net debt vs. 4.0× target",
+    "Insider behaviour, particularly Rich Kinder's open-market activity"
+  ],
+  "checklist": {
+    "scoring": [
+      {
+        "q": 1,
+        "status": "pass",
+        "note": "FCF through every full year since the 2015 reset. The dividend was cut in 2015; it has been raised since."
+      },
+      {
+        "q": 2,
+        "status": "pass",
+        "note": "Take-or-pay and demand-driven contracts dominate. Commodity exposure is real but small."
+      },
+      {
+        "q": 3,
+        "status": "pass",
+        "note": "Investment-grade; net debt at or near the 4.0× target."
+      },
+      {
+        "q": 4,
+        "status": "not_yet",
+        "note": "ROIC on incremental capital is acceptable; the 2014–2015 over-extension is the legitimate Pillar II reference."
+      },
+      {
+        "q": 5,
+        "status": "pass",
+        "note": "Rich Kinder's open-market activity is the cleanest insider signal on the desk. He has bought consistently."
+      },
+      {
+        "q": 6,
+        "status": "not_yet",
+        "note": "2015 was the dividend cut. 2020: dividend held. The 2015 cut was a Pillar II event that the business learned from."
+      },
+      {
+        "q": 7,
+        "status": "pass",
+        "note": "Compensation is per-share-aligned post-2015 reset. The capital culture is materially better than the pre-2015 vintage."
+      },
+      {
+        "q": 8,
+        "status": "pass",
+        "note": "Succession is visible; Dang came from inside, Kinder remains as chair."
+      },
+      {
+        "q": 9,
+        "status": "pass",
+        "note": "The US gas pipeline footprint is the cleanest structural advantage in US infrastructure. Cost-curve does not apply."
+      },
+      {
+        "q": 10,
+        "status": "pass",
+        "note": "Underwriting at any realistic US gas demand path, the contracted base earns. LNG export is the structural tailwind."
+      }
+    ],
+    "pillar_commentary": {
+      "I": "<strong>Pillar I. The business.</strong> Kinder Morgan operates the largest US natural gas pipeline network. More than 90% of EBITDA is take-or-pay or demand-driven. The LNG-export tailwind is meaningful and growing; KMI's pipelines feed multiple Gulf Coast LNG facilities. The smaller terminals and CO2 segments contribute predictably. The 2015 dividend cut and balance-sheet repair was the painful but necessary reset.",
+      "II": "<strong>Pillar II. The people.</strong> Rich Kinder remains as chair and is the cleanest insider signal on the entire desk: he has bought consistently over decades with open-market money. Kim Dang was promoted from inside in 2023 and the capital culture is continuous. The 2015 cut is the Pillar II reference event. The post-2015 record is materially cleaner than the pre-2015 vintage.",
+      "III": "<strong>Pillar III. The cycle.</strong> US natural gas demand growth on the decade-out picture is favourable: LNG export, gas-fired power generation, industrial. Pipeline rate base earns through the cycle. The structural tailwind from LNG export is real; the question is whether the capital program remains disciplined as the demand pulls. We track the capital program against the take-or-pay contract roll."
+    }
+  },
+  "last_reviewed_iso": "2026-05-14",
+  "next_earnings_iso": null,
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in Kinder Morgan, Inc. and may transact at any time without notice. Figures are sourced from Kinder Morgan's FY 2025 disclosure and Q4 2025 release (January 2026). Where a figure is marked &ldquo;(approx.)&rdquo; or &ldquo;&mdash;&rdquo; the source disclosure was either unconfirmed or unreported at the time of writing. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+  "back_link": {
+    "href": "/coverage",
+    "label": "Back to the coverage universe"
+  },
+  "related_slugs": [
+    "enbridge-enb",
+    "tc-energy-trp"
+  ]
+}

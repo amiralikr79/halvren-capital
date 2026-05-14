@@ -1,0 +1,144 @@
+{
+  "slug": "suncor-su",
+  "ticker": "SU",
+  "exchange": "TSX: SU · NYSE: SU",
+  "name": "Suncor Energy Inc.",
+  "short_name": "Suncor",
+  "url": "https://www.suncor.com/",
+  "sector": "Energy",
+  "sub_industry": "Oil & Gas",
+  "page_eyebrow": "On the desk · Oil sands",
+  "headline_html": "Suncor (SU): The integrated reset, read <em>plainly.</em>",
+  "page_title": "Suncor (SU) — The integrated reset, read plainly | Halvren Capital",
+  "meta_description": "Suncor is Canada's largest integrated oil sands operator and the owner of Petro-Canada retail. Halvren's read on the Kruger-era reset, the refining contribution, and what the cycle has yet to ask of the business.",
+  "og_title": "Suncor (SU) — The integrated reset, read plainly",
+  "og_description": "Integrated oil sands, upgrading, refining, and Petro-Canada retail. Halvren's under-the-hood read with FY 2025 numbers.",
+  "og_image": "/og-research.png",
+  "published_iso": "2026-04-30",
+  "modified_iso": "2026-05-14",
+  "the_read": {
+    "summary": "Canada's largest integrated oil sands operator. Upstream production ~828 Mboe/d (FY 2025 guidance midpoint), four upgrading and refining complexes, ~1,800-station Petro-Canada retail. Rich Kruger (CEO since April 2023) is running a cost and safety reset that the prior five years made necessary.",
+    "generated_iso": "2026-05-14",
+    "source_filing": "Suncor FY 2025 disclosure and Q4 2025 release (February 2026)",
+    "principal_reviewed_iso": "2026-05-14"
+  },
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {
+        "label": "Upstream production",
+        "value": "~828 Mboe/d (guidance mid, approx.)"
+      },
+      {
+        "label": "Refining throughput",
+        "value": "~460 Mb/d (approx.)"
+      },
+      {
+        "label": "Retail network",
+        "value": "~1,800 Petro-Canada sites"
+      },
+      {
+        "label": "FY 2025 net earnings",
+        "value": "— (approx.)"
+      },
+      {
+        "label": "Net debt target",
+        "value": "C$8B (announced)"
+      },
+      {
+        "label": "Capital return policy",
+        "value": "75% of FCF to shareholders post-target"
+      },
+      {
+        "label": "Listings",
+        "value": "TSX: SU · NYSE: SU"
+      }
+    ]
+  },
+  "guidance": null,
+  "leadership": {
+    "ceo": "Rich Kruger",
+    "ceo_since": 2023,
+    "chair": null,
+    "succession_visible": false,
+    "note": "Kruger arrived to fix what five years of complacency broke. The early evidence is operational; the test is whether the discipline survives the next $50 print."
+  },
+  "what_we_track": [
+    "Mining and in-situ unit operating cost",
+    "Refining utilization and downstream contribution",
+    "Net debt trajectory toward the C$8B floor",
+    "Buyback pace at the post-target return policy",
+    "Safety statistics — the reset's first promise"
+  ],
+  "checklist": {
+    "scoring": [
+      {
+        "q": 1,
+        "status": "pass",
+        "note": "Free cash flow through 2015–2020, including the trough. The dividend was cut once (2020) and restored."
+      },
+      {
+        "q": 2,
+        "status": "pass",
+        "note": "Mining and SAGD unit costs work in the C$30s/bbl operating range; the integrated downstream margin smooths the bad quarters."
+      },
+      {
+        "q": 3,
+        "status": "pass",
+        "note": "Investment-grade. Net debt has been walked from C$15B-plus in 2021 toward the C$8B target."
+      },
+      {
+        "q": 4,
+        "status": "not_yet",
+        "note": "The 2020–2022 reinvestment record (Fort Hills writedowns, repeated turnaround misses) is the reason Kruger had a job to take."
+      },
+      {
+        "q": 5,
+        "status": "not_yet",
+        "note": "Insider ownership is modest. Kruger's open-market behaviour is the more honest signal than the option grants."
+      },
+      {
+        "q": 6,
+        "status": "not_yet",
+        "note": "2015: dividend held. 2020: dividend cut by 55%. The cut was rational; the prior over-distribution that forced it was not."
+      },
+      {
+        "q": 7,
+        "status": "pass",
+        "note": "Compensation reset under Kruger is more per-share-aligned than the Williams-era plan it replaced."
+      },
+      {
+        "q": 8,
+        "status": "not_yet",
+        "note": "Succession is not visible. Kruger is 67. The bench question is real."
+      },
+      {
+        "q": 9,
+        "status": "pass",
+        "note": "On the mineable oil sands cost curve Suncor sits comfortably first-quartile. The downstream throughput is a hedge the merchant refiners do not have."
+      },
+      {
+        "q": 10,
+        "status": "not_yet",
+        "note": "Underwriting at mid-cycle Brent in the US$65–75 range, Suncor compounds. At trough prices the dividend is safe; the growth is not."
+      }
+    ],
+    "pillar_commentary": {
+      "I": "<strong>Pillar I. The business.</strong> FCF through full cycle is real, including 2020. Mining and in-situ unit costs are first-quartile within the oil-sands cohort. The balance sheet is being walked down to the C$8B floor and the 75%-of-FCF return policy kicks in at that point. The honest weakness is ROIC on incremental capital over 2018–2022: Fort Hills underperformed expectations, several turnarounds missed, and the safety record forced the C-suite change. Kruger inherited a business that needed a reset more than a strategy.",
+      "II": "<strong>Pillar II. The people.</strong> Suncor is an institutional name, not an owner-operator one. Insider buying is light. The capital allocation record over 2018–2022 is the legitimate concern. Compensation has been re-tilted toward per-share metrics under Kruger, and the operational discipline showing up in the unit-cost numbers is the early proof point. The succession question is unanswered. We watch it.",
+      "III": "<strong>Pillar III. The cycle.</strong> Oil sands sit on a long-life, low-decline cost curve that punishes nobody who can wait. The integrated model dampens the worst single-commodity quarter. Underwriting at mid-cycle Brent, Suncor produces meaningful free cash; at trough it still funds the dividend and the capital plan. The decade-out question is what regulatory and demand path Canadian heavy oil follows. That is a Canada question more than a Suncor question."
+    }
+  },
+  "last_reviewed_iso": "2026-05-14",
+  "next_earnings_iso": null,
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in Suncor Energy Inc. and may transact at any time without notice. Figures are sourced from Suncor's FY 2025 disclosure and Q4 2025 release (February 2026). Where a figure is marked &ldquo;(approx.)&rdquo; or &ldquo;&mdash;&rdquo; the source disclosure was either unconfirmed or unreported at the time of writing. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+  "back_link": {
+    "href": "/coverage",
+    "label": "Back to the coverage universe"
+  },
+  "related_slugs": [
+    "cenovus-cve",
+    "canadian-natural-cnq"
+  ]
+}

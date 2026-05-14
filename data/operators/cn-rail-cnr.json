@@ -1,0 +1,144 @@
+{
+  "slug": "cn-rail-cnr",
+  "ticker": "CNR",
+  "exchange": "TSX: CNR · NYSE: CNI",
+  "name": "Canadian National Railway Company",
+  "short_name": "CN Rail",
+  "url": "https://www.cn.ca/",
+  "sector": "Infrastructure",
+  "sub_industry": "Rail",
+  "page_eyebrow": "On the desk · Rail",
+  "headline_html": "CN Rail (CNR): The <em>duopoly,</em> read by the operating ratio.",
+  "page_title": "CN Rail (CNR) — The duopoly, read by the operating ratio | Halvren Capital",
+  "meta_description": "Canadian National is the larger half of the Canadian Class I duopoly and a coast-to-coast-to-Gulf network. Halvren's read on the operating ratio, the volumes mix, and the post-Tellem capital culture.",
+  "og_title": "CN Rail (CNR) — The duopoly, read by the operating ratio",
+  "og_description": "Class I rail, Canada coast-to-coast plus US Gulf. Halvren's read with FY 2025 numbers, operating ratio, and capital discipline.",
+  "og_image": "/og-research.png",
+  "published_iso": "2026-04-30",
+  "modified_iso": "2026-05-14",
+  "the_read": {
+    "summary": "Larger half of the Canadian Class I rail duopoly. Network spans Atlantic Canada, the BC Coast, and the US Gulf via Memphis–New Orleans. Volume mix includes intermodal, grain, forest products, energy, and metals. Tracy Robinson (CEO since February 2022) inherited a precision-scheduled-railroading legacy and is calibrating capital and labour discipline against it.",
+    "generated_iso": "2026-05-14",
+    "source_filing": "CN FY 2025 disclosure and Q4 2025 release (January 2026)",
+    "principal_reviewed_iso": "2026-05-14"
+  },
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {
+        "label": "Network length",
+        "value": "~32,000 km (Canada + US)"
+      },
+      {
+        "label": "Operating ratio",
+        "value": "Low 60s (FY 2025 mid, approx.)"
+      },
+      {
+        "label": "Volume mix",
+        "value": "Intermodal · Grain · Forest · Energy · Metals"
+      },
+      {
+        "label": "Capital program",
+        "value": "~C$3.5–4.0B annual"
+      },
+      {
+        "label": "Capital return policy",
+        "value": "Dividend + buyback; per-share-aligned"
+      },
+      {
+        "label": "Investment-grade",
+        "value": "Long-tenured; conservative debt"
+      },
+      {
+        "label": "Listings",
+        "value": "TSX: CNR · NYSE: CNI"
+      }
+    ]
+  },
+  "guidance": null,
+  "leadership": {
+    "ceo": "Tracy Robinson",
+    "ceo_since": 2022,
+    "chair": "Robert Pace",
+    "succession_visible": true,
+    "note": "Robinson came from TC Energy and a long pipelines and operations career. The operating-ratio discipline shows in the run-rate."
+  },
+  "what_we_track": [
+    "Operating ratio quarter to quarter",
+    "Intermodal volumes against North American consumer trend",
+    "Grain volumes against the WCSB harvest",
+    "Capital program against the ~C$3.5–4.0B run-rate",
+    "Insider behaviour and labour-cost discipline"
+  ],
+  "checklist": {
+    "scoring": [
+      {
+        "q": 1,
+        "status": "pass",
+        "note": "FCF every full year. The duopoly structure is the structural reason."
+      },
+      {
+        "q": 2,
+        "status": "pass",
+        "note": "Unit economics are favourable across the cycle. The trough is meaningful but not existential."
+      },
+      {
+        "q": 3,
+        "status": "pass",
+        "note": "Investment-grade; long-tenured. Net debt is conservatively levered."
+      },
+      {
+        "q": 4,
+        "status": "not_yet",
+        "note": "ROIC on incremental capital has been acceptable; the failed 2021 Kansas City Southern bid was an honest near-miss."
+      },
+      {
+        "q": 5,
+        "status": "not_yet",
+        "note": "Insider ownership is modest. The board capital-discipline record is what we read."
+      },
+      {
+        "q": 6,
+        "status": "pass",
+        "note": "2015 and 2020: dividend raised in both years. Buyback continued through both."
+      },
+      {
+        "q": 7,
+        "status": "pass",
+        "note": "Compensation is per-share-aligned. The operating-ratio focus is the right incentive structure."
+      },
+      {
+        "q": 8,
+        "status": "pass",
+        "note": "Succession is visible; Robinson came from outside, the executive bench is named."
+      },
+      {
+        "q": 9,
+        "status": "pass",
+        "note": "The Canadian Class I duopoly is the cleanest structural advantage in North American transportation. Cost-curve does not apply."
+      },
+      {
+        "q": 10,
+        "status": "pass",
+        "note": "Underwriting at any realistic North American freight volume path, CN compounds. The decade-out picture is favourable."
+      }
+    ],
+    "pillar_commentary": {
+      "I": "<strong>Pillar I. The business.</strong> CN is the larger half of a two-operator duopoly that moves freight across Canada and into the US Gulf via the Memphis–New Orleans corridor. The duopoly structure is the moat. Operating ratio in the low 60s is competitive within the North American Class I cohort; the question is whether that ratio can move lower without sacrificing service quality. The 2021 attempt at Kansas City Southern was an honest near-miss; the post-2022 capital culture is more disciplined than the 2018–2021 vintage.",
+      "II": "<strong>Pillar II. The people.</strong> Tracy Robinson came from outside in February 2022 with a long pipeline and operations career at TC Energy and predecessors. The operating-ratio focus is right and the early results are encouraging. Compensation is per-share-aligned. The 2015 and 2020 records are clean. Insider ownership is modest; the board is the discipline.",
+      "III": "<strong>Pillar III. The cycle.</strong> North American freight is structurally a long-cycle asset, and the rail share of it is durable in the categories that matter (grain, metals, forest, energy). Intermodal is more contestable. Underwriting at mid-cycle North American freight, CN compounds. The decade-out question is service-quality regulation and the labour cost structure."
+    }
+  },
+  "last_reviewed_iso": "2026-05-14",
+  "next_earnings_iso": null,
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in Canadian National Railway Company and may transact at any time without notice. Figures are sourced from CN's FY 2025 disclosure and Q4 2025 release (January 2026). Where a figure is marked &ldquo;(approx.)&rdquo; or &ldquo;&mdash;&rdquo; the source disclosure was either unconfirmed or unreported at the time of writing. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+  "back_link": {
+    "href": "/coverage",
+    "label": "Back to the coverage universe"
+  },
+  "related_slugs": [
+    "enbridge-enb",
+    "fortis-fts"
+  ]
+}

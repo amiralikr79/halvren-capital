@@ -1,0 +1,144 @@
+{
+  "slug": "fortis-fts",
+  "ticker": "FTS",
+  "exchange": "TSX: FTS · NYSE: FTS",
+  "name": "Fortis Inc.",
+  "short_name": "Fortis",
+  "url": "https://www.fortisinc.com/",
+  "sector": "Infrastructure",
+  "sub_industry": "Utilities",
+  "page_eyebrow": "On the desk · Utilities",
+  "headline_html": "Fortis (FTS): Fifty-two years of <em>raises,</em> read honestly.",
+  "page_title": "Fortis (FTS) — Fifty-two years of raises, read honestly | Halvren Capital",
+  "meta_description": "Fortis is a North American regulated utility with the longest dividend-growth record in Canada. Halvren's read on the rate-base trajectory, ITC contribution, and the next decade of regulated growth.",
+  "og_title": "Fortis (FTS) — Fifty-two years of raises, read honestly",
+  "og_description": "Regulated utility, 51+ years of dividend increases. Halvren's read with FY 2025 numbers and rate-base growth.",
+  "og_image": "/og-research.png",
+  "published_iso": "2026-04-30",
+  "modified_iso": "2026-05-14",
+  "the_read": {
+    "summary": "North American regulated utility with ten operating subsidiaries spanning Canada, the US, and the Caribbean. ITC (US transmission), UNS (Arizona), FortisBC, FortisAlberta, Central Hudson (New York). The longest dividend-growth record in Canada (over fifty consecutive annual raises).",
+    "generated_iso": "2026-05-14",
+    "source_filing": "Fortis FY 2025 disclosure and Q4 2025 release (February 2026)",
+    "principal_reviewed_iso": "2026-05-14"
+  },
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {
+        "label": "Regulated rate base",
+        "value": "~C$45B (FY 2025 mid, approx.)"
+      },
+      {
+        "label": "5-year capital plan",
+        "value": "~C$26B (2024–28)"
+      },
+      {
+        "label": "Rate-base growth target",
+        "value": "~6% CAGR"
+      },
+      {
+        "label": "Dividend growth target",
+        "value": "4–6% per year"
+      },
+      {
+        "label": "Consecutive raises",
+        "value": "52 years (longest in Canada)"
+      },
+      {
+        "label": "Regulated share of earnings",
+        "value": "~99% regulated"
+      },
+      {
+        "label": "Listings",
+        "value": "TSX: FTS · NYSE: FTS"
+      }
+    ]
+  },
+  "guidance": null,
+  "leadership": {
+    "ceo": "David Hutchens",
+    "ceo_since": 2021,
+    "chair": "Ronald Munkley",
+    "succession_visible": true,
+    "note": "Hutchens came from UNS into the parent CEO seat. The capital culture is continuous with the Marshall and Perry tenures before him."
+  },
+  "what_we_track": [
+    "ITC capital deployment and authorized ROE",
+    "Rate cases at UNS, FortisBC, and Central Hudson",
+    "Capital plan execution against the rate-base growth target",
+    "Net debt rating actions",
+    "Per-share dividend growth pace within the 4–6% band"
+  ],
+  "checklist": {
+    "scoring": [
+      {
+        "q": 1,
+        "status": "pass",
+        "note": "FCF through every cycle since the early 1970s. The regulated-rate-base model is the structural reason."
+      },
+      {
+        "q": 2,
+        "status": "pass",
+        "note": "Unit economics are regulated. Trough commodity prices barely move the earnings."
+      },
+      {
+        "q": 3,
+        "status": "pass",
+        "note": "Investment-grade; well-laddered debt; conservatively financed for a utility."
+      },
+      {
+        "q": 4,
+        "status": "pass",
+        "note": "Reinvestment record is the cleanest on the desk. The ITC and Central Hudson acquisitions earned their cost of capital."
+      },
+      {
+        "q": 5,
+        "status": "not_yet",
+        "note": "Insider ownership is modest. Capital allocation behaviour at the board is the more important read."
+      },
+      {
+        "q": 6,
+        "status": "pass",
+        "note": "2015 and 2020: dividend raised in both years. Fifty-two consecutive years of raises is the record."
+      },
+      {
+        "q": 7,
+        "status": "pass",
+        "note": "Compensation is per-share-aligned. The board is discipline-oriented."
+      },
+      {
+        "q": 8,
+        "status": "pass",
+        "note": "Succession is visible; Hutchens came from UNS into the parent seat."
+      },
+      {
+        "q": 9,
+        "status": "pass",
+        "note": "Regulated rate base is the cleanest structural advantage on the desk. The cost-curve discussion does not apply."
+      },
+      {
+        "q": 10,
+        "status": "pass",
+        "note": "Underwriting at any realistic North American electricity-demand path, the regulated rate base earns. The decade-out picture is favourable, particularly with electrification."
+      }
+    ],
+    "pillar_commentary": {
+      "I": "<strong>Pillar I. The business.</strong> Fortis is 99% regulated. The rate base sits on ten operating subsidiaries that collectively span Canada, the US, and the Caribbean. ITC is the US transmission asset that came over in 2016 and has performed at or above the original case. The reinvestment record is the cleanest on the desk; every meaningful acquisition has earned its cost of capital. The capital plan is sized for a 6% rate-base CAGR.",
+      "II": "<strong>Pillar II. The people.</strong> David Hutchens came from UNS into the parent CEO seat in 2021 and the capital culture is continuous with the long Marshall and Perry tenures before him. The dividend has been raised in every year of every cycle since 1972. The 2015 and 2020 records are unremarkable in the best sense of the word; nothing changed.",
+      "III": "<strong>Pillar III. The cycle.</strong> Electric utility rate base is a long-cycle, regulated asset. The decade-out picture is favourable: electrification, data center demand, grid replacement, transmission build. Underwriting at the 4–6% dividend growth band, Fortis is a compounder. Not a dramatic one. The kind whose total return record over forty years is hard to argue with."
+    }
+  },
+  "last_reviewed_iso": "2026-05-14",
+  "next_earnings_iso": null,
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in Fortis Inc. and may transact at any time without notice. Figures are sourced from Fortis's FY 2025 disclosure and Q4 2025 release (February 2026). Where a figure is marked &ldquo;(approx.)&rdquo; or &ldquo;&mdash;&rdquo; the source disclosure was either unconfirmed or unreported at the time of writing. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+  "back_link": {
+    "href": "/coverage",
+    "label": "Back to the coverage universe"
+  },
+  "related_slugs": [
+    "enbridge-enb",
+    "tc-energy-trp"
+  ]
+}

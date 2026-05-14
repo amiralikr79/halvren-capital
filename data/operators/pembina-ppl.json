@@ -1,0 +1,144 @@
+{
+  "slug": "pembina-ppl",
+  "ticker": "PPL",
+  "exchange": "TSX: PPL · NYSE: PBA",
+  "name": "Pembina Pipeline Corporation",
+  "short_name": "Pembina",
+  "url": "https://www.pembina.com/",
+  "sector": "Infrastructure",
+  "sub_industry": "Pipelines",
+  "page_eyebrow": "On the desk · Midstream",
+  "headline_html": "Pembina (PPL): The <em>Western Canadian</em> midstream, read plainly.",
+  "page_title": "Pembina Pipeline (PPL) — The Western Canadian midstream, read plainly | Halvren Capital",
+  "meta_description": "Pembina is the integrated Western Canadian midstream operator across liquids, gas processing, and NGL fractionation. Halvren's read on the contracted EBITDA share and the conservative capital culture.",
+  "og_title": "Pembina Pipeline (PPL) — The Western Canadian midstream, read plainly",
+  "og_description": "Liquids pipelines, gas processing, NGL fractionation. Halvren's read with FY 2025 numbers and capital discipline.",
+  "og_image": "/og-research.png",
+  "published_iso": "2026-04-30",
+  "modified_iso": "2026-05-14",
+  "the_read": {
+    "summary": "Integrated Western Canadian midstream. Liquids pipelines (Peace, Northern, Mainline), gas processing, NGL fractionation at Redwater, and the Aux Sable JV. ~90% fee-based or contracted EBITDA. Investment-grade balance sheet; capital culture has been historically conservative.",
+    "generated_iso": "2026-05-14",
+    "source_filing": "Pembina FY 2025 disclosure and Q4 2025 release (February 2026)",
+    "principal_reviewed_iso": "2026-05-14"
+  },
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {
+        "label": "Fee-based share of EBITDA",
+        "value": "~90%"
+      },
+      {
+        "label": "Liquids pipelines",
+        "value": "Peace + Northern + Cochin systems"
+      },
+      {
+        "label": "NGL fractionation",
+        "value": "Redwater Complex + Aux Sable interests"
+      },
+      {
+        "label": "Net debt / EBITDA",
+        "value": "~3.5× target"
+      },
+      {
+        "label": "Dividend",
+        "value": "Monthly; per-share growth on capital program build-out"
+      },
+      {
+        "label": "Capital program",
+        "value": "Disciplined; volumes-driven incremental"
+      },
+      {
+        "label": "Listings",
+        "value": "TSX: PPL · NYSE: PBA"
+      }
+    ]
+  },
+  "guidance": null,
+  "leadership": {
+    "ceo": "Scott Burrows",
+    "ceo_since": 2022,
+    "chair": "Cynthia Hansen",
+    "succession_visible": true,
+    "note": "Burrows came from inside as CFO. The bench is visible; the culture is operationally conservative."
+  },
+  "what_we_track": [
+    "Aux Sable JV contribution and propane pricing",
+    "Redwater fractionation capacity utilization",
+    "Capital program against contracted volume backlog",
+    "Net debt vs. 3.5× target",
+    "Insider behaviour and board capital-discipline signals"
+  ],
+  "checklist": {
+    "scoring": [
+      {
+        "q": 1,
+        "status": "pass",
+        "note": "FCF every full year. The 2020 stress saw the dividend held and capex moderated."
+      },
+      {
+        "q": 2,
+        "status": "pass",
+        "note": "Fee-based and take-or-pay EBITDA dominates. Commodity-price exposure is real but small."
+      },
+      {
+        "q": 3,
+        "status": "pass",
+        "note": "Investment-grade; net debt at or near the 3.5× target."
+      },
+      {
+        "q": 4,
+        "status": "not_yet",
+        "note": "ROIC on incremental capital has been acceptable but not exceptional. The KKR-CKPC cancellation in 2021 was an honest dent."
+      },
+      {
+        "q": 5,
+        "status": "not_yet",
+        "note": "Insider ownership is modest. The Pembina board is more relevant than direct insider buys."
+      },
+      {
+        "q": 6,
+        "status": "pass",
+        "note": "2015: dividend held. 2020: dividend held; capex cut. The record is clean."
+      },
+      {
+        "q": 7,
+        "status": "pass",
+        "note": "Compensation is per-share-aligned. The cancelled CKPC project was a real test of the capital culture, and the culture passed."
+      },
+      {
+        "q": 8,
+        "status": "pass",
+        "note": "Succession is visible; Burrows came from inside."
+      },
+      {
+        "q": 9,
+        "status": "pass",
+        "note": "Pembina's contracted volumes sit on a Western Canadian footprint with structural advantage. The cost-curve discussion is mostly irrelevant."
+      },
+      {
+        "q": 10,
+        "status": "pass",
+        "note": "Underwriting at any realistic Western Canadian volumes path, the contracted base earns. The decade-out picture is favourable."
+      }
+    ],
+    "pillar_commentary": {
+      "I": "<strong>Pillar I. The business.</strong> Pembina earns about 90% of EBITDA from fee-based or take-or-pay contracts. The Peace and Northern liquids pipelines move WCSB volumes; the Cochin system extends to the US Midwest. Redwater is one of the largest NGL fractionation complexes in North America. Aux Sable adds propane-cycle exposure that is volatile but contributes meaningfully on a contracted volume basis.",
+      "II": "<strong>Pillar II. The people.</strong> Scott Burrows was promoted from inside in 2022 and brought the operationally conservative culture continuous with the prior tenure. The 2021 decision to cancel the KKR-CKPC project rather than commit at unattractive economics is the cleanest single capital-discipline data point on the desk. Insider ownership is modest; compensation is per-share-aligned.",
+      "III": "<strong>Pillar III. The cycle.</strong> Western Canadian midstream is structurally a long-cycle business. WCSB volumes are durable; the LNG-export expansion adds incremental gas processing demand. Underwriting at any realistic volumes path, Pembina's contracted EBITDA grows in line with rate-base expansion. The decade-out question is regulatory, not commodity."
+    }
+  },
+  "last_reviewed_iso": "2026-05-14",
+  "next_earnings_iso": null,
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in Pembina Pipeline Corporation and may transact at any time without notice. Figures are sourced from Pembina's FY 2025 disclosure and Q4 2025 release (February 2026). Where a figure is marked &ldquo;(approx.)&rdquo; or &ldquo;&mdash;&rdquo; the source disclosure was either unconfirmed or unreported at the time of writing. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+  "back_link": {
+    "href": "/coverage",
+    "label": "Back to the coverage universe"
+  },
+  "related_slugs": [
+    "enbridge-enb",
+    "tc-energy-trp"
+  ]
+}

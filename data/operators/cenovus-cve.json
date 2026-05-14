@@ -1,0 +1,144 @@
+{
+  "slug": "cenovus-cve",
+  "ticker": "CVE",
+  "exchange": "TSX: CVE · NYSE: CVE",
+  "name": "Cenovus Energy Inc.",
+  "short_name": "Cenovus",
+  "url": "https://www.cenovus.com/",
+  "sector": "Energy",
+  "sub_industry": "Oil & Gas",
+  "page_eyebrow": "On the desk · Integrated oil sands",
+  "headline_html": "Cenovus (CVE): The Husky integration, <em>finally</em> clean.",
+  "page_title": "Cenovus (CVE) — The Husky integration, finally clean | Halvren Capital",
+  "meta_description": "Cenovus is the post-Husky integrated, with Christina Lake and Foster Creek upstream and US Lima/Toledo on the refining side. Halvren's read on whether downstream finally contributes instead of dragging.",
+  "og_title": "Cenovus (CVE) — The Husky integration, finally clean",
+  "og_description": "Integrated oil sands and refining. Halvren's under-the-hood read on FY 2025 numbers, Foster Creek and Christina Lake, and the US refining contribution.",
+  "og_image": "/og-research.png",
+  "published_iso": "2026-04-30",
+  "modified_iso": "2026-05-14",
+  "the_read": {
+    "summary": "Integrated oil sands post-2021 Husky combination. ~810 Mboe/d production (FY 2025 mid, approx.) anchored by Christina Lake and Foster Creek SAGD. Downstream throughput ~660 Mb/d across Canadian and US refining. CEO Jon McKenzie since April 2023.",
+    "generated_iso": "2026-05-14",
+    "source_filing": "Cenovus FY 2025 disclosure and Q4 2025 release (February 2026)",
+    "principal_reviewed_iso": "2026-05-14"
+  },
+  "fy_snapshot": {
+    "period": "FY 2025",
+    "metrics": [
+      {
+        "label": "Total production",
+        "value": "~810 Mboe/d (FY 2025 mid, approx.)"
+      },
+      {
+        "label": "SAGD weight",
+        "value": "Christina Lake + Foster Creek dominant"
+      },
+      {
+        "label": "Refining throughput",
+        "value": "~660 Mb/d (approx.)"
+      },
+      {
+        "label": "Net debt target",
+        "value": "C$4.0B (achieved 2024)"
+      },
+      {
+        "label": "Capital return policy",
+        "value": "100% of FCF after sustaining post-target"
+      },
+      {
+        "label": "Quarterly dividend",
+        "value": "C$0.20/sh base + variable"
+      },
+      {
+        "label": "Listings",
+        "value": "TSX: CVE · NYSE: CVE"
+      }
+    ]
+  },
+  "guidance": null,
+  "leadership": {
+    "ceo": "Jon McKenzie",
+    "ceo_since": 2023,
+    "chair": null,
+    "succession_visible": false,
+    "note": "McKenzie was the CFO who actually integrated Husky. The promotion was earned."
+  },
+  "what_we_track": [
+    "SAGD steam-oil ratios at Christina Lake and Foster Creek",
+    "US refining utilization at Lima, Toledo, and Wood River",
+    "Variable dividend pace under the 100%-of-FCF policy",
+    "Insider behaviour — buys vs. grants",
+    "Lower-decline assets vs. capex required to hold flat"
+  ],
+  "checklist": {
+    "scoring": [
+      {
+        "q": 1,
+        "status": "pass",
+        "note": "FCF through 2015–2020. The 2020 dividend was cut to a token; the business survived without dilution."
+      },
+      {
+        "q": 2,
+        "status": "pass",
+        "note": "Christina Lake and Foster Creek have among the lowest SAGD operating costs in the industry. Mid-C$30s/bbl operating range."
+      },
+      {
+        "q": 3,
+        "status": "pass",
+        "note": "Net debt target of C$4B was achieved in 2024; the balance sheet is now in maintenance mode."
+      },
+      {
+        "q": 4,
+        "status": "not_yet",
+        "note": "The Husky combination took longer to integrate cleanly than the deck promised. ROIC on incremental dollars is improving."
+      },
+      {
+        "q": 5,
+        "status": "not_yet",
+        "note": "Insider ownership is modest. The behaviour we watch is McKenzie's open-market activity, not the prior CEO's grants."
+      },
+      {
+        "q": 6,
+        "status": "not_yet",
+        "note": "2015: capital plan cut hard, dividend pre-Husky was modest. 2020: dividend reduced to a penny, no equity issued."
+      },
+      {
+        "q": 7,
+        "status": "pass",
+        "note": "Variable dividend ties payout directly to per-share cash, which is the right incentive structure."
+      },
+      {
+        "q": 8,
+        "status": "not_yet",
+        "note": "Succession bench is real at the operating level. The CEO question is settled for now."
+      },
+      {
+        "q": 9,
+        "status": "pass",
+        "note": "SAGD cost curve places CVE first-quartile on Canadian heavy. US refining utilization is the swing variable, not the structural one."
+      },
+      {
+        "q": 10,
+        "status": "pass",
+        "note": "Mid-cycle Brent at US$65–75 produces meaningful FCF after sustaining. The thesis does not need a commodity peak."
+      }
+    ],
+    "pillar_commentary": {
+      "I": "<strong>Pillar I. The business.</strong> Christina Lake and Foster Creek are among the lowest-cost SAGD operations in Canada and have been since they were Encana assets. The Husky combination was the strategic decision that defines this management team; it was strategically right and operationally painful for three years. Net debt is at the target. The variable dividend distributes 100% of free cash above sustaining and base dividend.",
+      "II": "<strong>Pillar II. The people.</strong> Jon McKenzie was the CFO during the Husky integration and was promoted to CEO in 2023 on the strength of what he actually delivered, not what the prior tenure promised. Insider ownership is modest. Compensation is per-share-aligned. The 2020 dividend cut was severe but did not require an equity raise. That second sentence is the one we keep coming back to.",
+      "III": "<strong>Pillar III. The cycle.</strong> Cenovus sits on heavy-oil acreage that the merchant refiners' coking systems are configured to consume. The Lima, Toledo, and Wood River refining footprint is the physical hedge for the Western Canadian price differential. Underwriting at mid-cycle Brent, Cenovus compounds. The decade-out question is the same as for Suncor: what regulatory and demand path Canadian heavy follows. That is a Canada question, not a Cenovus question."
+    }
+  },
+  "last_reviewed_iso": "2026-05-14",
+  "next_earnings_iso": null,
+  "position_disclosure": "may_hold",
+  "disclosure_footnote_html": "This writeup is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold a position in Cenovus Energy Inc. and may transact at any time without notice. Figures are sourced from Cenovus's FY 2025 disclosure and Q4 2025 release (February 2026). Where a figure is marked &ldquo;(approx.)&rdquo; or &ldquo;&mdash;&rdquo; the source disclosure was either unconfirmed or unreported at the time of writing. See the <a href=\"/terms\">Terms of Use</a> for the full disclaimer. Halvren's companion writeup may appear on <a href=\"https://substack.com/@halvrencapital\" target=\"_blank\" rel=\"noopener noreferrer\">Substack</a> at greater length.",
+  "back_link": {
+    "href": "/coverage",
+    "label": "Back to the coverage universe"
+  },
+  "related_slugs": [
+    "suncor-su",
+    "canadian-natural-cnq"
+  ]
+}
