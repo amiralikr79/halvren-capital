@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Halvren Notes — short, opinionated research on Canadian &amp; U.S. operators</title>
+<meta name="description" content="Halvren Notes — single-claim essays on cost curves, capital allocation, and the operators the desk reads carefully. No price targets. No marketing language.">
+<meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<script>(function(){try{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="canonical" href="https://halvrencapital.com/notes">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Halvren Notes — short, opinionated research">
+<meta property="og:description" content="Single-claim essays on cost curves, capital allocation, and the operators the desk reads carefully.">
+<meta property="og:url" content="https://halvrencapital.com/notes">
+<meta property="og:image" content="https://halvrencapital.com/api/og?title=Halvren%20Notes&eyebrow=Research%20%C2%B7%20Vancouver">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111010'/><path d='M7 8 L7 24 M7 16 L15 16 M15 8 L15 24' stroke='%23e8e6e2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M19 8 L19 24 M19 8 L26 16 L19 24' stroke='%23c9a84c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Halvren Notes","description":"Single-claim essays on cost curves, capital allocation, and the operators the desk reads carefully.","url":"https://halvrencapital.com/notes","publisher":{"@id":"https://halvrencapital.com/#organization"},"author":{"@id":"https://halvrencapital.com/#amirali"},"inLanguage":"en-CA","hasPart":[{"@type":"Article","url":"https://halvrencapital.com/notes/how-to-read-canadian-oil-gas-operator-seven-numbers","headline":"How to read a Canadian oil & gas operator in seven numbers","datePublished":"2026-05-14"},{"@type":"Article","url":"https://halvrencapital.com/notes/cost-curve-is-a-lie-if-you-pick-the-quartile","headline":"The cost curve is a lie if you let them pick the quartile","datePublished":"2026-05-08"},{"@type":"Article","url":"https://halvrencapital.com/notes/what-2015-and-2020-told-us-canadian-energy","headline":"What 2015 and 2020 told us about every Canadian energy operator still standing","datePublished":"2026-04-30"},{"@type":"Article","url":"https://halvrencapital.com/notes/pipelines-are-turnpikes-not-commodity-bets","headline":"Pipelines are turnpikes, not commodity bets — reading Canadian infrastructure honestly","datePublished":"2026-04-23"},{"@type":"Article","url":"https://halvrencapital.com/notes/uranium-operator-checklist","headline":"The uranium operator's checklist: separating the mines from the narratives","datePublished":"2026-04-16"},{"@type":"Article","url":"https://halvrencapital.com/notes/silver-per-share-problem","headline":"Silver's per-share problem: why production growth isn't shareholder value","datePublished":"2026-04-09"},{"@type":"Article","url":"https://halvrencapital.com/notes/dividend-that-survived-cnq","headline":"The dividend that survived: 26 consecutive raises at Canadian Natural","datePublished":"2026-04-02"},{"@type":"Article","url":"https://halvrencapital.com/notes/insider-buying-vs-granting","headline":"Insider buying vs. insider granting — the only signal that costs the operator something","datePublished":"2026-03-26"},{"@type":"Article","url":"https://halvrencapital.com/notes/boring-thirty-year-chart-canadian-infrastructure","headline":"What boring looks like on a thirty-year chart: the case for Canadian infrastructure compounding","datePublished":"2026-03-21"},{"@type":"Article","url":"https://halvrencapital.com/notes/roic-incremental-capital-plain-english","headline":"ROIC on incremental capital, in plain English","datePublished":"2026-03-21"}]}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/page.css">
+<style>
+.notes-masthead{max-width:var(--content-default);margin-bottom:var(--space-10)}
+.notes-masthead .doc-h1{margin-bottom:var(--space-4)}
+.notes-issue-meta{font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:var(--space-4)}
+.notes-lede{font-size:var(--text-base);color:var(--color-text-muted);line-height:1.7;max-width:60ch}
+.notes-tagbar{margin-top:var(--space-8);padding-top:var(--space-5);border-top:1px solid var(--color-divider);display:flex;flex-wrap:wrap;gap:var(--space-2);align-items:center}
+.notes-tagbar-label{font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--color-text-muted);margin-right:var(--space-2)}
+.notes-tag{font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:0.06em;color:var(--color-text-muted);padding:var(--space-1) var(--space-3);border:1px solid var(--color-divider);border-radius:999px;cursor:pointer;background:transparent}
+.notes-tag:hover{color:var(--color-text);border-color:var(--color-text-muted)}
+.notes-tag[aria-pressed="true"]{color:var(--color-bg);background:var(--color-text);border-color:var(--color-text)}
+.notes-list{display:flex;flex-direction:column;border-top:1px solid var(--color-divider)}
+.notes-item{display:grid;grid-template-columns:120px 1fr;gap:var(--space-6);padding:var(--space-7) 0;border-bottom:1px solid var(--color-divider);transition:opacity 220ms var(--ease-soft)}
+.notes-item[hidden]{display:none}
+.notes-item-date{font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-text-muted);padding-top:6px}
+.notes-item-body a.notes-item-title{display:inline-block;font-family:var(--font-display);font-size:var(--text-xl);line-height:1.18;letter-spacing:-0.01em;color:var(--color-text);text-decoration:none;border:none;margin-bottom:var(--space-3)}
+.notes-item-body a.notes-item-title:hover{color:var(--color-gold)}
+.notes-item-pull{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;max-width:64ch;margin-bottom:var(--space-3)}
+.notes-item-tags{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.notes-item-tag{font-family:var(--font-body);font-size:11px;letter-spacing:0.06em;color:var(--color-text-faint);text-transform:uppercase}
+.notes-item-tag::after{content:" \002F";padding:0 4px;color:var(--color-text-faint)}
+.notes-item-tag:last-child::after{content:""}
+.notes-footnote{margin-top:var(--space-10);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.03em;max-width:72ch;line-height:1.7}
+@media(max-width:700px){.notes-item{grid-template-columns:1fr;gap:var(--space-2)}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav>
+  <a href="/" class="nav-logo" aria-label="Halvren Capital — home">
+    <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="4" fill="none"/>
+      <path d="M6 6 L6 26 M6 16 L16 16 M16 6 L16 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 6 L20 26 M20 6 L28 16 L20 26" stroke="var(--color-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-logo-name">Halvren Capital</span>
+  </a>
+  <div class="nav-links" id="nav-links" data-open="false">
+    <a href="/research">Research</a>
+    <a href="/notes" aria-current="page">Notes</a>
+    <a href="/letters">Letters</a>
+    <a href="/process">Process</a>
+    <a href="/access">Access</a>
+    <a href="/about">About</a>
+  </div>
+  <div class="nav-right">
+    <a href="/" class="nav-back">Back to home</a>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" type="button">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-controls="nav-links" aria-expanded="false" type="button">
+      <span class="nav-toggle-open"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>
+      <span class="nav-toggle-close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></span>
+    </button>
+  </div>
+</nav>
+
+<main id="main" class="doc-main">
+  <article class="doc-article">
+    <header class="notes-masthead">
+      <p class="notes-issue-meta">Halvren Notes &middot; 10 pieces &middot; Mar 21, 2026 – May 14, 2026</p>
+      <h1 class="doc-h1">The desk's <em>working notes.</em></h1>
+      <p class="notes-lede">Single-claim essays. Each one carries its own thesis and ends where it lands. Numbers are sourced; opinions are signed. No price targets. No marketing language. If a piece does not earn 1,500 words, it does not get published.</p>
+      <div class="notes-tagbar" role="group" aria-label="Filter by tag">
+        <span class="notes-tagbar-label">Filter</span>
+<button type="button" class="notes-tag" data-tag="Energy" aria-pressed="false">Energy</button>
+<button type="button" class="notes-tag" data-tag="Capital allocation" aria-pressed="false">Capital allocation</button>
+<button type="button" class="notes-tag" data-tag="Operator quality" aria-pressed="false">Operator quality</button>
+<button type="button" class="notes-tag" data-tag="Canada" aria-pressed="false">Canada</button>
+<button type="button" class="notes-tag" data-tag="Cost curve" aria-pressed="false">Cost curve</button>
+<button type="button" class="notes-tag" data-tag="Materials" aria-pressed="false">Materials</button>
+<button type="button" class="notes-tag" data-tag="Cross-sector" aria-pressed="false">Cross-sector</button>
+<button type="button" class="notes-tag" data-tag="Crisis behaviour" aria-pressed="false">Crisis behaviour</button>
+<button type="button" class="notes-tag" data-tag="Infrastructure" aria-pressed="false">Infrastructure</button>
+<button type="button" class="notes-tag" data-tag="Pipelines" aria-pressed="false">Pipelines</button>
+<button type="button" class="notes-tag" data-tag="Uranium" aria-pressed="false">Uranium</button>
+<button type="button" class="notes-tag" data-tag="Silver" aria-pressed="false">Silver</button>
+<button type="button" class="notes-tag" data-tag="Per-share economics" aria-pressed="false">Per-share economics</button>
+<button type="button" class="notes-tag" data-tag="Insider activity" aria-pressed="false">Insider activity</button>
+<button type="button" class="notes-tag" data-tag="Compounding" aria-pressed="false">Compounding</button>
+
+      </div>
+    </header>
+
+    <ol class="notes-list" id="notes-list">
+    <li class="notes-item" data-tags="Energy|Capital allocation|Operator quality|Canada">
+      <div class="notes-item-date">May 14, 2026</div>
+      <div class="notes-item-body">
+        <a class="notes-item-title" href="/notes/how-to-read-canadian-oil-gas-operator-seven-numbers">How to read a Canadian oil &amp; gas operator in seven numbers</a>
+        <p class="notes-item-pull">Seven numbers, in order. Sustaining capex per barrel, free-cash break-even, net debt at strip, per-share production, insider open-market buys, 2015 and 2020 dividend behaviour, ten-year reserve replacement at flat prices. Everything else is decoration.</p>
+        <div class="notes-item-tags"><span class="notes-item-tag">Energy</span><span class="notes-item-tag">Capital allocation</span><span class="notes-item-tag">Operator quality</span><span class="notes-item-tag">Canada</span></div>
+      </div>
+    </li>
+    <li class="notes-item" data-tags="Cost curve|Materials|Operator quality|Cross-sector">
+      <div class="notes-item-date">May 8, 2026</div>
+      <div class="notes-item-body">
+        <a class="notes-item-title" href="/notes/cost-curve-is-a-lie-if-you-pick-the-quartile">The cost curve is a lie if you let them pick the quartile</a>
+        <p class="notes-item-pull">Every operator claims first-quartile. The denominator is the game. We walk through how to test the claim with examples from gold, silver, uranium, and copper — and why one of those four sectors has it cleanest.</p>
+        <div class="notes-item-tags"><span class="notes-item-tag">Cost curve</span><span class="notes-item-tag">Materials</span><span class="notes-item-tag">Operator quality</span><span class="notes-item-tag">Cross-sector</span></div>
+      </div>
+    </li>
+    <li class="notes-item" data-tags="Energy|Capital allocation|Crisis behaviour|Canada">
+      <div class="notes-item-date">Apr 30, 2026</div>
+      <div class="notes-item-body">
+        <a class="notes-item-title" href="/notes/what-2015-and-2020-told-us-canadian-energy">What 2015 and 2020 told us about every Canadian energy operator still standing</a>
+        <p class="notes-item-pull">Two stress tests in a decade. Every Canadian energy operator's capital decisions in 2015 and 2020 are public. Some held the dividend in both; some issued equity at distressed prices; some did not exist by the end of either. The record reads cleanly if you put it on one page.</p>
+        <div class="notes-item-tags"><span class="notes-item-tag">Energy</span><span class="notes-item-tag">Capital allocation</span><span class="notes-item-tag">Crisis behaviour</span><span class="notes-item-tag">Canada</span></div>
+      </div>
+    </li>
+    <li class="notes-item" data-tags="Infrastructure|Pipelines|Capital allocation|Canada">
+      <div class="notes-item-date">Apr 23, 2026</div>
+      <div class="notes-item-body">
+        <a class="notes-item-title" href="/notes/pipelines-are-turnpikes-not-commodity-bets">Pipelines are turnpikes, not commodity bets — reading Canadian infrastructure honestly</a>
+        <p class="notes-item-pull">Owning Enbridge is not owning oil. Owning TC Energy is not owning gas. The contracted EBITDA share, the rate base, and the regulatory jurisdiction are the read. Commodity exposure on a Canadian pipeline operator is the thirty percent of the business the company would rather not discuss.</p>
+        <div class="notes-item-tags"><span class="notes-item-tag">Infrastructure</span><span class="notes-item-tag">Pipelines</span><span class="notes-item-tag">Capital allocation</span><span class="notes-item-tag">Canada</span></div>
+      </div>
+    </li>
+    <li class="notes-item" data-tags="Energy|Uranium|Materials|Operator quality">
+      <div class="notes-item-date">Apr 16, 2026</div>
+      <div class="notes-item-body">
+        <a class="notes-item-title" href="/notes/uranium-operator-checklist">The uranium operator's checklist: separating the mines from the narratives</a>
+        <p class="notes-item-pull">Uranium has been a narrative commodity for two decades and an operator commodity for about three years. The checklist for reading a uranium business is shorter than the average pitch deck — six questions, four of which most uranium names fail.</p>
+        <div class="notes-item-tags"><span class="notes-item-tag">Energy</span><span class="notes-item-tag">Uranium</span><span class="notes-item-tag">Materials</span><span class="notes-item-tag">Operator quality</span></div>
+      </div>
+    </li>
+    <li class="notes-item" data-tags="Materials|Silver|Capital allocation|Per-share economics">
+      <div class="notes-item-date">Apr 9, 2026</div>
+      <div class="notes-item-body">
+        <a class="notes-item-title" href="/notes/silver-per-share-problem">Silver's per-share problem: why production growth isn't shareholder value</a>
+        <p class="notes-item-pull">Most senior silver producers have grown absolute ounces meaningfully over the past decade and destroyed per-share value while doing it. The arithmetic is mechanical. The reason it persists is incentive design.</p>
+        <div class="notes-item-tags"><span class="notes-item-tag">Materials</span><span class="notes-item-tag">Silver</span><span class="notes-item-tag">Capital allocation</span><span class="notes-item-tag">Per-share economics</span></div>
+      </div>
+    </li>
+    <li class="notes-item" data-tags="Energy|Canada|Capital allocation|Crisis behaviour">
+      <div class="notes-item-date">Apr 2, 2026</div>
+      <div class="notes-item-body">
+        <a class="notes-item-title" href="/notes/dividend-that-survived-cnq">The dividend that survived: 26 consecutive raises at Canadian Natural</a>
+        <p class="notes-item-pull">Twenty-six consecutive years of dividend increases at Canadian Natural Resources, including raises in 2015 and in March 2020. The record is a capital-allocation document, not a dividend story. We read it for what the operator does at the bottom.</p>
+        <div class="notes-item-tags"><span class="notes-item-tag">Energy</span><span class="notes-item-tag">Canada</span><span class="notes-item-tag">Capital allocation</span><span class="notes-item-tag">Crisis behaviour</span></div>
+      </div>
+    </li>
+    <li class="notes-item" data-tags="Operator quality|Insider activity|Cross-sector">
+      <div class="notes-item-date">Mar 26, 2026</div>
+      <div class="notes-item-body">
+        <a class="notes-item-title" href="/notes/insider-buying-vs-granting">Insider buying vs. insider granting — the only signal that costs the operator something</a>
+        <p class="notes-item-pull">Options grants are loyalty to a quarter. Open-market purchases are loyalty to a decade. The difference is the only insider signal that costs the operator something. The signal is public. Most decks do not put it on the cover.</p>
+        <div class="notes-item-tags"><span class="notes-item-tag">Operator quality</span><span class="notes-item-tag">Insider activity</span><span class="notes-item-tag">Cross-sector</span></div>
+      </div>
+    </li>
+    <li class="notes-item" data-tags="Infrastructure|Compounding|Canada|Capital allocation">
+      <div class="notes-item-date">Mar 21, 2026</div>
+      <div class="notes-item-body">
+        <a class="notes-item-title" href="/notes/boring-thirty-year-chart-canadian-infrastructure">What boring looks like on a thirty-year chart: the case for Canadian infrastructure compounding</a>
+        <p class="notes-item-pull">A 6% earnings compounder, a 4% dividend yield, no glamour, and thirty consecutive years of raises. The math is unspectacular. The total-return chart is not. The Canadian infrastructure cohort is the boring half of the desk, and it is the half that pays for the wait.</p>
+        <div class="notes-item-tags"><span class="notes-item-tag">Infrastructure</span><span class="notes-item-tag">Compounding</span><span class="notes-item-tag">Canada</span><span class="notes-item-tag">Capital allocation</span></div>
+      </div>
+    </li>
+    <li class="notes-item" data-tags="Capital allocation|Operator quality|Cross-sector">
+      <div class="notes-item-date">Mar 21, 2026</div>
+      <div class="notes-item-body">
+        <a class="notes-item-title" href="/notes/roic-incremental-capital-plain-english">ROIC on incremental capital, in plain English</a>
+        <p class="notes-item-pull">Reported ROE and reported ROIC are average metrics across the whole asset base. The number that matters is what the next dollar of capital earns. The math is not difficult. The reason most operators do not report it is that the answer is sometimes ugly.</p>
+        <div class="notes-item-tags"><span class="notes-item-tag">Capital allocation</span><span class="notes-item-tag">Operator quality</span><span class="notes-item-tag">Cross-sector</span></div>
+      </div>
+    </li>
+    </ol>
+
+    <p class="notes-footnote">All notes are reviewed by the principal before publication. Cross-links to <a href="/research">research pages</a> and the <a href="/coverage">coverage universe</a> point to the operator data behind each claim. Subscribe to the <a href="/letters">Halvren letter</a> for the quarterly synthesis.</p>
+  </article>
+</main>
+
+<footer>
+  <div class="footer-trust">
+    <span class="footer-trust-item">Canadian &amp; U.S. markets</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">AI-augmented &middot; human-reviewed</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">Proprietary capital</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">Public research is free</span>
+  </div>
+  <div class="footer-inner">
+    <div class="footer-brand">Halvren Capital<span>Vancouver, BC &middot; Est. 2025</span></div>
+    <div class="footer-disclaimer">
+      <p>Halvren Capital publishes research and commentary for informational and educational purposes only. Nothing on this site constitutes an offer, solicitation, or recommendation to buy or sell any security.</p>
+      <p>Halvren manages proprietary capital and is not currently accepting outside investors. Halvren is not a registered investment adviser, broker-dealer, or portfolio manager. The author may hold positions in securities discussed and may transact in them at any time without notice.</p>
+    </div>
+  </div>
+  <div class="footer-inner footer-meta">
+    <span>&copy; 2025–2026 Halvren Capital. All rights reserved.</span>
+    <a href="/version" class="footer-last-reviewed" title="Build provenance and changelog"><strong>Last reviewed:</strong> May 6, 2026</a>
+    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/notes">Notes</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/performance">Performance</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span>
+  </div>
+</footer>
+<script src="/nav.js" defer></script>
+<script>
+(function(){
+  var chips = document.querySelectorAll('.notes-tag');
+  var items = document.querySelectorAll('.notes-item');
+  var current = '';
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      var tag = c.getAttribute('data-tag') || '';
+      current = (current === tag) ? '' : tag;
+      chips.forEach(function(x){x.setAttribute('aria-pressed', (x.getAttribute('data-tag')||'') === current ? 'true' : 'false');});
+      items.forEach(function(it){
+        if (!current) { it.removeAttribute('hidden'); return; }
+        var tags = (it.getAttribute('data-tags') || '').split('|');
+        if (tags.indexOf(current) >= 0) it.removeAttribute('hidden');
+        else it.setAttribute('hidden', '');
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -49,6 +49,9 @@
     "api/version.js": {
       "maxDuration": 5,
       "includeFiles": "{content/changelog.md,content/site-meta.json}"
+    },
+    "api/og.js": {
+      "maxDuration": 10
     }
   }
 }

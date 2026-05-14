@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ROIC on incremental capital, in plain English | Halvren Notes</title>
+<meta name="description" content="Marginal ROIC, not average ROIC, is what the next dollar earns. The math is mechanical. Most operators do not publish it because the answer is uncomfortable.">
+<meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<script>(function(){try{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="canonical" href="https://halvrencapital.com/notes/roic-incremental-capital-plain-english">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ROIC on incremental capital, in plain English">
+<meta property="og:description" content="Marginal ROIC, not average ROIC, is what the next dollar earns. The math is mechanical. Most operators do not publish it because the answer is uncomfortable.">
+<meta property="og:url" content="https://halvrencapital.com/notes/roic-incremental-capital-plain-english">
+<meta property="og:image" content="https://halvrencapital.com/api/og?title=ROIC%20on%20incremental%20capital%2C%20in%20plain%20English&eyebrow=Halvren%20Notes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://halvrencapital.com/api/og?title=ROIC%20on%20incremental%20capital%2C%20in%20plain%20English&eyebrow=Halvren%20Notes">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111010'/><path d='M7 8 L7 24 M7 16 L15 16 M15 8 L15 24' stroke='%23e8e6e2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M19 8 L19 24 M19 8 L26 16 L19 24' stroke='%23c9a84c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"ROIC on incremental capital, in plain English","description":"Marginal ROIC, not average ROIC, is what the next dollar earns. The math is mechanical. Most operators do not publish it because the answer is uncomfortable.","author":{"@id":"https://halvrencapital.com/#amirali"},"publisher":{"@id":"https://halvrencapital.com/#organization"},"datePublished":"2026-03-21","dateModified":"2026-03-21","mainEntityOfPage":"https://halvrencapital.com/notes/roic-incremental-capital-plain-english","image":"https://halvrencapital.com/api/og?title=ROIC%20on%20incremental%20capital%2C%20in%20plain%20English&eyebrow=Halvren%20Notes","inLanguage":"en-CA","keywords":"Capital allocation, Operator quality, Cross-sector"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://halvrencapital.com/"},{"@type":"ListItem","position":2,"name":"Notes","item":"https://halvrencapital.com/notes"},{"@type":"ListItem","position":3,"name":"ROIC on incremental capital, in plain English","item":"https://halvrencapital.com/notes/roic-incremental-capital-plain-english"}]}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/page.css">
+<style>
+.note-meta-row{display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap;margin-top:var(--space-3);font-family:var(--font-body);font-size:var(--text-xs);color:var(--color-text-muted);letter-spacing:0.04em}
+.note-meta-row .sep{color:var(--color-text-faint)}
+.note-tags{display:flex;gap:var(--space-2);flex-wrap:wrap;margin-top:var(--space-3)}
+.note-tag{font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-text-muted);padding:var(--space-1) var(--space-3);border:1px solid var(--color-divider);border-radius:999px}
+.note-disclaimer{margin-top:var(--space-12);padding-top:var(--space-6);border-top:1px solid var(--color-divider);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.02em;line-height:1.7;max-width:72ch}
+</style>
+</head>
+<body>
+<div class="progress-bar" aria-hidden="true"><div class="progress-bar-fill"></div></div>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav>
+  <a href="/" class="nav-logo" aria-label="Halvren Capital — home">
+    <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="4" fill="none"/>
+      <path d="M6 6 L6 26 M6 16 L16 16 M16 6 L16 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 6 L20 26 M20 6 L28 16 L20 26" stroke="var(--color-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-logo-name">Halvren Capital</span>
+  </a>
+  <div class="nav-links" id="nav-links" data-open="false">
+    <a href="/research">Research</a>
+    <a href="/notes" aria-current="page">Notes</a>
+    <a href="/letters">Letters</a>
+    <a href="/process">Process</a>
+    <a href="/access">Access</a>
+    <a href="/about">About</a>
+  </div>
+  <div class="nav-right">
+    <a href="/" class="nav-back">Back to home</a>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" type="button">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-controls="nav-links" aria-expanded="false" type="button">
+      <span class="nav-toggle-open"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>
+      <span class="nav-toggle-close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></span>
+    </button>
+  </div>
+</nav>
+
+<main id="main" class="doc-main">
+  <article class="doc-article">
+    <p class="doc-breadcrumb"><a href="/">Home</a><span class="doc-breadcrumb-sep">/</span><a href="/notes">Notes</a><span class="doc-breadcrumb-sep">/</span><span>roic incremental capital plain english</span></p>
+    <p class="section-label">Halvren Notes</p>
+    <h1 class="doc-h1">ROIC on incremental capital, in plain English</h1>
+    <div class="byline">
+      <img src="/amirali.jpg" alt="Amirali Karimi" class="byline-avatar" width="52" height="52" loading="lazy">
+      <div class="byline-body">
+        <p class="byline-name"><a href="/about">Amirali Karimi</a></p>
+        <p class="byline-meta">Founder, Halvren Capital &middot; Vancouver, BC</p>
+      </div>
+      <p class="byline-date">Published March 21, 2026 &middot; 10-min read</p>
+    </div>
+    <div class="note-tags"><span class="note-tag">Capital allocation</span><span class="note-tag">Operator quality</span><span class="note-tag">Cross-sector</span></div>
+
+    <div class="doc-body">
+<p class="doc-p">Most operator decks report return on equity or return on invested capital on a whole-business basis. The number is average ROIC across every dollar of historical capital, irrespective of when it was deployed, by which CEO, into which asset. As a backward-looking summary it is fine. As a forward-looking decision input it is almost useless.</p>
+<p class="doc-p">The number that matters is marginal ROIC. What does the next dollar of capital, deployed today, earn? The math is not difficult. The reason most operators do not report it cleanly is that the answer is sometimes uncomfortable, and the answer changes the multiple readers should pay for the next round of capex.</p>
+<h2 class="doc-h2">Three ways the next dollar gets deployed</h2>
+<p class="doc-p">Operators deploy incremental capital in roughly three forms. The framework reads each separately.</p>
+<p class="doc-p"><strong>Form one: sustaining capex.</strong> The dollars that keep production flat. The marginal ROIC on sustaining capex is, by definition, the operator's average ROIC on the asset base — it earns what the asset earns. The relevant test is not whether sustaining capex is value-creating (it is, if the asset is) but whether the sustaining-capex number itself is rising over time. A rising sustaining number tells you the asset base is harder to hold flat than it used to be, which is the leading indicator of structural cost-curve drift. We track the per-BOE or per-tonne sustaining number every year for every operator on the coverage list.</p>
+<p class="doc-p"><strong>Form two: growth capex on the existing asset.</strong> Brownfield expansion, mill optimization, an in-fill drilling program. The marginal ROIC on brownfield growth is often the highest available to the operator: the surrounding infrastructure is already in place, the engineering is well-understood, and the production-cost curve flattens as the asset scales. <a href="/research/canadian-natural-cnq">Canadian Natural (CNQ)</a> at Horizon has produced consistently first-quartile marginal ROIC on incremental brownfield capital over the past decade; the Pelican Lake polymer flood was a particularly clean example of brownfield value creation. Brownfield growth is the form of capex we read most generously.</p>
+<p class="doc-p"><strong>Form three: growth capex on a new asset, by acquisition or greenfield build.</strong> This is the form where the worst capital allocation in mining and energy has happened. A greenfield build at the top of a commodity cycle, or an acquisition paid for in inflated currency at the same point, can carry marginal ROIC of less than zero for years before the original case shows in the data. The 2014–2015 wave of greenfield builds in the senior gold sector destroyed value on most of them. <a href="/research/teck-resources-teck">Teck Resources (TECK)</a>'s Quebrada Blanca 2 project was a multi-billion dollar capex program whose ROIC has trailed the original case meaningfully; the 2024–2026 ramp will determine the long-term verdict.</p>
+<p class="doc-p">The third form is also where the buyback decision fits, considered as the inverse: a dollar of capital used to retire stock at the prevailing market price earns the inverse of the price-to-earnings multiple at the moment of the buyback. At a 10x earnings multiple, a buyback is a 10% marginal ROIC capital deployment. The operator's choice between greenfield growth at 6% marginal ROIC and a buyback at 10% marginal ROIC is, in the framework, a straightforward arithmetic problem.</p>
+<h2 class="doc-h2">The CrownRock test at Occidental</h2>
+<p class="doc-p"><a href="/research/occidental-oxy">Occidental (OXY)</a> closed the CrownRock acquisition in August 2024 at a headline price of roughly US$12B. The acquisition extended the Midland Basin position into the Wolfberry-fairway acreage at type-curve assumptions that were aggressive by Permian-cohort standards. The transaction was funded with a mix of cash, equity, and debt.</p>
+<p class="doc-p">The honest test of the marginal ROIC on CrownRock is, in the framework, three numbers. First, the per-well productivity of the acquired acreage at the wells drilled post-close. Second, the unit operating cost trajectory at the integrated assets. Third, the per-share accretion at a constant oil price. The first two are knowable from the operator's quarterly filings; the third is a derived metric we run from the public data.</p>
+<p class="doc-p">The early read on the first two is encouraging. Per-well productivity has held within the original case; unit costs have continued to trend down. The third number — per-share accretion — depends on the rate of debt paydown and the resumption of the buyback at the elevated debt level the deal created. The walk to the US$15B near-term net-debt target is the path. The buyback resumption is the moment the marginal-ROIC question is answered cleanly. We do not have a confident view on the final answer yet.</p>
+<p class="doc-p">The transaction is a useful case study because the operator has shown its work. The deck disclosed the type-curve assumptions; the integration milestones have been reported; the per-well data is in the filings. Most acquisitions of this size do not show this much work. When the deck does not show the work, the reader has to ask why.</p>
+<h2 class="doc-h2">The QB2 test at Teck</h2>
+<p class="doc-p">The other instructive case is Quebrada Blanca 2. The greenfield copper project was sanctioned in 2018 at an original-case capital cost meaningfully below what the project actually cost when commissioned. The ramp to design throughput took longer than the original timeline. The unit operating cost at the integrated mine has been higher than the original case. The marginal ROIC on the original capital, as deployed, has trailed expectations.</p>
+<p class="doc-p">That is not a verdict; it is a snapshot. The mine is producing. The marginal copper coming out of QB2 in 2026 is, on a forward basis, earning competitive economics at mid-cycle copper prices. The question for the marginal-ROIC framework is which capital base the reader runs the calculation against: the original sanctioned amount, or the actually-spent amount. The answer changes the headline meaningfully. Teck reports both. The honest framework reads both.</p>
+<p class="doc-pullquote">Reported ROE is the historical average. Marginal ROIC is what the next dollar earns. They are not the same number, and the difference is the operator's discipline.</p>
+<h2 class="doc-h2">Why operators avoid the cleaner framing</h2>
+<p class="doc-p">A simple marginal-ROIC disclosure — "our next dollar of capital earns this rate at the current price deck" — would be the most useful single line a capital-intensive operator could publish. Almost no operator publishes it. The reasons are not malicious. They are structural.</p>
+<p class="doc-p">First, the disclosure invites a specific accountability that operators are not designed to deliver. If the next dollar's marginal ROIC is disclosed at 12%, the operator owes the shareholder an explanation for any year in which the disclosed return falls below 12%. The accountability is what the operator wants to internalize, not externalize.</p>
+<p class="doc-p">Second, the disclosure varies meaningfully by commodity price, currency, and capital structure. A single point estimate is a useful sentence to write but a misleading one to bind oneself to. Most operators prefer a range of capital-allocation guidance with no point-estimate marginal ROIC because the range is harder to be wrong about.</p>
+<p class="doc-p">Third, the disclosure can be tactically used by the share-price market against the operator. A disclosed marginal ROIC of 8% during a period when the equity yield is 9% creates an obvious capital-allocation argument for buybacks over capex; the operator may have non-financial reasons for preferring capex (asset-life extension, regulatory relationship, employee retention) that the framework does not capture. The disclosure encourages a conversation the operator may not want to have.</p>
+<h2 class="doc-h2">The buyback as the cleanest test</h2>
+<p class="doc-p">Of the three forms of incremental capital deployment, the buyback is the cleanest test of the operator's view on intrinsic value. A buyback at the prevailing market price is a real-time disclosure of the operator's view that the underlying business is worth more than the market is offering. A pause in the buyback is the inverse disclosure. Both are informative.</p>
+<p class="doc-p">The math is mechanical. A buyback earns the inverse of the price-to-earnings multiple at the moment of execution. At a 10x multiple, the buyback earns a 10% pre-tax return on the capital deployed. At a 20x multiple, the buyback earns 5%. Compared against the marginal ROIC on greenfield capex (often 6–10% pre-tax in mining and energy) or brownfield capex (often 10–18%), the buyback is competitive or superior across most of the cohort at most of the time.</p>
+<p class="doc-p">That arithmetic is what makes the buyback a useful Pillar I read. An operator who consistently buys back stock at trough prices and pauses at peak prices is making the marginal-ROIC math work in the shareholder's favour. An operator who buys back at peak prices and pauses at trough prices is doing the opposite. The pattern over a decade is visible in the share-count history and the realized buyback price.</p>
+<p class="doc-p"><a href="/research/canadian-natural-cnq">Canadian Natural (CNQ)</a>'s buyback record over 2020–2025 is the cleanest single example on the desk. The pace was modest in absolute size but consistent through the trough; the share count fell by single-digit percent points over a five-year window that included material drawdowns; the per-share reserves and per-share production both grew through the period. The math is in the public disclosures every quarter.</p>
+<p class="doc-p">The counter-example is illustrative. Several Canadian operators in the 2014–2016 window bought back stock at near-peak prices in 2014, paused the buyback in 2015 when the share price fell by 50%, and resumed in 2018 at higher prices than the 2015 pause. The marginal ROIC on the 2014 buyback was negative; the operator was buying at a price the market subsequently demonstrated was meaningfully too high. The same operator would have been better served by paying down debt in 2014 and buying back in 2015 at the lower price. The lesson is the same one Buffett published in his 1980s letters: a buyback is a tool, and the tool is only useful when the operator has the discipline to use it at the right price.</p>
+<p class="doc-p">The framework reads the buyback record as part of the marginal-ROIC question, and the consistency of the buyback record is one of the strongest single signals of Pillar II capital culture. The two pillars are not separable in practice.</p>
+<h2 class="doc-h2">What we do with the framework</h2>
+<p class="doc-p">The Halvren marginal-ROIC framework is a thinking tool, not a published model. We use it internally on every Pillar I and Pillar III assessment. For most operators, the marginal-ROIC question yields a defensible range rather than a point estimate. The range is informative.</p>
+<p class="doc-p">Operators whose marginal-ROIC range is wide and downward-skewed get the harder read on Pillar I. Operators whose marginal-ROIC range is narrow and consistently above the cost of capital get the cleaner read. The framework will not tell you the right multiple for the stock; it will tell you which operators are deploying capital at returns that justify the next year of patience, and which are deploying capital at returns that suggest a different decision is overdue.</p>
+<p class="doc-p">The operators on the Halvren desk are not always the operators with the highest marginal ROIC at any given moment. They are the operators whose marginal ROIC framework is consistent year-to-year, disciplined when the easy money is on the table, and honest about the answer when it is not what the deck says.</p>
+    </div>
+
+    <p class="note-disclaimer">This note is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold positions in any of the operators referenced and may transact at any time without notice. Halvren Capital manages proprietary capital and is not currently accepting outside investors. See the <a href="/terms">Terms of Use</a> for the full disclaimer.</p>
+
+    <hr class="doc-divider">
+    <section class="related">
+      <div class="related-head"><p class="section-label">Operators referenced</p></div>
+      <div class="related-grid">
+        <a href="/research/canadian-natural-cnq" class="related-card">
+          <p class="related-label">Oil & Gas &middot; CNQ</p>
+          <p class="related-title">Canadian Natural Resources: The <em>owner-operator</em> arithmetic.</p>
+          <p class="related-dek">Canadian Natural &mdash; Oil & Gas on the desk.</p>
+        </a>
+        <a href="/research/teck-resources-teck" class="related-card">
+          <p class="related-label">Industrial Metals &middot; TECK</p>
+          <p class="related-title">Teck (TECK): The <em>copper company</em> the coal company became.</p>
+          <p class="related-dek">Teck Resources &mdash; Industrial Metals on the desk.</p>
+        </a>
+        <a href="/research/occidental-oxy" class="related-card">
+          <p class="related-label">Oil & Gas &middot; OXY</p>
+          <p class="related-title">Occidental (OXY): The <em>Permian operator</em> Buffett blessed.</p>
+          <p class="related-dek">Occidental &mdash; Oil & Gas on the desk.</p>
+        </a></div>
+    </section>
+
+    <hr class="doc-divider">
+    <section class="related">
+      <div class="related-head"><p class="section-label">What to read next</p></div>
+      <div class="related-grid">
+        <a href="/notes/how-to-read-canadian-oil-gas-operator-seven-numbers" class="related-card">
+          <p class="related-label">Note &middot; May 14, 2026</p>
+          <p class="related-title">How to read a Canadian oil & gas operator in seven numbers</p>
+          <p class="related-dek">Seven numbers, in order. Sustaining capex per barrel, free-cash break-even, net debt at strip, per-share production, insider open-market buys, 2015 and 2020 dividend behaviour, ten-year reserve replacement at flat prices. Everything else is decoration.</p>
+        </a>
+        <a href="/notes/silver-per-share-problem" class="related-card">
+          <p class="related-label">Note &middot; Apr 9, 2026</p>
+          <p class="related-title">Silver's per-share problem: why production growth isn't shareholder value</p>
+          <p class="related-dek">Most senior silver producers have grown absolute ounces meaningfully over the past decade and destroyed per-share value while doing it. The arithmetic is mechanical. The reason it persists is incentive design.</p>
+        </a></div>
+      <p class="related-more"><a href="/notes">All notes &rarr;</a></p>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="footer-trust">
+    <span class="footer-trust-item">Canadian &amp; U.S. markets</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">AI-augmented &middot; human-reviewed</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">Proprietary capital</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">Public research is free</span>
+  </div>
+  <div class="footer-inner">
+    <div class="footer-brand">Halvren Capital<span>Vancouver, BC &middot; Est. 2025</span></div>
+    <div class="footer-disclaimer">
+      <p>Halvren Capital publishes research and commentary for informational and educational purposes only. Nothing on this site constitutes an offer, solicitation, or recommendation to buy or sell any security.</p>
+      <p>Halvren manages proprietary capital and is not currently accepting outside investors. Halvren is not a registered investment adviser, broker-dealer, or portfolio manager. The author may hold positions in securities discussed and may transact in them at any time without notice.</p>
+    </div>
+  </div>
+  <div class="footer-inner footer-meta">
+    <span>&copy; 2025–2026 Halvren Capital. All rights reserved.</span>
+    <a href="/version" class="footer-last-reviewed" title="Build provenance and changelog"><strong>Last reviewed:</strong> May 6, 2026</a>
+    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/notes">Notes</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/performance">Performance</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span>
+  </div>
+</footer>
+<script>(function(){var f=document.querySelector('.progress-bar-fill');if(!f)return;function u(){var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;f.style.width=(m>0?Math.min(100,Math.max(0,(h.scrollTop/m)*100)):0)+'%';}addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})();</script>
+<script src="/nav.js" defer></script>
+</body>
+</html>

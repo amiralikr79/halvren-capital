@@ -495,6 +495,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   </a>
   <div class="nav-links" id="nav-links" data-open="false">
     <a href="/research" aria-current="page">Research</a>
+    <a href="/notes">Notes</a>
     <a href="/letters">Letters</a>
     <a href="/process">Process</a>
     <a href="/access">Access</a>
@@ -557,7 +558,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <div class="footer-inner footer-meta">
     <span>&copy; 2025–2026 Halvren Capital. All rights reserved.</span>
     <a href="/version" class="footer-last-reviewed" title="Build provenance and changelog"><strong>Last reviewed:</strong> {last_full_site_review}</a>
-    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/performance">Performance</a> &middot; <a href="/press">Press</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/version">Version</a></span>
+    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/notes">Notes</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/performance">Performance</a> &middot; <a href="/press">Press</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/version">Version</a></span>
   </div>
 </footer>
 <script>(function(){{var f=document.querySelector('.progress-bar-fill');if(!f)return;function u(){{var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;f.style.width=(m>0?Math.min(100,Math.max(0,(h.scrollTop/m)*100)):0)+'%';}}addEventListener('scroll',u,{{passive:true}});addEventListener('resize',u);u();}})();</script>

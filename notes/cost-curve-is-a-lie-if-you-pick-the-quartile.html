@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The cost curve is a lie if you let them pick the quartile | Halvren Notes</title>
+<meta name="description" content="Every operator claims first-quartile. The denominator decides. Three questions to test the claim, with examples from gold, silver, uranium, and copper.">
+<meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<script>(function(){try{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="canonical" href="https://halvrencapital.com/notes/cost-curve-is-a-lie-if-you-pick-the-quartile">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The cost curve is a lie if you let them pick the quartile">
+<meta property="og:description" content="Every operator claims first-quartile. The denominator decides. Three questions to test the claim, with examples from gold, silver, uranium, and copper.">
+<meta property="og:url" content="https://halvrencapital.com/notes/cost-curve-is-a-lie-if-you-pick-the-quartile">
+<meta property="og:image" content="https://halvrencapital.com/api/og?title=The%20cost%20curve%20is%20a%20lie%20if%20you%20let%20them%20pick%20the%20quartile&eyebrow=Halvren%20Notes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://halvrencapital.com/api/og?title=The%20cost%20curve%20is%20a%20lie%20if%20you%20let%20them%20pick%20the%20quartile&eyebrow=Halvren%20Notes">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111010'/><path d='M7 8 L7 24 M7 16 L15 16 M15 8 L15 24' stroke='%23e8e6e2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M19 8 L19 24 M19 8 L26 16 L19 24' stroke='%23c9a84c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"The cost curve is a lie if you let them pick the quartile","description":"Every operator claims first-quartile. The denominator decides. Three questions to test the claim, with examples from gold, silver, uranium, and copper.","author":{"@id":"https://halvrencapital.com/#amirali"},"publisher":{"@id":"https://halvrencapital.com/#organization"},"datePublished":"2026-05-08","dateModified":"2026-05-08","mainEntityOfPage":"https://halvrencapital.com/notes/cost-curve-is-a-lie-if-you-pick-the-quartile","image":"https://halvrencapital.com/api/og?title=The%20cost%20curve%20is%20a%20lie%20if%20you%20let%20them%20pick%20the%20quartile&eyebrow=Halvren%20Notes","inLanguage":"en-CA","keywords":"Cost curve, Materials, Operator quality, Cross-sector"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://halvrencapital.com/"},{"@type":"ListItem","position":2,"name":"Notes","item":"https://halvrencapital.com/notes"},{"@type":"ListItem","position":3,"name":"The cost curve is a lie if you let them pick the quartile","item":"https://halvrencapital.com/notes/cost-curve-is-a-lie-if-you-pick-the-quartile"}]}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/page.css">
+<style>
+.note-meta-row{display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap;margin-top:var(--space-3);font-family:var(--font-body);font-size:var(--text-xs);color:var(--color-text-muted);letter-spacing:0.04em}
+.note-meta-row .sep{color:var(--color-text-faint)}
+.note-tags{display:flex;gap:var(--space-2);flex-wrap:wrap;margin-top:var(--space-3)}
+.note-tag{font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-text-muted);padding:var(--space-1) var(--space-3);border:1px solid var(--color-divider);border-radius:999px}
+.note-disclaimer{margin-top:var(--space-12);padding-top:var(--space-6);border-top:1px solid var(--color-divider);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.02em;line-height:1.7;max-width:72ch}
+</style>
+</head>
+<body>
+<div class="progress-bar" aria-hidden="true"><div class="progress-bar-fill"></div></div>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav>
+  <a href="/" class="nav-logo" aria-label="Halvren Capital — home">
+    <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="4" fill="none"/>
+      <path d="M6 6 L6 26 M6 16 L16 16 M16 6 L16 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 6 L20 26 M20 6 L28 16 L20 26" stroke="var(--color-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-logo-name">Halvren Capital</span>
+  </a>
+  <div class="nav-links" id="nav-links" data-open="false">
+    <a href="/research">Research</a>
+    <a href="/notes" aria-current="page">Notes</a>
+    <a href="/letters">Letters</a>
+    <a href="/process">Process</a>
+    <a href="/access">Access</a>
+    <a href="/about">About</a>
+  </div>
+  <div class="nav-right">
+    <a href="/" class="nav-back">Back to home</a>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" type="button">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-controls="nav-links" aria-expanded="false" type="button">
+      <span class="nav-toggle-open"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>
+      <span class="nav-toggle-close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></span>
+    </button>
+  </div>
+</nav>
+
+<main id="main" class="doc-main">
+  <article class="doc-article">
+    <p class="doc-breadcrumb"><a href="/">Home</a><span class="doc-breadcrumb-sep">/</span><a href="/notes">Notes</a><span class="doc-breadcrumb-sep">/</span><span>cost curve is a lie if you pick the quartile</span></p>
+    <p class="section-label">Halvren Notes</p>
+    <h1 class="doc-h1">The cost curve is a lie if you let them pick the quartile</h1>
+    <div class="byline">
+      <img src="/amirali.jpg" alt="Amirali Karimi" class="byline-avatar" width="52" height="52" loading="lazy">
+      <div class="byline-body">
+        <p class="byline-name"><a href="/about">Amirali Karimi</a></p>
+        <p class="byline-meta">Founder, Halvren Capital &middot; Vancouver, BC</p>
+      </div>
+      <p class="byline-date">Published May 8, 2026 &middot; 10-min read</p>
+    </div>
+    <div class="note-tags"><span class="note-tag">Cost curve</span><span class="note-tag">Materials</span><span class="note-tag">Operator quality</span><span class="note-tag">Cross-sector</span></div>
+
+    <div class="doc-body">
+<p class="doc-p">Open any senior mining presentation and you will find a cost-curve slide. The operator's mines sit comfortably in the first quartile. The competitors' mines sit further to the right. The conclusion is foregone. The slide has done its job before the reader has noticed which curve they are looking at.</p>
+<p class="doc-p">Every operator is first-quartile when they pick the quartile. The denominator is the game.</p>
+<p class="doc-p">The honest read of a cost curve starts with three questions, asked in this order. What is the denominator? Who else is on the curve? What was excluded? If the operator's answers are ambiguous or unflattering, the slide is decoration. If the answers are clean, the slide is real.</p>
+<h2 class="doc-h2">1. What is the denominator?</h2>
+<p class="doc-p">A "global cost curve" is rarely global. The most common manipulation is to define the curve as a subset of the global production base — the operator's region, the operator's primary asset type, or the operator's commodity within a co-product split — and then claim first-quartile relative to the subset.</p>
+<p class="doc-p">A Canadian gold operator that draws its cost curve against the Canadian Tier-1 producer cohort is not lying. It is also not telling you where it sits on the global cost curve, which includes meaningful production from West Africa, Latin America, Central Asia, and Australia at AISC numbers that are often materially lower than the Canadian average. <a href="/research/agnico-eagle-aem">Agnico Eagle (AEM)</a> does not need to use this trick — its AISC is competitive on a global basis — but most of the senior gold cohort does, and the slide reflects it.</p>
+<p class="doc-p">The clean denominator question is: "show me your AISC against the largest 50 producers globally on a single chart." If the operator demurs, the answer is the answer.</p>
+<h2 class="doc-h2">2. Who else is on the curve?</h2>
+<p class="doc-p">The second manipulation is to exclude producers who would embarrass the comparison. The exclusion can be on jurisdiction (Russian potash, for instance, is often left out of "Western potash cost curve" charts). It can be on asset stage (mines in commissioning are not "operating"). It can be on operator size (only senior producers are graphed, even though the marginal producer is a junior).</p>
+<p class="doc-p">Each exclusion is defensible on its own terms. Combined, they let the operator construct any curve they want. The principal-led read of a cost-curve slide always asks: who is _not_ on this curve, and why? If the operator's answer is "because the data is unreliable," the next question is who the operator thinks is below them on the data the operator does have.</p>
+<h2 class="doc-h2">3. What was excluded from the unit cost?</h2>
+<p class="doc-p">The third manipulation is in the y-axis itself. "Cash cost" excludes sustaining capex; "AISC" is meant to include it but operators interpret the boundary differently; "all-in cost" sometimes includes growth capex and sometimes does not. Net by-product credits inflate or deflate the headline number meaningfully.</p>
+<p class="doc-p">Silver producers are particularly creative here. A polymetallic silver-gold-lead-zinc mine reports its silver cash cost net of by-product credits, which can produce headline numbers in the low US$10s per ounce while the underlying mine economics are not that strong. <a href="/research/first-majestic-ag">First Majestic (AG)</a> is a Mexico-anchored silver producer whose AISC is among the higher in the senior silver cohort; the deck does not always say so directly.</p>
+<p class="doc-p">The honest cost-curve slide names the per-ounce or per-pound metric explicitly, separates by-product credits as a line, and discloses sustaining capex assumptions. If the slide does not do all three, the curve is decoration.</p>
+<p class="doc-pullquote">Every operator is first-quartile when they pick the quartile. Ask who sets the denominator.</p>
+<h2 class="doc-h2">The sector that does it cleanest</h2>
+<p class="doc-p">The one mining sector that has historically produced the cleanest cost-curve disclosure is uranium. The reason is structural: there are roughly a dozen producers globally, the largest five account for the vast majority of output, and the publicly disclosed AISC numbers from each — Kazatomprom, <a href="/research/cameco-cco">Cameco (CCO)</a>, Orano, CGN, Energy Fuels, Paladin, Boss Energy, Denison — are reported on broadly comparable metrics. A reader can stack them.</p>
+<p class="doc-p">When Cameco claims its Saskatchewan mines sit first-quartile, the claim is verifiable. McArthur River and Cigar Lake have among the highest ore grades ever developed; per-pound cash costs are structurally lower than the in-situ Kazakh operations or the secondary-supply tail in Africa and Australia. The claim has been tested through the post-Fukushima collapse, when Cameco mothballed McArthur and continued to produce; the lower-grade mines that did not mothball destroyed value on every pound. The cost curve in uranium has been honest because the operators have had to behave as if it were honest.</p>
+<h2 class="doc-h2">The sectors that do it worst</h2>
+<p class="doc-p">Silver and copper sit at the opposite end. Silver because of the by-product credit problem and because most silver production is incidental to gold, lead-zinc, and copper mining; "pure-play silver cost curves" are constructed by selecting only the mines that report silver as the primary metal, which is a small and unrepresentative sample. The honest silver curve includes by-product silver, which is much cheaper, and the senior pure-play silver producers do not want to be on that chart.</p>
+<p class="doc-p">Copper because by-product gold credits at the largest operations such as Grasberg (<a href="/research/freeport-mcmoran-fcx">Freeport</a>) and OT depress headline cash costs into negative territory if reported aggressively. The unit economics are real and good; the comparison to a Cerro Verde or a Las Bambas operating on copper-alone economics is not symmetric.</p>
+<h2 class="doc-h2">How we test the claim</h2>
+<p class="doc-p">The Halvren test on any cost-curve slide is mechanical. We pull the operator's reported AISC, sustaining capex, and by-product credit assumptions from the latest annual filing. We compare to a benchmark we maintain across the named cohort on consistent definitions. The benchmark is not novel; the sell-side analysts at the larger broker-dealers maintain something similar. What is novel is the reading.</p>
+<p class="doc-p">If the operator's reported AISC is within 5% of our benchmark and the denominator passes the three questions above, the cost-curve claim is real and we proceed to the operator-quality questions. If the operator's reported AISC is meaningfully below the benchmark, we ask why, and the answer is usually a definitional difference rather than an operational one. If the operator refuses to disclose the by-product credit boundary or the sustaining-capex boundary, we move on. There are 30 operators on the desk; we do not need to chase 31.</p>
+<h2 class="doc-h2">How to use the read in practice</h2>
+<p class="doc-p">The framework is operational, not theoretical. The questions get asked in a specific order, and the operator's answers (or refusals) sort the cohort with surprising speed.</p>
+<p class="doc-p">The first practical use is on the investor-relations call. A reader who wants a fast read of an unfamiliar mining operator can ask three questions on the next IR call and have a clean answer within five minutes: (a) which mines in the global cost-curve top fifty are below you, named? (b) what is the by-product credit assumption in your reported AISC, and what does AISC look like without the credit? (c) what does your sustaining capex per produced ounce or pound look like compared to the median of the disclosed cohort? An IR team that can answer all three smoothly is at a structurally different operator from one that demurs on each.</p>
+<p class="doc-p">The second use is on the deck slide itself. A cost-curve chart with no labeled producers, no jurisdiction breakdown, and no by-product disclosure is a decorative slide. A chart with named producers across the curve, jurisdictional buckets, and explicit boundary assumptions is the slide an operator confident in its position would draw. We screenshot the slide and the assumptions; we then compare to the cohort's average disclosure two years later. Slides drift; the drift is informative.</p>
+<p class="doc-p">The third use is on the historical record. A senior operator's claim to first-quartile cost position should be testable across the last decade, not just the current year. We pull the operator's AISC by year for the prior ten years and compare to the cohort's prior-decade history. An operator that has consistently sat in the first quartile through three different commodity cycles is making a structural claim. An operator that has moved into the first quartile only in the most recent two years is making a story claim. The two cases get priced differently.</p>
+<p class="doc-p">The compound result of these three practical uses is that, across the global gold, silver, copper, and uranium cohorts, the number of operators whose first-quartile claims pass all three tests is meaningfully smaller than the number of operators making the claim. The narrow set is the one we work on. The broader set is the one the conference panels talk about. We do not have to pick.</p>
+<h2 class="doc-h2">The slide is not the problem</h2>
+<p class="doc-p">A cost-curve slide is a useful artifact. The slide is not the problem. The problem is the reader who takes the slide at face value because the picture is suggestive and the conclusion is unambiguous. The mine has not moved on the cost curve since the slide was drafted. The marginal producer's economics have not improved or worsened in the time it took to print the deck. What has happened, every quarter, is that someone has chosen a denominator and called it the curve.</p>
+<p class="doc-p">The compounded result, across our coverage list, is that the first-quartile claim is verifiable on roughly a quarter of the senior mining names we have read in detail. The other three-quarters of the cohort claim first-quartile on definitions that fall apart on the first follow-up question. That is not a fraud read; it is a discipline read. The operator who has read the questions above and answered them honestly is the operator we want to spend time with. The operator who has not is the operator whose cost-curve slide is decoration on a slide deck. The decoration is fine; the slide is fine; the reader who confuses them with the underlying business is the part of the system the framework is meant to protect against. A research desk that earns its keep is the part of the protection that does the reading work for the careful capital allocator who does not have time to read every deck themselves.</p>
+<p class="doc-p">The operators worth owning are the ones who can show their work. The operators worth avoiding are the ones who cannot. The slide is the same slide either way; the answer to the question behind it is the only thing the careful investor is buying.</p>
+    </div>
+
+    <p class="note-disclaimer">This note is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold positions in any of the operators referenced and may transact at any time without notice. Halvren Capital manages proprietary capital and is not currently accepting outside investors. See the <a href="/terms">Terms of Use</a> for the full disclaimer.</p>
+
+    <hr class="doc-divider">
+    <section class="related">
+      <div class="related-head"><p class="section-label">Operators referenced</p></div>
+      <div class="related-grid">
+        <a href="/research/cameco-cco" class="related-card">
+          <p class="related-label">Uranium &middot; CCO</p>
+          <p class="related-title">Cameco (CCO): A mine with a cost structure, read <em>honestly.</em></p>
+          <p class="related-dek">Cameco &mdash; Uranium on the desk.</p>
+        </a>
+        <a href="/research/first-majestic-ag" class="related-card">
+          <p class="related-label">Silver &middot; AG</p>
+          <p class="related-title">First Majestic Silver (AG): The <em>honest skeptic's</em> read.</p>
+          <p class="related-dek">First Majestic &mdash; Silver on the desk.</p>
+        </a>
+        <a href="/research/agnico-eagle-aem" class="related-card">
+          <p class="related-label">Gold &middot; AEM</p>
+          <p class="related-title">Agnico Eagle (AEM): The boring gold operator, <em>by design.</em></p>
+          <p class="related-dek">Agnico Eagle &mdash; Gold on the desk.</p>
+        </a></div>
+    </section>
+
+    <hr class="doc-divider">
+    <section class="related">
+      <div class="related-head"><p class="section-label">What to read next</p></div>
+      <div class="related-grid">
+        <a href="/notes/uranium-operator-checklist" class="related-card">
+          <p class="related-label">Note &middot; Apr 16, 2026</p>
+          <p class="related-title">The uranium operator's checklist: separating the mines from the narratives</p>
+          <p class="related-dek">Uranium has been a narrative commodity for two decades and an operator commodity for about three years. The checklist for reading a uranium business is shorter than the average pitch deck — six questions, four of which most uranium names fail.</p>
+        </a>
+        <a href="/notes/silver-per-share-problem" class="related-card">
+          <p class="related-label">Note &middot; Apr 9, 2026</p>
+          <p class="related-title">Silver's per-share problem: why production growth isn't shareholder value</p>
+          <p class="related-dek">Most senior silver producers have grown absolute ounces meaningfully over the past decade and destroyed per-share value while doing it. The arithmetic is mechanical. The reason it persists is incentive design.</p>
+        </a></div>
+      <p class="related-more"><a href="/notes">All notes &rarr;</a></p>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="footer-trust">
+    <span class="footer-trust-item">Canadian &amp; U.S. markets</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">AI-augmented &middot; human-reviewed</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">Proprietary capital</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">Public research is free</span>
+  </div>
+  <div class="footer-inner">
+    <div class="footer-brand">Halvren Capital<span>Vancouver, BC &middot; Est. 2025</span></div>
+    <div class="footer-disclaimer">
+      <p>Halvren Capital publishes research and commentary for informational and educational purposes only. Nothing on this site constitutes an offer, solicitation, or recommendation to buy or sell any security.</p>
+      <p>Halvren manages proprietary capital and is not currently accepting outside investors. Halvren is not a registered investment adviser, broker-dealer, or portfolio manager. The author may hold positions in securities discussed and may transact in them at any time without notice.</p>
+    </div>
+  </div>
+  <div class="footer-inner footer-meta">
+    <span>&copy; 2025–2026 Halvren Capital. All rights reserved.</span>
+    <a href="/version" class="footer-last-reviewed" title="Build provenance and changelog"><strong>Last reviewed:</strong> May 6, 2026</a>
+    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/notes">Notes</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/performance">Performance</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span>
+  </div>
+</footer>
+<script>(function(){var f=document.querySelector('.progress-bar-fill');if(!f)return;function u(){var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;f.style.width=(m>0?Math.min(100,Math.max(0,(h.scrollTop/m)*100)):0)+'%';}addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})();</script>
+<script src="/nav.js" defer></script>
+</body>
+</html>

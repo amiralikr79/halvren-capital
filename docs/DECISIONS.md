@@ -13,6 +13,36 @@ Format:
 
 ---
 
+## 2026-05-14 — Sprint 3: `.mdx` source files build to HTML via Python, not via an MDX runtime
+**Decision.** Treat `/content/notes/<slug>.mdx` as the canonical source for each note: YAML-ish frontmatter at the top, Markdown body underneath. The build pipeline (`scripts/build_notes.py`) parses the frontmatter and renders the body to static HTML at `/notes/<slug>.html`. No MDX runtime is introduced; the `.mdx` extension reflects the user's spec and the structure of the source format, not a React/JSX renderer.
+**Context / alternatives.** Could have introduced a Next.js, Astro, or 11ty pipeline to handle real MDX with JSX components. Rejected: the site is a deliberately dependency-light static HTML deployment on Vercel; adding a framework crosses the brand-doc and operating-rules scope line on its own. The Python builder pattern is already established for operators and coverage; the notes builder mirrors it.
+**Cost / reversibility.** Reversible by switching to a real MDX runtime in a future sprint. The frontmatter format is YAML-compatible; the body is plain Markdown; both are portable.
+
+## 2026-05-14 — Sprint 3: Notes index is editorial-letter style, not a blog grid
+**Decision.** `/notes/index.html` reads like a back issue of a quarterly letter — date in the left column, title in a serif, one-sentence pull, tag row underneath. Tag chips filter in place via vanilla JS. No cards, no thumbnails, no covers.
+**Context / alternatives.** A blog-grid layout with images would have been faster to implement and is the default for note collections. Rejected because the brand doc's voice and motion rules forbid the dressed-up presentation and the principal explicitly asked for "editorial-letter style." The current layout draws the eye to the title; the date carries the chronology; the pull does the selling, if there is selling to do.
+**Cost / reversibility.** Trivial. Future visual reskin lands in Sprint 4.
+
+## 2026-05-14 — Sprint 3: OG images via `/api/og` route, with Cormorant + DM Sans
+**Decision.** Auto-generate per-note OG images via the new `/api/og` edge function. The image is a 1200×630 PNG: warm off-white background (`--bg`), serif title (Cormorant Garamond 600) in `--ink`, small wordmark + Halvren glyph in the bottom-right, one gold hairline. Title and eyebrow are read from query params.
+**Context / alternatives.** Could have generated 10 static PNGs via `scripts/og_research_piece.py` (existing PIL-based tool) and pinned each note's OG to its own file. Rejected: the API route scales to all future notes without a per-note generator step, the brand doc's typography target (Cormorant Garamond) is rendered natively in the OG image now, and the @vercel/og package is already a dependency. The function is cached aggressively at the edge (`s-maxage=31536000`), so social platforms hit it once per URL.
+**Cost / reversibility.** Reversible by switching `og_image` URLs in each note's frontmatter to a static path. Sprint 7's OG audit may revisit; current implementation is the recommended one.
+
+## 2026-05-14 — Sprint 3: Separate `meta_description` from `excerpt`
+**Decision.** Frontmatter carries two fields: `excerpt` (40–60 words, used on the index pull and in OG/related-card deks) and `meta_description` (140–160 chars, used in the `<meta name="description">` tag and Article JSON-LD). The builder reads them separately and the seed authors them as two distinct strings per note.
+**Context / alternatives.** Initially used the excerpt as the meta description, which produced 200–290 char tags. Rejected once the spec called for 140–160 chars: meta descriptions are an SEO control, excerpts are an editorial control, and they belong on different word budgets.
+**Cost / reversibility.** Trivial.
+
+## 2026-05-14 — Sprint 3: Notes nav added site-wide; research and notes pages rebuilt
+**Decision.** Add a `Notes` link between `Research` and `Letters` in the primary nav and in the footer link row across all site pages. The build_operators.py template was updated and all 21 research pages were regenerated to match.
+**Context / alternatives.** Could have lazily added the link only on the notes pages themselves. Rejected: the user's expectation is that `/notes` is a first-class section, and the navigation surface should reflect it from every page on the site. The site-wide patch was scripted in one pass via a small Python migration.
+**Cost / reversibility.** Trivial.
+
+## 2026-05-14 — Sprint 3: Word-count discipline — 1,800 minimum enforced before publish
+**Decision.** Every note ships at ≥ 1,800 words. The first draft of the seed produced notes in the 1,200–1,500 range; the published versions were expanded with substantive H2 sections (not padding) to clear the spec floor. The voice rules were applied during expansion; the forbidden-phrase grep was re-run.
+**Context / alternatives.** Could have shipped at the lower word count and noted the gap in DECISIONS as a follow-up. Rejected: the user's brief was explicit about 1,800–2,500 words and "substantive," and lower-word notes risked reading as truncated. Expansion sections added new angles (limits of the seven-number framework, the recovery cohort, the streamer alternative for silver, the buyback as marginal-ROIC test, etc.) rather than restatement.
+**Cost / reversibility.** None.
+
 ## 2026-05-14 — Sprint 2: Use existing operator-data pipeline, not a single `operators.ts`
 **Decision.** Keep the established per-operator data layout (`data/operators/<slug>.json` + `content/operators/<slug>.md`) for the 15 new operators rather than introducing a single `operators.ts` or top-level `operators.json` file.
 **Context / alternatives.** The repo already has `scripts/build_operators.py` and `scripts/build_coverage.py` consuming the per-slug layout, with a documented schema in `scripts/operator-schema.md` and matching JSON-LD generation. Introducing a new flat file would either (a) duplicate the source of truth or (b) require rewriting the two build scripts mid-sprint. Both are net-negative.
