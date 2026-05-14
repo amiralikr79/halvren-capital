@@ -222,12 +222,22 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
 .op-header-countdown[data-state="today"]{color:#0e0d0b;background:var(--color-gold);border-color:var(--color-gold)}
 .op-header-countdown[data-state="past"]{color:var(--color-text-faint)}
 
-/* OPERATOR PAGE — THE READ (machine block) */
-.op-read{margin:var(--space-10) 0;padding:var(--space-6) var(--space-8);background:oklch(from var(--color-text) l c h/0.03);border:1px solid oklch(from var(--color-text) l c h/0.06);border-left:2px solid var(--color-gold);border-radius:var(--radius-md)}
-.op-read-eyebrow{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-gold);font-weight:500;font-family:var(--font-mono);margin-bottom:var(--space-3)}
-.op-read-summary{font-family:var(--font-mono);font-size:var(--text-sm);line-height:1.65;color:var(--color-text);font-weight:400;margin-bottom:var(--space-3);max-width:72ch}
+/* OPERATOR PAGE — THE READ (machine block)
+   muted voice: warmer/grayer body color, 1px warm-dark hairline (no brand gold,
+   no info blue), tighter line-height than the principal prose blocks */
+.op-read{margin:var(--space-10) 0;padding:var(--space-5) var(--space-8);background:oklch(from var(--color-text) l c h/0.025);border:none;border-left:1px solid oklch(from var(--color-text) l c h/0.18);border-radius:0}
+.op-read-eyebrow{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-text-muted);font-weight:500;font-family:var(--font-mono);margin-bottom:var(--space-3)}
+.op-read-summary{font-family:var(--font-mono);font-size:var(--text-sm);line-height:1.5;color:var(--color-text-muted);font-weight:400;margin-bottom:var(--space-3);max-width:72ch}
 .op-read-summary--placeholder{color:var(--color-text-faint);font-style:italic}
-.op-read-stamp{font-size:11px;letter-spacing:0.04em;color:var(--color-text-faint);font-family:var(--font-body);margin:0;max-width:72ch}
+.op-read-stamp{font-size:11px;letter-spacing:0.04em;color:var(--color-text-faint);font-family:var(--font-body);margin:0;max-width:72ch;line-height:1.5}
+
+/* OPERATOR PAGE — THE NOTE (principal block)
+   standard body color and weight; eyebrow + closing signature glyph mirror
+   the machine block but in muted-not-gold tone for the principal voice */
+.op-note-eyebrow{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-gold);font-weight:500;font-family:var(--font-mono);margin:0 0 var(--space-3)}
+.op-note-signature{margin:var(--space-10) 0 0;padding-top:var(--space-6);border-top:1px solid var(--color-divider);display:flex;align-items:center;gap:var(--space-3);color:var(--color-text-faint)}
+.op-note-signature svg{flex-shrink:0;opacity:0.7}
+.op-note-signature::after{content:"Halvren";font-family:var(--font-display);font-size:var(--text-sm);letter-spacing:0.02em;color:var(--color-text-faint)}
 
 /* OPERATOR PAGE — SECTION SHELL (numbers, what we track, the note, scorecard) */
 .op-section{margin:var(--space-12) 0}
@@ -532,9 +542,11 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
   .doc-stats dd:last-child{border-bottom:none}
 }
 
-/* footer: site-meta last-reviewed line */
+/* footer: site-meta last-reviewed line (linked to /version) */
 .footer-last-reviewed{font-size:11px;color:var(--color-text-faint);letter-spacing:0.04em;font-family:var(--font-body);margin:0 var(--space-2);white-space:nowrap}
 .footer-last-reviewed strong{color:var(--color-text-muted);font-weight:500}
+a.footer-last-reviewed{text-decoration:none;border-bottom:1px solid transparent;padding:0;color:var(--color-text-faint)}
+a.footer-last-reviewed:hover{color:var(--color-text-muted);border-bottom-color:var(--color-divider)}
 
 /* MOBILE: keep ticker + dates from breaking out at 375px */
 @media(max-width:480px){

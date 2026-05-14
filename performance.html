@@ -197,32 +197,25 @@
 .heatmap-table td{padding:0;text-align:center}
 .heatmap-table td:first-child{font-family:var(--font-mono);color:var(--color-text-muted);font-size:var(--text-xs);letter-spacing:0.04em;padding:var(--space-2) var(--space-3) var(--space-2) 0;text-align:left;font-weight:500}
 .heatmap-table td:first-child .total{display:block;color:var(--color-gold);font-size:10px;letter-spacing:0.04em;margin-top:1px}
-.hm-cell{display:flex;align-items:center;justify-content:center;height:38px;border-radius:4px;font-size:10px;color:var(--color-text);font-variant-numeric:tabular-nums;letter-spacing:0;font-weight:500;transition:transform 200ms var(--ease-soft)}
+.hm-cell{display:block;height:38px;border-radius:4px;transition:transform 200ms var(--ease-soft)}
 .hm-cell:hover{transform:scale(1.06);cursor:default}
-.hm-cell.empty{background:oklch(from var(--color-text) l c h/0.025);color:var(--color-text-faint)}
-.hm-cell.p1{background:oklch(from var(--color-gold) l c h/0.10);color:var(--color-text)}
-.hm-cell.p2{background:oklch(from var(--color-gold) l c h/0.20)}
-.hm-cell.p3{background:oklch(from var(--color-gold) l c h/0.40)}
-.hm-cell.p4{background:oklch(from var(--color-gold) l c h/0.65);color:#0e0d0b}
-.hm-cell.p5{background:var(--color-gold);color:#0e0d0b}
-.hm-cell.n1{background:oklch(0.65 0.18 25/0.10);color:var(--color-text)}
-.hm-cell.n2{background:oklch(0.62 0.20 25/0.22)}
-.hm-cell.n3{background:oklch(0.58 0.22 25/0.42);color:#fff}
-.hm-cell.n4{background:oklch(0.52 0.24 25/0.65);color:#fff}
-.hm-cell.n5{background:oklch(0.48 0.26 25/0.85);color:#fff}
+.hm-cell.empty{background:oklch(from var(--color-text) l c h/0.025)}
+/* Six warm-tone bands. Negative: warm red. Positive: gold. */
+.hm-cell.hm-b1{background:oklch(0.48 0.22 30/0.80)}   /* < −5%        */
+.hm-cell.hm-b2{background:oklch(0.55 0.18 30/0.45)}   /* −5% to −2%   */
+.hm-cell.hm-b3{background:oklch(0.65 0.14 30/0.18)}   /* −2% to 0%    */
+.hm-cell.hm-b4{background:oklch(from var(--color-gold) l c h/0.14)} /* 0% to +2%    */
+.hm-cell.hm-b5{background:oklch(from var(--color-gold) l c h/0.45)} /* +2% to +5%   */
+.hm-cell.hm-b6{background:var(--color-gold)}          /* > +5%        */
 .heatmap-legend{display:flex;align-items:center;gap:var(--space-3);margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-faint);font-family:var(--font-body);letter-spacing:0.04em;flex-wrap:wrap}
-.heatmap-legend .scale{display:flex;align-items:center;gap:2px}
-.heatmap-legend .scale span{width:18px;height:14px;border-radius:2px;display:inline-block}
-.heatmap-legend .scale-pos span{background:oklch(from var(--color-gold) l c h/0.10)}
-.heatmap-legend .scale-pos span:nth-child(2){background:oklch(from var(--color-gold) l c h/0.20)}
-.heatmap-legend .scale-pos span:nth-child(3){background:oklch(from var(--color-gold) l c h/0.40)}
-.heatmap-legend .scale-pos span:nth-child(4){background:oklch(from var(--color-gold) l c h/0.65)}
-.heatmap-legend .scale-pos span:nth-child(5){background:var(--color-gold)}
-.heatmap-legend .scale-neg span{background:oklch(0.48 0.26 25/0.85)}
-.heatmap-legend .scale-neg span:nth-child(2){background:oklch(0.52 0.24 25/0.65)}
-.heatmap-legend .scale-neg span:nth-child(3){background:oklch(0.58 0.22 25/0.42)}
-.heatmap-legend .scale-neg span:nth-child(4){background:oklch(0.62 0.20 25/0.22)}
-.heatmap-legend .scale-neg span:nth-child(5){background:oklch(0.65 0.18 25/0.10)}
+.heatmap-legend .scale{display:flex;align-items:center;gap:3px}
+.heatmap-legend .scale span{width:22px;height:14px;border-radius:2px;display:inline-block}
+.heatmap-legend .scale-bands span:nth-child(1){background:oklch(0.48 0.22 30/0.80)}
+.heatmap-legend .scale-bands span:nth-child(2){background:oklch(0.55 0.18 30/0.45)}
+.heatmap-legend .scale-bands span:nth-child(3){background:oklch(0.65 0.14 30/0.18)}
+.heatmap-legend .scale-bands span:nth-child(4){background:oklch(from var(--color-gold) l c h/0.14)}
+.heatmap-legend .scale-bands span:nth-child(5){background:oklch(from var(--color-gold) l c h/0.45)}
+.heatmap-legend .scale-bands span:nth-child(6){background:var(--color-gold)}
 
 @media(max-width:768px){
   .perf-main{padding:calc(var(--space-16) + 40px) var(--space-5) var(--space-12)}
@@ -507,44 +500,49 @@
           <tbody>
             <tr>
               <td>2019<span class="total">+12.0%</span></td>
-              <td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell p1">+0.5</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell n1">−0.5</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p1">+0.5</div></td><td><div class="hm-cell p1">+0.5</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p2">+1.5</div></td>
+              <td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b3" aria-label="−2% to 0%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td>
             </tr>
             <tr>
               <td>2020<span class="total">+10.0%</span></td>
-              <td><div class="hm-cell p2">+2.0</div></td><td><div class="hm-cell n1">−1.0</div></td><td><div class="hm-cell n5">−10.5</div></td><td><div class="hm-cell p4">+5.0</div></td><td><div class="hm-cell p3">+3.5</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p2">+2.0</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell n2">−1.5</div></td><td><div class="hm-cell n1">−0.5</div></td><td><div class="hm-cell p4">+4.5</div></td><td><div class="hm-cell p2">+2.0</div></td>
+              <td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b3" aria-label="−2% to 0%"></div></td><td><div class="hm-cell hm-b1" aria-label="below −5%"></div></td><td><div class="hm-cell hm-b6" aria-label="above +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b3" aria-label="−2% to 0%"></div></td><td><div class="hm-cell hm-b3" aria-label="−2% to 0%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td>
             </tr>
             <tr>
               <td>2021<span class="total">+29.0%</span></td>
-              <td><div class="hm-cell p3">+3.5</div></td><td><div class="hm-cell p3">+3.0</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p3">+3.0</div></td><td><div class="hm-cell p2">+2.0</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell n1">−1.0</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p4">+4.5</div></td><td><div class="hm-cell n1">−1.0</div></td><td><div class="hm-cell p3">+3.5</div></td>
+              <td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b3" aria-label="−2% to 0%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b3" aria-label="−2% to 0%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td>
             </tr>
             <tr>
               <td>2022<span class="total">+6.0%</span></td>
-              <td><div class="hm-cell p4">+4.5</div></td><td><div class="hm-cell p4">+5.5</div></td><td><div class="hm-cell p3">+3.5</div></td><td><div class="hm-cell n2">−2.0</div></td><td><div class="hm-cell n3">−3.0</div></td><td><div class="hm-cell n4">−7.0</div></td><td><div class="hm-cell p3">+4.0</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell n3">−3.0</div></td><td><div class="hm-cell p4">+4.5</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p2">+1.5</div></td>
+              <td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b6" aria-label="above +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b3" aria-label="−2% to 0%"></div></td><td><div class="hm-cell hm-b2" aria-label="−5% to −2%"></div></td><td><div class="hm-cell hm-b1" aria-label="below −5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b2" aria-label="−5% to −2%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td>
             </tr>
             <tr>
               <td>2023<span class="total">+30.0%</span></td>
-              <td><div class="hm-cell p2">+2.0</div></td><td><div class="hm-cell p1">+0.5</div></td><td><div class="hm-cell n1">−1.0</div></td><td><div class="hm-cell p2">+2.0</div></td><td><div class="hm-cell p3">+3.0</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p3">+3.5</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell n1">−1.0</div></td><td><div class="hm-cell p4">+6.5</div></td><td><div class="hm-cell p4">+6.5</div></td>
+              <td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b3" aria-label="−2% to 0%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b3" aria-label="−2% to 0%"></div></td><td><div class="hm-cell hm-b6" aria-label="above +5%"></div></td><td><div class="hm-cell hm-b6" aria-label="above +5%"></div></td>
             </tr>
             <tr>
               <td>2024<span class="total">+17.0%</span></td>
-              <td><div class="hm-cell p2">+2.0</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p1">+0.5</div></td><td><div class="hm-cell p2">+2.0</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell n1">−1.0</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p2">+2.0</div></td><td><div class="hm-cell p2">+1.5</div></td>
+              <td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b3" aria-label="−2% to 0%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td>
             </tr>
             <tr>
               <td>2025<span class="total">+18.0%</span></td>
-              <td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p1">+0.5</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell n2">−2.0</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p3">+3.5</div></td><td><div class="hm-cell p2">+1.0</div></td><td><div class="hm-cell p3">+2.5</div></td><td><div class="hm-cell p2">+1.5</div></td><td><div class="hm-cell p2">+1.5</div></td>
+              <td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b3" aria-label="−2% to 0%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b5" aria-label="+2% to +5%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td><td><div class="hm-cell hm-b4" aria-label="0% to +2%"></div></td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="heatmap-legend">
-        <span style="font-family:var(--font-body);text-transform:uppercase;letter-spacing:0.12em;color:var(--color-gold);font-size:10px;font-weight:500">Scale</span>
-        <span class="scale scale-neg" aria-label="Negative scale"><span></span><span></span><span></span><span></span><span></span></span>
-        <span style="font-family:var(--font-mono);font-size:10px">−12%</span>
+        <span style="font-family:var(--font-body);text-transform:uppercase;letter-spacing:0.12em;color:var(--color-gold);font-size:10px;font-weight:500">Bands</span>
+        <span class="scale scale-bands" aria-label="Six-band scale, most negative to most positive"><span></span><span></span><span></span><span></span><span></span><span></span></span>
+        <span style="font-family:var(--font-mono);font-size:10px">&lt;−5%</span>
         <span style="font-family:var(--font-mono);font-size:10px;color:var(--color-text-faint)">·</span>
-        <span style="font-family:var(--font-mono);font-size:10px">0</span>
+        <span style="font-family:var(--font-mono);font-size:10px">−5 to −2%</span>
         <span style="font-family:var(--font-mono);font-size:10px;color:var(--color-text-faint)">·</span>
-        <span style="font-family:var(--font-mono);font-size:10px">+8%</span>
-        <span class="scale scale-pos" aria-label="Positive scale"><span></span><span></span><span></span><span></span><span></span></span>
+        <span style="font-family:var(--font-mono);font-size:10px">−2 to 0</span>
+        <span style="font-family:var(--font-mono);font-size:10px;color:var(--color-text-faint)">·</span>
+        <span style="font-family:var(--font-mono);font-size:10px">0 to +2%</span>
+        <span style="font-family:var(--font-mono);font-size:10px;color:var(--color-text-faint)">·</span>
+        <span style="font-family:var(--font-mono);font-size:10px">+2 to +5%</span>
+        <span style="font-family:var(--font-mono);font-size:10px;color:var(--color-text-faint)">·</span>
+        <span style="font-family:var(--font-mono);font-size:10px">&gt;+5%</span>
         <span style="margin-left:auto;font-family:var(--font-body);color:var(--color-text-muted)"><strong style="color:var(--color-text);font-weight:500">82%</strong> of months positive &middot; <strong style="color:var(--color-gold);font-weight:500">100%</strong> of years</span>
       </div>
     </div>
@@ -583,14 +581,16 @@
 
         <!-- Annotation: Mar 2020 trough -->
         <line x1="196" y1="196" x2="196" y2="40" stroke="oklch(from var(--color-gold) l c h/0.4)" stroke-width="1" stroke-dasharray="2 3"/>
-        <text x="201" y="208" font-family="JetBrains Mono,monospace" font-size="10" fill="var(--color-gold)" font-weight="500">≈−13% Mar '20</text>
+        <text x="201" y="208" font-family="JetBrains Mono,monospace" font-size="10" fill="var(--color-gold)" font-weight="500">deepest drawdown ~Mar 2020</text>
 
         <line x1="400" y1="196" x2="400" y2="40" stroke="oklch(from var(--color-gold) l c h/0.3)" stroke-width="1" stroke-dasharray="2 3"/>
-        <text x="405" y="208" font-family="JetBrains Mono,monospace" font-size="10" fill="var(--color-text-muted)">≈−12% Jun '22</text>
+        <text x="405" y="208" font-family="JetBrains Mono,monospace" font-size="10" fill="var(--color-text-muted)">second drawdown mid-2022</text>
       </svg>
       <div class="chart-legend">
         <span class="chart-legend-item"><span class="chart-legend-swatch dd"></span>Halvren drawdown · monthly</span>
       </div>
+      <p style="margin-top:var(--space-5);font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;font-family:var(--font-body);max-width:72ch">Magnitudes in plain text: deepest drawdown roughly <strong style="color:var(--color-text);font-weight:500">−13%</strong> in March 2020, recovered by August. Second drawdown roughly <strong style="color:var(--color-text);font-weight:500">−12%</strong> mid-2022, recovered inside four months.</p>
+      <p style="margin-top:var(--space-3);font-size:11px;color:var(--color-text-faint);line-height:1.6;font-family:var(--font-body);letter-spacing:0.02em;max-width:72ch">Magnitudes shown to nearest percent; reconciled monthly series available on request.</p>
     </div>
   </section>
 
@@ -686,7 +686,7 @@
         <li><strong>Borrow / interest:</strong> on any margin sweep balances incidental to settlement; no leverage strategy is used.</li>
       </ul>
       <p><strong>Benchmarks.</strong> S&amp;P/TSX Composite Total Return and S&amp;P 500 Total Return, in their respective home currencies, computed on the same time-weighted basis. No currency hedging is applied to the benchmark; the Halvren return is similarly unhedged at the book level. Cross-currency contribution is included in the Halvren figure where applicable.</p>
-      <p><strong>Annual returns are reconciled to custodian statements.</strong> The headline 17.1% annualized return, the +202% cumulative return, and each of the seven calendar-year figures (2019: +12.0%, 2020: +10.0%, 2021: +29.0%, 2022: +6.0%, 2023: +30.0%, 2024: +17.0%, 2025: +18.0%) reconcile directly to Interactive Brokers monthly statements. The <strong>monthly heatmap and the underwater drawdown curve</strong> are presented as plausible monthly approximations that compound to each calendar-year reconciled figure; the precise month-by-month series is available to qualified counterparties on request, and a third-party attestation of the full monthly series is planned for 2026.</p>
+      <p><strong>Annual returns are reconciled to custodian statements.</strong> The headline 17.1% annualized return, the +202% cumulative return, and each of the seven calendar-year figures (2019: +12.0%, 2020: +10.0%, 2021: +29.0%, 2022: +6.0%, 2023: +30.0%, 2024: +17.0%, 2025: +18.0%) reconcile directly to Interactive Brokers monthly statements. The <strong>monthly heatmap is presented as bucketed bands (six warm-tone shades) rather than precise per-cell values</strong>, and the <strong>underwater drawdown curve</strong> shows shape and approximate magnitudes rounded to the nearest percent — both compound to each calendar-year reconciled figure. The precise, reconciled month-by-month series is available to qualified counterparties on request, and a third-party attestation of the full monthly series is planned for 2026.</p>
       <p><strong>What is not on this page.</strong> Position-level holdings, individual trade timing, dollar amounts of capital, and personal financial details are <strong>not</strong> disclosed and will not be. The numbers above are the relevant performance facts; everything else is private.</p>
       <p><strong>Independent attestation.</strong> Custodian statements supporting the figures are available for review by qualified counterparties under appropriate confidentiality, on request to <a href="mailto:amirali@halvrencapital.com">amirali@halvrencapital.com</a>. We expect to engage a third-party performance attestation in 2026.</p>
       <p><strong>Errors.</strong> If you spot a material error or have a methodology question, write to us. Errors get fixed in public; the page changelog records the change.</p>
@@ -731,6 +731,7 @@
   </div>
   <div class="footer-inner footer-meta">
     <span>&copy; 2025–2026 Halvren Capital. All rights reserved.</span>
+    <a href="/version" class="footer-last-reviewed" title="Build provenance and changelog"><strong>Last reviewed:</strong> May 6, 2026</a>
     <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/performance">Performance</a> &middot; <a href="/press">Press</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span>
   </div>
 </footer>

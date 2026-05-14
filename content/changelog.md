@@ -4,7 +4,21 @@ A principal-voice changelog of substantive, reader-facing changes to the Halvren
 
 ---
 
-## 2026-05-06 — site rebuild, in seven sprints
+## 2026-05-15 — V3-2 _(placeholder)_
+
+<!-- PRINCIPAL: write this when V3-2 ships. Two sentences in principal voice; describe what a reader actually notices. -->
+
+_Placeholder — V3-2 has not shipped yet._
+
+---
+
+## 2026-05-08 — V3-1 hygiene pass
+
+Four small fixes the site needed before adding anything else: a visible split between the machine read and the principal note on operator pages, a heatmap whose visual matches its own disclosure, a footer that dates its last review and links to the build provenance, and a digest header that reflects the most recent week rather than the one we shipped. Hygiene before features.
+
+---
+
+## 2026-05-06 — V2 ship: site rebuild, in seven sprints
 
 Halvren's public site was rebuilt across a single working session in seven scoped sprints. Each one preserved existing principal-voice copy verbatim where it already existed; new copy was authored with the same constraints (no marketing verbs, warm-light palette, italics carry meaning).
 

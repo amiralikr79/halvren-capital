@@ -34,11 +34,24 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data" / "digest"
 CONTENT_DIR = ROOT / "content" / "digest"
 OUT_DIR = ROOT / "digest"
+SITE_META_FILE = ROOT / "content" / "site-meta.json"
 
 INDEX_OUT = OUT_DIR / "index.html"
 LATEST_JSON = OUT_DIR / "latest.json"
 
 WEEK_RE = re.compile(r"^(\d{4})-W(\d{2})$")
+
+
+def _load_site_meta() -> dict:
+    return json.loads(SITE_META_FILE.read_text(encoding="utf-8")) if SITE_META_FILE.exists() else {}
+
+
+_SITE_META = _load_site_meta()
+LAST_REVIEWED = (
+    _SITE_META.get("last_full_site_review_human")
+    or _SITE_META.get("last_full_site_review")
+    or "—"
+)
 
 
 # --------------------------------------------------------------------------- #
@@ -209,7 +222,7 @@ NAV = """<nav>
   </div>
 </nav>"""
 
-FOOTER = """<footer>
+FOOTER = f"""<footer>
   <div class="footer-trust">
     <span class="footer-trust-item">Canadian &amp; U.S. markets</span>
     <span class="footer-trust-sep">&middot;</span>
@@ -228,7 +241,8 @@ FOOTER = """<footer>
   </div>
   <div class="footer-inner footer-meta">
     <span>&copy; 2025–2026 Halvren Capital. All rights reserved.</span>
-    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/performance">Performance</a> &middot; <a href="/press">Press</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span>
+    <a href="/version" class="footer-last-reviewed" title="Build provenance and changelog"><strong>Last reviewed:</strong> {LAST_REVIEWED}</a>
+    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/performance">Performance</a> &middot; <a href="/press">Press</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/version">Version</a></span>
   </div>
 </footer>"""
 
@@ -242,7 +256,16 @@ HEAD_BASE = """<meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/page.css">"""
+<link rel="stylesheet" href="/page.css">
+<style>
+.digest-eyebrow{display:inline-flex;align-items:center;gap:var(--space-3);padding:6px 14px;background:oklch(from var(--color-text) l c h/0.04);border:1px solid oklch(from var(--color-text) l c h/0.08);border-radius:99px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.04em;color:var(--color-text-muted);margin-bottom:var(--space-8)}
+.digest-eyebrow .live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 oklch(0.7 0.18 145/0.55);animation:livePulseD 2.4s cubic-bezier(0.16,1,0.3,1) infinite;flex-shrink:0}
+.digest-eyebrow .sep{color:var(--color-text-faint)}
+.digest-eyebrow.is-offseason{color:var(--color-text-faint);background:transparent;border-color:var(--color-divider)}
+.digest-eyebrow.is-offseason .live-dot{background:var(--color-text-faint);box-shadow:none;animation:none}
+@keyframes livePulseD{0%{box-shadow:0 0 0 0 oklch(0.7 0.18 145/0.45)}70%{box-shadow:0 0 0 8px oklch(0.7 0.18 145/0)}100%{box-shadow:0 0 0 0 oklch(0.7 0.18 145/0)}}
+@media(prefers-reduced-motion:reduce){.digest-eyebrow .live-dot{animation:none}}
+</style>"""
 
 
 def _esc(s: str | None) -> str:
@@ -420,7 +443,40 @@ def render_index_page(weeks: list[dict]) -> str:
           <span class="dx-archive-cta">Read principal note &rarr;</span>
         </a>"""
 
-    latest_iso = (weeks[0].get("updated_iso") or weeks[0].get("week_of") or dt.date.today().isoformat())[:10]
+    latest = weeks[0]
+    latest_iso = (latest.get("updated_iso") or latest.get("week_of") or dt.date.today().isoformat())[:10]
+    eyebrow_updated_iso = latest.get("updated_iso") or f"{latest_iso}T00:00:00Z"
+    eyebrow_updated_human = latest.get("updated_human") or latest_iso
+    eyebrow_week_label = "Week " + latest["week_iso"].split("-W")[-1].lstrip("0")
+    # off-season detection at render time: if the most recent digest is older
+    # than 14 days, ship the muted off-season variant pre-hydration so first
+    # paint already reflects reality
+    try:
+        ts = latest.get("updated_iso") or latest.get("week_of")
+        if ts:
+            d = dt.datetime.fromisoformat(ts.replace("Z", "+00:00"))
+            now = dt.datetime.now(d.tzinfo) if d.tzinfo else dt.datetime.now()
+            age_days = (now - d).days
+        else:
+            age_days = 0
+    except Exception:
+        age_days = 0
+    eyebrow_is_offseason = age_days > 14
+    eyebrow_class = "digest-eyebrow is-offseason" if eyebrow_is_offseason else "digest-eyebrow"
+    eyebrow_status_text = "Last digest" if eyebrow_is_offseason else "Live ingest"
+    eyebrow_tail = (
+        '<span class="sep">·</span><span data-eyebrow-week>Off-season cadence</span>'
+        if eyebrow_is_offseason
+        else f'<span class="sep">·</span><span data-eyebrow-week>{_esc(eyebrow_week_label)}</span>'
+    )
+    eyebrow_html = (
+        f'<p class="{eyebrow_class}" data-digest-eyebrow data-updated-iso="{_esc(eyebrow_updated_iso)}">'
+        f'<span class="live-dot" aria-hidden="true"></span>'
+        f'<span data-eyebrow-status>{eyebrow_status_text}</span>'
+        f'<span class="sep">·</span>'
+        f'<span>Updated <span data-eyebrow-updated>{_esc(eyebrow_updated_human)}</span></span>'
+        f'{eyebrow_tail}</p>'
+    )
     collection_jsonld = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
@@ -484,6 +540,9 @@ def render_index_page(weeks: list[dict]) -> str:
 <main id="main" class="doc-main">
   <article class="doc-article">
     <p class="doc-breadcrumb"><a href="/">Home</a><span class="doc-breadcrumb-sep">/</span><span>Digest</span></p>
+    <!-- DIGEST_EYEBROW_START -->
+    {eyebrow_html}
+    <!-- DIGEST_EYEBROW_END -->
     <p class="section-label">The desk's weekly read</p>
     <h1 class="doc-h1">Every week, what the desk read. <em>Archived.</em></h1>
     <p class="doc-p" style="max-width:64ch">The Halvren digest reads every Canadian and U.S. operator on the <a href="/coverage">coverage universe</a> on a weekly cadence. Models read at scale and summarize. The principal flags the names that earn a deeper read. Each week below has its own page; the most recent is at the top.</p>
@@ -499,6 +558,40 @@ def render_index_page(weeks: list[dict]) -> str:
 
 {FOOTER}
 <script>(function(){{var f=document.querySelector('.progress-bar-fill');if(!f)return;function u(){{var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;f.style.width=(m>0?Math.min(100,Math.max(0,(h.scrollTop/m)*100)):0)+'%';}}addEventListener('scroll',u,{{passive:true}});addEventListener('resize',u);u();}})();</script>
+<script>
+// Digest eyebrow hydration — keeps the "Live ingest · Updated [date] · [Week]"
+// stamp current with the latest published digest. Falls back to "Last digest:
+// [date] · Off-season cadence" when the most recent digest is older than 14
+// days. Source of truth is /digest/latest.json (cached 1h at the edge).
+(function(){{
+  var el = document.querySelector('[data-digest-eyebrow]');
+  if (!el) return;
+  fetch('/digest/latest.json', {{ headers: {{ 'Accept': 'application/json' }} }})
+    .then(function(r){{ return r.ok ? r.json() : null; }})
+    .then(function(d){{
+      if (!d || !d.updated_iso) return;
+      var updated = new Date(d.updated_iso);
+      if (isNaN(updated.getTime())) return;
+      var ageDays = (Date.now() - updated.getTime()) / 86400000;
+      var weekLabel = d.week_iso ? d.week_iso.replace(/^\\d{{4}}-W0?/, 'Week ') : '';
+      var status = el.querySelector('[data-eyebrow-status]');
+      var updatedEl = el.querySelector('[data-eyebrow-updated]');
+      var weekEl = el.querySelector('[data-eyebrow-week]');
+      if (updatedEl && d.updated_human) updatedEl.textContent = d.updated_human;
+      el.setAttribute('data-updated-iso', d.updated_iso);
+      if (ageDays > 14) {{
+        el.classList.add('is-offseason');
+        if (status) status.textContent = 'Last digest';
+        if (weekEl) weekEl.textContent = 'Off-season cadence';
+      }} else {{
+        el.classList.remove('is-offseason');
+        if (status) status.textContent = 'Live ingest';
+        if (weekEl && weekLabel) weekEl.textContent = weekLabel;
+      }}
+    }})
+    .catch(function(){{ /* silent — server-rendered values stay */ }});
+}})();
+</script>
 <script src="/nav.js" defer></script>
 </body>
 </html>

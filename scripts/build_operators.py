@@ -37,6 +37,7 @@ DATA_DIR = ROOT / "data" / "operators"
 CONTENT_DIR = ROOT / "content" / "operators"
 OUT_DIR = ROOT / "research"
 QUESTIONS_FILE = ROOT / "content" / "checklist.json"
+SITE_META_FILE = ROOT / "content" / "site-meta.json"
 
 REQUIRED_FIELDS = (
     "slug ticker exchange name short_name url sector sub_industry "
@@ -199,25 +200,27 @@ def render_the_read(op: dict) -> str:
         # PRINCIPAL placeholder — render visibly so it's caught in review
         return """
     <section class="op-read" aria-labelledby="op-read-h">
-      <p class="op-read-eyebrow" id="op-read-h">The read &middot; machine block</p>
+      <p class="op-read-eyebrow" id="op-read-h">The read &middot; Machine</p>
       <p class="op-read-summary op-read-summary--placeholder">
         <!-- PRINCIPAL: write the_read.summary (~30 words, machine-style abstract). -->
         Awaiting principal-reviewed machine summary.
       </p>
     </section>"""
-    stamp_bits = []
+    # stamp grammar: "Generated [date] from [source]. Reviewed by principal [date]."
+    gen_part = ""
     if r.get("generated_iso"):
-        stamp_bits.append(f"Generated {fmt_iso_long(r['generated_iso'])}")
-    if r.get("source_filing"):
-        stamp_bits.append(f"from {r['source_filing']}")
-    if r.get("principal_reviewed_iso"):
-        stamp_bits.append(
-            f"Reviewed by principal {fmt_iso_long(r['principal_reviewed_iso'])}"
-        )
-    stamp = ". ".join(stamp_bits) + ("." if stamp_bits else "")
+        gen_part = f"Generated {fmt_iso_long(r['generated_iso'])}"
+        if r.get("source_filing"):
+            gen_part += f" from {r['source_filing']}"
+        gen_part += "."
+    rev_part = (
+        f"Reviewed by principal {fmt_iso_long(r['principal_reviewed_iso'])}."
+        if r.get("principal_reviewed_iso") else ""
+    )
+    stamp = " ".join(p for p in (gen_part, rev_part) if p)
     return f"""
     <section class="op-read" aria-labelledby="op-read-h">
-      <p class="op-read-eyebrow" id="op-read-h">The read &middot; machine block</p>
+      <p class="op-read-eyebrow" id="op-read-h">The read &middot; Machine</p>
       <p class="op-read-summary">{summary}</p>
       <p class="op-read-stamp">{stamp}</p>
     </section>"""
@@ -255,10 +258,23 @@ def render_what_we_track(op: dict) -> str:
 
 
 def render_the_note(body_html: str) -> str:
+    # The Note is the principal's voice. Eyebrow signals it. The signature
+    # glyph (the Halvren mark, muted) closes it without intruding on the prose.
+    signature = (
+        '<div class="op-note-signature" aria-hidden="true">'
+        '<svg viewBox="0 0 32 32" width="20" height="20" fill="none">'
+        '<path d="M6 6 L6 26 M6 16 L16 16 M16 6 L16 26" '
+        'stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+        '<path d="M20 6 L20 26 M20 6 L28 16 L20 26" '
+        'stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+        '</svg></div>'
+    )
     return f"""
     <section class="op-section op-note" aria-labelledby="op-note-h">
+      <p class="op-note-eyebrow">The note &middot; Principal</p>
       <h2 class="doc-h2" id="op-note-h">The note</h2>
       {body_html}
+      {signature}
     </section>"""
 
 
@@ -540,7 +556,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   </div>
   <div class="footer-inner footer-meta">
     <span>&copy; 2025–2026 Halvren Capital. All rights reserved.</span>
-    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/performance">Performance</a> &middot; <a href="/press">Press</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span>
+    <a href="/version" class="footer-last-reviewed" title="Build provenance and changelog"><strong>Last reviewed:</strong> {last_full_site_review}</a>
+    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/performance">Performance</a> &middot; <a href="/press">Press</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/version">Version</a></span>
   </div>
 </footer>
 <script>(function(){{var f=document.querySelector('.progress-bar-fill');if(!f)return;function u(){{var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;f.style.width=(m>0?Math.min(100,Math.max(0,(h.scrollTop/m)*100)):0)+'%';}}addEventListener('scroll',u,{{passive:true}});addEventListener('resize',u);u();}})();</script>
@@ -579,13 +596,19 @@ def die(msg: str) -> None:
     sys.exit(1)
 
 
-def build_one(slug: str, all_ops: dict[str, dict], questions_doc: dict) -> Path:
+def build_one(slug: str, all_ops: dict[str, dict], questions_doc: dict, site_meta: dict) -> Path:
     op = all_ops[slug]
     body_path = CONTENT_DIR / f"{slug}.md"
     if not body_path.exists():
         die(f"{slug}: missing {body_path.relative_to(ROOT)}")
     body_md = body_path.read_text(encoding="utf-8")
     body_html = render_markdown(body_md)
+
+    last_full_site_review = (
+        site_meta.get("last_full_site_review_human")
+        or site_meta.get("last_full_site_review")
+        or "—"
+    )
 
     page = PAGE_TEMPLATE.format(
         slug=slug,
@@ -608,6 +631,7 @@ def build_one(slug: str, all_ops: dict[str, dict], questions_doc: dict) -> Path:
         lettercapture=render_inline_lettercapture(op),
         disclosure_footer=render_disclosure_footer(op),
         related=render_related(op, all_ops),
+        last_full_site_review=last_full_site_review,
     )
 
     out = OUT_DIR / f"{slug}.html"
@@ -619,6 +643,7 @@ def main(argv: list[str]) -> int:
     if not QUESTIONS_FILE.exists():
         die(f"missing {QUESTIONS_FILE.relative_to(ROOT)}")
     questions_doc = json.loads(QUESTIONS_FILE.read_text(encoding="utf-8"))
+    site_meta = json.loads(SITE_META_FILE.read_text(encoding="utf-8")) if SITE_META_FILE.exists() else {}
 
     all_paths = sorted(DATA_DIR.glob("*.json"))
     all_ops: dict[str, dict] = {}
@@ -633,7 +658,7 @@ def main(argv: list[str]) -> int:
     for slug in targets:
         if slug not in all_ops:
             die(f"unknown operator slug: {slug}")
-        out = build_one(slug, all_ops, questions_doc)
+        out = build_one(slug, all_ops, questions_doc, site_meta)
         print(f"  wrote {out.relative_to(ROOT)}")
 
     print(f"build_operators: rendered {len(targets)} operator page(s).")
