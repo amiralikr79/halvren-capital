@@ -160,22 +160,6 @@ Each block below lists ticker, listing, sector, sub-industry, last-reviewed date
     - Listings: TSX: ENB · NYSE: ENB
   What we track: Mainline apportionment · Dominion utility rate cases · U.S. gas backlog conversion · Net debt trajectory · Transition capital discipline
 
-### EOG (EOG) — Energy · Oil & Gas
-  Listings: NYSE: EOG
-  Last reviewed: 2026-05-04
-  Page: https://halvrencapital.com/research/eog-resources
-  Read: Largest non-major U.S. onshore oil and gas producer. Eagle Ford, Delaware, Permian, Bakken, Powder River, Utica, Dorado. "Premium" drilling threshold: every well clears 30%+ IRR at flat US$40 WTI. FY 2025 ~US$5.4B FCF, net debt at decade low.
-  FY snapshot (FY 2025):
-    - Production: ~1,090 MBOE/d (full-year avg.)
-    - Adj. EBITDA: ~US$11.4B
-    - Capital expenditures: ~US$6.2B
-    - Free cash flow: ~US$5.4B
-    - Buybacks (FY 2025): ~US$2.3B
-    - Net debt: near decade low (≪ 0.5x EBITDA)
-    - Dividend (regular): US$3.78/sh annualized
-    - Listing: NYSE: EOG · Houston, TX
-  What we track: Premium-eligible inventory at sustaining capex · Utica well-cost trajectory and differentials · Buyback price discipline · Capex-to-EBITDA ratio at strip and stress · Insider behaviour (Form 4)
-
 ### Freeport (FCX) — Materials · Industrial Metals
   Listings: NYSE: FCX
   Last reviewed: 2026-05-14

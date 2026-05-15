@@ -1,7 +1,7 @@
 {
   "$comment": "Halvren Capital coverage universe. Public, no auth. Rebuilt by scripts/build_coverage.py.",
-  "generated_iso": "2026-05-14",
-  "count": 36,
+  "generated_iso": "2026-05-15",
+  "count": 35,
   "operators": [
     {
       "ticker": "AEM",
@@ -242,22 +242,6 @@
       "checklist_score": 8,
       "research_url": "/research/west-fraser-wfg",
       "url": "https://www.westfraser.com/"
-    },
-    {
-      "ticker": "EOG",
-      "exchange": "NYSE: EOG",
-      "name": "EOG Resources, Inc.",
-      "short_name": "EOG",
-      "sector": "Energy",
-      "sub_industry": "Oil & Gas",
-      "sub_industry_detail": null,
-      "region": "United States",
-      "status": "published",
-      "last_reviewed_iso": "2026-05-04",
-      "next_earnings_iso": null,
-      "checklist_score": null,
-      "research_url": "/research/eog-resources",
-      "url": "https://www.eogresources.com/"
     },
     {
       "ticker": "ENB",

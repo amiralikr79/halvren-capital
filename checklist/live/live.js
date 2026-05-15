@@ -41,11 +41,17 @@
     var TICKER_RE = /^[A-Z][A-Z0-9.\-]{0,9}$/;
 
     function reset() {
+      errEl.setAttribute("hidden", "");
       errEl.removeAttribute("data-visible");
+      scorecardEl.setAttribute("hidden", "");
       scorecardEl.removeAttribute("data-visible");
+      trustEl.setAttribute("hidden", "");
       trustEl.removeAttribute("data-visible");
+      shareEl.setAttribute("hidden", "");
       shareEl.removeAttribute("data-visible");
+      metaEl.setAttribute("hidden", "");
       metaEl.removeAttribute("data-visible");
+      listEl.setAttribute("hidden", "");
       listEl.removeAttribute("data-visible");
       listEl.innerHTML = "";
     }
@@ -59,6 +65,7 @@
       } else {
         bodyEl.textContent = body || "";
       }
+      errEl.removeAttribute("hidden");
       errEl.setAttribute("data-visible", "true");
       inputRow.removeAttribute("data-collapsed");
       submit.disabled = false;
@@ -81,7 +88,9 @@
           '</div>';
         listEl.appendChild(li);
       }
+      listEl.removeAttribute("hidden");
       listEl.setAttribute("data-visible", "true");
+      trustEl.removeAttribute("hidden");
       trustEl.setAttribute("data-visible", "true");
     }
 
@@ -89,6 +98,7 @@
       opts = opts || {};
       var row = listEl.querySelector('[data-q="' + q + '"]');
       if (!row) return;
+      row.removeAttribute("hidden");
       row.setAttribute("data-visible", "true");
       if (verdict) row.setAttribute("data-verdict", verdict);
       var textEl = row.querySelector("[data-text]");
@@ -116,6 +126,7 @@
         chip.title = "Q" + (i + 1) + " — " + v;
         chipsEl.appendChild(chip);
       }
+      scorecardEl.removeAttribute("hidden");
       scorecardEl.setAttribute("data-visible", "true");
     }
 
@@ -129,6 +140,7 @@
       metaEl.querySelector("[data-meta-cache]").textContent = fromCache
         ? "Cached read · refreshed daily"
         : "Live engine · streaming";
+      metaEl.removeAttribute("hidden");
       metaEl.setAttribute("data-visible", "true");
     }
 
@@ -144,6 +156,7 @@
           });
         }
       };
+      shareEl.removeAttribute("hidden");
       shareEl.setAttribute("data-visible", "true");
     }
 

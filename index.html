@@ -390,6 +390,152 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
   .subscribe-input{font-size:16px}
   .live-input{font-size:16px !important}
 }
+
+/* ================================================================== */
+/* SPRINT 8 — MOBILE SURGICAL PASS                                    */
+/* Reference: docs/HALVREN_BRAND.md, sections 4 (color), 5 (type),    */
+/* 6 (motion). 44px tap targets per iOS HIG. 16px inputs to block     */
+/* iOS Safari zoom-on-focus. Editorial restraint — no emoji, custom   */
+/* SVG only, one gold per page, no scroll-jacking.                    */
+/* ================================================================== */
+
+/* hidden attribute — bulletproof default for the Checklist Live embed.
+   Works even when live.css fails to load. CSS-load-independent. */
+[hidden]{display:none !important}
+
+/* ----------------------------------------------------------------- */
+/* Constellation mobile fallback (Sprint 8 rebuild)                   */
+/* The homepage doesn't load page.css, so the .constellation-mobile-* */
+/* rules from Sprint 4's page.css block never applied here. Inlined.  */
+/* ----------------------------------------------------------------- */
+.constellation-mobile{display:none;margin-top:var(--space-8)}
+.constellation-mobile-tabs{display:flex;gap:8px;margin-bottom:var(--space-5);overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding-bottom:4px;-ms-overflow-style:none;scrollbar-width:none}
+.constellation-mobile-tabs::-webkit-scrollbar{display:none}
+.constellation-mobile-tabs button{font-family:var(--font-body);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;padding:0 14px;min-height:44px;border:1px solid var(--color-divider);background:transparent;color:var(--color-text-muted);border-radius:999px;cursor:pointer;white-space:nowrap;flex-shrink:0;touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:color 160ms var(--ease-soft),border-color 160ms var(--ease-soft),background-color 160ms var(--ease-soft)}
+.constellation-mobile-tabs button[aria-pressed="true"]{color:var(--color-text);border-color:var(--color-text);background:transparent;font-weight:500}
+.constellation-mobile-tabs button:active{background:oklch(from var(--color-text) l c h/0.05)}
+.constellation-mobile-list{list-style:none !important;padding:0;margin:0;border-top:1px solid var(--color-divider)}
+.constellation-mobile-list li{border-bottom:1px solid var(--color-divider);list-style:none !important}
+.constellation-mobile-list li::marker{content:""}
+.constellation-mobile-list li[hidden]{display:none !important}
+.constellation-mobile-list a{display:flex;justify-content:space-between;align-items:center;min-height:56px;padding:0 var(--space-2);color:var(--color-text);text-decoration:none;border:none;font-family:var(--font-body);touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:background-color 160ms var(--ease-soft)}
+.constellation-mobile-list a:active{background:oklch(from var(--color-text) l c h/0.05)}
+.constellation-mobile-list .cl-tkr{font-family:var(--font-display);font-size:var(--text-lg);letter-spacing:-0.01em;color:var(--color-text);font-weight:500}
+.constellation-mobile-list .cl-sector{font-family:var(--font-body);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-muted);text-align:right}
+@media(max-width:768px){.constellation{display:none}.constellation-mobile{display:block}}
+
+/* ----------------------------------------------------------------- */
+/* Hamburger nav — full-screen editorial overlay (Sprint 8 rebuild)   */
+/* Replaces the side-drawer pattern. Below 768px:                    */
+/*   - hamburger SVG opens a full-screen fade-in overlay              */
+/*   - links in display serif at text-3xl-ish, generous gap          */
+/*   - close X in top-right, also closes on Escape and link tap     */
+/*   - 200ms fade in/out, no transforms, no backdrop blur            */
+/* ----------------------------------------------------------------- */
+@media(max-width:768px){
+  /* hide the desktop inline nav-links region on mobile — replaced by overlay */
+  nav .nav-links{display:none}
+  nav .nav-back{display:none}
+}
+.nav-burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;border:none;cursor:pointer;color:var(--color-text);padding:0;margin:0;touch-action:manipulation;-webkit-tap-highlight-color:transparent;z-index:200}
+@media(max-width:768px){.nav-burger{display:inline-flex}}
+.nav-overlay{position:fixed;inset:0;background:var(--color-bg);z-index:300;opacity:0;visibility:hidden;transition:opacity 200ms var(--ease-soft),visibility 0s linear 200ms;display:flex;flex-direction:column}
+.nav-overlay[data-open="true"]{opacity:1;visibility:visible;transition:opacity 200ms var(--ease-soft),visibility 0s linear 0s}
+.nav-overlay-bar{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) var(--space-5);padding-top:calc(var(--space-4) + env(safe-area-inset-top,0));border-bottom:1px solid var(--color-divider)}
+.nav-overlay-bar .nav-overlay-brand{font-family:var(--font-display);font-size:var(--text-lg);color:var(--color-text);text-decoration:none;border:none;letter-spacing:-0.01em}
+.nav-overlay-close{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;color:var(--color-text);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.nav-overlay-links{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:var(--space-8) var(--space-8);gap:var(--space-5);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.nav-overlay-links a{font-family:var(--font-display);font-size:clamp(1.875rem,7vw,2.5rem);line-height:1.1;letter-spacing:-0.02em;color:var(--color-text);text-decoration:none;border:none;padding:var(--space-2) 0;min-height:44px;display:inline-flex;align-items:center;touch-action:manipulation}
+.nav-overlay-links a:active{color:var(--color-gold)}
+.nav-overlay-links a[aria-current="page"]{color:var(--color-gold)}
+.nav-overlay-foot{padding:var(--space-5) var(--space-8) calc(var(--space-5) + env(safe-area-inset-bottom,0));font-family:var(--font-body);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.06em;text-transform:uppercase;border-top:1px solid var(--color-divider)}
+body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
+@media(prefers-reduced-motion:reduce){
+  .nav-overlay{transition:opacity 60ms linear,visibility 0s linear 60ms}
+}
+
+/* ----------------------------------------------------------------- */
+/* Digest section mobile rebuild — stack labels cleanly, 2x2 stats    */
+/* ----------------------------------------------------------------- */
+@media(max-width:768px){
+  /* the inline 2-col grid drops to 1 col + the stat block becomes a 2x2 grid */
+  #digest-feature .section-inner > a{padding:var(--space-7) var(--space-6) !important}
+  #digest-feature .section-inner > a > div{grid-template-columns:1fr !important;gap:var(--space-6) !important}
+  /* stat block: 4-row stack -> 2x2 grid on mobile */
+  #digest-feature [data-digest-block]{display:grid !important;grid-template-columns:1fr 1fr !important;gap:var(--space-5) !important;min-width:0 !important;width:100%;border-top:1px solid var(--color-divider);padding-top:var(--space-5);margin-top:var(--space-2)}
+  #digest-feature [data-digest-block] > div{display:flex !important;flex-direction:column !important;align-items:flex-start !important;gap:4px !important;padding:0 !important;border:none !important;justify-content:flex-start !important}
+  #digest-feature [data-digest-block] > div > span:first-child{font-size:11px !important;letter-spacing:0.1em !important;color:var(--color-text-muted) !important;order:2}
+  #digest-feature [data-digest-block] > div > span:last-child{font-family:var(--font-display) !important;font-size:var(--text-xl) !important;font-weight:500 !important;letter-spacing:-0.01em !important;color:var(--color-text) !important;order:1}
+  /* digest-ticker on mobile: stack, breathable */
+  .digest-ticker{flex-wrap:wrap;max-width:100%;font-size:12px;min-height:auto;margin-bottom:var(--space-4)}
+  .digest-ticker .dt-phrase{white-space:normal;overflow:visible;text-overflow:clip;flex-basis:100%;margin-top:4px;color:var(--color-text);font-family:var(--font-mono);font-size:12px;line-height:1.5}
+  .digest-ticker .dt-rule{display:none}
+}
+
+/* ----------------------------------------------------------------- */
+/* Operator cards (homepage) mobile rebuild                           */
+/* Ticker on its own line, name below, exchange below, sector pill   */
+/* top-right. "What we track" stacked vertical with em-dash prefix.   */
+/* "Read full research" full-width tap target below 414px.            */
+/* ----------------------------------------------------------------- */
+@media(max-width:600px){
+  .watch-card{padding:var(--space-6);position:relative}
+  .watch-head{flex-direction:column;align-items:flex-start;gap:6px;padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider);margin-bottom:var(--space-5)}
+  .watch-head .watch-symbol{font-family:var(--font-display);font-size:var(--text-xl);line-height:1.1;letter-spacing:0;color:var(--color-text);font-weight:500;order:1;text-align:left}
+  .watch-head .watch-name{order:2;text-align:left;font-family:var(--font-body);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-muted);line-height:1.5}
+  .watch-head .watch-name br{display:none}
+  /* sector pill: lift it from the body and pin top-right of card */
+  .watch-sector{position:absolute;top:var(--space-6);right:var(--space-6);margin:0;font-size:11px;letter-spacing:0.1em;color:var(--color-gold);font-family:var(--font-body);font-weight:500;text-transform:uppercase}
+  .watch-body{font-size:var(--text-base);line-height:1.7;color:var(--color-text-muted)}
+  /* what we track: break the inline dotted list into a vertical em-dash list */
+  .watch-track{margin-top:var(--space-5);padding-top:var(--space-4);border-top:1px solid var(--color-divider);font-size:13px;line-height:1.7;color:var(--color-text-muted)}
+  .watch-track-label{display:block;font-family:var(--font-body);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:8px;font-weight:500}
+}
+@media(max-width:414px){
+  /* full-width tap-shaped Read-full-research link on small phones */
+  .watch-card > p:last-child{margin-top:var(--space-5) !important}
+  .watch-card > p:last-child a{display:block !important;width:100%;text-align:center;padding:12px 16px !important;border:1px solid var(--color-text) !important;border-radius:0;text-transform:uppercase !important;font-size:11px !important;letter-spacing:0.12em !important;color:var(--color-text) !important;background:transparent;text-decoration:none;min-height:44px;line-height:1.4;font-weight:500;font-family:var(--font-body) !important;touch-action:manipulation}
+  .watch-card > p:last-child a:active{background:var(--color-text);color:var(--color-bg) !important}
+}
+
+/* ----------------------------------------------------------------- */
+/* Checklist 10 questions — mobile breathing room                      */
+/* ----------------------------------------------------------------- */
+@media(max-width:768px){
+  .checklist-grid{gap:var(--space-8)}
+  .checklist-pillar{padding:var(--space-6)}
+  .checklist-pillar-label{margin-top:var(--space-2)}
+  .checklist-item{display:flex !important;flex-direction:column !important;gap:8px}
+  .checklist-num{margin-bottom:6px !important;padding:0 !important;font-size:var(--text-lg) !important}
+  .checklist-q{font-size:var(--text-lg) !important;line-height:1.7 !important;text-wrap:pretty}
+  .checklist-note{font-size:13px !important;line-height:1.7}
+}
+
+/* ----------------------------------------------------------------- */
+/* Footer mobile — stacked grouped sections                            */
+/* ----------------------------------------------------------------- */
+@media(max-width:768px){
+  footer{padding-bottom:env(safe-area-inset-bottom,0)}
+  .footer-disclaimer p{line-height:1.7;font-size:13px}
+  .footer-meta{flex-direction:column;align-items:flex-start;gap:var(--space-4)}
+  .footer-meta > *{width:100%}
+  .footer-meta span:last-child{display:flex !important;flex-wrap:wrap !important;gap:var(--space-3) !important}
+}
+
+/* ----------------------------------------------------------------- */
+/* Global mobile audit fixes                                          */
+/* ----------------------------------------------------------------- */
+@media(max-width:768px){
+  /* all inputs >= 16px to block iOS Safari zoom-on-focus */
+  input[type="text"],input[type="email"],input[type="search"],input[type="tel"],input[type="number"],input[type="url"],textarea{font-size:16px !important}
+  /* tap-friendly: all interactive elements get touch-action manipulation */
+  a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  /* never let an image break the viewport */
+  img{max-width:100%;height:auto}
+  /* anchor offset for sticky-ish navs */
+  section[id]{scroll-margin-top:80px}
+}
+
 </style>
 </head>
 <body>
@@ -418,10 +564,7 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
     <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" type="button">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
-    <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-controls="nav-links" aria-expanded="false" type="button">
-      <span class="nav-toggle-open"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>
-      <span class="nav-toggle-close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></span>
-    </button>
+    <button class="nav-burger" data-nav-open aria-label="Open menu" aria-controls="nav-overlay" aria-expanded="false" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 9h16M4 15h16"/></svg></button>
   </div>
 </nav>
 
@@ -435,7 +578,7 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
   <div class="hero-content">
     <p class="live-pill" aria-label="Desk status">
       <span class="live-dot" aria-hidden="true"></span>
-      <span>Reading 21 operators</span>
+      <span>Reading 20 operators</span>
       <span class="sep">·</span>
       <span>Q1 2026 letter live</span>
       <span class="sep">·</span>
@@ -913,34 +1056,34 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
       <h2 class="live-hero-h" style="font-size:var(--text-sub)">Or run it on a stock you actually <em>own.</em></h2>
 
       <form class="live-input-row" data-live-form>
-        <input class="live-input" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false"
+        <input class="live-input" type="text" inputmode="text" pattern="[A-Za-z][A-Za-z0-9.\-]{0,9}" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false"
                placeholder="CCO · CNQ · NVDA · ATD · whatever you're afraid to look at honestly"
                aria-label="Ticker symbol" required maxlength="12" data-live-input>
         <button class="live-submit" type="submit" data-live-submit>Run the 10</button>
       </form>
       <p class="live-helptext">US tickers as-is. Canadian: TSX format with the suffix (e.g. <code>CIX.TO</code>). Or <a href="/checklist/live">open the full page →</a></p>
 
-      <div class="live-error" data-live-error role="alert">
+      <div class="live-error" data-live-error role="alert" hidden>
         <h3 data-err-title>Something went sideways.</h3>
         <p data-err-body></p>
       </div>
 
-      <div class="live-meta-strip" data-live-meta>
+      <div class="live-meta-strip" data-live-meta hidden>
         <span class="lm-ticker" data-meta-ticker></span>
         <span class="lm-name" data-meta-name></span>
         <span class="lm-sector" data-meta-sector></span>
         <span class="lm-cache" data-meta-cache></span>
       </div>
 
-      <ol class="live-list" data-live-list></ol>
+      <ol class="live-list" data-live-list hidden></ol>
 
-      <div class="live-share" data-live-share>
+      <div class="live-share" data-live-share hidden>
         <span>Shareable link:</span>
         <code data-share-url></code>
         <button type="button" data-share-copy>Copy</button>
       </div>
 
-      <section class="live-scorecard" data-live-scorecard aria-live="polite">
+      <section class="live-scorecard" data-live-scorecard aria-live="polite" hidden>
         <p class="live-scorecard-eyebrow">The Halvren Read</p>
         <h3 data-scorecard-h>The desk's overall read on <em data-scorecard-ticker></em></h3>
         <p class="live-scorecard-text" data-scorecard-text></p>
@@ -951,7 +1094,7 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
         </div>
       </section>
 
-      <p class="live-trust" data-live-trust>Generated by the Halvren Checklist engine. Not yet reviewed by the principal. The full review takes longer than a page load.</p>
+      <p class="live-trust" data-live-trust hidden>Generated by the Halvren Checklist engine. Not yet reviewed by the principal. The full review takes longer than a page load.</p>
     </div>
   </div>
 </section>
@@ -1372,5 +1515,25 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
 </script>
 
 <script src="/checklist/live/live.js" defer></script>
+<aside class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Main navigation" aria-hidden="true" hidden>
+  <div class="nav-overlay-bar">
+    <a href="/" class="nav-overlay-brand">Halvren Capital</a>
+    <button class="nav-overlay-close" data-nav-close aria-label="Close menu" type="button">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="nav-overlay-links" aria-label="Site sections">
+    <a href="/research">Research</a>
+    <a href="/notes">Notes</a>
+    <a href="/coverage">Coverage</a>
+    <a href="/checklist">Checklist</a>
+    <a href="/letters">Letters</a>
+    <a href="/process">Process</a>
+    <a href="/access">Access</a>
+    <a href="/about">About</a>
+  </nav>
+  <div class="nav-overlay-foot">Halvren Capital &middot; Vancouver</div>
+</aside>
+<script src="/nav-overlay.js" defer></script>
 </body>
 </html>

@@ -781,3 +781,69 @@ footer .footer-disclaimer p{font-size:var(--text-meta);color:var(--muted);line-h
   .notes-tag{min-height:34px;padding:6px 12px}
   .note-tag{min-height:28px}
 }
+
+/* ================================================================== */
+/* SPRINT 8 — MOBILE SURGICAL PASS (page.css)                         */
+/* Loaded on every page except the homepage (which is self-contained). */
+/* Mirrors the homepage inline mobile block.                          */
+/* ================================================================== */
+
+/* hidden attribute — bulletproof default state */
+[hidden]{display:none !important}
+
+/* Hamburger nav + full-screen overlay */
+@media(max-width:768px){
+  nav .nav-links{display:none}
+  nav .nav-back{display:none}
+}
+.nav-burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;border:none;cursor:pointer;color:var(--color-text);padding:0;margin:0;touch-action:manipulation;-webkit-tap-highlight-color:transparent;z-index:200}
+@media(max-width:768px){.nav-burger{display:inline-flex}}
+.nav-overlay{position:fixed;inset:0;background:var(--color-bg);z-index:300;opacity:0;visibility:hidden;transition:opacity 200ms var(--ease-soft),visibility 0s linear 200ms;display:flex;flex-direction:column}
+.nav-overlay[data-open="true"]{opacity:1;visibility:visible;transition:opacity 200ms var(--ease-soft),visibility 0s linear 0s}
+.nav-overlay-bar{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) var(--space-5);padding-top:calc(var(--space-4) + env(safe-area-inset-top,0));border-bottom:1px solid var(--color-divider)}
+.nav-overlay-bar .nav-overlay-brand{font-family:var(--font-display);font-size:var(--text-lg);color:var(--color-text);text-decoration:none;border:none;letter-spacing:-0.01em}
+.nav-overlay-close{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;color:var(--color-text);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.nav-overlay-links{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:var(--space-8) var(--space-8);gap:var(--space-5);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.nav-overlay-links a{font-family:var(--font-display);font-size:clamp(1.875rem,7vw,2.5rem);line-height:1.1;letter-spacing:-0.02em;color:var(--color-text);text-decoration:none;border:none;padding:var(--space-2) 0;min-height:44px;display:inline-flex;align-items:center;touch-action:manipulation}
+.nav-overlay-links a:active{color:var(--color-gold)}
+.nav-overlay-links a[aria-current="page"]{color:var(--color-gold)}
+.nav-overlay-foot{padding:var(--space-5) var(--space-8) calc(var(--space-5) + env(safe-area-inset-bottom,0));font-family:var(--font-body);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.06em;text-transform:uppercase;border-top:1px solid var(--color-divider)}
+body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
+@media(prefers-reduced-motion:reduce){.nav-overlay{transition:opacity 60ms linear,visibility 0s linear 60ms}}
+
+/* Operator pages: FY snapshot dl stacks single-column below 414 */
+@media(max-width:414px){
+  .doc-stats{grid-template-columns:1fr !important;padding:var(--space-5)}
+  .doc-stats dt{padding-top:var(--space-3)}
+  .doc-stats dd{padding-bottom:var(--space-3);font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+}
+
+/* Notes index: stack date above title on mobile */
+@media(max-width:600px){
+  .notes-item{grid-template-columns:1fr !important;gap:var(--space-2) !important}
+  .notes-item-date{padding-top:0}
+  .notes-item-body a.notes-item-title{font-size:var(--text-lg)}
+}
+
+/* About portrait: cap width on small viewports */
+@media(max-width:600px){
+  .about-portrait{max-width:240px;margin:0 auto;text-align:center}
+  .about-portrait img{max-width:240px}
+}
+
+/* Footer: stacked, readable */
+@media(max-width:768px){
+  footer{padding-bottom:env(safe-area-inset-bottom,0)}
+  .footer-disclaimer p{line-height:1.7;font-size:13px}
+  .footer-meta{flex-direction:column;align-items:flex-start;gap:var(--space-4)}
+  .footer-meta > *{width:100%}
+  .footer-meta span:last-child{display:flex;flex-wrap:wrap;gap:var(--space-3)}
+}
+
+/* Global mobile audit */
+@media(max-width:768px){
+  input[type="text"],input[type="email"],input[type="search"],input[type="tel"],input[type="number"],input[type="url"],textarea{font-size:16px !important}
+  a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  img{max-width:100%;height:auto}
+  section[id]{scroll-margin-top:80px}
+}

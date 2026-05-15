@@ -116,3 +116,14 @@
   .live-share button{min-height:44px;padding:0.625rem 0.875rem}
   .live-scorecard-cta a{min-height:44px;display:inline-flex;align-items:center}
 }
+
+/* Sprint 8: bulletproof hidden + 16px inputs, mobile audit */
+[hidden]{display:none !important}
+@media(max-width:768px){
+  input[type="text"]{font-size:16px !important}
+  .live-submit{min-height:48px}
+  .live-row{grid-template-columns:1fr;gap:8px}
+  .live-row .lr-num{padding-top:0;align-items:center}
+  .live-row .lr-dot{margin-top:0}
+  .live-row .lr-q{font-size:var(--text-base);line-height:1.5}
+}

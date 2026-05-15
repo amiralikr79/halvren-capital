@@ -8,6 +8,33 @@ Total commits on this branch (excluding the merge from main at the start): 7. On
 
 ---
 
+## Mobile pass (post-Sprint 7)
+
+Two hotfix commits closed the production deploy regression (the legacy `og.tsx` TypeScript+JSX file that had been failing builds since before Sprint 1) and shipped the first mobile cleanup pass. The full Sprint 8 surgical pass followed.
+
+**Hotfix 1: deploy unblocked.** Deleted `api/checklist/og.tsx`, rewrote `api/checklist/page.js` to build OG image URLs via the Sprint 3 `/api/og` route. First green production deploy since the original V3-1 hygiene PR.
+
+**Hotfix 2: first mobile pass.** Stacked the digest-feature 2-col grid on mobile, capped the hero halo at `min(140vw, 720px)` to prevent iOS horizontal-scroll leakage, bumped nav and theme toggles to 44×44 iOS tap targets, tightened watch-card / checklist-pillar / sc-pillar padding at ≤480px, forced 16px font-size on all inputs to block iOS Safari zoom-on-focus.
+
+**Sprint 8 (this commit): surgical mobile pass.** Ten explicit user-flagged bugs plus a comprehensive audit.
+
+- **EOG → 20.** Removed `data/operators/eog-resources.json`, `content/operators/eog-resources.md`, and `research/eog-resources.html`. Homepage pill reads "Reading 20 operators". `coverage.json` published count is 20. Constellation SVG, sitemap, llms.txt, llms-full.txt, feed.xml all regenerated.
+- **Checklist Live default state — bulletproof.** Every default-hidden region (`.live-error`, `.live-meta-strip`, `.live-list`, `.live-share`, `.live-scorecard`, `.live-trust`) gets the `hidden` HTML attribute. `live.js` toggles both `hidden` and `data-visible="true"`. New `[hidden]{display:none !important}` rule in homepage inline, `page.css`, and `live.css`. The "Something went sideways" and empty scorecard no longer leak through CSS-load lag.
+- **Constellation mobile fallback rebuilt.** Tabs now spaced (gap 8px, 0 14px padding, min-height 44px, `--line` border default, `--ink` border on `aria-pressed="true"`). Horizontal scroll inside `.constellation-mobile-tabs` with `overscroll-behavior-x: contain` and hidden scrollbars. List rows are full-width tap targets (min-height 56px) with ticker in display serif left, sector + last-reviewed in muted small-caps right, `--line` border below each row, no bullet styling.
+- **Hamburger nav → full-screen editorial overlay.** New `<aside class="nav-overlay" id="nav-overlay">` block site-wide across 54 HTML files + both build templates (`build_operators.py`, `build_notes.py`). Burger button uses custom SVG, 24×24, two horizontal bars in `--ink`. Overlay: bg `--bg`, links in display serif `clamp(1.875rem, 7vw, 2.5rem)`, gap `--space-5`, close X top-right, Escape and link-tap both close, focus trap, 200ms fade in/out, `body[data-nav-locked="true"]` locks scroll. No backdrop blur, no transforms.
+- **Digest section mobile.** 2-col grid drops to 1 col below 768. Stat block (filings / pages / flags / promoted) becomes a 2×2 grid with the number in display serif and the label in muted small-caps. Digest ticker wraps cleanly with `flex-wrap` and hidden rule on small viewports.
+- **Operator cards mobile.** Below 600px: ticker on its own line in display serif xl, name below in body sans small-caps, exchange below; sector pill pinned top-right. "What we track" breaks into a vertical list with the label as a small-caps header. Below 414px: "Read full research" link becomes a full-width tap-shaped button (border, 12px padding, min-height 44px).
+- **Checklist 10 questions mobile.** Pillar headers get breathing room (`--space-8` grid gap). Checklist items become flex column at ≤768px with the number row above the question. Question text drops to `text-lg` with `line-height: 1.7`.
+- **Footer mobile.** Stacked sections, line-height 1.7 on disclaimer paragraphs, `env(safe-area-inset-bottom)` padding for notched phones, link row wraps cleanly.
+- **Comprehensive audit, page-wide.** `[hidden]{display:none !important}` global. All inputs `font-size: 16px !important` at ≤768. `touch-action: manipulation` and `-webkit-tap-highlight-color: transparent` on every link/button. `scroll-margin-top: 80px` on `section[id]` for anchor-link offsetting. `safe-area-inset-bottom` on footer + overlay foot. `safe-area-inset-top` on the overlay bar. `<img>` capped at `max-width: 100%`.
+- **About portrait.** Capped at 240px on mobile, centered.
+- **Operator pages FY snapshot.** `.doc-stats` collapses to single-column below 414px with the metric label above and the number below in monospace tabular.
+- **Notes index mobile.** Date stacks above title on mobile; title size drops to `text-lg`.
+
+CSS-only changes for the actual style; one focused JS file (`nav-overlay.js`, 80 lines, vanilla) added; the `hidden` attribute migration touched the markup. No new dependencies.
+
+---
+
 ## Sprint 7 — SEO + AEO + final QA
 
 **Infrastructure regenerated from a single source of truth.** `scripts/build_seo.py` reads `coverage/coverage.json`, the operator JSON files, and the note `.mdx` frontmatter, and writes `sitemap.xml`, `llms.txt`, `llms-full.txt`, and `feed.xml`. Re-running it is the canonical way to refresh the SEO surface after content changes.
