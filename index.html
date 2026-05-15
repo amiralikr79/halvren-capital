@@ -354,6 +354,42 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
    (Sprint 4 component polish — large quotable presence on the card head). */
 .watch-stats dd{font-family:var(--font-mono);font-weight:400;font-variant-numeric:tabular-nums}
 @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:var(--space-8)}}
+
+/* ----------------------------------------------------------------- */
+/* MOBILE HOTFIX (post-Sprint 7)                                     */
+/* Fixes the bugs visible on iPhone:                                 */
+/*  1. Digest feature 2-col grid never stacked — left column got     */
+/*     crushed on iPhone width. Stack to 1 col below 768.            */
+/*  2. Hero halo (900x900 absolute) could push horizontal scroll on  */
+/*     iOS Safari. overflow:hidden on .hero, cap halo size on phones.*/
+/*  3. Nav + theme toggle hit targets bumped to the iOS 44px floor.  */
+/*  4. Tighter card / pillar padding at <=480 so content breathes.   */
+/*  5. Inputs hold >=16px font-size to prevent iOS zoom-on-focus.    */
+/* ----------------------------------------------------------------- */
+.hero{overflow:hidden}
+@media(max-width:768px){
+  /* digest feature: stack the 2-col grid, drop the right-column min-width */
+  #digest-feature .section-inner > a > div{grid-template-columns:1fr !important;gap:var(--space-6) !important}
+  #digest-feature .section-inner > a{padding:var(--space-8) var(--space-6) !important}
+  #digest-feature [data-digest-block]{min-width:0 !important;width:100%}
+  /* nav: 44px hit targets (iOS HIG) */
+  .theme-toggle,.nav-toggle{width:44px !important;height:44px !important}
+  /* hero halo: smaller on phones to avoid horizontal-scroll pressure */
+  .hero-halo{width:min(140vw,720px);height:min(140vw,720px);filter:blur(60px)}
+}
+@media(max-width:480px){
+  /* tighter card + pillar padding so prose breathes at 375px */
+  .watch-card{padding:var(--space-6)}
+  .checklist-pillar{padding:var(--space-6)}
+  .thesis-card{padding:var(--space-6)}
+  .belief-item{gap:var(--space-3)}
+  .live-pill{font-size:11px;padding:5px 12px}
+  .digest-ticker{font-size:11px}
+  .hero-sub{font-size:var(--text-base)}
+  /* prevent iOS Safari zoom-on-focus: inputs must be >= 16px */
+  .subscribe-input{font-size:16px}
+  .live-input{font-size:16px !important}
+}
 </style>
 </head>
 <body>

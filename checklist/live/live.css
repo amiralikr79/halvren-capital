@@ -106,7 +106,13 @@
 @media(max-width:600px){
   .live-wrap{padding:5rem 1.25rem 3rem}
   .live-input-row{flex-direction:column}
-  .live-submit{width:100%}
+  .live-submit{width:100%;padding:0.875rem 1.5rem}
   .live-row{grid-template-columns:40px 1fr;gap:0.75rem}
   .live-meta-strip .lm-cache{margin-left:0}
+  /* prevent iOS Safari zoom-on-focus: inputs must be >= 16px */
+  .live-input{font-size:16px !important}
+  .live-input::placeholder{font-size:14px}
+  /* tap targets */
+  .live-share button{min-height:44px;padding:0.625rem 0.875rem}
+  .live-scorecard-cta a{min-height:44px;display:inline-flex;align-items:center}
 }

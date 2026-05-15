@@ -748,3 +748,36 @@ footer .footer-disclaimer p{font-size:var(--text-meta);color:var(--muted);line-h
   .memo-layout{grid-template-columns:1fr;gap:var(--space-8)}
   .checklist-grid{grid-template-columns:1fr}
 }
+
+/* ----------------------------------------------------------------- */
+/* MOBILE HOTFIX (post-Sprint 7) — applied to all pages that load    */
+/* page.css. Mirrors the inline mobile-hotfix block on /index.html.  */
+/* ----------------------------------------------------------------- */
+@media(max-width:768px){
+  /* iOS HIG 44px tap targets */
+  .theme-toggle,.nav-toggle{width:44px;height:44px}
+  /* coverage table: allow horizontal scroll inside the wrapper rather
+     than blowing the viewport. The table still reads top-down via
+     the existing chip filters. */
+  .cov-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .cov-table{min-width:560px}
+  /* notes index list: tighten the date-column gap on mobile */
+  .notes-item{gap:var(--space-3)}
+}
+@media(max-width:480px){
+  /* doc body padding tighter for prose pages (research, notes, letters) */
+  .doc-main{padding-left:var(--space-5);padding-right:var(--space-5)}
+  .doc-h1{font-size:clamp(2rem,8vw,2.75rem)}
+  .doc-h2{font-size:clamp(1.5rem,6vw,2rem)}
+  /* operator scorecard: pillar cards stack tighter */
+  .sc-pillar{padding:var(--space-5) var(--space-4)}
+  /* operator stats: dl flow safer on small screens */
+  .doc-stats{padding:var(--space-5)}
+  /* prevent iOS zoom-on-focus on any input that lands on a static page */
+  input[type="text"],input[type="email"],input[type="search"],textarea{font-size:16px}
+  /* coverage chips: tap targets */
+  .cov-chip{min-height:36px;padding:6px 12px}
+  /* notes tag chips: tap targets */
+  .notes-tag{min-height:34px;padding:6px 12px}
+  .note-tag{min-height:28px}
+}
