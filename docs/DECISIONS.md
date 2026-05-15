@@ -13,6 +13,13 @@ Format:
 
 ---
 
+## 2026-05-15 — Sprint 7 hotfix: retire `api/checklist/og.tsx`, route legacy score-tool OG through `/api/og`
+**Decision.** Delete `api/checklist/og.tsx` and rewrite `api/checklist/page.js` so the legacy `/checklist/score/<ticker>` page builds its OG image URL from the Sprint 3 `/api/og?title=...&eyebrow=...` route instead.
+**Context / alternatives.** Vercel deploys had been failing on every commit since well before Sprint 1 (the V3-1 hygiene PR also failed) with two stacked errors in `og.tsx`: (1) 22 `TS17004: Cannot use JSX unless the '--jsx' flag is provided.` errors because the repo has no `tsconfig.json`, and (2) `The Edge Function "api/checklist/og" is referencing unsupported modules: @vercel/og` — a downstream artefact of the same compile failure. Three fix paths considered: (a) add `tsconfig.json` + a `react` dependency to make the JSX compile, (b) convert the file to plain `og.js` using the same `h()` helper pattern as `api/og.js`, (c) delete it and reuse the Sprint 3 route. (a) introduces a runtime dep on `react` for one OG image; (b) is correct but takes longer to write and review; (c) is the smallest possible diff, removes a known-broken file, and keeps the Halvren OG brand consistent across both checklist tools (the Sprint 3 route already renders the correct serif title on warm off-white). Chose (c).
+**Cost / reversibility.** The OG image for `/checklist/score/<ticker>` no longer shows the visual pass count (e.g. "7/10"); it shows the same string as the title text instead. Reversible by porting the layout into `api/og.js` as a `?layout=score` variant when the principal wants the pass-count visual back. Logged in follow-ups.
+
+---
+
 ## 2026-05-15 — Sprint 7: Unified SEO builder over hand-maintained files
 **Decision.** Write `scripts/build_seo.py` as the single source for `sitemap.xml`, `llms.txt`, `llms-full.txt`, and `feed.xml`. Re-run it on every content change. The prior hand-maintained `llms.txt` was stale on the 31-operator count and missed the Sprint 5 Checklist Live and the Sprint 3 Notes entirely.
 **Context / alternatives.** Could have left the four files as hand-edited artifacts and patched them per sprint. Rejected — the same drift would recur. A builder that reads from `coverage.json`, the operator JSON files, and the note frontmatter keeps these files faithful to the actual site state by construction.
@@ -250,6 +257,7 @@ Format:
 Items raised by Sprint 1 work that don't merit their own decision today.
 
 - _(2026-05-15)_ **Sprint 7 live verification.** Two items need a live deploy and human eyes: Lighthouse 95+/100/100/100 across home, /about, /research/cameco-cco, a /notes/<slug>, /checklist/live (the sandbox has no runner); and Chrome/Safari/Firefox + iOS Safari + Android Chrome QA on the Coverage Constellation hover, the Checklist Live SSE handler, and the Digest ticker rotation (the sandbox has no browser). The structural choices that target the scores are documented in this log and in `SHIPPED.md`. Principal to verify on the next Vercel deploy.
+- _(2026-05-15)_ **Optional: restore the pass-count OG visual for `/checklist/score/<ticker>`.** If the principal wants the original "7/10" visual treatment back, port the layout from the deleted `api/checklist/og.tsx` (in git history) into `api/og.js` as a `?layout=score&pass=N` variant using the existing `h()` helper. Avoid re-introducing TypeScript+JSX without a `tsconfig.json` and a `react` dep.
 - _(2026-05-15)_ **Per-operator OG images.** The 15 Sprint-2 operator pages currently point `og_image` at the generic `/og-research.png` fallback. Updating each to `/api/og?title=<...>&eyebrow=Halvren%20Research` is a one-line edit per operator JSON plus a `build_operators.py` rerun.
 - _(2026-05-14)_ **Sprint 4 Lighthouse verification.** Superseded by the 2026-05-15 entry above.
 - _(2026-05-14)_ Sprint 6 site-wide copy pass: clean up legacy forbidden-phrase strings, including the "Leverage trajectory" line in the homepage ENB watchlist card (`index.html:573`) and any other pre-Sprint-2 vintage occurrences.

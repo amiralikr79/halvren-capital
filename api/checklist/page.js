@@ -54,10 +54,19 @@ export default async function handler(req, res) {
     }
   }
 
-  const ogQuery = ticker
-    ? `?ticker=${encodeURIComponent(ticker)}${passCount != null ? `&pass=${passCount}` : ""}`
-    : "";
-  const ogImage = `https://halvrencapital.com/api/checklist/og${ogQuery}`;
+  // Build the OG image URL via the Sprint 3 /api/og edge function.
+  // The legacy /api/checklist/og.tsx was retired in Sprint 7 because the
+  // build was failing on TypeScript+JSX without a tsconfig; the new
+  // route accepts title + eyebrow query params and renders the same
+  // brand surface (Cormorant title on warm off-white, Halvren wordmark).
+  const ogTitle = ticker
+    ? (passCount != null ? `${ticker} — ${passCount}/10 on the Halvren Checklist` : `${ticker} on the Halvren Checklist`)
+    : "Halvren Checklist";
+  const ogEyebrow = "Halvren Checklist Score";
+  const ogImage =
+    `https://halvrencapital.com/api/og` +
+    `?title=${encodeURIComponent(ogTitle)}` +
+    `&eyebrow=${encodeURIComponent(ogEyebrow)}`;
   const canonical = ticker
     ? `https://halvrencapital.com/checklist/score/${encodeURIComponent(ticker)}`
     : `https://halvrencapital.com/checklist/score`;
