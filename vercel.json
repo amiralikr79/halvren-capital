@@ -14,6 +14,10 @@
       "destination": "/api/checklist/page"
     },
     {
+      "source": "/checklist/live/:ticker",
+      "destination": "/checklist/live/index.html"
+    },
+    {
       "source": "/version",
       "destination": "/api/version"
     }
@@ -42,6 +46,10 @@
     },
     "api/checklist/page.js": {
       "maxDuration": 5
+    },
+    "api/checklist/[ticker].js": {
+      "maxDuration": 60,
+      "includeFiles": "{content/checklist.json,coverage/coverage.json,data/checklist-examples.json}"
     },
     "api/cron/digest-draft.js": {
       "maxDuration": 30

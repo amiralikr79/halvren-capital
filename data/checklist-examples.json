@@ -1,0 +1,93 @@
+{
+  "$comment_1": "Hand-written Halvren-voice few-shot examples for the Checklist Live engine.",
+  "$comment_2": "Four anchors: CCO (uranium, mostly-clean), CNQ (oil/gas, exceptional), AG (silver, mixed-with-fails), ENB (infrastructure, durable).",
+  "$comment_3": "Each example follows the JSON-Lines protocol the engine produces at runtime: one object per question (q1..q10) plus one final scorecard object.",
+  "$comment_4": "When updating: keep verdict, text, sources tight; never include marketing words; the voice should sound like the principal at the desk, not a brochure.",
+  "version": "2026-05-14",
+
+  "examples": [
+    {
+      "ticker": "CCO",
+      "company": "Cameco Corporation",
+      "sector": "Energy",
+      "sub_industry": "Uranium",
+      "exchange": "TSX: CCO · NYSE: CCJ",
+      "lines": [
+        {"q":1,"verdict":"green","text":"FCF positive every full year since 2017, including the post-Fukushima trough. The dividend was held when the McArthur shutdown reduced production from 2018 through 2022."},
+        {"q":2,"verdict":"green","text":"McArthur River and Cigar Lake operate in the low-US$20s per pound on a cash basis. The marginal Canadian and African producers do not. The honest read at trough uranium is that Cameco's mines work and the rest of the cohort does not."},
+        {"q":3,"verdict":"green","text":"Net cash position at FY 2025. C$1.2B of cash and investments against C$1.0B of total debt. For a cyclical that is a non-trivial place to be."},
+        {"q":4,"verdict":"amber","text":"The 2023 Westinghouse acquisition is the open test. Early EBITDA contribution is encouraging; the durable mix between fuel-services and reactor-build is the part FY 2026 and 2027 will settle."},
+        {"q":5,"verdict":"amber","text":"Insider ownership is modest. Cameco is a public-market story, not an owner-operator one, so the weight falls on capital allocation behaviour rather than direct buys."},
+        {"q":6,"verdict":"green","text":"2018: mothballed McArthur rather than produce into a depressed price. 2020: held the dividend, no equity raised. The record reads as discipline in both stress windows."},
+        {"q":7,"verdict":"green","text":"Compensation is per-share-aligned post-2018 reset. Production targets are weighted alongside per-share metrics, not above them."},
+        {"q":8,"verdict":"amber","text":"Tim Gitzel has run Cameco since 2011. Succession is visible at the executive level but not concentrated in one named successor. We keep an eye on it."},
+        {"q":9,"verdict":"green","text":"On the uranium cost curve that matters — not the pitch-deck version — McArthur and Cigar sit comfortably first-quartile. The denominator is the global mined-uranium cohort."},
+        {"q":10,"verdict":"amber","text":"A mid-cycle realized uranium price is enough to make the business work. The Westinghouse earnings stream is materially less cyclical than the mining stream. The two together earn the wait."},
+        {"q":"scorecard","verdict":"green","text":"Cameco is the rare uranium name read as an operating business first and a commodity call second. Two amber Pillar II questions (succession, insider activity) sit on top of clean Pillar I and III reads. The desk works further on this name; it would not start from scratch on it."}
+      ]
+    },
+
+    {
+      "ticker": "CNQ",
+      "company": "Canadian Natural Resources Limited",
+      "sector": "Energy",
+      "sub_industry": "Oil & Gas",
+      "exchange": "TSX: CNQ · NYSE: CNQ",
+      "lines": [
+        {"q":1,"verdict":"green","text":"FCF positive every full year since 2010, including 2015–2016 and 2020. The maintenance free-cash-flow break-even sits below US$40 WTI at current strip differentials."},
+        {"q":2,"verdict":"green","text":"Long-life, low-decline assets at Horizon and Pelican Lake produce in the C$10s-per-barrel operating range. The mid-cycle WTI does not need to be a peak for the unit economics to work."},
+        {"q":3,"verdict":"green","text":"Investment-grade. Net debt walked down through every cycle since 2016. The 2020 trough did not require any covenant relief or equity issuance."},
+        {"q":4,"verdict":"green","text":"Pelican Lake polymer flood, Horizon expansion, and the 2020–2025 buyback velocity all produced per-share-accretive returns. The reinvestment record is among the cleanest in Canadian heavy oil."},
+        {"q":5,"verdict":"green","text":"Murray Edwards is a meaningful long-term shareholder. The Edwards record of behaviour — discipline at the trough, restraint at the peak — is the cleanest owner-operator signal in the Canadian energy patch."},
+        {"q":6,"verdict":"green","text":"2015: dividend raised, no equity issued, capex cut hard and selectively. 2020: dividend raised in March, the same week WTI front-month went briefly negative. The record is the receipt."},
+        {"q":7,"verdict":"green","text":"Compensation is per-share-aligned. Reserves-per-share and free-cash-per-share are tracked metrics. The proxy filings have been consistent on this for a decade."},
+        {"q":8,"verdict":"amber","text":"Tim McKay was promoted to CEO in 2020 with the operational pedigree to continue the Edwards-era discipline. The deeper question is the cultural transmission past the next decade. We watch the board composition."},
+        {"q":9,"verdict":"green","text":"Sustaining cost places CNQ first-quartile within the Canadian heavy-oil cohort and competitive on the global heavy curve. The denominator is the global heavy-oil mined and produced base."},
+        {"q":10,"verdict":"green","text":"At mid-cycle WTI (US$65–75) and current Canadian differentials, CNQ compounds meaningfully. The thesis does not require a commodity peak. The decade-out question is the regulatory framework, not the business."},
+        {"q":"scorecard","verdict":"green","text":"Twenty-six consecutive years of dividend raises through 2015 and 2020. The Edwards capital culture is on the public record. Two ambers (insider concentration is moderate; succession past Edwards is the open question); eight greens elsewhere. The desk reads this as the reference Canadian energy compounder."}
+      ]
+    },
+
+    {
+      "ticker": "AG",
+      "company": "First Majestic Silver Corp.",
+      "sector": "Materials",
+      "sub_industry": "Silver",
+      "exchange": "NYSE: AG · TSX: AG",
+      "lines": [
+        {"q":1,"verdict":"amber","text":"FCF has been positive in some years and negative in others over the past decade. The cycle is real and the asset base is not yet stable enough through a full one for the answer to read cleanly."},
+        {"q":2,"verdict":"red","text":"At silver in the low-US$20s the cohort all-in cost sits at or above the price for most senior silver producers. First Majestic's AISC has been in that range. The unit economics at the trough are uncomfortable."},
+        {"q":3,"verdict":"amber","text":"Balance sheet has been walked back from prior distress but is not yet investment-grade. The 2020 cycle required restraint; a deeper cycle would test the position again."},
+        {"q":4,"verdict":"red","text":"Reinvestment record on incremental capital has been weak. The Gatos and other transactions extended absolute production at the cost of meaningful per-share dilution. The math is in the proxy."},
+        {"q":5,"verdict":"amber","text":"Keith Neumeyer is the founder and remains a meaningful holder. Open-market activity has been mixed. The signal is partial."},
+        {"q":6,"verdict":"amber","text":"2015 and 2020 both required equity raises at meaningfully below prior peaks. The dividend has been intermittent. The record is mixed; it is not clean."},
+        {"q":7,"verdict":"red","text":"Compensation has historically been weighted toward absolute production and reserve growth rather than per-share metrics. The proxy structure is part of why the per-share record has lagged."},
+        {"q":8,"verdict":"amber","text":"Succession bench is not publicly named in a way that supports confident underwriting beyond the current founder-CEO. The company is built around one principal."},
+        {"q":9,"verdict":"amber","text":"On a global silver-equivalent cost curve First Majestic sits in the middle-to-back half. The senior pure-play silver cohort is broadly there; the by-product silver from polymetallic mines is structurally cheaper."},
+        {"q":10,"verdict":"amber","text":"At mid-cycle silver of US$22–25 the business breaks even on a free-cash basis. The thesis requires the upper half of the silver price band to compound. We do not buy thesis-requires-the-peak names."},
+        {"q":"scorecard","verdict":"red","text":"Three reds (unit economics at trough, reinvestment record, compensation structure) on top of six ambers and one moderate-positive read on the founder presence. The honest read is not yet a position — and the desk has held it as a forcing function for the per-share framework, not as a long. The streamer model is the structural workaround for silver."}
+      ]
+    },
+
+    {
+      "ticker": "ENB",
+      "company": "Enbridge Inc.",
+      "sector": "Infrastructure",
+      "sub_industry": "Pipelines",
+      "exchange": "TSX: ENB · NYSE: ENB",
+      "lines": [
+        {"q":1,"verdict":"green","text":"FCF positive every full year since the 2017 Spectra combination. The contracted EBITDA structure decouples earnings from commodity price."},
+        {"q":2,"verdict":"green","text":"Approximately 98% of EBITDA is take-or-pay, cost-of-service, or fee-based. The trough commodity quarter has not historically moved the operating earnings meaningfully."},
+        {"q":3,"verdict":"amber","text":"Net debt is meaningfully above the 4.5× target band after the 2023–2024 Dominion utility acquisitions. The walk back is in progress; the target is publicly committed."},
+        {"q":4,"verdict":"amber","text":"The Mainline expansion years produced acceptable ROIC; the Dominion acquisitions are the open question. The 2026–2027 utility rate-case outcomes will settle it."},
+        {"q":5,"verdict":"amber","text":"Insider ownership is modest. Enbridge is an institutional name; the structural signal is the capital allocation behaviour at the board rather than direct insider buys."},
+        {"q":6,"verdict":"green","text":"2015: dividend raised. 2020: dividend raised. No equity issued at distressed prices in either window. The record is in the public filings."},
+        {"q":7,"verdict":"green","text":"Compensation has been per-share-tilted since the 2018 reset. The DCF-per-share metric is a tracked compensation input."},
+        {"q":8,"verdict":"green","text":"Greg Ebel succeeded Al Monaco cleanly in 2023. The executive bench is named and visible. Succession is not the open question on this name."},
+        {"q":9,"verdict":"green","text":"The Mainline corridor between the WCSB and the US Midwest does not get rebuilt every cycle. Rate-base economics dominate the cost-curve discussion."},
+        {"q":10,"verdict":"green","text":"At any realistic North American natural gas demand path and any reasonable Canadian heavy oil path, the contracted base earns. The decade-out question is regulatory, not commodity."},
+        {"q":"scorecard","verdict":"green","text":"Three Pillar II ambers (debt post-Dominion, ROIC on the acquisitions, modest insider) sit alongside seven greens. Thirty-one years of dividend raises is the receipt. The desk reads ENB as a reference toll-road compounder; the regulatory environment is the open question we track quarterly."}
+      ]
+    }
+  ]
+}

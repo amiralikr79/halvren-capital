@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Halvren Checklist Live — run the 10 questions on any ticker</title>
+<meta name="description" content="The Halvren Checklist, in the principal's voice, run against any Canadian or U.S. ticker. Ten questions, streamed in real time. Never a recommendation; not yet reviewed by the principal.">
+<meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<script>(function(){try{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="canonical" href="https://halvrencapital.com/checklist/live">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Halvren Checklist Live — run the 10 questions on any ticker">
+<meta property="og:description" content="The Halvren Checklist, in the principal's voice, run against any Canadian or U.S. ticker. Ten questions, streamed in real time.">
+<meta property="og:url" content="https://halvrencapital.com/checklist/live">
+<meta property="og:image" content="https://halvrencapital.com/api/og?title=Halvren%20Checklist%20Live&eyebrow=Run%20the%20Halvren%2010">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111010'/><path d='M7 8 L7 24 M7 16 L15 16 M15 8 L15 24' stroke='%23e8e6e2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M19 8 L19 24 M19 8 L26 16 L19 24' stroke='%23c9a84c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/page.css">
+<link rel="stylesheet" href="/checklist/live/live.css">
+</head>
+<body>
+<div class="progress-bar" aria-hidden="true"><div class="progress-bar-fill"></div></div>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav>
+  <a href="/" class="nav-logo" aria-label="Halvren Capital — home">
+    <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="4" fill="none"/>
+      <path d="M6 6 L6 26 M6 16 L16 16 M16 6 L16 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 6 L20 26 M20 6 L28 16 L20 26" stroke="var(--color-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-logo-name">Halvren Capital</span>
+  </a>
+  <div class="nav-links" id="nav-links" data-open="false">
+    <a href="/research">Research</a>
+    <a href="/notes">Notes</a>
+    <a href="/letters">Letters</a>
+    <a href="/process">Process</a>
+    <a href="/access">Access</a>
+    <a href="/about">About</a>
+  </div>
+  <div class="nav-right">
+    <a href="/" class="nav-back">Back to home</a>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" type="button">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-controls="nav-links" aria-expanded="false" type="button">
+      <span class="nav-toggle-open"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>
+      <span class="nav-toggle-close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></span>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="live-wrap" data-live-root>
+    <p class="live-eyebrow">The Halvren Checklist</p>
+    <h1 class="live-hero-h">Or run it on a stock you actually <em>own.</em></h1>
+    <p class="live-lede">Ten questions, in the principal's voice, against any Canadian or U.S. ticker. The desk's working framework — applied at the speed of a page load, not a quarter. Never a recommendation. The full review takes longer than this does.</p>
+
+    <form class="live-input-row" data-live-form>
+      <input class="live-input" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false"
+             placeholder="CCO · CNQ · NVDA · ATD · whatever you're afraid to look at honestly"
+             aria-label="Ticker symbol" required maxlength="12" data-live-input>
+      <button class="live-submit" type="submit" data-live-submit>Run the 10</button>
+    </form>
+    <p class="live-helptext">US tickers as-is. Canadian: TSX format with the suffix (e.g. <code>CIX.TO</code>). Already in our coverage? Try <a href="/research">the research archive</a>.</p>
+
+    <div class="live-error" data-live-error role="alert">
+      <h3 data-err-title>Something went sideways.</h3>
+      <p data-err-body></p>
+    </div>
+
+    <div class="live-meta-strip" data-live-meta>
+      <span class="lm-ticker" data-meta-ticker></span>
+      <span class="lm-name" data-meta-name></span>
+      <span class="lm-sector" data-meta-sector></span>
+      <span class="lm-cache" data-meta-cache></span>
+    </div>
+
+    <ol class="live-list" data-live-list></ol>
+
+    <div class="live-share" data-live-share>
+      <span>Shareable link:</span>
+      <code data-share-url></code>
+      <button type="button" data-share-copy>Copy</button>
+    </div>
+
+    <section class="live-scorecard" data-live-scorecard aria-live="polite">
+      <p class="live-scorecard-eyebrow">The Halvren Read</p>
+      <h2 data-scorecard-h>The desk's overall read on <em data-scorecard-ticker></em></h2>
+      <p class="live-scorecard-text" data-scorecard-text></p>
+      <div class="live-scorecard-chips" data-scorecard-chips role="img" aria-label="Verdict chips"></div>
+      <div class="live-scorecard-cta">
+        <p>Halvren publishes one letter a quarter — the list goes through Substack.</p>
+        <a href="https://substack.com/@halvrencapital/subscribe" target="_blank" rel="noopener noreferrer">Get the letter</a>
+      </div>
+    </section>
+
+    <p class="live-trust" data-live-trust>Generated by the Halvren Checklist engine. Not yet reviewed by the principal. The full review takes longer than a page load.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Halvren Capital — Vancouver — Est. 2025</div>
+    <div class="footer-disclaimer">
+      <p>Halvren Capital publishes research and commentary for informational and educational purposes only. Nothing on this site constitutes an offer, solicitation, or recommendation to buy or sell any security.</p>
+      <p>Halvren manages proprietary capital and is not currently accepting outside investors. Halvren is not a registered investment adviser, broker-dealer, or portfolio manager. The author may hold positions in securities discussed and may transact in them at any time without notice.</p>
+    </div>
+  </div>
+  <div class="footer-inner footer-meta">
+    <span>&copy; 2025–2026 Halvren Capital. All rights reserved.</span>
+    <span><a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/version">Version</a></span>
+  </div>
+</footer>
+
+<script src="/nav.js" defer></script>
+<script src="/checklist/live/live.js" defer></script>
+</body>
+</html>

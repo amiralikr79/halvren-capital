@@ -13,6 +13,43 @@ Format:
 
 ---
 
+## 2026-05-14 — Sprint 5: Model choice — Sonnet 4.6 over Opus 4.5
+**Decision.** Use `claude-sonnet-4-6` as the model id for the streaming Checklist engine.
+**Context / alternatives.** The Sprint 5 brief offered either `claude-opus-4-5` or `claude-sonnet-4-6`. The engine emits 11 short JSON-Lines (10 question answers + 1 scorecard), each 1–3 sentences. Sonnet 4.6 is several multiples faster on streaming output, materially cheaper at scale, and produces voice-aligned output when given the four anchor examples in the system prompt. Opus would be the right call for a much harder reasoning task; here the reasoning is shallow and the work is style + structure, which Sonnet handles cleanly.
+**Cost / reversibility.** Reversible by changing `MODEL_ID` in `api/checklist/_lib.js`. The system prompt and protocol work for both.
+
+## 2026-05-14 — Sprint 5: Cache + rate-limit on Upstash Redis (no file cache)
+**Decision.** Persist Checklist Live results in Upstash Redis with a 24-hour TTL (`SETEX clive:v1:<TICKER> ...`), and rate-limit at 10 requests per IP per hour via a sliding-window `INCR` + `EXPIRE`.
+**Context / alternatives.** A file cache on the function's filesystem would survive zero deploys and zero cold starts on Vercel (the FS is ephemeral per-isolate). Upstash Redis is already a project dependency (auto-injected env vars), is used by the existing `score.js` endpoint, and is the canonical pattern for this codebase. File cache rejected.
+**Cost / reversibility.** Trivial. The 24-hour TTL is set per-key; can be tuned in `_lib.js` (`CACHE_TTL_S`).
+
+## 2026-05-14 — Sprint 5: Fundamentals via Yahoo Finance public endpoints (Node fetch), not Python yfinance or FMP
+**Decision.** Fetch fundamentals from Yahoo Finance's public `quoteSummary` endpoint via Node `fetch`, with a desktop-browser `User-Agent`. Modules requested: `assetProfile`, `summaryProfile`, `summaryDetail`, `defaultKeyStatistics`, `financialData`, `cashflowStatementHistory`, `balanceSheetHistory`, `incomeStatementHistory`, `earnings`. On empty response, retry with `.TO` and `.V` suffixes for likely Canadian tickers. If still empty: route to the graceful sparse template ("the desk would need to read the primary filings…").
+**Context / alternatives.** (1) yfinance via a Python serverless function would require adding the @vercel/python builder and a `requirements.txt`, which adds a runtime to a deliberately dependency-light Node project. (2) Financial Modeling Prep free tier requires an API key with a 250/day cap and varying coverage on Canadian tickers. (3) Yahoo's public endpoints work without a key, handle Canadian `.TO`/`.V` suffixes, and return a single JSON blob with everything the engine needs. Yahoo's downside is brittleness (the endpoint occasionally requires a `crumb` cookie); the brittleness is bounded by the cache TTL and the graceful-degradation fallback.
+**Cost / reversibility.** Reversible by swapping `fetchFundamentals` in `_lib.js`. The downstream prompt is unchanged either way.
+
+## 2026-05-14 — Sprint 5: Streaming protocol is JSON Lines over SSE, not OpenAI-style chunks or HTML deltas
+**Decision.** The engine asks the model to emit exactly 11 lines: 10 answer objects (`{"q":n,"verdict":...,"text":...}`) and one scorecard object (`{"q":"scorecard",...}`). Each line is a complete JSON object terminated by `\n`. The endpoint parses lines as they arrive from the Anthropic SDK stream, validates each against the protocol, and forwards them as SSE `line` events. On completion the server emits a single `complete` event with the full payload.
+**Context / alternatives.** Alternatives considered: (a) ask for one large JSON object and have the client incrementally parse — slower perceived response, harder failure modes; (b) emit deltas character-by-character and have the client buffer — encourages awkward mid-sentence highlighting and fragile parse; (c) use tool-use / structured-output JSON mode — would not stream incrementally on every SDK version. JSON Lines is the cleanest match for streaming-with-structure.
+**Cost / reversibility.** Trivial.
+
+## 2026-05-14 — Sprint 5: Four anchor examples as voice training, not retrieval
+**Decision.** Embed four hand-crafted examples (CCO, CNQ, AG, ENB) directly in the system prompt as JSON-Lines anchors. The engine reads them on every request via `examples()` from `data/checklist-examples.json`. The system prompt also gets the prompt-cache breakpoint (`cache_control: { type: "ephemeral" }`) so the byte-stable prefix is cached across requests.
+**Context / alternatives.** RAG over the existing 21 operator JSON files would be more "modern" but would (a) introduce a chunking + embedding step on a Node-only codebase, (b) bloat the prompt with operator-specific minutiae the engine does not need, and (c) lose the editorial calibration that hand-written examples carry. Few-shot remains the most predictable way to lock voice on a generative task.
+**Cost / reversibility.** Reversible by extending `_lib.js` to opt into a retrieval mode. The examples file is the single source for the voice anchor; updating it is a one-line edit.
+
+## 2026-05-14 — Sprint 5: Live styles extracted to a shared CSS file
+**Decision.** Pull the `.live-*` styles into `/checklist/live/live.css` and link it from both the standalone page (`/checklist/live/index.html`) and the homepage (`/index.html`). Token aliases (`--bg`, `--ink`, `--muted`, `--line`, `--green`, `--red`, `--gold`) are declared at the top of the file with fallback chains so the embed works on the homepage even though it does not load `page.css`.
+**Context / alternatives.** Could have inlined the styles into the homepage's existing `<style>` block. Rejected — that would duplicate ~150 lines of styling between the two pages and create a drift hazard. The shared file is the single source of truth.
+**Cost / reversibility.** Trivial.
+
+## 2026-05-14 — Sprint 5: Trust footer is non-negotiable copy and never re-rendered conditionally
+**Decision.** The trust line — "Generated by the Halvren Checklist engine. Not yet reviewed by the principal. The full review takes longer than a page load." — is rendered as static HTML on both the standalone page and the homepage embed. It becomes visible the moment the question list does and stays visible through the scorecard. It is never gated on success, error, cache, or fundamentals path.
+**Context / alternatives.** None considered seriously — this is regulatory and editorial truth in one. The principal asked for it explicitly.
+**Cost / reversibility.** N/A.
+
+---
+
 ## 2026-05-14 — Sprint 4: Design-system block appended to `page.css`, existing tokens kept as synonyms
 **Decision.** Add the canonical tokens (`--bg`, `--ink`, `--muted`, `--line`, `--green`, `--red`, `--gold`), the Cormorant Garamond family alias (`--font-h1h2`), the modular type scale (`--text-hero`, `--text-h2`, `--text-sub`, `--text-body`, `--text-meta`), the new motion rules, link-underline behaviour, operator-card polish, checklist polish, constellation styles, and a mobile sweep into a single Sprint 4 block at the end of `page.css`. The pre-existing `--color-*` tokens remain in service as synonyms.
 **Context / alternatives.** Could have done a hostile rename across the 56k of inline styles in the HTML files. Rejected: the brand doc already commits the constitution to alias-not-replace, and a wholesale rename violates the operating-rules scope discipline. The end-of-file block also avoids accidentally breaking sub-pages that have inline overrides; the cascade lands cleanly.
