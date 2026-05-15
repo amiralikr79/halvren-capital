@@ -42,9 +42,9 @@ def render(entries: list[dict]) -> str:
     items = []
     for e in entries[:3]:
         items.append(
-            f'        <div class="desk-latest-item">\n'
-            f'          <span class="desk-latest-meta">{fmt_date(e["date"])} &middot; {e["ticker"]} &middot; {e["action"]}</span>\n'
-            f'          <p class="desk-latest-summary"><a href="/diary/{e["id"]}" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--color-divider)">{e["summary"]}</a></p>\n'
+            f'        <div class="desk-latest-item" data-relative-from="{e["date"]}">\n'
+            f'          <span class="desk-latest-meta" title="{e["date"]}">{fmt_date(e["date"])} &middot; {e["ticker"]} &middot; {e["action"]}</span>\n'
+            f'          <p class="desk-latest-summary"><a href="/diary/{e["id"]}" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">{e["summary"]}</a></p>\n'
             f'        </div>'
         )
     return f"{START}\n" + "\n".join(items) + f"\n      {END}"

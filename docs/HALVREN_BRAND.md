@@ -94,51 +94,77 @@ Adjacent words to avoid: _seamless, frictionless, holistic, transformative, empo
 
 ## 4. Color tokens
 
-These are the locked aliases. The existing CSS variables in `page.css` are the current implementation; both names refer to the same value.
+**Sprint 12 update — dark is the default brand surface.** Light is the toggle. The token table below documents the dark palette as the canonical values; light values are the inverse fallback when the visitor opts in.
 
-| Token | Hex | Used for |
-|---|---|---|
-| `--bg` | `#f7f6f2` | page background (light) |
-| `--ink` | `#1a1a1a` | body text, headlines |
-| `--muted` | `#6b6b6b` | secondary text, captions, footnotes |
-| `--line` | `#d9d6cf` | dividers, hairline borders |
-| `--green` | `#2d5f3f` | compounding, gains, positive figures |
-| `--red` | `#8b2c2c` | troughs, drawdowns, negative figures |
-| `--gold` | `#a87f3c` | one accent per page — eyebrow, single link, single rule |
+| Token | Dark (default) | Light | Used for |
+|---|---|---|---|
+| `--bg` | `#0b0b0d` | `#f7f6f2` | page background |
+| `--bg-2` | `#131316` | `#f9f8f5` | cards, raised surfaces |
+| `--bg-3` | `#1a1a1e` | `#f3f0ec` | overlays, modals, sector pills |
+| `--ink` | `#f1ede4` | `#1a1814` | body text, headlines (warm cream in dark) |
+| `--muted` | `#8a857c` | `#6b6a66` | secondary text, captions, footnotes |
+| `--line` | `#26241f` | `#dcd9d5` | dividers, hairline borders |
+| `--gold` | `#d4a04c` | `#b8860b` | premium accent (eyebrow, single link, single rule) |
+| `--amber` | `#ff9d2f` | `#d4751c` | the saturated accent — **max 3 uses sitewide** (see Sec 4a) |
+| `--green` | `#5bba7b` | `#1e7e4c` | compounding, gains, positive figures |
+| `--red` | `#d65a5a` | `#b94747` | troughs, drawdowns, negative figures |
 
-Existing aliases (kept for back-compatibility, treated as synonyms):
-`--color-bg → --bg`, `--color-text → --ink`, `--color-text-muted → --muted`,
-`--color-divider → --line`, `--color-gold → --gold`.
+Legacy `--color-*` aliases (kept for back-compatibility, treated as synonyms): `--color-bg → --bg`, `--color-text → --ink`, `--color-text-muted → --muted`, `--color-divider → --line`, `--color-gold → --gold`.
+
+### 4a. The three amber moments
+
+`--amber` is the loudest pigment in the system. It appears in exactly three places sitewide. Anything else asking for amber is wrong.
+
+1. The **"Run the 10"** CTA on Checklist Live (the brightest button on the page).
+2. The **Halvren Read Mark** ring + glow when the score is exactly **100**.
+3. The **question numbers (01..10)** on the homepage Checklist preview only — not on the full `/checklist` page.
+
+If a designer needs amber for something new, kill one of the three first.
 
 ### Rules of use
 
 - **One gold per page.** The eyebrow OR the primary link OR a single hairline rule. Not two of them. Pick the most important and let the rest breathe in `--ink` and `--muted`.
 - **Green and red are reserved for numbers.** Never decorative. A return figure can be green. A heading cannot.
-- **No gradients.** No drop-shadows over 8% opacity. Borders are 1px, in `--line`.
-- **Dark mode keeps the same hierarchy.** The light-on-dark palette already in `page.css` is the canonical inversion — do not invent new dark values.
+- **No gradients except** the hero's barely-perceptible 4% gold radial in the bottom-right corner of the homepage (Sprint 12).
+- **No drop-shadows over 8% opacity.** Borders are 1px, in `--line`.
+- **Dark mode is the canonical surface.** Light mode preserves the same hierarchy; do not invent new light values.
 
 ---
 
 ## 5. Typography
 
-The page is set in serif. It stays in serif.
+**Three families, three roles, no ambiguity.** Sprint 12 codified the system: one serif for the writing, one sans for the structure, one mono for the math.
 
-| Role | Family | Notes |
-|---|---|---|
-| Body | _current site serif_ (Instrument Serif via `--font-display`, DM Sans for UI chrome via `--font-body`) | keep |
-| Display H1 / H2 | upgrade target: **Cormorant Garamond** or **Lora** (Google Fonts) | editorial weight — replaces `Instrument Serif` for display only |
-| UI chrome, eyebrows, buttons | sans (`--font-body`, currently DM Sans) | keep |
-| Numerics (tickers, returns, dates) | `--font-mono` | keep |
+| Role | Family | Token | Used for |
+|---|---|---|---|
+| Display | **Cormorant Garamond** 500/600 | `--font-display` | H1, H2, hero headline, operator headlines, the Mark's score numeral |
+| Body | **Instrument Serif** | `--font-body` | paragraphs, note bodies, the founding memo, every prose block |
+| UI | **Inter** 400/500/600 | `--font-ui` | nav, buttons, captions, tabs, eyebrows that aren't small-caps, every small UI label |
+| Data | **JetBrains Mono** 400/500 | `--font-data` | every ticker, score, percent, timestamp, monetary value, table cell — tabular numerals always on |
 
 ### Rules
 
-- **Headings track tight** (`letter-spacing: -0.02em` on H1, `-0.01em` on H2). Body tracks normal.
+- **Headings track tight.** H1 `letter-spacing: -0.025em`, H2 `letter-spacing: -0.015em`. Body tracks normal.
 - **H1 is one size larger than the largest H2 on the page.** Never two H1s.
 - **No italics in headings.** Italics belong inside the body, on a single word.
 - **No bold in body copy.** The current memo paragraphs use a single `<strong>` to anchor a claim — _one per section_, never more.
-- **Line-height:** 1.7 for paragraphs, 1.15 for display. Anything else is wrong.
+- **Line-height:** 1.65 for paragraphs, 1.15 for display. Anything else is wrong.
+- **Small-caps labels** ("Halvren Read", "What we track", "On the desk") are `var(--font-data)` 10–11px, `letter-spacing: 0.1em`, `text-transform: uppercase`, `color: var(--muted)`, `font-weight: 500`. Always.
+- **Never** put a number in a serif (except inside the Halvren Read Mark). Numbers belong to `--font-data`.
+- **Never** put a heading in a sans. The serif is the writing.
 
-The Cormorant/Lora upgrade lands in Sprint 4 (Design System). Until then, the current `Instrument Serif` stays — but the constitution is the target.
+### 5a. The Halvren Read Mark
+
+The signature component. Specified explicitly because every other element in the system supports it.
+
+- **Geometry.** Perfect circle, 88px desktop / 64px mobile. Large variant 120px on operator hero. Small variant 48px in tables.
+- **Fill.** `var(--bg-2)`. 2px solid ring.
+- **Ring color by band.** `perfect` (100) = `--amber` + 6px outer glow. `elite` (85–99) = `--green` + 4px outer glow. `solid` (70–84) = `--gold`, no glow. `mid` (50–69) = `--muted`. `low` (<50) = `--red`.
+- **Inside.** Score in display serif, weight 500, 36px / 28px / 18px by variant, `--ink`. Beneath the score, in mono small-caps 9px `--muted`, `/ 100`.
+- **Below the circle.** `HALVREN READ` in mono small-caps 9px `--muted`, `letter-spacing: 0.14em`, centered.
+- **Interaction.** On hover (desktop) or tap (mobile) the circle expands smoothly (350ms `cubic-bezier(0.22, 1, 0.36, 1)`) into a rounded rectangle ~320px wide revealing the 10 checklist verdicts as chips in a 5×2 grid. Each chip is the question shorthand ("Q1" … "Q10") colored by verdict. Tap-outside or mouse-leave collapses back. No bounce.
+
+The Mark replaces every previous "Halvren Read · NN / 100" rendering. It is the brand mark.
 
 ---
 

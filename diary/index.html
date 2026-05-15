@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="dark light">
-<script>(function(){try{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<script>(function(){try{var c=document.cookie.split('; ').find(function(r){return r.indexOf('halvren-theme=')===0});var s=c?c.split('=')[1]:null;var t=s||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="canonical" href="https://halvrencapital.com/diary">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Cycle Diary — Halvren Capital">
@@ -22,7 +22,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111010'/><path d='M7 8 L7 24 M7 16 L15 16 M15 8 L15 24' stroke='%23e8e6e2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M19 8 L19 24 M19 8 L26 16 L19 24' stroke='%23c9a84c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/page.css">
 </head>
 <body>
@@ -66,8 +66,8 @@
       <button type="button" class="diary-filter" data-filter="all" aria-pressed="true">All</button><button type="button" class="diary-filter" data-filter="promoted" aria-pressed="false">Promoted</button><button type="button" class="diary-filter" data-filter="demoted" aria-pressed="false">Demoted</button><button type="button" class="diary-filter" data-filter="flagged" aria-pressed="false">Flagged</button><button type="button" class="diary-filter" data-filter="added" aria-pressed="false">Added</button><button type="button" class="diary-filter" data-filter="killed" aria-pressed="false">Killed</button><button type="button" class="diary-filter" data-filter="reviewed" aria-pressed="false">Reviewed</button>
     </div>
     <div class="diary-feed" id="diary-feed">
-      <article class="diary-entry" data-action="promoted" data-id="2026-05-14-tou-promoted">
-        <div class="diary-entry-date">May 14, 2026</div>
+      <article class="diary-entry" data-action="promoted" data-id="2026-05-14-tou-promoted" data-relative-from="2026-05-14">
+        <div class="diary-entry-date" title="2026-05-14">May 14, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/tourmaline-tou">TOU</a>
@@ -78,8 +78,8 @@
           <a class="diary-entry-link" href="/diary/2026-05-14-tou-promoted">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="flagged" data-id="2026-05-09-ag-flagged">
-        <div class="diary-entry-date">May 9, 2026</div>
+      <article class="diary-entry" data-action="flagged" data-id="2026-05-09-ag-flagged" data-relative-from="2026-05-09">
+        <div class="diary-entry-date" title="2026-05-09">May 9, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/first-majestic-ag">AG</a>
@@ -90,8 +90,8 @@
           <a class="diary-entry-link" href="/diary/2026-05-09-ag-flagged">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="reviewed" data-id="2026-05-06-cnq-reviewed">
-        <div class="diary-entry-date">May 6, 2026</div>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-05-06-cnq-reviewed" data-relative-from="2026-05-06">
+        <div class="diary-entry-date" title="2026-05-06">May 6, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/canadian-natural-cnq">CNQ</a>
@@ -102,8 +102,8 @@
           <a class="diary-entry-link" href="/diary/2026-05-06-cnq-reviewed">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="promoted" data-id="2026-05-02-aem-promoted">
-        <div class="diary-entry-date">May 2, 2026</div>
+      <article class="diary-entry" data-action="promoted" data-id="2026-05-02-aem-promoted" data-relative-from="2026-05-02">
+        <div class="diary-entry-date" title="2026-05-02">May 2, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/agnico-eagle-aem">AEM</a>
@@ -114,8 +114,8 @@
           <a class="diary-entry-link" href="/diary/2026-05-02-aem-promoted">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="reviewed" data-id="2026-04-22-cco-reviewed">
-        <div class="diary-entry-date">April 22, 2026</div>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-04-22-cco-reviewed" data-relative-from="2026-04-22">
+        <div class="diary-entry-date" title="2026-04-22">April 22, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/cameco-cco">CCO</a>
@@ -126,8 +126,8 @@
           <a class="diary-entry-link" href="/diary/2026-04-22-cco-reviewed">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="reviewed" data-id="2026-04-18-cnq-reviewed">
-        <div class="diary-entry-date">April 18, 2026</div>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-04-18-cnq-reviewed" data-relative-from="2026-04-18">
+        <div class="diary-entry-date" title="2026-04-18">April 18, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/canadian-natural-cnq">CNQ</a>
@@ -138,8 +138,8 @@
           <a class="diary-entry-link" href="/diary/2026-04-18-cnq-reviewed">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="reviewed" data-id="2026-04-11-enb-reviewed">
-        <div class="diary-entry-date">April 11, 2026</div>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-04-11-enb-reviewed" data-relative-from="2026-04-11">
+        <div class="diary-entry-date" title="2026-04-11">April 11, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/enbridge-enb">ENB</a>
@@ -150,8 +150,8 @@
           <a class="diary-entry-link" href="/diary/2026-04-11-enb-reviewed">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="promoted" data-id="2026-04-04-arx-promoted">
-        <div class="diary-entry-date">April 4, 2026</div>
+      <article class="diary-entry" data-action="promoted" data-id="2026-04-04-arx-promoted" data-relative-from="2026-04-04">
+        <div class="diary-entry-date" title="2026-04-04">April 4, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/arc-resources-arx">ARX</a>
@@ -162,8 +162,8 @@
           <a class="diary-entry-link" href="/diary/2026-04-04-arx-promoted">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="reviewed" data-id="2026-03-28-fts-reviewed">
-        <div class="diary-entry-date">March 28, 2026</div>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-03-28-fts-reviewed" data-relative-from="2026-03-28">
+        <div class="diary-entry-date" title="2026-03-28">March 28, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/fortis-fts">FTS</a>
@@ -174,8 +174,8 @@
           <a class="diary-entry-link" href="/diary/2026-03-28-fts-reviewed">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="flagged" data-id="2026-03-21-cve-flagged">
-        <div class="diary-entry-date">March 21, 2026</div>
+      <article class="diary-entry" data-action="flagged" data-id="2026-03-21-cve-flagged" data-relative-from="2026-03-21">
+        <div class="diary-entry-date" title="2026-03-21">March 21, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/cenovus-cve">CVE</a>
@@ -186,8 +186,8 @@
           <a class="diary-entry-link" href="/diary/2026-03-21-cve-flagged">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="demoted" data-id="2026-03-15-meg-demoted">
-        <div class="diary-entry-date">March 15, 2026</div>
+      <article class="diary-entry" data-action="demoted" data-id="2026-03-15-meg-demoted" data-relative-from="2026-03-15">
+        <div class="diary-entry-date" title="2026-03-15">March 15, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/meg-energy-meg">MEG</a>
@@ -198,8 +198,8 @@
           <a class="diary-entry-link" href="/diary/2026-03-15-meg-demoted">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="reviewed" data-id="2026-03-12-ntr-reviewed">
-        <div class="diary-entry-date">March 12, 2026</div>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-03-12-ntr-reviewed" data-relative-from="2026-03-12">
+        <div class="diary-entry-date" title="2026-03-12">March 12, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/nutrien-ntr">NTR</a>
@@ -210,8 +210,8 @@
           <a class="diary-entry-link" href="/diary/2026-03-12-ntr-reviewed">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="flagged" data-id="2026-03-05-trp-flagged">
-        <div class="diary-entry-date">March 5, 2026</div>
+      <article class="diary-entry" data-action="flagged" data-id="2026-03-05-trp-flagged" data-relative-from="2026-03-05">
+        <div class="diary-entry-date" title="2026-03-05">March 5, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/tc-energy-trp">TRP</a>
@@ -222,8 +222,8 @@
           <a class="diary-entry-link" href="/diary/2026-03-05-trp-flagged">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="reviewed" data-id="2026-02-28-cnr-reviewed">
-        <div class="diary-entry-date">February 28, 2026</div>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-02-28-cnr-reviewed" data-relative-from="2026-02-28">
+        <div class="diary-entry-date" title="2026-02-28">February 28, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/cn-rail-cnr">CNR</a>
@@ -234,8 +234,8 @@
           <a class="diary-entry-link" href="/diary/2026-02-28-cnr-reviewed">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="flagged" data-id="2026-02-25-oxy-flagged">
-        <div class="diary-entry-date">February 25, 2026</div>
+      <article class="diary-entry" data-action="flagged" data-id="2026-02-25-oxy-flagged" data-relative-from="2026-02-25">
+        <div class="diary-entry-date" title="2026-02-25">February 25, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/occidental-oxy">OXY</a>
@@ -246,8 +246,8 @@
           <a class="diary-entry-link" href="/diary/2026-02-25-oxy-flagged">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="reviewed" data-id="2026-02-20-su-reviewed">
-        <div class="diary-entry-date">February 20, 2026</div>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-02-20-su-reviewed" data-relative-from="2026-02-20">
+        <div class="diary-entry-date" title="2026-02-20">February 20, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/suncor-su">SU</a>
@@ -258,8 +258,8 @@
           <a class="diary-entry-link" href="/diary/2026-02-20-su-reviewed">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="flagged" data-id="2026-02-18-teck-flagged">
-        <div class="diary-entry-date">February 18, 2026</div>
+      <article class="diary-entry" data-action="flagged" data-id="2026-02-18-teck-flagged" data-relative-from="2026-02-18">
+        <div class="diary-entry-date" title="2026-02-18">February 18, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/teck-resources-teck">TECK</a>
@@ -270,8 +270,8 @@
           <a class="diary-entry-link" href="/diary/2026-02-18-teck-flagged">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="promoted" data-id="2026-02-14-ppl-promoted">
-        <div class="diary-entry-date">February 14, 2026</div>
+      <article class="diary-entry" data-action="promoted" data-id="2026-02-14-ppl-promoted" data-relative-from="2026-02-14">
+        <div class="diary-entry-date" title="2026-02-14">February 14, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/pembina-ppl">PPL</a>
@@ -282,8 +282,8 @@
           <a class="diary-entry-link" href="/diary/2026-02-14-ppl-promoted">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="reviewed" data-id="2026-02-12-kmi-reviewed">
-        <div class="diary-entry-date">February 12, 2026</div>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-02-12-kmi-reviewed" data-relative-from="2026-02-12">
+        <div class="diary-entry-date" title="2026-02-12">February 12, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/kinder-morgan-kmi">KMI</a>
@@ -294,8 +294,8 @@
           <a class="diary-entry-link" href="/diary/2026-02-12-kmi-reviewed">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="flagged" data-id="2026-02-09-fcx-flagged">
-        <div class="diary-entry-date">February 9, 2026</div>
+      <article class="diary-entry" data-action="flagged" data-id="2026-02-09-fcx-flagged" data-relative-from="2026-02-09">
+        <div class="diary-entry-date" title="2026-02-09">February 9, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/freeport-mcmoran-fcx">FCX</a>
@@ -306,8 +306,8 @@
           <a class="diary-entry-link" href="/diary/2026-02-09-fcx-flagged">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="reviewed" data-id="2026-02-07-wfg-reviewed">
-        <div class="diary-entry-date">February 7, 2026</div>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-02-07-wfg-reviewed" data-relative-from="2026-02-07">
+        <div class="diary-entry-date" title="2026-02-07">February 7, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/west-fraser-wfg">WFG</a>
@@ -318,8 +318,8 @@
           <a class="diary-entry-link" href="/diary/2026-02-07-wfg-reviewed">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="reviewed" data-id="2026-02-04-aem-reviewed">
-        <div class="diary-entry-date">February 4, 2026</div>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-02-04-aem-reviewed" data-relative-from="2026-02-04">
+        <div class="diary-entry-date" title="2026-02-04">February 4, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/agnico-eagle-aem">AEM</a>
@@ -330,8 +330,8 @@
           <a class="diary-entry-link" href="/diary/2026-02-04-aem-reviewed">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="promoted" data-id="2026-02-01-cco-promoted">
-        <div class="diary-entry-date">February 1, 2026</div>
+      <article class="diary-entry" data-action="promoted" data-id="2026-02-01-cco-promoted" data-relative-from="2026-02-01">
+        <div class="diary-entry-date" title="2026-02-01">February 1, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/cameco-cco">CCO</a>
@@ -342,8 +342,8 @@
           <a class="diary-entry-link" href="/diary/2026-02-01-cco-promoted">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="reviewed" data-id="2026-01-28-enb-reviewed">
-        <div class="diary-entry-date">January 28, 2026</div>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-01-28-enb-reviewed" data-relative-from="2026-01-28">
+        <div class="diary-entry-date" title="2026-01-28">January 28, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/enbridge-enb">ENB</a>
@@ -354,8 +354,8 @@
           <a class="diary-entry-link" href="/diary/2026-01-28-enb-reviewed">Read the entry &rarr;</a>
         </div>
       </article>
-      <article class="diary-entry" data-action="reviewed" data-id="2026-01-22-trp-reviewed">
-        <div class="diary-entry-date">January 22, 2026</div>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-01-22-trp-reviewed" data-relative-from="2026-01-22">
+        <div class="diary-entry-date" title="2026-01-22">January 22, 2026</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/tc-energy-trp">TRP</a>
@@ -394,6 +394,7 @@
   </div>
 </footer>
 <script src="/nav.js" defer></script>
+<script src="/sprint12.js" defer></script>
 <aside class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Main navigation" aria-hidden="true" hidden>
   <div class="nav-overlay-bar">
     <a href="/" class="nav-overlay-brand">Halvren Capital</a>

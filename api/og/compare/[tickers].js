@@ -38,8 +38,8 @@ export default async function handler(req) {
     const parts = url.pathname.split("/").filter(Boolean);
     const tickerKey = decodeURIComponent(parts[parts.length - 1] || "");
     const tickers = tickerKey.split("-").map((s) => s.trim().toUpperCase()).filter(Boolean).slice(0, 3);
-    const dark = url.searchParams.get("dark") === "1";
-    const t = dark ? TOKENS.dark : TOKENS.light;
+    const light = url.searchParams.get("light") === "1";
+    const t = light ? TOKENS.light : TOKENS.dark;
 
     if (tickers.length < 2) return new Response("need >= 2 tickers", { status: 400 });
 

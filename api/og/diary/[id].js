@@ -32,8 +32,8 @@ export default async function handler(req) {
     const url = new URL(req.url);
     const parts = url.pathname.split("/").filter(Boolean);
     const id = decodeURIComponent(parts[parts.length - 1] || "");
-    const dark = url.searchParams.get("dark") === "1";
-    const t = dark ? TOKENS.dark : TOKENS.light;
+    const light = url.searchParams.get("light") === "1";
+    const t = light ? TOKENS.light : TOKENS.dark;
 
     if (!CACHE.corm)  CACHE.corm  = await loadFont(CORMORANT_600);
     if (!CACHE.cormi) CACHE.cormi = await loadFont(CORMORANT_500I);

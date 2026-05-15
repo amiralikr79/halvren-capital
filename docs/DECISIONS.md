@@ -13,6 +13,42 @@ Format:
 
 ---
 
+## 2026-05-15 — Sprint 12 visual overhaul: dark by default
+**Decision.** Dark is the canonical brand identity. The CSS `:root` token set is now the dark palette; `[data-theme="light"]` is the opt-in fallback. First paint is dark even before JS hydrates — both the inline `<style>` in `index.html` and the linked `page.css` declare `:root` as dark. Theme persistence migrated from `localStorage` to a 1-year `halvren-theme` cookie so server-rendered pages can read the preference if we ever need to and so the toggle survives clearing site storage independently.
+**Tokens added.** `--bg-2` `#131316` (cards, raised surfaces), `--bg-3` `#1a1a1e` (overlays, modals, sector pills), `--amber` `#ff9d2f` (the saturated accent — three uses, see below), `--amber-glow` (the ring around the Mark at score 100), plus `--green` `#5bba7b` (brighter dark-mode green for legibility), `--red` `#d65a5a`. Existing `--bg`, `--ink`, `--muted`, `--line`, `--gold` retained, dark values.
+**Context / alternatives.** The previous setup defaulted to system preference, which meant a meaningful share of first paints rendered light on devices that default to light. The Sprint 12 brief is unambiguous: dark is the primary brand. Cookie over localStorage so the SameSite=Lax 1-year cookie is readable by future SSR if we ever pre-render the theme.
+**Cost / reversibility.** Trivial. Flip `:root` and `[data-theme="light"]` to revert.
+
+## 2026-05-15 — Sprint 12: the Halvren Read Mark — the brand mark
+**Decision.** Every previous "Halvren Read · NN / 100" surface (operator hero, watch cards, Halvren Index table, Compare cells, Watchlist Spread) is replaced by a single reusable component, the Halvren Read Mark. The Mark is a circle whose ring color encodes a five-band score classification (`perfect`, `elite`, `solid`, `mid`, `low`), with the score numeral in display serif inside the circle and a mono small-caps "/ 100" beneath. On hover or tap the circle expands into a 5×2 grid of verdict chips for the 10 checklist questions. Behaviour ships in `sprint12.js`; markup is server-rendered by `render_halvren_mark()` in `build_operators.py` and inlined on the homepage and Halvren Index via Python helpers.
+**Bands.** `perfect` = 100 only (amber ring + 6px glow — one of the three amber moments). `elite` = 85–99 (green ring + 4px green glow). `solid` = 70–84 (gold ring). `mid` = 50–69 (muted ring). `low` = <50 (red ring). Sizes: default 88px, large 120px (operator hero, large Compare cells), small 48px (Halvren Index table).
+**Context / alternatives.** A flat colored number was tested in Sprint 11; it read as "yet another data point" and never became a screenshot. Putting the number inside a circle that becomes the verdict grid on interaction is the move from "we have a score" to "we have a mark." The expand-to-grid pulls the underlying checklist into the same visual atom, which is editorially honest — the score is the verdicts.
+**Cost / reversibility.** Reversible. Remove `.hread-mark` from page.css and the prior block layout returns.
+
+## 2026-05-15 — Sprint 12: type system precision — Inter for chrome, JetBrains Mono for data
+**Decision.** Three families, three roles. `--font-display` (Cormorant Garamond) for H1/H2 and the Mark's score numeral. `--font-body` (Instrument Serif) for paragraph prose. `--font-ui` (Inter, new) for nav, buttons, captions, tabs, every small UI label. `--font-data` (JetBrains Mono, formerly `--font-mono`) for every ticker, score, percent, timestamp, monetary value. The legacy `--font-body` was DM Sans; the new system reads as "serif for the writing, sans for the structure, mono for the math" with no ambiguous middle ground.
+**Context / alternatives.** Inter is the contemporary editorial-finance default (Anthropic, Vercel, Phantom all use it). Adding it cost one Google Fonts family in the link tag site-wide. Could have stayed on DM Sans; Inter is sharper at small UI sizes and the brand reads more like a terminal, less like a Squarespace template.
+**Cost / reversibility.** Reversible. Swap the `--font-ui` declaration back to DM Sans.
+
+## 2026-05-15 — Sprint 12: the three amber moments — restraint as design
+**Decision.** `--amber #ff9d2f` is the loudest saturated pigment in the system. It appears in exactly three places: (1) the "Run the 10" CTA on Checklist Live, (2) the Halvren Read Mark ring + outer glow when the score is exactly 100, (3) the question numbers (01..10) on the homepage Checklist preview only. The Sprint 12 brief originally listed the diary pulse dot as moment #3; Part 7 overrides that with the homepage checklist numbers. The diary pulse uses `--green` instead, which preserves "exactly three" and gives the diary a calmer alive signal that doesn't compete with the amber CTA above the fold.
+**Context / alternatives.** The previous design used `--gold` for both the CTA and decorative accents, which read flat. A single saturated tier above gold gives the eye one place to land per screen. Three uses is the maximum; anything more reads as marketing.
+**Cost / reversibility.** Trivial.
+
+## 2026-05-15 — Sprint 12: hero rebuild — ticker, streaming line, gradient mesh
+**Decision.** The hero gets three new elements above the existing headline. (1) A 28px-tall ticker strip with all 20 operators and their Halvren Read scores, scrolling right-to-left on a 60s CSS marquee, pausing on hover, mono small-caps `--muted`. The track is duplicated once in markup so the loop seams cleanly. (2) A streaming "now reading" line directly below the headline: `At the desk` eyebrow in gold with a pulsing green dot, then a typewriter-effect line that cycles through 3 phrases pulled from `/data/digest-stream.json`, 40ms per character, 3-second hold, gold caret. (3) A subtle radial gradient mesh in the bottom-right at 4% gold opacity, hidden on mobile for performance.
+**Context / alternatives.** The previous hero was text-only and felt static. The brief wants "alive" without being loud. CSS marquee + typewriter + gradient mesh are the smallest possible set that signal "this site is reading something right now" without any actual real-time data plumbing — they're ambient design language, not claims. The phrases are the same Sprint 6 phrases that already drive the Digest ticker; reusing the dataset keeps the editorial register consistent.
+**Cost / reversibility.** Trivial. Delete the `.hero-ticker` div and the `.hero-stream` block.
+
+## 2026-05-15 — Sprint 12: AI-alive layer — constellation pulse + relative timestamps
+**Decision.** Two ambient signals beyond the hero stream. (1) The Coverage Constellation idle pulse: every 8–12 seconds (randomised) one dot is selected at random, flashes to `--amber` for 600ms, and fades back. One dot at a time. Represents the desk "looking at" that operator. (2) Diary entries (homepage block + per-entry pages + index feed) render relative timestamps client-side via `data-relative-from="YYYY-MM-DD"`. Absolute date stays in the `title` attribute as the fallback for hover and for JS-disabled visitors.
+**Honesty constraint.** No fake timestamps. No fabricated counts. The constellation pulse and the typewriter cycle are ambient — they do not claim real-time data. The relative timestamps are computed from real entry dates.
+**Cost / reversibility.** Trivial. Remove `bindConstellationPulse()` and `bindRelativeTimes()` from sprint12.js to revert.
+
+## 2026-05-15 — Sprint 12: screenshot verification deferred
+**Decision.** The brief's Part 9 ("screenshot test") cannot be executed from this sandbox (no browser, no headless Chrome, no Playwright). The structural choices targeted the test — dark surfaces, signature Mark, motion language, type hierarchy — but a real-screen verification is the principal's call on first deploy.
+**Cost / reversibility.** N/A.
+
 ## 2026-05-15 — Sprint 12: audio activation — blocked on TTS API key
 **Decision.** Audio synthesis for the 10 long-form notes is not running yet because neither `ELEVENLABS_API_KEY` nor `OPENAI_API_KEY` is configured in the build environment. The player UI continues to ship in the "narration coming soon" state shipped in Sprint 11.
 **Context / alternatives.** Per the Sprint 12 brief, the activation path is to add a key, run `scripts/build_audio_notes.py`, commit the MP3s. The key has to be added by the principal — automated provisioning of paid third-party API credentials is out of scope for this session.

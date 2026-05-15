@@ -46,11 +46,46 @@ def top_ten(ops: list[dict]) -> list[dict]:
 
 
 def band(score: int) -> str:
-    if score >= 75:
-        return "green"
+    if score == 100:
+        return "perfect"
+    if score >= 85:
+        return "elite"
+    if score >= 70:
+        return "solid"
     if score >= 50:
-        return "amber"
-    return "red"
+        return "mid"
+    return "low"
+
+
+_Q_LABEL = {1:"Q1",2:"Q2",3:"Q3",4:"Q4",5:"Q5",6:"Q6",7:"Q7",8:"Q8",9:"Q9",10:"Q10"}
+
+
+def render_mark_sm(o: dict) -> str:
+    """Small Halvren Read Mark for the index constituent table.
+    Loads the operator's checklist verdicts directly from data/operators/<slug>.json."""
+    full_path = ROOT / "data" / "operators" / f"{o['slug']}.json"
+    if not full_path.exists():
+        return f"<span class='mono'>{o['halvren_read']}</span>"
+    full = json.loads(full_path.read_text(encoding="utf-8"))
+    score = full.get("halvren_read", o["halvren_read"])
+    b = band(score)
+    scoring = (full.get("checklist") or {}).get("scoring") or []
+    by_q = {s["q"]: s.get("status") for s in scoring}
+    rows = []
+    for row_qs in ([1,2,3,4,5],[6,7,8,9,10]):
+        rows.append('<div class="hread-grid-row">' +
+            "".join(f'<span class="hread-chip" data-v="{by_q.get(q) or "null"}">{_Q_LABEL[q]}</span>' for q in row_qs) +
+            '</div>')
+    return (
+        f'<a class="hread-mark hread-mark--sm" data-band="{b}" href="/research/{o["slug"]}" '
+        f'aria-label="Halvren Read {score} of 100 — see operator">'
+        f'<div class="hread-circle" data-band="{b}">'
+        f'<div class="hread-num-wrap"><span class="hread-num">{score}</span><span class="hread-of">/100</span></div>'
+        f'<div class="hread-grid" aria-hidden="true">'
+        f'<span class="hread-grid-eyebrow">10 checklist verdicts</span>{"".join(rows)}'
+        f'</div></div>'
+        f'</a>'
+    )
 
 
 def render_table(top: list[dict]) -> str:
@@ -60,10 +95,10 @@ def render_table(top: list[dict]) -> str:
         rows.append(
             f"        <tr>\n"
             f"          <td class='mono'>{i}</td>\n"
-            f"          <td><a href='/research/{o['slug']}' style='color:var(--color-text);text-decoration:none;border-bottom:1px solid var(--color-divider)'>{o['ticker']}</a></td>\n"
+            f"          <td><a href='/research/{o['slug']}' style='color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);font-family:var(--font-data)'>{o['ticker']}</a></td>\n"
             f"          <td>{o['short_name']}</td>\n"
             f"          <td>{o['sector']} &middot; {o['sub_industry']}</td>\n"
-            f"          <td class='mono read' data-band='{band(o['halvren_read'])}'>{o['halvren_read']}</td>\n"
+            f"          <td class='hindex-mark'>{render_mark_sm(o)}</td>\n"
             f"          <td class='mono'>2024-01</td>\n"
             f"          <td class='mono'>{weight}%</td>\n"
             f"        </tr>"
@@ -231,7 +266,7 @@ def main() -> int:
 <meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="dark light">
-<script>(function(){{try{{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}}catch(e){{document.documentElement.setAttribute('data-theme','dark');}}}})();</script>
+<script>(function(){{try{{var c=document.cookie.split('; ').find(function(r){{return r.indexOf('halvren-theme=')===0}});var s=c?c.split('=')[1]:null;var t=s||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}}catch(e){{document.documentElement.setAttribute('data-theme','dark');}}}})();</script>
 <link rel="canonical" href="{SITE}/halvren-index">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The Halvren Index — Halvren Capital">
@@ -247,7 +282,7 @@ def main() -> int:
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/page.css">
 </head>
 <body>
@@ -349,6 +384,7 @@ def main() -> int:
   </div>
 </footer>
 <script src="/nav.js" defer></script>
+<script src="/sprint12.js" defer></script>
 <aside class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Main navigation" aria-hidden="true" hidden>
   <div class="nav-overlay-bar">
     <a href="/" class="nav-overlay-brand">Halvren Capital</a>

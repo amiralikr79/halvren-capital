@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="dark light">
-<script>(function(){try{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<script>(function(){try{var c=document.cookie.split('; ').find(function(r){return r.indexOf('halvren-theme=')===0});var s=c?c.split('=')[1]:null;var t=s||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="canonical" href="https://halvrencapital.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Halvren Capital">
@@ -30,16 +30,19 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/checklist/live/live.css">
 <link rel="stylesheet" href="/viz.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --font-display:'Instrument Serif',Georgia,serif;
-  --font-body:'DM Sans','Helvetica Neue',sans-serif;
+  --font-display:'Cormorant Garamond','Instrument Serif',Georgia,serif;
+  --font-body:'Inter','DM Sans','Helvetica Neue',sans-serif;
+  --font-ui:'Inter','DM Sans','Helvetica Neue',sans-serif;
+  --font-data:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   --ease-soft:cubic-bezier(0.16,1,0.3,1);
+  --ease-mark:cubic-bezier(0.22,1,0.36,1);
   --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
   --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
   --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
@@ -55,7 +58,25 @@
   --transition:180ms cubic-bezier(0.16,1,0.3,1);
   --content-narrow:640px;--content-default:960px;--content-wide:1200px;
 }
-:root,[data-theme="light"]{
+/* DARK IS DEFAULT (Sprint 12). The :root token set is dark; light is the toggle. */
+:root,[data-theme="dark"]{
+  --bg:#0b0b0d;--bg-2:#131316;--bg-3:#1a1a1e;
+  --ink:#f1ede4;--muted:#8a857c;--line:#26241f;
+  --gold:#d4a04c;--amber:#ff9d2f;--amber-glow:rgba(255,157,47,0.32);
+  --green:#5bba7b;--red:#d65a5a;
+  --color-bg:#0b0b0d;--color-surface:#131316;--color-surface-2:#1a1a1e;
+  --color-surface-offset:#1a1a1e;--color-border:#26241f;--color-divider:#26241f;
+  --color-text:#f1ede4;--color-text-muted:#8a857c;--color-text-faint:#55524c;
+  --color-gold:#d4a04c;--color-gold-light:#e6b568;
+  --shadow-sm:0 1px 2px oklch(0 0 0/0.3);
+  --shadow-md:0 4px 12px oklch(0 0 0/0.4);
+  --shadow-lg:0 12px 32px oklch(0 0 0/0.5);
+}
+[data-theme="light"]{
+  --bg:#f7f6f2;--bg-2:#f9f8f5;--bg-3:#f3f0ec;
+  --ink:#1a1814;--muted:#6b6a66;--line:#dcd9d5;
+  --gold:#b8860b;--amber:#d4751c;--amber-glow:rgba(212,117,28,0.28);
+  --green:#1e7e4c;--red:#b94747;
   --color-bg:#f7f6f2;--color-surface:#f9f8f5;--color-surface-2:#fbfbf9;
   --color-surface-offset:#f3f0ec;--color-border:#d4d1ca;--color-divider:#dcd9d5;
   --color-text:#1a1814;--color-text-muted:#6b6a66;--color-text-faint:#bab9b4;
@@ -64,16 +85,9 @@
   --shadow-md:0 4px 12px oklch(0.2 0.01 80/0.08);
   --shadow-lg:0 12px 32px oklch(0.2 0.01 80/0.12);
 }
-[data-theme="dark"]{
-  --color-bg:#0d0c0a;--color-surface:#15140f;--color-surface-2:#1a1813;
-  --color-surface-offset:#1f1d17;--color-border:#2a2823;--color-divider:#1f1d18;
-  --color-text:#ece8df;--color-text-muted:#8a8780;--color-text-faint:#4a4843;
-  --color-gold:#bf9c5b;--color-gold-light:#d6b97a;
-  --shadow-sm:0 1px 2px oklch(0 0 0/0.3);
-  --shadow-md:0 4px 12px oklch(0 0 0/0.4);
-  --shadow-lg:0 12px 32px oklch(0 0 0/0.5);
-}
 @media(prefers-color-scheme:light){:root:not([data-theme]){
+  --bg:#f7f6f2;--bg-2:#f9f8f5;--bg-3:#f3f0ec;--ink:#1a1814;--muted:#6b6a66;--line:#dcd9d5;
+  --gold:#b8860b;--amber:#d4751c;--amber-glow:rgba(212,117,28,0.28);--green:#1e7e4c;--red:#b94747;
   --color-bg:#f7f6f2;--color-surface:#f9f8f5;--color-surface-2:#fbfbf9;
   --color-surface-offset:#f3f0ec;--color-border:#d4d1ca;--color-divider:#dcd9d5;
   --color-text:#1a1814;--color-text-muted:#6b6a66;--color-text-faint:#bab9b4;
@@ -573,6 +587,52 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
 <main id="main">
 
 <!-- HERO -->
+<!-- Top ticker strip — all 20 operators with their Halvren Read scores. CSS marquee
+     animation; pauses on hover. The track is duplicated once so the loop seams. -->
+<div class="hero-ticker" aria-label="Halvren Read across the coverage universe">
+  <div class="hero-ticker-track">
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">AEM</span> 100</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">ARX</span> 96</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">CNQ</span> 96</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">FTS</span> 96</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">TOU</span> 96</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">CNR</span> 91</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">KMI</span> 91</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">NTR</span> 91</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">PPL</span> 91</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">WFG</span> 88</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">ENB</span> 86</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">CVE</span> 84</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">TRP</span> 82</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">CCO</span> 80</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">SU</span> 76</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">FCX</span> 71</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">OXY</span> 70</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">TECK</span> 70</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">MEG</span> 68</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">AG</span> 36</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">AEM</span> 100</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">ARX</span> 96</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">CNQ</span> 96</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">FTS</span> 96</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">TOU</span> 96</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">CNR</span> 91</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">KMI</span> 91</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">NTR</span> 91</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">PPL</span> 91</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">WFG</span> 88</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">ENB</span> 86</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">CVE</span> 84</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">TRP</span> 82</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">CCO</span> 80</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">SU</span> 76</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">FCX</span> 71</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">OXY</span> 70</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">TECK</span> 70</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">MEG</span> 68</span><span class="hero-ticker-sep">·</span>
+    <span class="hero-ticker-item"><span class="hero-ticker-tkr">AG</span> 36</span><span class="hero-ticker-sep">·</span>
+  </div>
+</div>
 <section class="hero">
   <div class="hero-halo" data-halo aria-hidden="true"></div>
   <div class="hero-bg"></div>
@@ -588,7 +648,11 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
     </p>
     <h1 class="hero-heading mask-reveal" data-reveal><span>Machine breadth. Human <em>conviction.</em></span></h1>
     <p class="hero-sub mask-reveal" data-reveal data-reveal-delay="180"><span>Halvren is an AI-augmented research desk covering Canadian and U.S. operators in energy, materials, and infrastructure. Models read at scale. The principal signs the decision. The book is proprietary. The work is public.</span></p>
-    <p style="margin-bottom:var(--space-10);font-family:var(--font-body)"><a href="/start" style="font-size:var(--text-sm);color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:2px;letter-spacing:0.02em">New here? Start here &rarr;</a></p>
+    <div class="hero-stream" aria-live="polite" aria-label="What the desk is reading now">
+      <span class="hero-stream-prefix">At the desk</span>
+      <span class="hero-stream-text" id="hero-stream-text">Reading the desk's queue<span class="hero-stream-caret" aria-hidden="true"></span></span>
+    </div>
+    <p style="margin-bottom:var(--space-10);font-family:var(--font-ui)"><a href="/start" style="font-size:14px;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(212,160,76,0.32);padding-bottom:2px;letter-spacing:0.01em">New here? Start here &rarr;</a></p>
     <div class="hero-meta">
       <span>Canadian &amp; U.S. markets</span>
       <div class="hero-meta-divider"></div>
@@ -923,17 +987,17 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
       <p class="desk-latest-sub">The three most recent actions on the coverage universe. Promoted, demoted, flagged, reviewed &mdash; logged in public.</p>
       <div class="desk-latest-list" id="desk-latest-list">
         <!-- DESK-LATEST-START -->
-        <div class="desk-latest-item">
-          <span class="desk-latest-meta">May 14, 2026 &middot; TOU &middot; promoted</span>
-          <p class="desk-latest-summary"><a href="/diary/2026-05-14-tou-promoted" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--color-divider)">Q1 cash flow exceeded guide by 18% and the buyback pace doubled.</a></p>
+        <div class="desk-latest-item" data-relative-from="2026-05-14">
+          <span class="desk-latest-meta" title="2026-05-14">May 14, 2026 &middot; TOU &middot; promoted</span>
+          <p class="desk-latest-summary"><a href="/diary/2026-05-14-tou-promoted" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Q1 cash flow exceeded guide by 18% and the buyback pace doubled.</a></p>
         </div>
-        <div class="desk-latest-item">
-          <span class="desk-latest-meta">May 9, 2026 &middot; AG &middot; flagged</span>
-          <p class="desk-latest-summary"><a href="/diary/2026-05-09-ag-flagged" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--color-divider)">Mexico royalty proposal advanced in legislature; thesis sensitivity revisited.</a></p>
+        <div class="desk-latest-item" data-relative-from="2026-05-09">
+          <span class="desk-latest-meta" title="2026-05-09">May 9, 2026 &middot; AG &middot; flagged</span>
+          <p class="desk-latest-summary"><a href="/diary/2026-05-09-ag-flagged" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Mexico royalty proposal advanced in legislature; thesis sensitivity revisited.</a></p>
         </div>
-        <div class="desk-latest-item">
-          <span class="desk-latest-meta">May 6, 2026 &middot; CNQ &middot; reviewed</span>
-          <p class="desk-latest-summary"><a href="/diary/2026-05-06-cnq-reviewed" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--color-divider)">FY 2025 print and 26th consecutive raise reread against the succession question.</a></p>
+        <div class="desk-latest-item" data-relative-from="2026-05-06">
+          <span class="desk-latest-meta" title="2026-05-06">May 6, 2026 &middot; CNQ &middot; reviewed</span>
+          <p class="desk-latest-summary"><a href="/diary/2026-05-06-cnq-reviewed" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">FY 2025 print and 26th consecutive raise reread against the succession question.</a></p>
         </div>
       <!-- DESK-LATEST-END -->
       </div>
@@ -952,10 +1016,19 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
       <p class="watchlist-updated"><span>Last reviewed April 2026</span> <span class="watchlist-updated-sep">·</span> <span>FY 2025 filings (Feb–Mar 2026)</span></p>
     </div>
     <div class="watchlist-grid">
-      <article class="watch-card">
-        <a class="watch-read" data-band="green" href="/methodology" aria-label="Halvren Read 80 of 100 — see methodology">
-          <span class="watch-read-num">80</span>
-          <span class="watch-read-label">Halvren Read</span>
+      <article class="watch-card" data-band="solid">
+        <a class="hread-mark" data-band="solid" href="/methodology" aria-label="Halvren Read 80 of 100 — see methodology" tabindex="0">
+          <div class="hread-circle" data-band="solid">
+            <div class="hread-num-wrap">
+              <span class="hread-num">80</span>
+              <span class="hread-of">/ 100</span>
+            </div>
+            <div class="hread-grid" aria-hidden="true">
+              <span class="hread-grid-eyebrow">10 checklist verdicts</span>
+              <div class="hread-grid-row"><span class="hread-chip" data-v="pass">Q1</span><span class="hread-chip" data-v="pass">Q2</span><span class="hread-chip" data-v="pass">Q3</span><span class="hread-chip" data-v="not_yet">Q4</span><span class="hread-chip" data-v="not_yet">Q5</span></div><div class="hread-grid-row"><span class="hread-chip" data-v="pass">Q6</span><span class="hread-chip" data-v="pass">Q7</span><span class="hread-chip" data-v="not_yet">Q8</span><span class="hread-chip" data-v="pass">Q9</span><span class="hread-chip" data-v="not_yet">Q10</span></div>
+            </div>
+          </div>
+          <span class="hread-label">Halvren Read</span>
         </a>
         <div class="watch-head">
           <span class="watch-symbol">CCO</span>
@@ -966,10 +1039,19 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
         <p class="watch-track"><span class="watch-track-label">What we track</span>All-in mining cost · Westinghouse contribution · Long-term contract book · Capital discipline vs. peers</p>
         <p style="margin-top:var(--space-4)"><a href="/research/cameco-cco" style="font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:2px;font-family:var(--font-body);font-weight:500">Read full research &rarr;</a></p>
       </article>
-      <article class="watch-card">
-        <a class="watch-read" data-band="green" href="/methodology" aria-label="Halvren Read 96 of 100 — see methodology">
-          <span class="watch-read-num">96</span>
-          <span class="watch-read-label">Halvren Read</span>
+      <article class="watch-card" data-band="elite">
+        <a class="hread-mark" data-band="elite" href="/methodology" aria-label="Halvren Read 96 of 100 — see methodology" tabindex="0">
+          <div class="hread-circle" data-band="elite">
+            <div class="hread-num-wrap">
+              <span class="hread-num">96</span>
+              <span class="hread-of">/ 100</span>
+            </div>
+            <div class="hread-grid" aria-hidden="true">
+              <span class="hread-grid-eyebrow">10 checklist verdicts</span>
+              <div class="hread-grid-row"><span class="hread-chip" data-v="pass">Q1</span><span class="hread-chip" data-v="pass">Q2</span><span class="hread-chip" data-v="pass">Q3</span><span class="hread-chip" data-v="pass">Q4</span><span class="hread-chip" data-v="pass">Q5</span></div><div class="hread-grid-row"><span class="hread-chip" data-v="pass">Q6</span><span class="hread-chip" data-v="pass">Q7</span><span class="hread-chip" data-v="not_yet">Q8</span><span class="hread-chip" data-v="pass">Q9</span><span class="hread-chip" data-v="pass">Q10</span></div>
+            </div>
+          </div>
+          <span class="hread-label">Halvren Read</span>
         </a>
         <div class="watch-head">
           <span class="watch-symbol">CNQ</span>
@@ -980,10 +1062,19 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
         <p class="watch-track"><span class="watch-track-label">What we track</span>Sustaining capex · Free cash flow at strip · Buyback pace · Insider alignment · Succession</p>
         <p style="margin-top:var(--space-4)"><a href="/research/canadian-natural-cnq" style="font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:2px;font-family:var(--font-body);font-weight:500">Read full research &rarr;</a></p>
       </article>
-      <article class="watch-card">
-        <a class="watch-read" data-band="red" href="/methodology" aria-label="Halvren Read 36 of 100 — see methodology">
-          <span class="watch-read-num">36</span>
-          <span class="watch-read-label">Halvren Read</span>
+      <article class="watch-card" data-band="low">
+        <a class="hread-mark" data-band="low" href="/methodology" aria-label="Halvren Read 36 of 100 — see methodology" tabindex="0">
+          <div class="hread-circle" data-band="low">
+            <div class="hread-num-wrap">
+              <span class="hread-num">36</span>
+              <span class="hread-of">/ 100</span>
+            </div>
+            <div class="hread-grid" aria-hidden="true">
+              <span class="hread-grid-eyebrow">10 checklist verdicts</span>
+              <div class="hread-grid-row"><span class="hread-chip" data-v="not_yet">Q1</span><span class="hread-chip" data-v="fail">Q2</span><span class="hread-chip" data-v="not_yet">Q3</span><span class="hread-chip" data-v="fail">Q4</span><span class="hread-chip" data-v="not_yet">Q5</span></div><div class="hread-grid-row"><span class="hread-chip" data-v="not_yet">Q6</span><span class="hread-chip" data-v="fail">Q7</span><span class="hread-chip" data-v="not_yet">Q8</span><span class="hread-chip" data-v="not_yet">Q9</span><span class="hread-chip" data-v="not_yet">Q10</span></div>
+            </div>
+          </div>
+          <span class="hread-label">Halvren Read</span>
         </a>
         <div class="watch-head">
           <span class="watch-symbol">AG</span>
@@ -994,10 +1085,19 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
         <p class="watch-track"><span class="watch-track-label">What we track</span>All-in sustaining cost · Production-per-share · Mexico tax posture · Reserve quality · Hedge book</p>
         <p style="margin-top:var(--space-4)"><a href="/research/first-majestic-ag" style="font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:2px;font-family:var(--font-body);font-weight:500">Read full research &rarr;</a></p>
       </article>
-      <article class="watch-card">
-        <a class="watch-read" data-band="green" href="/methodology" aria-label="Halvren Read 86 of 100 — see methodology">
-          <span class="watch-read-num">86</span>
-          <span class="watch-read-label">Halvren Read</span>
+      <article class="watch-card" data-band="elite">
+        <a class="hread-mark" data-band="elite" href="/methodology" aria-label="Halvren Read 86 of 100 — see methodology" tabindex="0">
+          <div class="hread-circle" data-band="elite">
+            <div class="hread-num-wrap">
+              <span class="hread-num">86</span>
+              <span class="hread-of">/ 100</span>
+            </div>
+            <div class="hread-grid" aria-hidden="true">
+              <span class="hread-grid-eyebrow">10 checklist verdicts</span>
+              <div class="hread-grid-row"><span class="hread-chip" data-v="pass">Q1</span><span class="hread-chip" data-v="pass">Q2</span><span class="hread-chip" data-v="not_yet">Q3</span><span class="hread-chip" data-v="not_yet">Q4</span><span class="hread-chip" data-v="not_yet">Q5</span></div><div class="hread-grid-row"><span class="hread-chip" data-v="pass">Q6</span><span class="hread-chip" data-v="pass">Q7</span><span class="hread-chip" data-v="pass">Q8</span><span class="hread-chip" data-v="pass">Q9</span><span class="hread-chip" data-v="pass">Q10</span></div>
+            </div>
+          </div>
+          <span class="hread-label">Halvren Read</span>
         </a>
         <div class="watch-head">
           <span class="watch-symbol">ENB</span>
@@ -1294,17 +1394,19 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
   var d=r.getAttribute('data-theme')||'dark';
   function setIcon(mode){t.innerHTML=mode==='dark'?SUN:MOON}
   setIcon(d);
+  function persist(mode){try{document.cookie='halvren-theme='+mode+'; Max-Age=31536000; Path=/; SameSite=Lax'}catch(e){}}
+  function readCookie(){try{var c=document.cookie.split('; ').find(function(r){return r.indexOf('halvren-theme=')===0});return c?c.split('=')[1]:null}catch(e){return null}}
   t.addEventListener('click',function(){
     d=d==='dark'?'light':'dark';
     r.setAttribute('data-theme',d);
     setIcon(d);
-    try{localStorage.setItem('halvren-theme',d)}catch(e){}
+    persist(d);
   });
-  // Follow OS changes only when user has no explicit preference
+  // Follow OS changes only when the visitor has no explicit cookie preference.
   try{
     var mql=window.matchMedia('(prefers-color-scheme: light)');
     mql.addEventListener&&mql.addEventListener('change',function(e){
-      if(localStorage.getItem('halvren-theme'))return;
+      if(readCookie())return;
       d=e.matches?'light':'dark';r.setAttribute('data-theme',d);setIcon(d);
     });
   }catch(e){}

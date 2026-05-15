@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="dark light">
-<script>(function(){try{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<script>(function(){try{var c=document.cookie.split('; ').find(function(r){return r.indexOf('halvren-theme=')===0});var s=c?c.split('=')[1]:null;var t=s||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="canonical" href="https://halvrencapital.com/coverage">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Halvren Capital — Coverage universe">
@@ -322,6 +322,7 @@
   }
 })();</script>
 <script src="/nav.js" defer></script>
+<script src="/sprint12.js" defer></script>
 <aside class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Main navigation" aria-hidden="true" hidden>
   <div class="nav-overlay-bar">
     <a href="/" class="nav-overlay-brand">Halvren Capital</a>

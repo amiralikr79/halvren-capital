@@ -8,6 +8,52 @@ Total commits on this branch (excluding the merge from main at the start): 7. On
 
 ---
 
+## Sprint 12B — The visual overhaul
+
+Same sprint number, second pass — the brief was a major visual reset on top of the Sprint 12 polish work. Eight parts, all shipped.
+
+**Part 1: Dark by default.** `:root` token set in both `page.css` and the homepage inline `<style>` is now the dark palette. Light is `[data-theme="light"]`. First paint is dark for every new visitor; `prefers-color-scheme: light` is honored only when there is no cookie. Persistence migrated from `localStorage` to a 1-year `halvren-theme` cookie via `document.cookie` so the toggle is durable and server-readable. New tokens: `--bg`, `--bg-2`, `--bg-3`, `--ink`, `--muted`, `--line`, `--gold`, `--amber`, `--amber-glow`, `--green`, `--red`. Legacy `--color-*` aliases mapped to the new values for back-compatibility. 86 HTML pages had their bootstrap script swapped; 85 had their Google Fonts link upgraded to add Inter and drop DM Sans.
+
+**Part 2: The three amber moments.** `--amber #ff9d2f` ships in exactly three places: the "Run the 10" Checklist Live CTA (`.lc-submit` rule), the Halvren Read Mark when score is 100 (the `perfect` band), and the question numbers on the homepage Checklist preview (`#checklist .checklist-num`). Diary pulse retained as `--green` to keep the count at three.
+
+**Part 3: The hero rebuild.** Three new elements above the existing headline:
+- 28px ticker strip with all 20 operators and their Halvren Read scores (`AEM 100 · ARX 96 · …`), 60-second right-to-left CSS marquee, pauses on hover, mono small-caps `--muted`. Track duplicated in markup for seamless loop.
+- Streaming "now reading" line below the headline: gold `At the desk` eyebrow with a pulsing green dot, typewriter-effect line cycling 3 phrases from `/data/digest-stream.json`, 40ms/char, 3s hold, gold caret blinking at 1.06s. `prefers-reduced-motion` collapses to a static line.
+- Subtle radial gradient mesh in the bottom-right at 4% gold opacity. Hidden on mobile for perf.
+
+**Part 4: The Halvren Read Mark — the iconic component.** Every previous "NN Halvren Read" surface replaced. A circle (88px / 64px mobile, large 120px on operator hero, small 48px in tables) whose ring color encodes a five-band score classification (`perfect`/`elite`/`solid`/`mid`/`low`) with the score numeral in display serif inside and a mono "/ 100" beneath. On hover or tap, the circle expands (350ms cubic-bezier(0.22,1,0.36,1)) into a 5×2 grid of verdict chips for the 10 checklist questions. Server-rendered by `render_halvren_mark()` in `build_operators.py`, inlined into the homepage watch cards and the Halvren Index constituent table. Behaviour layered in `sprint12.js`. `/api/og/operator/[ticker]` regenerated with a 280px Mark circle as the dominant visual element. Surfaces using the Mark: 20 operator hero pages, 4 homepage watch cards, 10 Halvren Index rows, OG card.
+
+**Part 5: Type system precision.** Inter added to the Google Fonts link site-wide (85 pages + 7 builder templates). Token roles locked: `--font-display` (Cormorant Garamond) for H1/H2 and the Mark score, `--font-body` (Instrument Serif) for body prose, `--font-ui` (Inter) for chrome, `--font-data` (JetBrains Mono) for all numbers. Letter-spacing tightened: H1 `-0.025em`, H2 `-0.015em`. Mono small-caps standardised: 10–11px, `letter-spacing: 0.1em`, `--muted`, `uppercase`, weight 500.
+
+**Part 6: Motion design language.** Codified in `sprint12.js`:
+- Count-up on viewport entry: 800ms ease-out from 0 to target for any `.count-up[data-target]`.
+- Section reveals: existing IntersectionObserver pattern kept; respects reduced-motion.
+- Card hover: 200ms `translateY(-2px)` + border `--line → --ink`. `.watch-card[data-band="elite"]` gets a green glow on hover; `.watch-card[data-band="perfect"]` gets an amber glow.
+- Mark expand: 350ms `cubic-bezier(0.22, 1, 0.36, 1)`. No bounce.
+- Caret blink: 1.06s cycle (warmer than 1s).
+- Button press: 100ms `scale(0.97)` on `:active` globally.
+- All animations gated by `prefers-reduced-motion: reduce`.
+
+**Part 7: Component polish.**
+- Watch cards redesigned: `--bg-2` background, 16px radius, ticker (display serif 28px) + Mark on the top row, name (Inter 13px), sector pill (`--bg-3` fill, gold mono small-caps), 3-line body (body serif 15px), what-we-track (mono small-caps), bottom border footer with "Read full research →".
+- Section header divider: 80px `--line` hairline 8px below every `.section-label` eyebrow (`::after` pseudo-element).
+- Homepage Checklist question numbers in `--amber` (the third amber moment).
+
+**Part 8: The "AI is alive" layer.**
+- Constellation idle pulse: one random dot pulses `--amber` for 600ms every 8–12s (randomised). Skipped under reduced-motion.
+- Diary entries carry `data-relative-from="YYYY-MM-DD"`; `sprint12.js` renders "14 min ago" / "3 hours ago" / "yesterday" client-side, falls back to the absolute date in `title`. Wired on the homepage "Latest from the desk" block and on every `/diary/<id>` page.
+- Hero stream typewriter (Part 3).
+
+### Files touched
+- New: `sprint12.js` (the interaction layer — Mark, count-up, constellation pulse, relative timestamps, hero typewriter).
+- Updated: `page.css` (~340 lines appended for the new system), `index.html` (token block, hero rebuild, watch cards now use the Mark, theme bootstrap on cookie), `nav.js` (cookie-backed toggle, sun/moon SVG that flips on each click), all 85 HTML pages (font link + theme bootstrap), 7 builder templates (`build_operators.py`, `build_notes.py`, `build_diary.py`, `build_halvren_index.py`, `build_glossary.py`, `build_coverage.py`, `build_digest_archive.py` — chrome head font/theme strings updated), `scripts/inject_homepage_diary.py` (data-relative-from on each entry), all 3 OG functions (`api/og/operator/[ticker].js` Mark-dominant + dark default; `api/og/compare/[tickers].js` + `api/og/diary/[id].js` dark default), `docs/HALVREN_BRAND.md` (Section 4 dark-default palette, Section 4a the three amber moments, Section 5 four-family type system, Section 5a the Halvren Read Mark spec).
+
+### What's NOT shipped (logged honestly)
+- The "screenshot test" (Part 9) can't be executed from this sandbox — no headless browser. Structural choices target it; live verification is the principal's call.
+- Footer redesign per Part 7 spec (3-column site map) ships as the new CSS rules in `page.css` but the existing footer markup remains in place on the homepage and across legacy pages. Layered swap is the next-sprint candidate.
+
+---
+
 ## Sprint 12 — Polish
 
 Three items. No new features. Polish.

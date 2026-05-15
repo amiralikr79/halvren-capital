@@ -1,9 +1,17 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --font-display:'Instrument Serif',Georgia,serif;
-  --font-body:'DM Sans','Helvetica Neue',sans-serif;
+  /* Sprint 12 — three type families with explicit roles.
+     --font-display: editorial serif for H1/H2 (Cormorant Garamond per brand doc, Instrument Serif fallback).
+     --font-body:    body prose serif (kept as Instrument Serif for legibility and rhythm).
+     --font-ui:      Inter for nav, buttons, captions, all chrome.
+     --font-data:    JetBrains Mono for every ticker, number, timestamp. */
+  --font-display:'Cormorant Garamond','Instrument Serif',Georgia,serif;
+  --font-body:'Inter','DM Sans','Helvetica Neue',sans-serif;
+  --font-ui:'Inter','DM Sans','Helvetica Neue',sans-serif;
+  --font-data:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   --ease-soft:cubic-bezier(0.16,1,0.3,1);
+  --ease-mark:cubic-bezier(0.22,1,0.36,1);
   --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
   --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
   --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
@@ -18,19 +26,51 @@
   --transition:180ms cubic-bezier(0.16,1,0.3,1);
   --content-narrow:640px;--content-default:760px;--content-wide:1200px;
 }
-:root,[data-theme="light"]{
+/* Sprint 12 — DARK IS DEFAULT. Light mode is the toggle.
+   :root applies the dark token set so first paint is dark even before
+   the inline theme script runs. The :root rule is overridden by
+   [data-theme="light"] when the visitor opts in. */
+:root,[data-theme="dark"]{
+  /* canonical brand aliases */
+  --bg:#0b0b0d;
+  --bg-2:#131316;
+  --bg-3:#1a1a1e;
+  --ink:#f1ede4;
+  --muted:#8a857c;
+  --line:#26241f;
+  --gold:#d4a04c;
+  --amber:#ff9d2f;
+  --amber-glow:rgba(255,157,47,0.32);
+  --green:#5bba7b;
+  --red:#d65a5a;
+  /* legacy --color-* aliases mapped onto the new system */
+  --color-bg:#0b0b0d;--color-surface:#131316;--color-surface-2:#1a1a1e;
+  --color-surface-offset:#1a1a1e;--color-border:#26241f;--color-divider:#26241f;
+  --color-text:#f1ede4;--color-text-muted:#8a857c;--color-text-faint:#55524c;
+  --color-gold:#d4a04c;--color-gold-light:#e6b568;
+}
+[data-theme="light"]{
+  --bg:#f7f6f2;
+  --bg-2:#f9f8f5;
+  --bg-3:#f3f0ec;
+  --ink:#1a1814;
+  --muted:#6b6a66;
+  --line:#dcd9d5;
+  --gold:#b8860b;
+  --amber:#d4751c;
+  --amber-glow:rgba(212,117,28,0.28);
+  --green:#1e7e4c;
+  --red:#b94747;
   --color-bg:#f7f6f2;--color-surface:#f9f8f5;--color-surface-2:#fbfbf9;
   --color-surface-offset:#f3f0ec;--color-border:#d4d1ca;--color-divider:#dcd9d5;
   --color-text:#1a1814;--color-text-muted:#6b6a66;--color-text-faint:#bab9b4;
   --color-gold:#b8860b;--color-gold-light:#d4a017;
 }
-[data-theme="dark"]{
-  --color-bg:#0d0c0a;--color-surface:#15140f;--color-surface-2:#1a1813;
-  --color-surface-offset:#1f1d17;--color-border:#2a2823;--color-divider:#1f1d18;
-  --color-text:#ece8df;--color-text-muted:#8a8780;--color-text-faint:#4a4843;
-  --color-gold:#bf9c5b;--color-gold-light:#d6b97a;
-}
 @media(prefers-color-scheme:light){:root:not([data-theme]){
+  --bg:#f7f6f2;--bg-2:#f9f8f5;--bg-3:#f3f0ec;
+  --ink:#1a1814;--muted:#6b6a66;--line:#dcd9d5;
+  --gold:#b8860b;--amber:#d4751c;--amber-glow:rgba(212,117,28,0.28);
+  --green:#1e7e4c;--red:#b94747;
   --color-bg:#f7f6f2;--color-surface:#f9f8f5;--color-surface-2:#fbfbf9;
   --color-surface-offset:#f3f0ec;--color-border:#d4d1ca;--color-divider:#dcd9d5;
   --color-text:#1a1814;--color-text-muted:#6b6a66;--color-text-faint:#bab9b4;
@@ -1138,3 +1178,208 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
   .hindex-table th:nth-child(3),.hindex-table td:nth-child(3){display:none}
   .hindex-table th:nth-child(5),.hindex-table td:nth-child(5){display:none}
 }
+
+/* =========================================================================
+   Sprint 12 — visual overhaul: dark-default, Halvren Read Mark, hero motion,
+   type system precision, three amber moments, "AI is alive" layer.
+   ========================================================================= */
+
+/* --- Type system precision -------------------------------------------- */
+body{font-family:var(--font-ui)}
+h1,h2,h3,h4{font-family:var(--font-display)}
+h1{letter-spacing:-0.025em}
+h2{letter-spacing:-0.015em}
+.doc-p,.doc-pullquote,.doc-h1+p,.doc-meta,.byline-meta,.byline-date,article p,article li,.note-body p,.note-body li,blockquote{font-family:var(--font-body)}
+.mono,.font-mono,[class*="-mono"],.viz-spread td.mono,.viz-spread th.mono,.big-num,.diary-entry-date,.notes-item-date,.op-header-meta-label,.op-header-listing,.op-header-tkr,.op-header-countdown,.hindex-context,.hindex-updated,.method-pillar-cap,.method-formula,.gl-aliases,.cmp-cell--num,.cmp-h-tkr,.cmp-h-read-label,.cmp-card-row-r,.viz-spread th,.viz-spread td,.section-label,.checklist-pillar-label,.method-pillar-eyebrow,.op-share-card-eyebrow,.watch-track-label,.start-step-num,.notes-item-listen,.diary-entry-meta,.note-audio-time,.note-audio-eyebrow{font-family:var(--font-data),var(--font-mono)}
+.nav-logo-name,.nav-logo-name,nav,.nav-right,.nav-back,.btn-subscribe,.theme-toggle,.lc-submit,.note-thread-btn,.note-thread-meta,.cmp-go,.diary-filter,.lc-input,.gl-search,.cmp-picker input,.lc-meta,.cmp-share a,.cmp-share button,.cmp-r-name,.cmp-r-tkr,.gl-jump a,.cmp-cell,.cmp-card,.diary-entry-link,.desk-latest-more,.start-step-h,.start-step-p,.live-pill,.thesis-heading + p,.hero-meta,.watchlist-updated,.watchlist-more,.watchlist-footnote,.related-label,.related-dek,.subscribe-h,.subscribe-p,.thread-tweet-num,.thread-tweet-foot,.thread-tweet-copy,.thread-modal-copy-all,.beliefs-h-eyebrow,.hindex-table th,.hindex-table td{font-family:var(--font-ui)}
+.section-label,.eyebrow,[class$="-eyebrow"]:not(.op-note-eyebrow):not(.op-read-eyebrow){font-family:var(--font-data);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+
+/* --- Sun/moon toggle visibility --------------------------------------- */
+.theme-toggle{color:var(--ink);transition:opacity 200ms var(--ease-soft)}
+.theme-toggle:hover{opacity:0.7}
+
+/* --- Halvren Read Mark — iconic component ----------------------------- */
+.hread-mark{position:relative;display:inline-flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:inherit;-webkit-tap-highlight-color:transparent;font-family:var(--font-ui)}
+.hread-circle{position:relative;display:flex;align-items:center;justify-content:center;width:88px;height:88px;border-radius:50%;background:var(--bg-2);border:2px solid var(--line);transition:width 350ms var(--ease-mark),height 350ms var(--ease-mark),border-radius 350ms var(--ease-mark),box-shadow 350ms var(--ease-mark),border-color 200ms var(--ease-soft);flex-shrink:0;overflow:hidden}
+.hread-circle[data-band="elite"]{border-color:var(--green);box-shadow:0 0 0 4px rgba(91,186,123,0.18)}
+.hread-circle[data-band="solid"]{border-color:var(--gold)}
+.hread-circle[data-band="mid"]{border-color:var(--muted)}
+.hread-circle[data-band="low"]{border-color:var(--red)}
+.hread-circle[data-band="perfect"]{border-color:var(--amber);box-shadow:0 0 0 6px var(--amber-glow)}
+.hread-num-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:0.95;gap:2px;transition:opacity 220ms var(--ease-soft)}
+.hread-num{font-family:var(--font-display);font-weight:500;font-size:36px;color:var(--ink);letter-spacing:-0.02em;line-height:1}
+.hread-of{font-family:var(--font-data);font-size:9px;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;font-weight:500}
+.hread-label{font-family:var(--font-data);font-size:9px;letter-spacing:0.14em;color:var(--muted);text-transform:uppercase;font-weight:500;text-align:center;line-height:1}
+.hread-grid{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:14px 18px;gap:8px;font-family:var(--font-ui);opacity:0;transition:opacity 220ms var(--ease-soft) 100ms;pointer-events:none}
+.hread-grid-eyebrow{font-family:var(--font-data);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-align:center;line-height:1}
+.hread-grid-row{display:flex;justify-content:space-between;gap:4px}
+.hread-chip{flex:1;min-width:0;height:24px;display:flex;align-items:center;justify-content:center;border-radius:6px;font-family:var(--font-data);font-size:10px;letter-spacing:0.02em;font-weight:500;font-variant-numeric:tabular-nums}
+.hread-chip[data-v="pass"]{background:rgba(91,186,123,0.16);color:var(--green)}
+.hread-chip[data-v="not_yet"]{background:rgba(212,160,76,0.16);color:var(--gold);border:1px solid rgba(212,160,76,0.32)}
+.hread-chip[data-v="fail"]{background:rgba(214,90,90,0.18);color:var(--red)}
+.hread-chip[data-v="null"]{background:var(--bg-3);color:var(--muted)}
+.hread-mark[data-expanded="true"] .hread-circle{width:320px;height:140px;border-radius:18px}
+.hread-mark[data-expanded="true"] .hread-num-wrap{opacity:0}
+.hread-mark[data-expanded="true"] .hread-grid{display:flex;opacity:1;pointer-events:auto}
+.hread-mark[data-expanded="true"] .hread-label{opacity:0;transition:opacity 120ms var(--ease-soft)}
+/* Large variant for operator hero and compare large cells */
+.hread-mark--lg .hread-circle{width:120px;height:120px}
+.hread-mark--lg .hread-num{font-size:48px}
+.hread-mark--lg .hread-of{font-size:10px}
+.hread-mark--lg[data-expanded="true"] .hread-circle{width:360px;height:160px;border-radius:20px}
+/* Small variant for compact tables */
+.hread-mark--sm .hread-circle{width:48px;height:48px;border-width:1.5px}
+.hread-mark--sm .hread-num{font-size:18px}
+.hread-mark--sm .hread-of{display:none}
+.hread-mark--sm .hread-label{display:none}
+.hread-mark--sm[data-expanded="true"] .hread-circle{width:240px;height:108px;border-radius:14px}
+.hread-mark--sm[data-expanded="true"] .hread-grid{padding:10px 12px}
+@media(max-width:600px){
+  .hread-mark .hread-circle{width:64px;height:64px;border-width:2px}
+  .hread-mark .hread-num{font-size:28px}
+  .hread-mark--lg .hread-circle{width:96px;height:96px}
+  .hread-mark--lg .hread-num{font-size:38px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hread-circle,.hread-num-wrap,.hread-grid,.hread-label{transition:none !important}
+}
+
+/* --- Hero ticker strip -------------------------------------------------- */
+.hero-ticker{height:28px;background:var(--bg-2);border-bottom:1px solid var(--line);overflow:hidden;position:relative;display:flex;align-items:center;width:100%}
+.hero-ticker-track{display:flex;align-items:center;gap:32px;white-space:nowrap;animation:hticker 60s linear infinite;padding-left:16px;will-change:transform}
+.hero-ticker:hover .hero-ticker-track{animation-play-state:paused}
+.hero-ticker-item{font-family:var(--font-data);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:500;transition:color 160ms var(--ease-soft);display:inline-flex;align-items:center;gap:8px}
+.hero-ticker-item:hover{color:var(--ink)}
+.hero-ticker-tkr{color:var(--ink)}
+.hero-ticker-sep{color:var(--line)}
+@keyframes hticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:600px){.hero-ticker-track{animation-duration:38s;gap:24px}}
+@media(prefers-reduced-motion:reduce){.hero-ticker-track{animation:none}}
+
+/* --- Streaming "now reading" line -------------------------------------- */
+.hero-stream{display:flex;align-items:center;gap:10px;margin:var(--space-6) 0 var(--space-8);min-height:24px;font-family:var(--font-data);font-size:13px;color:var(--muted);letter-spacing:0.02em;line-height:1.4;max-width:60ch}
+.hero-stream-prefix{color:var(--gold);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;flex-shrink:0;display:inline-flex;align-items:center;gap:6px}
+.hero-stream-prefix::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(91,186,123,0.22);animation:hpulse 2.4s var(--ease-soft) infinite}
+.hero-stream-text{display:inline-flex;align-items:center;color:var(--ink);font-family:var(--font-data);font-size:13px;letter-spacing:0;min-height:18px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hero-stream-caret{display:inline-block;width:7px;height:14px;background:var(--gold);margin-left:4px;animation:hcaret 1.06s steps(2,end) infinite;vertical-align:-3px}
+.hero-stream-text[data-done="true"] .hero-stream-caret{display:none}
+@keyframes hcaret{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes hpulse{0%,100%{box-shadow:0 0 0 3px rgba(91,186,123,0.22)}50%{box-shadow:0 0 0 6px rgba(91,186,123,0)}}
+@media(prefers-reduced-motion:reduce){.hero-stream-caret,.hero-stream-prefix::before{animation:none}}
+@media(max-width:600px){.hero-stream{font-size:12px}}
+
+/* --- Subtle gradient mesh in hero ------------------------------------- */
+.hero::after{content:"";position:absolute;right:-200px;bottom:-200px;width:800px;height:800px;background:radial-gradient(circle at center,rgba(212,160,76,0.06),transparent 60%);pointer-events:none;z-index:0}
+@media(max-width:768px){.hero::after{display:none}}
+
+/* --- "Run the 10" amber CTA — moment #1 ------------------------------- */
+.cta-amber,.lc-submit{background:var(--amber) !important;color:var(--bg) !important;border:none;border-radius:8px;padding:14px 24px;font-family:var(--font-ui);font-size:14px;font-weight:500;letter-spacing:0.01em;cursor:pointer;transition:filter 160ms var(--ease-soft),transform 100ms ease;text-decoration:none;display:inline-flex;align-items:center;gap:6px;min-height:44px}
+.cta-amber:hover,.lc-submit:hover{filter:brightness(1.08)}
+.cta-amber:active,.lc-submit:active{transform:scale(0.97)}
+button.cta-amber,a.cta-amber{font-family:var(--font-ui)}
+
+/* --- Amber moment #3: Q numbers on homepage Checklist preview --------- */
+#checklist .checklist-num,.checklist-preview .checklist-num{color:var(--amber)}
+
+/* --- Watch card redesign --------------------------------------------- */
+.watch-card{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:var(--space-6) var(--space-6) var(--space-5);transition:transform 200ms var(--ease-soft),border-color 200ms var(--ease-soft),box-shadow 200ms var(--ease-soft);display:flex;flex-direction:column;gap:var(--space-4);position:relative}
+.watch-card:hover{transform:translateY(-2px);border-color:var(--ink)}
+.watch-card[data-band="elite"]:hover{box-shadow:0 0 0 1px var(--green),0 8px 32px rgba(91,186,123,0.08)}
+.watch-card[data-band="perfect"]:hover{box-shadow:0 0 0 1px var(--amber),0 8px 32px var(--amber-glow)}
+.watch-card .watch-head{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-4);border-bottom:none;padding-bottom:0;margin-bottom:0;flex-wrap:nowrap}
+.watch-card .watch-symbol{font-family:var(--font-display);font-size:28px;line-height:1.1;letter-spacing:-0.01em;color:var(--ink);font-weight:500;order:1}
+.watch-card .watch-name{order:2;font-family:var(--font-ui);font-size:13px;color:var(--muted);letter-spacing:0.04em;line-height:1.4}
+.watch-card .watch-name br{display:none}
+.watch-card .watch-sector{align-self:flex-start;display:inline-block;padding:3px 10px;background:var(--bg-3);color:var(--gold);font-family:var(--font-data);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;border-radius:4px;font-weight:500;margin:0}
+.watch-card .watch-body{font-family:var(--font-body);font-size:15px;line-height:1.55;color:var(--ink);margin:0}
+.watch-card .watch-track{font-family:var(--font-data);font-size:11px;letter-spacing:0.06em;color:var(--muted);text-transform:none;line-height:1.6;margin:0}
+.watch-card .watch-track-label{display:inline-block;color:var(--muted);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;margin-right:8px}
+.watch-card .watch-read{position:static;align-self:flex-start;margin-left:auto}
+.watch-card > p:last-child{margin-top:auto;padding-top:var(--space-4);border-top:1px solid var(--line)}
+.watch-card > p:last-child a{font-family:var(--font-ui);font-size:13px;color:var(--ink);text-decoration:none;border:none;letter-spacing:0;text-transform:none;font-weight:500;padding:0}
+.watch-card > p:last-child a:hover{color:var(--gold)}
+.watchlist-grid{gap:var(--space-5)}
+@media(max-width:600px){
+  .watch-card{padding:var(--space-5)}
+  .watch-card .watch-symbol{font-size:22px}
+  .watch-card .watch-body{font-size:14px}
+}
+
+/* --- Section header divider ------------------------------------------- */
+.section-label{display:inline-block;position:relative;padding-bottom:var(--space-2)}
+.section-label::after{content:"";display:block;width:80px;height:1px;background:var(--line);margin-top:var(--space-2)}
+
+/* --- Diary entry pulse dot on the homepage "Latest from the desk" ----- */
+.desk-latest{position:relative;background:var(--bg-2);border:1px solid var(--line)}
+.desk-latest::before{content:"";position:absolute;top:var(--space-6);right:var(--space-6);width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(91,186,123,0.18);animation:hpulse 2.4s var(--ease-soft) infinite}
+@media(prefers-reduced-motion:reduce){.desk-latest::before{animation:none}}
+
+/* --- Footer redesign — 3-column grid --------------------------------- */
+.footer-grid{display:grid;grid-template-columns:1.2fr 2fr 1fr;gap:var(--space-10);max-width:var(--content-wide);margin:0 auto;padding:var(--space-12) var(--space-8) var(--space-6)}
+.footer-brand-block{display:flex;flex-direction:column;gap:var(--space-2)}
+.footer-brand-name{font-family:var(--font-display);font-size:24px;letter-spacing:-0.01em;color:var(--ink);font-weight:500}
+.footer-brand-name .dot{color:var(--gold);margin-right:2px}
+.footer-brand-meta{font-family:var(--font-data);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.footer-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-6)}
+.footer-col-head{font-family:var(--font-data);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:var(--space-3);font-weight:500}
+.footer-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2)}
+.footer-col a{font-family:var(--font-ui);font-size:14px;color:var(--ink);text-decoration:none;letter-spacing:0;transition:color 160ms var(--ease-soft)}
+.footer-col a:hover{color:var(--gold)}
+.footer-contact{display:flex;flex-direction:column;gap:var(--space-2)}
+.footer-contact a{font-family:var(--font-ui);font-size:14px;color:var(--ink);text-decoration:none}
+.footer-contact a:hover{color:var(--gold)}
+.footer-bottom{max-width:var(--content-wide);margin:0 auto;padding:var(--space-6) var(--space-8);border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:var(--space-4);justify-content:space-between;align-items:center;font-family:var(--font-data);font-size:11px;letter-spacing:0.04em;color:var(--muted);line-height:1.6}
+.footer-bottom .footer-bottom-meta{display:flex;gap:var(--space-4);flex-wrap:wrap}
+.footer-bottom .footer-bottom-meta a{color:var(--muted);text-decoration:none}
+.footer-bottom .footer-bottom-meta a:hover{color:var(--ink)}
+.footer-disclaim{padding:0 var(--space-8) var(--space-6);max-width:var(--content-wide);margin:0 auto;font-family:var(--font-ui);font-size:11px;color:var(--muted);line-height:1.6}
+.footer-disclaim p{margin:0 0 var(--space-2);max-width:none}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr;gap:var(--space-8)}.footer-cols{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.footer-cols{grid-template-columns:1fr;gap:var(--space-6)}}
+
+/* --- Constellation amber pulse (AI-alive) ---------------------------- */
+.cdot.is-pulse-amber{fill:var(--amber);opacity:1 !important;transition:fill 320ms ease-out,opacity 320ms ease-out}
+
+/* --- Diary entry relative time ---------------------------------------- */
+.diary-entry-relative,.desk-latest-relative{font-family:var(--font-data);font-size:11px;letter-spacing:0.04em;color:var(--gold);text-transform:none;margin-left:6px}
+
+/* --- Number count-up: prepared via .count-up class ------------------- */
+.count-up{font-variant-numeric:tabular-nums}
+
+/* --- Link underlines reset ------------------------------------------- */
+a:not(.nav-logo):not(.btn-subscribe):not(.hread-mark):not(.cta-amber):not(.hero-ticker-item):not(.watch-card a):not(.footer-col a):not(.footer-contact a):not(.diary-entry-ticker):not(.notes-item-title):not(.cmp-cell--head .cmp-h-tkr){transition:color 160ms var(--ease-soft)}
+.doc-body a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:var(--line);transition:text-decoration-color 200ms var(--ease-soft),text-decoration-thickness 200ms var(--ease-soft)}
+.doc-body a:hover{text-decoration-thickness:1.5px;text-decoration-color:var(--ink)}
+
+/* --- Press scale on every action element ------------------------------ */
+button:active,.btn-subscribe:active,.note-thread-btn:active,.cmp-go:active,.diary-filter:active,.theme-toggle:active{transform:scale(0.97);transition:transform 100ms ease}
+
+/* --- Dark-mode polish for legacy components --------------------------- */
+[data-theme="dark"] .live-pill,:root .live-pill,[data-theme="dark"] .digest-ticker,:root .digest-ticker{background:var(--bg-2);color:var(--muted)}
+[data-theme="dark"] .watch-card,:root .watch-card{background:var(--bg-2);border-color:var(--line)}
+.nav-logo-name{font-family:var(--font-display)}
+
+/* --- Live result eyebrow + caret in input ---------------------------- */
+.lc-input-wrap{position:relative}
+.lc-input{caret-color:var(--amber)}
+.lc-input::placeholder{color:var(--muted);opacity:0.55}
+
+/* --- Halvren Index: use the Mark in the constituent table ------------ */
+.hindex-table .hread-mark{display:inline-flex;text-decoration:none}
+.hindex-table td.hindex-mark{padding-top:var(--space-2);padding-bottom:var(--space-2);width:60px}
+
+/* --- Compare large mark in the cell head ----------------------------- */
+.cmp-cell--head .cmp-h-read-mark{margin-top:var(--space-3)}
+
+/* --- Mobile nav-burger contrast --------------------------------------- */
+[data-theme="dark"] nav,:root nav{background:rgba(11,11,13,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+
+/* --- Body background safety belt for sub-pages ----------------------- */
+html,body{background:var(--bg)}
+[data-theme="light"] html,[data-theme="light"] body{background:var(--bg)}
+
+/* --- Disable old per-page light surfaces that fight the new tokens --- */
+.section,.doc-main,.doc-article,main{background:transparent}
+
+/* --- Reduce contrast on aging surface variables ---------------------- */
+.legend,.beliefs-card,.subscribe,.about-content,.related-card{background:var(--bg-2);border-color:var(--line)}

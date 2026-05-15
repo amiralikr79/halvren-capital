@@ -173,13 +173,64 @@ def relative_countdown_html(iso: str | None) -> str:
 # --------------------------------------------------------------------------- #
 
 def _read_band(score: int | None) -> str:
+    """Sprint 12 — five-band classification feeding the Halvren Read Mark.
+    perfect (100), elite (85-99), solid (70-84), mid (50-69), low (<50)."""
     if score is None:
-        return "amber"
-    if score >= 75:
-        return "green"
+        return "mid"
+    if score == 100:
+        return "perfect"
+    if score >= 85:
+        return "elite"
+    if score >= 70:
+        return "solid"
     if score >= 50:
-        return "amber"
-    return "red"
+        return "mid"
+    return "low"
+
+
+_Q_LABEL = {
+    1: "Q1", 2: "Q2", 3: "Q3", 4: "Q4", 5: "Q5",
+    6: "Q6", 7: "Q7", 8: "Q8", 9: "Q9", 10: "Q10",
+}
+
+
+def render_halvren_mark(op: dict, *, size: str = "default") -> str:
+    """Halvren Read Mark — the iconic component.
+    size: "default" (88px), "lg" (120px, used on operator hero), or "sm" (48px, table rows).
+    Renders the circle SSR-ready; sprint12.js layers the expand-to-grid behaviour."""
+    score = op.get("halvren_read")
+    if score is None:
+        return ""
+    band = _read_band(score)
+    scoring = (op.get("checklist") or {}).get("scoring") or []
+    by_q = {s["q"]: s.get("status") for s in scoring}
+    chips_rows: list[str] = []
+    for row_qs in ([1, 2, 3, 4, 5], [6, 7, 8, 9, 10]):
+        chips_rows.append(
+            '<div class="hread-grid-row">' +
+            "".join(
+                f'<span class="hread-chip" data-v="{by_q.get(q) or "null"}">{_Q_LABEL[q]}</span>'
+                for q in row_qs
+            ) +
+            "</div>"
+        )
+    size_class = "" if size == "default" else f" hread-mark--{size}"
+    return (
+        f'<a class="hread-mark{size_class}" data-band="{band}" href="/methodology" '
+        f'aria-label="Halvren Read {score} of 100 — see methodology" tabindex="0">'
+        f'  <div class="hread-circle" data-band="{band}">'
+        f'    <div class="hread-num-wrap">'
+        f'      <span class="hread-num">{score}</span>'
+        f'      <span class="hread-of">/ 100</span>'
+        f'    </div>'
+        f'    <div class="hread-grid" aria-hidden="true">'
+        f'      <span class="hread-grid-eyebrow">10 checklist verdicts</span>'
+        f'      {"".join(chips_rows)}'
+        f'    </div>'
+        f'  </div>'
+        f'  <span class="hread-label">Halvren Read</span>'
+        f'</a>'
+    )
 
 
 def render_header_strip(op: dict) -> str:
@@ -187,12 +238,7 @@ def render_header_strip(op: dict) -> str:
     nxt = fmt_iso_long(op.get("next_earnings_iso"))
     countdown = relative_countdown_html(op.get("next_earnings_iso"))
     score = op.get("halvren_read")
-    band = _read_band(score)
-    score_block = f"""
-      <a class="op-header-read" data-band="{band}" href="/methodology" aria-label="Halvren Read {score} of 100 — view methodology">
-        <span class="op-header-read-num">{score}</span>
-        <span class="op-header-read-label">Halvren Read</span>
-      </a>""" if score is not None else ""
+    score_block = render_halvren_mark(op, size="lg") if score is not None else ""
     return f"""
     <div class="op-header">
       <div class="op-header-rowwrap">
@@ -503,7 +549,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="dark light">
-<script>(function(){{try{{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}}catch(e){{document.documentElement.setAttribute('data-theme','dark');}}}})();</script>
+<script>(function(){{try{{var c=document.cookie.split('; ').find(function(r){{return r.indexOf('halvren-theme=')===0}});var s=c?c.split('=')[1]:null;var t=s||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}}catch(e){{document.documentElement.setAttribute('data-theme','dark');}}}})();</script>
 <link rel="canonical" href="https://halvrencapital.com/research/{slug}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="{og_title}">
@@ -519,7 +565,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/page.css">
 <link rel="stylesheet" href="/viz.css">
 </head>
@@ -603,6 +649,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 </footer>
 <script>(function(){{var f=document.querySelector('.progress-bar-fill');if(!f)return;function u(){{var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;f.style.width=(m>0?Math.min(100,Math.max(0,(h.scrollTop/m)*100)):0)+'%';}}addEventListener('scroll',u,{{passive:true}});addEventListener('resize',u);u();}})();</script>
 <script src="/nav.js" defer></script>
+<script src="/sprint12.js" defer></script>
 <aside class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Main navigation" aria-hidden="true" hidden>
   <div class="nav-overlay-bar">
     <a href="/" class="nav-overlay-brand">Halvren Capital</a>

@@ -13,10 +13,10 @@ import { ImageResponse } from "@vercel/og";
 
 export const config = { runtime: "edge" };
 
-// brand tokens
+// brand tokens (Sprint 12 — dark-default)
 const TOKENS = {
-  light: { bg: "#f7f6f2", ink: "#1a1814", muted: "#6b6a66", line: "#d4d1ca", gold: "#b8860b", green: "#22c55e", red: "#b94747" },
-  dark:  { bg: "#0d0c0a", ink: "#ece8df", muted: "#8a8780", line: "#2a2823", gold: "#bf9c5b", green: "#22c55e", red: "#d96b6b" },
+  light: { bg: "#f7f6f2", bg2: "#f9f8f5", ink: "#1a1814", muted: "#6b6a66", line: "#dcd9d5", gold: "#b8860b", amber: "#d4751c", green: "#1e7e4c", red: "#b94747" },
+  dark:  { bg: "#0b0b0d", bg2: "#131316", ink: "#f1ede4", muted: "#8a857c", line: "#26241f", gold: "#d4a04c", amber: "#ff9d2f", green: "#5bba7b", red: "#d65a5a" },
 };
 
 const CORMORANT_600 = "https://fonts.gstatic.com/s/cormorantgaramond/v16/co3YmX5slCNuHLi8bLeY9MK7whWMhyjornFLsS6V7w.ttf";
@@ -58,8 +58,10 @@ function computeRead(scoring) {
 
 function band(score, t) {
   if (score == null) return t.muted;
-  if (score >= 75) return t.green;
-  if (score >= 50) return t.gold;
+  if (score === 100) return t.amber;
+  if (score >= 85) return t.green;
+  if (score >= 70) return t.gold;
+  if (score >= 50) return t.muted;
   return t.red;
 }
 
@@ -98,8 +100,8 @@ export default async function handler(req) {
     const url = new URL(req.url);
     const parts = url.pathname.split("/").filter(Boolean); // [api, og, operator, <ticker>]
     const ticker = (parts[parts.length - 1] || "").toUpperCase();
-    const dark = url.searchParams.get("dark") === "1";
-    const t = dark ? TOKENS.dark : TOKENS.light;
+    const light = url.searchParams.get("light") === "1";
+    const t = light ? TOKENS.light : TOKENS.dark;
     const origin = url.origin;
 
     if (!CACHE.corm)  CACHE.corm  = await loadFont(CORMORANT_600);
@@ -144,12 +146,26 @@ export default async function handler(req) {
           h("div", { style: { display: "flex", fontFamily: "DM Sans", fontSize: 13, color: t.muted, letterSpacing: "0.08em", textTransform: "uppercase" } }, row.exchange || ""),
         ),
       ),
-      // Center: HALVREN READ number + sub
-      h("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 8, marginTop: 8 } },
-        h("div", { style: { display: "flex", fontFamily: "DM Sans", fontSize: 14, color: t.gold, letterSpacing: "0.18em", textTransform: "uppercase" } }, "Halvren Read"),
-        h("div", { style: { display: "flex", fontFamily: "Cormorant", fontSize: 220, lineHeight: 0.95, color: band(score, t), fontWeight: 600, letterSpacing: "-0.04em" } }, String(score)),
-        h("div", { style: { display: "flex", fontFamily: "DM Sans", fontSize: 16, color: t.muted, letterSpacing: "0.06em" } }, score + " / 100"),
-        h("div", { style: { display: "flex", fontFamily: "Cormorant", fontSize: 32, color: t.ink, marginTop: 14, letterSpacing: "-0.01em" } }, clamp(op.short_name + " — " + (op.sub_industry || op.sector), 64)),
+      // Center: Halvren Read Mark — circle is the dominant element.
+      h("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 16, marginTop: 4 } },
+        h("div", {
+          style: {
+            display: "flex", alignItems: "center", justifyContent: "center",
+            width: 280, height: 280, borderRadius: 9999,
+            backgroundColor: t.bg2,
+            border: `4px solid ${band(score, t)}`,
+            boxShadow: score === 100
+              ? `0 0 0 14px rgba(255,157,47,0.18)`
+              : score >= 85 ? `0 0 0 10px rgba(91,186,123,0.18)` : "none",
+          },
+        },
+          h("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 4 } },
+            h("div", { style: { display: "flex", fontFamily: "Cormorant", fontSize: 160, lineHeight: 0.95, color: t.ink, fontWeight: 500, letterSpacing: "-0.04em" } }, String(score)),
+            h("div", { style: { display: "flex", fontFamily: "JetBrains Mono", fontSize: 14, color: t.muted, letterSpacing: "0.12em", textTransform: "uppercase" } }, "/ 100"),
+          ),
+        ),
+        h("div", { style: { display: "flex", fontFamily: "JetBrains Mono", fontSize: 11, color: t.muted, letterSpacing: "0.18em", textTransform: "uppercase" } }, "Halvren Read"),
+        h("div", { style: { display: "flex", fontFamily: "Cormorant", fontSize: 28, color: t.ink, letterSpacing: "-0.01em" } }, clamp(op.short_name + " — " + (op.sub_industry || op.sector), 64)),
       ),
       // 5x2 chip grid
       h("div", { style: { display: "flex", flexDirection: "column", gap: 8 } },

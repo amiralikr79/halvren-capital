@@ -71,7 +71,7 @@ def render_chrome_head(canonical: str, title: str, desc: str, og_title: str | No
 <meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="dark light">
-<script>(function(){{try{{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}}catch(e){{document.documentElement.setAttribute('data-theme','dark');}}}})();</script>
+<script>(function(){{try{{var c=document.cookie.split('; ').find(function(r){{return r.indexOf('halvren-theme=')===0}});var s=c?c.split('=')[1]:null;var t=s||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}}catch(e){{document.documentElement.setAttribute('data-theme','dark');}}}})();</script>
 <link rel="canonical" href="{canonical}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{og_t}">
@@ -85,7 +85,7 @@ def render_chrome_head(canonical: str, title: str, desc: str, og_title: str | No
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111010'/><path d='M7 8 L7 24 M7 16 L15 16 M15 8 L15 24' stroke='%23e8e6e2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M19 8 L19 24 M19 8 L26 16 L19 24' stroke='%23c9a84c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/page.css">
 </head>"""
 
@@ -142,6 +142,7 @@ CHROME_FOOT = """<footer>
   </div>
 </footer>
 <script src="/nav.js" defer></script>
+<script src="/sprint12.js" defer></script>
 <aside class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Main navigation" aria-hidden="true" hidden>
   <div class="nav-overlay-bar">
     <a href="/" class="nav-overlay-brand">Halvren Capital</a>
@@ -175,8 +176,8 @@ def render_entry_card(e: dict, all_ops: dict[str, dict]) -> str:
     short = (op or {}).get("short_name", e["ticker"])
     summary = e["summary"]
     return f"""
-      <article class="diary-entry" data-action="{e['action']}" data-id="{e['id']}">
-        <div class="diary-entry-date">{fmt_date(e['date'])}</div>
+      <article class="diary-entry" data-action="{e['action']}" data-id="{e['id']}" data-relative-from="{e['date']}">
+        <div class="diary-entry-date" title="{e['date']}">{fmt_date(e['date'])}</div>
         <div class="diary-entry-body">
           <div class="diary-entry-row">
             <a class="diary-entry-ticker" href="/research/{e['slug']}">{e['ticker']}</a>
