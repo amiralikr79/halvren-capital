@@ -1,7 +1,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --font-display:'Instrument Serif',Georgia,serif;
-  --font-body:'Instrument Serif','Helvetica Neue',serif;
+  --font-body:'Inter','Helvetica Neue',system-ui,sans-serif;
   --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   --ease-soft:cubic-bezier(0.16,1,0.3,1);
   --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
@@ -856,15 +856,16 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
 /* ================================================================== */
 
 :root{
-  /* Type tokens (Sprint 9 final names) */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body:    'Instrument Serif', Georgia, serif;
+  /* Type tokens (Sprint 9 Part B).
+   * --font-body stays Inter (sans) so every legacy var(--font-body) rule
+   * across the site keeps its UI semantics. Where we explicitly want a
+   * literary serif (long-form prose accent), use --font-serif. Headings
+   * (h1/h2) stay on --font-display = Instrument Serif as they have been. */
   --font-ui:      'Inter', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  --font-serif:   'Instrument Serif', Georgia, serif;
   --font-data:    'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
-
-  /* Legacy aliases kept as synonyms for back-compat */
-  --font-h1h2: var(--font-display);
-  --font-mono: var(--font-data);
+  --font-h1h2:    var(--font-display);
+  --font-mono:    var(--font-data);
 }
 
 /* Numbers everywhere — mono + tabular */
