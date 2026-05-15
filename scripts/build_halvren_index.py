@@ -20,6 +20,7 @@ Run from repo root:
 
 from __future__ import annotations
 import json
+import sys
 from datetime import date
 from pathlib import Path
 
@@ -136,7 +137,37 @@ def render_chart(prices: dict) -> str:
 </svg>"""
 
 
+def refresh_prices(skip_fetch: bool) -> None:
+    """Try to refresh /data/halvren-index-prices.json from Yahoo Finance.
+    Falls back silently to the existing on-disk file if the fetch fails —
+    that file ships with the hand-curated reconstruction so the page can
+    always render. Honest failure is logged to stderr."""
+    if skip_fetch:
+        return
+    import subprocess
+    fetcher = ROOT / "scripts" / "fetch_halvren_index_prices.py"
+    if not fetcher.exists():
+        return
+    try:
+        res = subprocess.run(
+            ["python3", str(fetcher)],
+            capture_output=True, text=True, timeout=120,
+        )
+        if res.returncode == 0:
+            print(res.stdout.rstrip())
+        else:
+            tail = (res.stderr or res.stdout or "").strip().splitlines()
+            note = tail[-1] if tail else "unknown error"
+            print(f"halvren-index: live fetch unavailable ({note}); using on-disk series.")
+    except Exception as ex:
+        print(f"halvren-index: live fetch skipped ({ex}); using on-disk series.")
+
+
 def main() -> int:
+    import os
+    skip_fetch = bool(os.environ.get("HALVREN_INDEX_SKIP_FETCH")) or ("--render-only" in sys.argv)
+    refresh_prices(skip_fetch=skip_fetch)
+
     ops = load_operators()
     top = top_ten(ops)
 
@@ -151,6 +182,8 @@ def main() -> int:
     last_value_iso = prices.get("months", [""])[-1] if prices.get("months") else ""
     last_idx = prices.get("halvren_index", [None])[-1] if prices.get("halvren_index") else None
     last_bench = prices.get("tsx_total_return", [None])[-1] if prices.get("tsx_total_return") else None
+    last_updated = prices.get("last_updated") or prices.get("version") or ""
+    source_note = prices.get("source") or ""
 
     summary_line = ""
     if last_idx and last_bench:
@@ -160,6 +193,12 @@ def main() -> int:
             f"Hypothetical: <strong>{round(last_idx)}</strong> vs TSX Total Return <strong>{round(last_bench)}</strong> "
             f"as of {last_value_iso} &middot; <strong>{sign}{round(diff)}</strong> spread since inception."
         )
+
+    last_updated_line = (
+        f'<p class="hindex-updated">Last updated {last_updated}'
+        + (f' &middot; {source_note}' if source_note else '')
+        + '</p>'
+    ) if last_updated else ''
 
     jsonld = json.dumps({
         "@context": "https://schema.org",
@@ -273,6 +312,7 @@ def main() -> int:
         <span class="lg-bench">TSX Total Return</span>
       </div>
     </div>
+    {last_updated_line}
     {f'<p class="hindex-context" style="font-style:normal;text-transform:none;letter-spacing:0;font-family:var(--font-body);font-size:var(--text-sm);color:var(--color-text)">{summary_line}</p>' if summary_line else ''}
 
     <p class="hindex-context">Inception: {inception} &middot; Rebalance: quarterly &middot; Methodology: top 10 by Halvren Read at rebalance date.</p>

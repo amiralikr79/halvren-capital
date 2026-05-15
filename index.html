@@ -610,15 +610,14 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
 <section class="section" id="constellation-hero" aria-label="Coverage universe — 20 operators" style="padding-top:0;padding-bottom:var(--space-12)">
   <div class="section-inner">
   <style>
-.constellation .clabel-cluster{font-family:var(--font-body);font-size:10px;letter-spacing:0.18em;fill:var(--muted);opacity:0.7}
-.constellation-cluster-labels{display:none;list-style:none;padding:0;margin:0 0 var(--space-4);grid-template-columns:repeat(3,1fr);gap:var(--space-4);font-family:var(--font-body);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-text-muted);text-align:center}
-@media(min-width:769px){.constellation-cluster-labels{display:grid}}
+.constellation-cluster-labels{list-style:none;padding:0;margin:0 0 var(--space-4);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);font-family:var(--font-body);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-text-muted);text-align:center}
 .constellation-cluster-labels li{padding:0}
+@media(max-width:768px){.constellation-cluster-labels{display:none}}
 </style>
-<!-- Semantic HTML cluster labels — present in the DOM as separate list items
-     so text scrapers, LLMs, and screen readers see "Energy / Materials /
-     Infrastructure" with proper separation. The SVG <text> labels below
-     stay as visual reinforcement for the constellation graphic. -->
+<!-- Cluster labels as semantic HTML. Visible above the SVG on desktop;
+     hidden on mobile (the .constellation-mobile tabbed list provides
+     the same structure there). The SVG no longer carries duplicate
+     <text> elements — the HTML list is the canonical version. -->
 <ul class="constellation-cluster-labels" aria-label="Sector clusters">
   <li>Energy</li>
   <li>Materials</li>
@@ -626,9 +625,6 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
 </ul>
 <div class="constellation" aria-label="Halvren coverage constellation">
   <svg viewBox="0 0 1200 360" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Coverage universe — 20 operators across Energy, Materials, and Infrastructure">
-    <text class="clabel-cluster" x="260" y="28" text-anchor="middle">ENERGY</text>
-    <text class="clabel-cluster" x="600" y="28" text-anchor="middle">MATERIALS</text>
-    <text class="clabel-cluster" x="940" y="28" text-anchor="middle">INFRASTRUCTURE</text>
     <circle class="cdot" data-slug="canadian-natural-cnq" data-ticker="CNQ" data-sector="Energy" data-last="Apr 2026" cx="239.41" cy="202.63" r="12.11" tabindex="0" style="animation-delay:-2.74s" aria-label="CNQ — Energy"></circle>
     <circle class="cdot" data-slug="suncor-su" data-ticker="SU" data-sector="Energy" data-last="May 2026" cx="239.39" cy="164.2" r="11.82" tabindex="0" style="animation-delay:-2.2s" aria-label="SU — Energy"></circle>
     <circle class="cdot" data-slug="cenovus-cve" data-ticker="CVE" data-sector="Energy" data-last="May 2026" cx="186.67" cy="170.75" r="10.84" tabindex="0" style="animation-delay:-0.38s" aria-label="CVE — Energy"></circle>

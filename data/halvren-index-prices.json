@@ -1,9 +1,10 @@
 {
-  "$comment_1": "Halvren Index — hand-curated monthly index values for the hypothetical equal-weighted basket.",
-  "$comment_2": "Inception value 100 at Jan 2024. Methodology and the rationale for hand-curation (no live price feed yet) live in docs/DECISIONS.md.",
-  "$comment_3": "Halvren Index series approximates the equal-weighted month-end total return of the top-10 constituents at each rebalance date, with constituents reset quarterly. Derived from public month-end closes for the names that were in the top 10 at the time of each rebalance, plus dividends paid; reconciled to the principal's read of the through-cycle path. Refresh quarterly with the next desk review.",
-  "$comment_4": "Benchmark: TSX Composite Total Return (S&P/TSX Composite TR), normalized to 100 at Jan 2024.",
+  "$comment_1": "Halvren Index — monthly index values for the hypothetical equal-weighted basket.",
+  "$comment_2": "scripts/fetch_halvren_index_prices.py overwrites this file with live Yahoo Finance month-end adjusted closes when run from a network-reachable environment. The hand-curated series below is the published fallback and matches the principal's reconstruction described in docs/DECISIONS.md.",
+  "$comment_3": "Halvren Index series approximates the equal-weighted month-end total return of the top-10 constituents at each rebalance date, with constituents reset quarterly. Benchmark: TSX Composite Total Return (S&P/TSX Composite TR), normalized to 100 at Jan 2024.",
   "version": "2026-05-15",
+  "last_updated": "2026-05-15",
+  "source": "Hand-curated reconstruction (Yahoo Finance refresh pending)",
   "inception": "Jan 2024",
   "rebalance_dates": ["2024-01", "2024-04", "2024-07", "2024-10", "2025-01", "2025-04", "2025-07", "2025-10", "2026-01", "2026-04"],
   "months": [

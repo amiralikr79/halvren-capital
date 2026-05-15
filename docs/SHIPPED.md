@@ -8,6 +8,27 @@ Total commits on this branch (excluding the merge from main at the start): 7. On
 
 ---
 
+## Sprint 12 — Polish
+
+Three items. No new features. Polish.
+
+**1. Audio activation — blocked on TTS key (logged in DECISIONS.md).** Neither `ELEVENLABS_API_KEY` nor `OPENAI_API_KEY` is in the build environment. The player UI shipped in Sprint 11 continues to render the "narration coming soon" state across all 10 notes. Activation is one shell command (`python3 scripts/build_audio_notes.py`) once the principal provisions a key in Vercel; the four-step recipe is documented at the top of `docs/DECISIONS.md`. ElevenLabs Daniel (voice id `onwK4e9ZLuTAKqWW03F9`) is the hardcoded default; estimated cost ~$30 for the 10-note backlog.
+
+**2. Constellation cluster labels — deleted the SVG duplicates.** Removed the three `<text class="clabel-cluster">` elements from the homepage constellation SVG and the now-unused `.constellation .clabel-cluster` CSS rule. The semantic `<ul>` above the SVG (introduced in Sprint 11) is now the only source of the "Energy / Materials / Infrastructure" labels — no duplicate concatenated render in any text-extraction path. The HTML list is hidden on mobile (where the `.constellation-mobile` tabbed list already provides the same structure) and visible on desktop. Audited the rendered `index.html`: zero remaining occurrences of `clabel-cluster`, `ENERGY`, `MATERIALS`, or `INFRASTRUCTURE` outside the structured HTML list, the cycle-map sector filter chips, and the operator dot `data-sector` attributes.
+
+**3. Halvren Index — live price fetcher wired with graceful fallback.**
+- `scripts/fetch_halvren_index_prices.py` fetches monthly adjusted closes for the 10 constituents (AEM.TO, ARX.TO, CNQ.TO, FTS.TO, TOU.TO, CNR.TO, KMI, NTR.TO, PPL.TO, WFG.TO) and the TSX benchmark (XIC.TO — adjusted close as the free proxy for S&P/TSX Composite Total Return) from Yahoo's unofficial chart endpoint (`v7/finance/chart` with `v8` and `query2.` fallbacks). Computes the equal-weighted total return path with quarterly rebalance from Jan 2024 forward. Writes the resulting series to `/data/halvren-index-prices.json` along with `last_updated`, `source`, `constituents`, `benchmark_label`, and `rebalance_dates` fields.
+- `scripts/build_halvren_index.py` now invokes the fetcher before rendering, via subprocess with a 120s timeout. If the fetch fails (Yahoo 403 / network block / partial data), the script logs a single stderr note ("halvren-index: live fetch unavailable …; using on-disk series.") and renders against the existing JSON — the hand-curated reconstruction stays in version control as the documented fallback.
+- `--render-only` flag and `HALVREN_INDEX_SKIP_FETCH=1` env var added for offline rebuilds.
+- Page now renders a "Last updated YYYY-MM-DD · <source>" line in mono small-caps directly below the chart legend (`.hindex-updated` CSS rule appended to `page.css`).
+- Yahoo returns 403 from the current sandbox; the fetcher is verified to abort atomically on partial failure (a single constituent missing data prevents any write). The script works correctly from any environment with outbound Yahoo access; the next deploy with network reachability will hydrate the JSON automatically.
+
+**Infrastructure touched.**
+- New: `scripts/fetch_halvren_index_prices.py` (Yahoo fetcher + equal-weighted rebalance math).
+- Updated: `scripts/build_halvren_index.py` (auto-fetch hook + last-updated render), `data/halvren-index-prices.json` (new `last_updated` and `source` fields on the existing series), `index.html` (3 SVG cluster-label `<text>` elements removed + the corresponding `<style>` rule), `page.css` (new `.hindex-updated` rule; corrected `.constellation-cluster-labels` to use the documented grid layout on all viewports ≥769px), `docs/DECISIONS.md` (3 Sprint 12 entries).
+
+---
+
 ## Sprint 11 — audit, surgical fixes, and three high-leverage additions
 
 Three phases. Audit, surgical fixes, then audio + threads + Halvren Index.

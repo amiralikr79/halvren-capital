@@ -13,6 +13,33 @@ Format:
 
 ---
 
+## 2026-05-15 — Sprint 12: audio activation — blocked on TTS API key
+**Decision.** Audio synthesis for the 10 long-form notes is not running yet because neither `ELEVENLABS_API_KEY` nor `OPENAI_API_KEY` is configured in the build environment. The player UI continues to ship in the "narration coming soon" state shipped in Sprint 11.
+**Context / alternatives.** Per the Sprint 12 brief, the activation path is to add a key, run `scripts/build_audio_notes.py`, commit the MP3s. The key has to be added by the principal — automated provisioning of paid third-party API credentials is out of scope for this session.
+**To activate.**
+1. In Vercel project settings → Environment Variables, set either:
+   - `ELEVENLABS_API_KEY` (preferred — the Daniel voice id `onwK4e9ZLuTAKqWW03F9` is hardcoded in `scripts/build_audio_notes.py`; deep, considered, British editorial; best brand match), or
+   - `OPENAI_API_KEY` (fallback — voice `onyx`; cheaper but less editorial in cadence).
+2. Pull the key locally into your shell, then run:
+   ```
+   python3 scripts/build_audio_notes.py
+   ```
+   The script reads each `/content/notes/<slug>.mdx`, narrates the prose at ~150 wpm, and writes the MP3 to `/audio/notes/<slug>.mp3`. Estimated total runtime: ~12 minutes per note on ElevenLabs, less on OpenAI.
+3. Commit `audio/notes/*.mp3` and push. The note pages will pick up the audio automatically — no further build step needed.
+4. Sanity-check one note end-to-end: load `/notes/dividend-that-survived-cnq`, click the play button, confirm narration starts within ~1s and the scrubber moves.
+**Cost / reversibility.** ElevenLabs at the standard tier is roughly $0.30 / 1,000 characters; the 10 notes average ~1,800 words = ~10,000 characters = ~$3 per note, ~$30 total. OpenAI TTS is roughly half that. Trivially reversible: delete the MP3s and the UI falls back to the "narration coming soon" state.
+
+## 2026-05-15 — Sprint 12: constellation cluster labels — remove the SVG duplicate
+**Decision.** Deleted the three SVG `<text class="clabel-cluster">` elements from the homepage constellation. The semantic `<ul class="constellation-cluster-labels">` above the SVG is now the only source of the "Energy / Materials / Infrastructure" labels.
+**Context / alternatives.** Sprint 11 introduced the HTML list as a fix for the "ENERGYMATERIALSINFRASTRUCTURE" text-scraper concatenation bug but kept the SVG labels as visual reinforcement. The audit found that the SVG labels rendered as the same concatenated string when extracted as text on top of the now-correct HTML list — duplicating the surface and partially undoing the Sprint 11 fix. The HTML list is positioned directly above the SVG and reads as the cluster labels both visually and semantically; the SVG no longer needs its own version.
+**Cost / reversibility.** Trivial.
+
+## 2026-05-15 — Sprint 12: Halvren Index — live price fetcher with graceful fallback
+**Decision.** `scripts/fetch_halvren_index_prices.py` fetches monthly adjusted closes for the top-10 constituents and the TSX benchmark (XIC.TO as a proxy for the S&P/TSX Composite Total Return) from Yahoo Finance's unofficial chart endpoint and writes the computed equal-weighted-quarterly-rebalanced series to `/data/halvren-index-prices.json`. `scripts/build_halvren_index.py` invokes the fetcher at the start of each render; if Yahoo blocks or errors, the script logs a single stderr line and the existing on-disk JSON (the hand-curated reconstruction) is used to render the page. The JSON gained `last_updated` and `source` fields; the page now shows a "Last updated YYYY-MM-DD · <source>" line in mono small-caps directly below the chart legend.
+**Context / alternatives.** Yahoo's free chart endpoint returns HTTP 403 from the build sandbox because of IP / UA restrictions tightened in early 2025; the brief anticipates this and prescribes the fallback. On a development machine or any Vercel build with outbound network access, the fetcher should resolve successfully and the JSON refreshes with live month-end prints. The script is idempotent and aborts atomically on partial failure (a single constituent missing data prevents any write).
+**Benchmark choice.** XIC.TO adjusted close is the standard free proxy for the S&P/TSX Composite Total Return; the official S&P TR feed is paid. Logged here for transparency.
+**Cost / reversibility.** Re-run the fetcher to refresh; delete the JSON file to force a fetch on the next build. The hand-curated reconstruction stays in version control as the documented fallback.
+
 ## 2026-05-15 — Sprint 11: server-render the homepage diary block; remove the loading state
 **Decision.** Pre-bake the three newest diary entries directly into `index.html` between sentinel comments, written by `scripts/inject_homepage_diary.py`. Drop the client-side fetch entirely.
 **Context / alternatives.** The original Sprint 10 implementation defaulted to "Loading the diary…" and only ever updated on a successful client-side `fetch('/data/diary.json')`. Any failure (no JS, slow CDN, blocked request, parse error) left the loading text visible permanently. Server-rendering is the canonical state, the dataset is small (3 entries), and the homepage is rebuilt every time `scripts/build_diary.py` runs — so cadence is the same.
