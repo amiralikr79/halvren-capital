@@ -64,17 +64,36 @@ Build pieces shipped:
 
 ---
 
-## Sprint 4 — Design system + Constellation hero · ☐ pending
+## Sprint 4 — Design system + Constellation hero · ☑ shipped
 
-Codify the design system in CSS and replace the homepage hero with the Constellation.
+Locked the design system as a Sprint 4 block at the tail of `page.css` and shipped the Coverage Constellation as the single animated element above the fold. Hero halo's mousemove handler removed so the constellation is the only continuous motion above the fold.
 
-- ☐ Promote color tokens from `--color-*` to the canonical aliases (`--bg`, `--ink`, `--muted`, `--line`, `--green`, `--red`, `--gold`) with the existing names kept as synonyms.
-- ☐ Install Cormorant Garamond (primary) with Lora (fallback) from Google Fonts. Apply to `h1, h2`. Body stays.
-- ☐ Extract repeated patterns into a small set of utility classes (`.eyebrow`, `.lede`, `.land`, `.rule-gold`). One file, one CSS, no framework.
-- ☐ Build the **Constellation hero**: a quiet, minimal node-graph of the 20 covered operators, edges by sector, mounted above the fold. Static SVG generated at build time from `coverage.json`. No JS animation beyond the existing reveal.
-- ☐ Replace the current hero block with the constellation while keeping the eyebrow + sub-line + meta.
+Tokens, type, motion:
+- ☑ Canonical aliases live as CSS custom properties on `:root` — `--bg`, `--ink`, `--muted`, `--line`, `--green`, `--red`, `--gold`. The pre-existing `--color-*` tokens remain in service as synonyms.
+- ☑ Cormorant Garamond 500/600 installed via Google Fonts across all 54 HTML pages and both build templates. Applied to `h1, h2, h3, h4` and the named page-heading classes. H1 tracks `-0.02em`, H2 tracks `-0.01em`. Body kept on the current serif; line-height set to 1.65.
+- ☑ Modular scale codified: `--text-hero` (5xl) → `--text-h2` (3xl) → `--text-sub` (xl) → `--text-body` (base) → `--text-meta` (sm).
+- ☑ Section reveal motion tightened to 260ms fade + 8px translate (was 600ms + 20px), `IntersectionObserver`, fire once. Reduced-motion respected.
+- ☑ Card hovers: 1px lift, border-color shifts `--line` → `--ink`, no drop shadow.
+- ☑ Link underlines on body prose: 1px `--line` default, 2px `--ink` on hover, animating `text-decoration-thickness` and color (not opacity). Nav, footer-meta, related cards, and CTA buttons excluded via `:where(...)`.
 
-**Definition of done:** light and dark mode both pass a visual review against the brand doc; Cormorant loads with `font-display: swap` and a system-serif fallback; the constellation renders with JS disabled.
+Coverage Constellation:
+- ☑ `scripts/build_constellation.py` lays out the 20 operators in three sector clusters with deterministic pseudo-random jitter; sizes dots subtly logarithmically by approximate market cap (USD billions, mid-2025).
+- ☑ Output emitted to `components/constellation.html` (SVG + mobile fallback) and `components/constellation.js` (70 lines, vanilla). Injected into `index.html` as its own section directly under the hero.
+- ☑ Dots colored by sector (Energy / Materials / Infrastructure). Hover expands the dot 200ms ease-out and shows a tooltip with ticker, sector, last-reviewed month. Click navigates to `/research/<slug>`.
+- ☑ Idle: dots breathe with a 5s `@keyframes cdot-breathe` scale 1 → 1.06 → 1, randomized phase per dot via inline `animation-delay`. Reduced-motion disables it.
+- ☑ Below 768px: SVG hidden via `display:none`; replaced by a sector-tab stacked list (`.constellation-mobile`). No animation on mobile.
+- ☑ Pure SVG with CSS animation — no Three.js, no Canvas, no force simulation at runtime.
+
+Component polish:
+- ☑ Operator cards on homepage: ticker in display serif (Cormorant), name in muted body sans, FY numbers in tabular monospace, "what we track" label in small-caps muted.
+- ☑ Checklist on homepage: pillar headers in display serif, question numbers promoted from faint-grey to `--gold` and sized up to `--text-sub`, question text large and quotable (italic Cormorant, `--text-sub`).
+- ☑ Footer site-wide: trust strip hidden via CSS; brand block replaced with the single muted-small-caps line `Halvren Capital — Vancouver — Est. 2025`; long Home→Version link row trimmed to `Privacy · Terms · Version` on 54 pages. Disclaimer paragraphs preserved (regulatory).
+
+Mobile pass:
+- ☑ 480px breakpoint added to the Sprint 4 block: `.watchlist-grid`, `.thesis-grid`, `.memo-layout`, `.checklist-grid` all collapse to one column. `body { overflow-x: hidden }` retained from earlier rules.
+- ☑ Constellation collapses cleanly below 768px to the tabbed list.
+
+**Definition of done:** ✅ tokens applied, ✅ Cormorant loads with `display=swap` and system-serif fallback, ✅ constellation renders with JS disabled (SVG visible, no tooltip/click but dots are inspectable links via the mobile-list fallback at small widths), ✅ no forbidden phrases on any Sprint 4 output, ✅ no horizontal overflow at 375/414/768 widths in the CSS, ✅ all 21 research and 10 notes pages rebuilt to pick up the trimmed footer and new font import.
 
 ---
 

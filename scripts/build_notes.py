@@ -352,7 +352,7 @@ NOTE_TEMPLATE = """<!DOCTYPE html>
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/page.css">
 <style>
 .note-meta-row{{display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap;margin-top:var(--space-3);font-family:var(--font-body);font-size:var(--text-xs);color:var(--color-text-muted);letter-spacing:0.04em}}
@@ -430,7 +430,7 @@ NOTE_TEMPLATE = """<!DOCTYPE html>
     <span class="footer-trust-item">Public research is free</span>
   </div>
   <div class="footer-inner">
-    <div class="footer-brand">Halvren Capital<span>Vancouver, BC &middot; Est. 2025</span></div>
+    <div class="footer-brand">Halvren Capital &mdash; Vancouver &mdash; Est. 2025</div>
     <div class="footer-disclaimer">
       <p>Halvren Capital publishes research and commentary for informational and educational purposes only. Nothing on this site constitutes an offer, solicitation, or recommendation to buy or sell any security.</p>
       <p>Halvren manages proprietary capital and is not currently accepting outside investors. Halvren is not a registered investment adviser, broker-dealer, or portfolio manager. The author may hold positions in securities discussed and may transact in them at any time without notice.</p>
@@ -439,7 +439,7 @@ NOTE_TEMPLATE = """<!DOCTYPE html>
   <div class="footer-inner footer-meta">
     <span>&copy; 2025–2026 Halvren Capital. All rights reserved.</span>
     <a href="/version" class="footer-last-reviewed" title="Build provenance and changelog"><strong>Last reviewed:</strong> {last_full_site_review}</a>
-    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/notes">Notes</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/performance">Performance</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span>
+    <span><a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span>
   </div>
 </footer>
 <script>(function(){{var f=document.querySelector('.progress-bar-fill');if(!f)return;function u(){{var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;f.style.width=(m>0?Math.min(100,Math.max(0,(h.scrollTop/m)*100)):0)+'%';}}addEventListener('scroll',u,{{passive:true}});addEventListener('resize',u);u();}})();</script>
@@ -474,7 +474,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/page.css">
 <style>
 .notes-masthead{{max-width:var(--content-default);margin-bottom:var(--space-10)}}
@@ -563,7 +563,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     <span class="footer-trust-item">Public research is free</span>
   </div>
   <div class="footer-inner">
-    <div class="footer-brand">Halvren Capital<span>Vancouver, BC &middot; Est. 2025</span></div>
+    <div class="footer-brand">Halvren Capital &mdash; Vancouver &mdash; Est. 2025</div>
     <div class="footer-disclaimer">
       <p>Halvren Capital publishes research and commentary for informational and educational purposes only. Nothing on this site constitutes an offer, solicitation, or recommendation to buy or sell any security.</p>
       <p>Halvren manages proprietary capital and is not currently accepting outside investors. Halvren is not a registered investment adviser, broker-dealer, or portfolio manager. The author may hold positions in securities discussed and may transact in them at any time without notice.</p>
@@ -572,7 +572,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <div class="footer-inner footer-meta">
     <span>&copy; 2025–2026 Halvren Capital. All rights reserved.</span>
     <a href="/version" class="footer-last-reviewed" title="Build provenance and changelog"><strong>Last reviewed:</strong> {last_full_site_review}</a>
-    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/notes">Notes</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/performance">Performance</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span>
+    <span><a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span>
   </div>
 </footer>
 <script src="/nav.js" defer></script>

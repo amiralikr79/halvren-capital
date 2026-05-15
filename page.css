@@ -557,3 +557,194 @@ a.footer-last-reviewed:hover{color:var(--color-text-muted);border-bottom-color:v
   .sc-pillar{padding:var(--space-5) var(--space-4)}
   .sc-status,.sc-note{margin-left:calc(14px + var(--space-2))}
 }
+
+/* --------------------------------------------------------------------------- */
+/* SPRINT 4 — design system overhaul (locked tokens, Cormorant Garamond,       */
+/* modular scale, motion, link styling, component polish).                     */
+/* Loads at the tail of the cascade so it overrides earlier defaults cleanly.  */
+/* --------------------------------------------------------------------------- */
+
+:root{
+  /* Canonical token aliases (HALVREN_BRAND.md §4). The existing
+     --color-* variables remain in service as synonyms; the aliases are
+     the names the constitution refers to. */
+  --bg:   var(--color-bg);
+  --ink:  var(--color-text);
+  --muted:var(--color-text-muted);
+  --line: var(--color-divider);
+  --green:#2d5f3f;
+  --red:  #8b2c2c;
+  --gold: var(--color-gold);
+
+  /* Modular type scale targeted by Sprint 4. Builds on the existing
+     clamp() scale and adds the explicit 5xl hero step. */
+  --text-meta:  clamp(0.75rem,0.7rem + 0.25vw,0.875rem);   /* sm meta */
+  --text-body:  clamp(1rem,0.95rem + 0.25vw,1.125rem);     /* base body */
+  --text-sub:   clamp(1.125rem,1rem + 0.75vw,1.5rem);      /* xl subsection */
+  --text-h2:    clamp(2rem,1.4rem + 2.5vw,3.25rem);        /* 3xl section H2 */
+  --text-hero:  clamp(2.75rem,1.5rem + 5vw,5.5rem);        /* 5xl hero */
+}
+
+[data-theme="dark"]{
+  /* The dark mode pair for the locked --green / --red — lifted off the
+     dark surface so figures remain legible. */
+  --green:#7fbf94;
+  --red:  #d68b8b;
+}
+
+/* Display family: Cormorant Garamond replaces Instrument Serif on H1/H2.
+   Body keeps the current serif. UI chrome stays sans. */
+:root{
+  --font-h1h2:'Cormorant Garamond',Georgia,serif;
+}
+
+/* H1: -0.02em tracking, h2 -0.01em (HALVREN_BRAND.md §5). */
+h1,.doc-h1,.hero-heading,.thesis-heading,.memo-heading,.about-heading,.subscribe-h,.cov-h1{
+  font-family:var(--font-h1h2);
+  letter-spacing:-0.02em;
+  font-weight:500;
+}
+h2,.doc-h2{
+  font-family:var(--font-h1h2);
+  letter-spacing:-0.01em;
+  font-weight:500;
+}
+h3,h4,.doc-h3{font-family:var(--font-h1h2);font-weight:500;letter-spacing:-0.005em}
+
+/* Body line-height 1.65 per Sprint 4. */
+body,p,li,.doc-p{line-height:1.65}
+
+/* Links — default ink on a hairline --line underline; hover thickens to
+   --ink. Animate the thickness, not the opacity. (HALVREN_BRAND.md §1) */
+a:where(:not(.nav-logo):not(.nav-links a):not(.nav-back):not(.cov-chip):not(.live-pill a):not(.notes-tag):not(.footer-last-reviewed):not(.related-card):not(.related-more a):not(.subscribe-btn):not(.lc-sticky-cta):not(.skip-link)){
+  color:var(--ink);
+  text-decoration-line:underline;
+  text-decoration-style:solid;
+  text-decoration-color:var(--line);
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+  text-underline-position:from-font;
+  border-bottom:none;
+  padding-bottom:0;
+  transition:text-decoration-color 180ms var(--ease-soft),
+             text-decoration-thickness 180ms var(--ease-soft);
+}
+a:where(:not(.nav-logo):not(.nav-links a):not(.nav-back):not(.cov-chip):not(.live-pill a):not(.notes-tag):not(.footer-last-reviewed):not(.related-card):not(.related-more a):not(.subscribe-btn):not(.lc-sticky-cta):not(.skip-link)):hover{
+  text-decoration-color:var(--ink);
+  text-decoration-thickness:2px;
+}
+
+/* Motion: section reveal is 240ms fade + 8px upward translate, once.
+   The existing .reveal rule in homepage inline JS targets 600ms; we
+   override it here so the cascade keeps a single source of truth. */
+.reveal{opacity:0;transform:translateY(8px);transition:opacity 260ms var(--ease-soft),transform 260ms var(--ease-soft);will-change:opacity,transform}
+.reveal.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+}
+
+/* Operator cards (homepage watchlist): hover lifts 1px,
+   border --line -> --ink. No drop shadows. */
+.watch-card{
+  border-color:var(--line);
+  box-shadow:none;
+  transition:transform 200ms var(--ease-soft),
+             border-color 200ms var(--ease-soft);
+}
+.watch-card:hover{
+  transform:translateY(-1px);
+  border-color:var(--ink);
+  box-shadow:none;
+}
+.thesis-card{border-color:var(--line);transition:transform 200ms var(--ease-soft),border-color 200ms var(--ease-soft);box-shadow:none}
+.thesis-card:hover{transform:translateY(-1px);border-color:var(--ink);box-shadow:none}
+
+/* Operator card component polish:
+   - ticker + name in display serif
+   - "what we track" small-caps muted
+   The FY-numbers mono treatment is already applied via .watch-symbol
+   in the existing rules; we layer the serif over it for the homepage
+   watchlist where the symbol doubles as a card heading. */
+.watch-head .watch-symbol{font-family:var(--font-h1h2);font-weight:500;letter-spacing:0;color:var(--ink)}
+.watch-head .watch-name{font-family:var(--font-body);color:var(--muted)}
+.watch-track-label{font-variant:small-caps;letter-spacing:0.06em;color:var(--muted);text-transform:none}
+.watch-track{color:var(--muted)}
+
+/* Checklist on homepage: question numbers in --gold, questions large and quotable. */
+.checklist-num{color:var(--gold);font-family:var(--font-mono);font-weight:500;font-size:var(--text-sub);letter-spacing:0;line-height:1;flex-shrink:0;min-width:2.5ch}
+.checklist-q{font-size:var(--text-sub);font-family:var(--font-h1h2);font-style:italic;line-height:1.35;color:var(--ink);max-width:48ch}
+.checklist-q em{color:var(--gold);font-style:italic}
+.checklist-pillar-title{font-family:var(--font-h1h2);font-weight:500}
+
+/* Footer: tighten. Single muted small-caps brand line; reduced link row. */
+footer .footer-brand{
+  font-family:var(--font-body);
+  font-variant:small-caps;
+  letter-spacing:0.12em;
+  color:var(--muted);
+  font-size:var(--text-meta);
+  font-weight:400;
+}
+footer .footer-brand span{display:inline;color:var(--muted);font-variant:small-caps;letter-spacing:0.12em}
+footer .footer-trust{display:none}
+footer .footer-meta a{color:var(--muted);text-decoration:none;border:none}
+footer .footer-meta a:hover{color:var(--ink)}
+footer .footer-disclaimer p{font-size:var(--text-meta);color:var(--muted);line-height:1.7;max-width:78ch}
+
+/* Coverage Constellation styles. Lives below the hero text on desktop;
+   collapses to a sector-grouped list on mobile (handled by the inline
+   markup; this only styles the SVG variant). */
+.constellation{position:relative;width:100%;max-width:var(--content-wide);margin:var(--space-12) auto 0;height:clamp(260px,30vh,360px);pointer-events:none}
+.constellation svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:auto}
+.constellation .cdot{cursor:pointer;transition:r 200ms var(--ease-soft),fill-opacity 200ms var(--ease-soft);transform-origin:center;transform-box:fill-box;animation:cdot-breathe 5s ease-in-out infinite}
+.constellation .cdot:hover{fill-opacity:1}
+.constellation .cdot[data-sector="Energy"]{fill:#a55a3a}
+.constellation .cdot[data-sector="Materials"]{fill:var(--gold)}
+.constellation .cdot[data-sector="Infrastructure"]{fill:#3a6a78}
+.constellation .cdot[data-sector="Energy"]{fill-opacity:0.78}
+.constellation .cdot[data-sector="Materials"]{fill-opacity:0.78}
+.constellation .cdot[data-sector="Infrastructure"]{fill-opacity:0.78}
+.constellation .clabel{font-family:var(--font-mono);font-size:9px;fill:var(--muted);letter-spacing:0.04em;pointer-events:none;opacity:0;transition:opacity 200ms var(--ease-soft)}
+.constellation .cdot:hover + .clabel,.constellation .cdot:focus + .clabel{opacity:1}
+.constellation-tooltip{position:absolute;pointer-events:none;background:var(--color-surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);font-family:var(--font-body);font-size:var(--text-meta);color:var(--ink);max-width:240px;opacity:0;transition:opacity 160ms var(--ease-soft);z-index:5;line-height:1.5}
+.constellation-tooltip[data-visible="true"]{opacity:1}
+.constellation-tooltip .tt-ticker{font-family:var(--font-h1h2);font-size:var(--text-sub);color:var(--ink);display:block;margin-bottom:2px;letter-spacing:-0.01em}
+.constellation-tooltip .tt-sector{color:var(--muted);font-size:var(--text-meta);display:block}
+.constellation-tooltip .tt-meta{color:var(--muted);font-size:11px;display:block;margin-top:4px;letter-spacing:0.04em}
+
+@keyframes cdot-breathe{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.06)}
+}
+@media(prefers-reduced-motion:reduce){
+  .constellation .cdot{animation:none}
+}
+
+/* Mobile fallback for the constellation: stacked grouped list, no animation. */
+.constellation-mobile{display:none;margin-top:var(--space-8)}
+.constellation-mobile-tabs{display:flex;gap:var(--space-2);margin-bottom:var(--space-4);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.constellation-mobile-tabs button{font-family:var(--font-body);font-size:var(--text-meta);letter-spacing:0.06em;text-transform:uppercase;padding:var(--space-2) var(--space-4);border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;cursor:pointer;white-space:nowrap}
+.constellation-mobile-tabs button[aria-pressed="true"]{color:var(--bg);background:var(--ink);border-color:var(--ink)}
+.constellation-mobile-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.constellation-mobile-list li{border-bottom:1px solid var(--line)}
+.constellation-mobile-list li[hidden]{display:none}
+.constellation-mobile-list a{display:flex;justify-content:space-between;align-items:baseline;padding:var(--space-3) 0;color:var(--ink);text-decoration:none;border:none;font-family:var(--font-body)}
+.constellation-mobile-list a:hover{color:var(--gold)}
+.constellation-mobile-list .cl-tkr{font-family:var(--font-h1h2);font-size:var(--text-sub);letter-spacing:-0.01em}
+.constellation-mobile-list .cl-sector{font-size:var(--text-meta);color:var(--muted);text-transform:uppercase;letter-spacing:0.06em}
+
+@media(max-width:768px){
+  .constellation{display:none}
+  .constellation-mobile{display:block}
+}
+
+/* Mobile sweep — Sprint 4 audit: no horizontal overflow at 375/414. */
+@media(max-width:480px){
+  body{overflow-x:hidden}
+  .hero-content{max-width:100%}
+  .hero-meta{flex-wrap:wrap}
+  .watchlist-grid{grid-template-columns:1fr}
+  .thesis-grid{grid-template-columns:1fr}
+  .memo-layout{grid-template-columns:1fr;gap:var(--space-8)}
+  .checklist-grid{grid-template-columns:1fr}
+}

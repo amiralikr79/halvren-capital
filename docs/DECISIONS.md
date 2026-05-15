@@ -13,6 +13,38 @@ Format:
 
 ---
 
+## 2026-05-14 — Sprint 4: Design-system block appended to `page.css`, existing tokens kept as synonyms
+**Decision.** Add the canonical tokens (`--bg`, `--ink`, `--muted`, `--line`, `--green`, `--red`, `--gold`), the Cormorant Garamond family alias (`--font-h1h2`), the modular type scale (`--text-hero`, `--text-h2`, `--text-sub`, `--text-body`, `--text-meta`), the new motion rules, link-underline behaviour, operator-card polish, checklist polish, constellation styles, and a mobile sweep into a single Sprint 4 block at the end of `page.css`. The pre-existing `--color-*` tokens remain in service as synonyms.
+**Context / alternatives.** Could have done a hostile rename across the 56k of inline styles in the HTML files. Rejected: the brand doc already commits the constitution to alias-not-replace, and a wholesale rename violates the operating-rules scope discipline. The end-of-file block also avoids accidentally breaking sub-pages that have inline overrides; the cascade lands cleanly.
+**Cost / reversibility.** Trivial. Remove the block to roll back.
+
+## 2026-05-14 — Sprint 4: Cormorant Garamond chosen over Lora
+**Decision.** Cormorant Garamond at weights 500 and 600 is the H1/H2 display family across all 54 HTML pages and in both build templates. Lora was the documented fallback in the brand constitution but Cormorant has more editorial weight at large display sizes and reads more closely to the Buffett-letter reference texts.
+**Context / alternatives.** Brand doc explicitly allowed either. Lora would have read slightly softer; Cormorant is sharper at large sizes and is the move toward the editorial register the constitution targets.
+**Cost / reversibility.** Two extra font files at load. The Google Fonts CSS query already requests `display=swap`. Reversible by changing the family URL.
+
+## 2026-05-14 — Sprint 4: Coverage Constellation as a pre-rendered SVG + 70-line vanilla JS handler
+**Decision.** Build the hero constellation as a deterministic, pre-computed SVG (laid out at build time by `scripts/build_constellation.py`) with a 70-line vanilla JS handler for hover/tooltip/click and the mobile sector-tabs filter. No Three.js, no canvas, no force simulation at runtime, no client-side data fetching.
+**Context / alternatives.** A Canvas + d3-force runtime layout would have been the obvious approach. Rejected on three grounds: (1) the brand doc forbids more than one animated element above the fold and Canvas + JS-driven animation reads as performative; (2) the constellation needs to be inspectable in DevTools and crawlable as accessible markup, which SVG gives for free; (3) the layout is a 20-node sector cluster, not a graph requiring real layout work. The dots breathe via CSS `@keyframes`, the phases are randomized per-dot via inline `animation-delay`, and the hero halo's mousemove handler was removed so the constellation is the single continuous animation above the fold.
+**Cost / reversibility.** Reversible by deleting `scripts/build_constellation.py` and the injected section in `index.html`.
+
+## 2026-05-14 — Sprint 4: Market-cap data is approximate, marked, and stored in the build script (not as data)
+**Decision.** The 20-operator market-cap figures used for the constellation log-scale sizing live inline in `scripts/build_constellation.py` as approximate USD billions as of mid-2025. They are not exposed as data anywhere on the site, only used to compute dot radii. The accuracy required is rough magnitude — the dots only need to read "this one is bigger than that one." No `(approx.)` qualifier is shown to the reader because no number is ever shown to the reader.
+**Context / alternatives.** Could have added a `market_cap_usd_b` field to `data/operators/<slug>.json`. Rejected — the rest of the operator JSON is principal-reviewed financial disclosure; mixing approximate sizing data with confirmed disclosure data would degrade the JSON's trust. The build script is the right home.
+**Cost / reversibility.** Trivial.
+
+## 2026-05-14 — Sprint 4: Footer tightened but disclaimer paragraphs preserved
+**Decision.** Replace the multi-element brand block with the single muted-small-caps line `Halvren Capital — Vancouver — Est. 2025`; remove the trust strip (now `display:none` in CSS); trim the long Home → Version link row to `Privacy · Terms · Version`. Keep the disclaimer paragraphs in `footer-disclaimer` unchanged — those are regulatory text for a securities-adjacent publisher and are not "redundant links."
+**Context / alternatives.** Strict reading of "tighten" might suggest removing the disclaimer too. Rejected — a Canadian publisher of operator research who is not a registered investment adviser needs the disclaimer language at the bottom of every page for liability reasons. The footer is now editorially tight while keeping the regulatory floor intact.
+**Cost / reversibility.** Reversible.
+
+## 2026-05-14 — Sprint 4: Link defaults use `text-decoration` (animate thickness), gold-CTA links opt-out via inline style
+**Decision.** Default `<a>` styling site-wide moves from `border-bottom: 1px solid gold-tint` to `text-decoration: underline; text-decoration-color: var(--line); text-decoration-thickness: 1px;` with hover transitioning to `text-decoration-color: var(--ink); text-decoration-thickness: 2px;`. The `:where(...)` selector excludes navigation, footer meta, related cards, and CTA buttons so those keep their structural styling. Inline-styled gold CTAs ("Read full research →" patterns) retain their gold accent because they carry their own `style=` attribute.
+**Context / alternatives.** Could have used a class-based opt-in (e.g. `.link-gold`) and migrated all CTA links. Rejected as out of scope for Sprint 4; the `:where()` exclusion list is precise enough to avoid breakage and respects the brand doc's "one gold per page" rule for body prose without forcing a 50-file rewrite.
+**Cost / reversibility.** Reversible.
+
+---
+
 ## 2026-05-14 — Sprint 3: `.mdx` source files build to HTML via Python, not via an MDX runtime
 **Decision.** Treat `/content/notes/<slug>.mdx` as the canonical source for each note: YAML-ish frontmatter at the top, Markdown body underneath. The build pipeline (`scripts/build_notes.py`) parses the frontmatter and renders the body to static HTML at `/notes/<slug>.html`. No MDX runtime is introduced; the `.mdx` extension reflects the user's spec and the structure of the source format, not a React/JSX renderer.
 **Context / alternatives.** Could have introduced a Next.js, Astro, or 11ty pipeline to handle real MDX with JSX components. Rejected: the site is a deliberately dependency-light static HTML deployment on Vercel; adding a framework crosses the brand-doc and operating-rules scope line on its own. The Python builder pattern is already established for operators and coverage; the notes builder mirrors it.
@@ -121,6 +153,7 @@ Format:
 
 Items raised by Sprint 1 work that don't merit their own decision today.
 
+- _(2026-05-14)_ **Sprint 4 Lighthouse verification.** The sandbox has no Lighthouse runner. The Sprint 4 build is structured to land 95+ across all four scores on the homepage: `display=swap` on Google Fonts, inline critical CSS in `<head>`, single linked stylesheet, all JS deferred, reduced-motion respected, dimensions on `<img>` and `<svg>`, no third-party scripts. Principal to verify on the next Vercel deploy via Chrome DevTools → Lighthouse, mobile + desktop.
 - _(2026-05-14)_ Sprint 6 site-wide copy pass: clean up legacy forbidden-phrase strings, including the "Leverage trajectory" line in the homepage ENB watchlist card (`index.html:573`) and any other pre-Sprint-2 vintage occurrences.
 - _(2026-05-14)_ Sprint 7 OG image generation: produce bespoke `/og-research-<slug>.png` for each of the 15 new operators and rewrite the `og_image` field in their JSON. The seed currently points all 15 to the generic `/og-research.png`.
 - _(2026-05-14)_ Sprint 6 copy pass: confirm each operator's FY 2025 metric set against the principal's authoritative figures and remove "(approx.)" qualifiers where a confirmed number is available.

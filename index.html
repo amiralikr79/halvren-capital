@@ -30,7 +30,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -191,15 +191,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:var(--space-5) var(-
 .watch-stats dd{margin:0;color:var(--color-text);font-variant-numeric:tabular-nums;font-feature-settings:"tnum";text-align:right}
 .watch-symbol{font-variant-numeric:tabular-nums}
 .watchlist-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4)}
-.watch-card{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.07);border-radius:var(--radius-lg);padding:var(--space-8);display:flex;flex-direction:column}
-.watch-card:hover{border-color:oklch(from var(--color-gold) l c h/0.3);box-shadow:var(--shadow-md)}
-.watch-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-3);padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider);margin-bottom:var(--space-5);flex-wrap:wrap}
-.watch-symbol{font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:0;color:var(--color-gold)}
-.watch-name{font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-text-faint);text-align:right;font-family:var(--font-body)}
-.watch-sector{font-size:var(--text-xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--color-gold);font-weight:500;margin-bottom:var(--space-3)}
-.watch-body{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;flex-grow:1}
-.watch-track{margin-top:var(--space-6);padding-top:var(--space-4);border-top:1px solid var(--color-divider);font-size:var(--text-xs);color:var(--color-text-faint);line-height:1.6}
-.watch-track-label{display:block;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:var(--space-2);font-weight:500;letter-spacing:0.12em;font-size:var(--text-xs)}
+.watch-card{background:var(--color-surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--space-8);display:flex;flex-direction:column;transition:transform 200ms var(--ease-soft),border-color 200ms var(--ease-soft)}
+.watch-card:hover{border-color:var(--ink);transform:translateY(-1px);box-shadow:none}
+.watch-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-3);padding-bottom:var(--space-4);border-bottom:1px solid var(--line);margin-bottom:var(--space-5);flex-wrap:wrap}
+.watch-symbol{font-family:var(--font-h1h2);font-size:var(--text-sub);letter-spacing:-0.01em;color:var(--ink);font-weight:500}
+.watch-name{font-size:var(--text-xs);letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-align:right;font-family:var(--font-body)}
+.watch-sector{font-size:var(--text-xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:var(--space-3)}
+.watch-body{font-size:var(--text-sm);color:var(--muted);line-height:1.7;flex-grow:1}
+.watch-track{margin-top:var(--space-6);padding-top:var(--space-4);border-top:1px solid var(--line);font-size:var(--text-xs);color:var(--muted);line-height:1.6;font-variant-numeric:tabular-nums}
+.watch-track-label{display:block;font-variant:small-caps;color:var(--muted);margin-bottom:var(--space-2);font-weight:500;letter-spacing:0.06em;font-size:var(--text-xs);text-transform:none}
 .watchlist-more{margin-top:var(--space-8);margin-bottom:var(--space-2)}
 .watchlist-footnote{margin-top:var(--space-6);font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:0.03em;max-width:72ch;line-height:1.7}
 @media(max-width:900px){.watchlist-grid{grid-template-columns:1fr}}
@@ -213,9 +213,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:var(--space-5) var(-
 .checklist-pillar-title{font-family:var(--font-display);font-size:var(--text-lg);line-height:1.2;color:var(--color-text);margin-bottom:var(--space-4);padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider)}
 .checklist-item{display:grid;grid-template-columns:2.5ch 1fr;gap:var(--space-4);padding:var(--space-5) 0;border-bottom:1px solid oklch(from var(--color-text) l c h/0.04)}
 .checklist-item:last-child{border-bottom:none;padding-bottom:0}
-.checklist-num{font-size:var(--text-xs);color:var(--color-text-faint);font-family:var(--font-body);padding-top:0.4em;letter-spacing:0.05em}
-.checklist-q{font-family:var(--font-display);font-style:italic;font-size:var(--text-base);line-height:1.4;color:var(--color-text)}
-.checklist-q em{font-style:italic;color:var(--color-gold);font-family:var(--font-display)}
+.checklist-num{font-size:var(--text-sub);color:var(--gold);font-family:var(--font-mono);font-weight:500;padding-top:0.2em;letter-spacing:0;line-height:1;min-width:2.5ch}
+.checklist-q{font-family:var(--font-h1h2);font-style:italic;font-size:var(--text-sub);line-height:1.35;color:var(--ink);max-width:48ch}
+.checklist-q em{font-style:italic;color:var(--gold);font-family:var(--font-h1h2)}
 .checklist-note{margin-top:var(--space-3);font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.7;font-family:var(--font-body);font-style:normal;letter-spacing:0.01em}
 .checklist-footnote{margin-top:var(--space-10);font-size:var(--text-sm);color:var(--color-text-muted);max-width:60ch;line-height:1.7;font-style:italic;font-family:var(--font-display)}
 @media(max-width:1000px){.checklist-grid{grid-template-columns:1fr 1fr}.checklist-pillar:last-child{grid-column:span 2}}
@@ -330,13 +330,14 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
 .subscribe-section.sent .subscribe-success{display:block}
 @media(max-width:520px){.subscribe-section{padding:var(--space-12) var(--space-5)}.subscribe-inner{padding:var(--space-8) var(--space-6)}.subscribe-form{flex-direction:column;align-items:stretch}.subscribe-btn{width:100%}.subscribe-h{font-size:var(--text-xl)}}
 
-/* Card hover refinements */
-.thesis-card,.watch-card{transition:border-color 280ms var(--ease-soft),transform 280ms var(--ease-soft),box-shadow 280ms var(--ease-soft)}
-.thesis-card:hover,.watch-card:hover{transform:translateY(-2px);border-color:oklch(from var(--color-gold) l c h/0.4);box-shadow:0 12px 32px oklch(0 0 0/0.2),0 0 0 1px oklch(from var(--color-gold) l c h/0.1) inset}
+/* Card hover — Sprint 4 sets transform/border-color in the .watch-card
+   block above; the .thesis-card mirrors that without drop shadow. */
+.thesis-card{transition:border-color 200ms var(--ease-soft),transform 200ms var(--ease-soft)}
+.thesis-card:hover{transform:translateY(-1px);border-color:var(--ink);box-shadow:none}
 
-/* Mono treatment for tickers and tabular numerics */
-.watch-symbol{font-family:var(--font-mono);font-weight:500;letter-spacing:-0.01em}
-.watch-stats dd{font-family:var(--font-mono);font-weight:400}
+/* Tabular numerics for stats; ticker stays in display serif on the homepage
+   (Sprint 4 component polish — large quotable presence on the card head). */
+.watch-stats dd{font-family:var(--font-mono);font-weight:400;font-variant-numeric:tabular-nums}
 @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:var(--space-8)}}
 </style>
 </head>
@@ -383,7 +384,7 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
   <div class="hero-content">
     <p class="live-pill" aria-label="Desk status">
       <span class="live-dot" aria-hidden="true"></span>
-      <span>Reading 31 operators</span>
+      <span>Reading 21 operators</span>
       <span class="sep">·</span>
       <span>Q1 2026 letter live</span>
       <span class="sep">·</span>
@@ -398,6 +399,177 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
       <div class="hero-meta-divider"></div>
       <span>Proprietary capital</span>
     </div>
+  </div>
+</section>
+
+<!-- COVERAGE CONSTELLATION (Sprint 4) -->
+<section class="section" id="constellation-hero" aria-label="Coverage universe — 20 operators" style="padding-top:0;padding-bottom:var(--space-12)">
+  <div class="section-inner">
+  <style>
+.constellation .clabel-cluster{font-family:var(--font-body);font-size:10px;letter-spacing:0.18em;fill:var(--muted);opacity:0.7}
+</style>
+<div class="constellation" aria-label="Halvren coverage constellation">
+  <svg viewBox="0 0 1200 360" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Coverage universe — 20 operators across Energy, Materials, and Infrastructure">
+    <text class="clabel-cluster" x="260" y="28" text-anchor="middle">ENERGY</text>
+    <text class="clabel-cluster" x="600" y="28" text-anchor="middle">MATERIALS</text>
+    <text class="clabel-cluster" x="940" y="28" text-anchor="middle">INFRASTRUCTURE</text>
+    <circle class="cdot" data-slug="canadian-natural-cnq" data-ticker="CNQ" data-sector="Energy" data-last="Apr 2026" cx="239.41" cy="202.63" r="12.11" tabindex="0" style="animation-delay:-2.74s" aria-label="CNQ — Energy"></circle>
+    <circle class="cdot" data-slug="suncor-su" data-ticker="SU" data-sector="Energy" data-last="May 2026" cx="239.39" cy="164.2" r="11.82" tabindex="0" style="animation-delay:-2.2s" aria-label="SU — Energy"></circle>
+    <circle class="cdot" data-slug="cenovus-cve" data-ticker="CVE" data-sector="Energy" data-last="May 2026" cx="186.67" cy="170.75" r="10.84" tabindex="0" style="animation-delay:-0.38s" aria-label="CVE — Energy"></circle>
+    <circle class="cdot" data-slug="tourmaline-tou" data-ticker="TOU" data-sector="Energy" data-last="May 2026" cx="348.3" cy="198.53" r="9.55" tabindex="0" style="animation-delay:-2.67s" aria-label="TOU — Energy"></circle>
+    <circle class="cdot" data-slug="arc-resources-arx" data-ticker="ARX" data-sector="Energy" data-last="May 2026" cx="294.25" cy="188.84" r="8.43" tabindex="0" style="animation-delay:-2.46s" aria-label="ARX — Energy"></circle>
+    <circle class="cdot" data-slug="meg-energy-meg" data-ticker="MEG" data-sector="Energy" data-last="May 2026" cx="137.27" cy="214.65" r="6.01" tabindex="0" style="animation-delay:-2.06s" aria-label="MEG — Energy"></circle>
+    <circle class="cdot" data-slug="cameco-cco" data-ticker="CCO" data-sector="Energy" data-last="Apr 2026" cx="152.51" cy="119.05" r="9.95" tabindex="0" style="animation-delay:-4.08s" aria-label="CCO — Energy"></circle>
+    <circle class="cdot" data-slug="occidental-oxy" data-ticker="OXY" data-sector="Energy" data-last="May 2026" cx="300.88" cy="152.28" r="11.08" tabindex="0" style="animation-delay:-2.44s" aria-label="OXY — Energy"></circle>
+    <circle class="cdot" data-slug="nutrien-ntr" data-ticker="NTR" data-sector="Materials" data-last="Apr 2026" cx="622.59" cy="195.86" r="9.55" tabindex="0" style="animation-delay:-1.85s" aria-label="NTR — Materials"></circle>
+    <circle class="cdot" data-slug="agnico-eagle-aem" data-ticker="AEM" data-sector="Materials" data-last="May 2026" cx="556.74" cy="241.82" r="10.84" tabindex="0" style="animation-delay:-1.04s" aria-label="AEM — Materials"></circle>
+    <circle class="cdot" data-slug="teck-resources-teck" data-ticker="TECK" data-sector="Materials" data-last="May 2026" cx="638.91" cy="226.03" r="9.06" tabindex="0" style="animation-delay:-4.53s" aria-label="TECK — Materials"></circle>
+    <circle class="cdot" data-slug="west-fraser-wfg" data-ticker="WFG" data-sector="Materials" data-last="May 2026" cx="556.82" cy="151.69" r="6.41" tabindex="0" style="animation-delay:-3.48s" aria-label="WFG — Materials"></circle>
+    <circle class="cdot" data-slug="first-majestic-ag" data-ticker="AG" data-sector="Materials" data-last="Apr 2026" cx="571.31" cy="175.12" r="4.0" tabindex="0" style="animation-delay:-4.55s" aria-label="AG — Materials"></circle>
+    <circle class="cdot" data-slug="freeport-mcmoran-fcx" data-ticker="FCX" data-sector="Materials" data-last="May 2026" cx="544.04" cy="189.32" r="11.48" tabindex="0" style="animation-delay:-0.95s" aria-label="FCX — Materials"></circle>
+    <circle class="cdot" data-slug="enbridge-enb" data-ticker="ENB" data-sector="Infrastructure" data-last="Apr 2026" cx="973.18" cy="116.25" r="12.81" tabindex="0" style="animation-delay:-1.53s" aria-label="ENB — Infrastructure"></circle>
+    <circle class="cdot" data-slug="tc-energy-trp" data-ticker="TRP" data-sector="Infrastructure" data-last="May 2026" cx="943.84" cy="236.95" r="11.48" tabindex="0" style="animation-delay:-4.79s" aria-label="TRP — Infrastructure"></circle>
+    <circle class="cdot" data-slug="pembina-ppl" data-ticker="PPL" data-sector="Infrastructure" data-last="May 2026" cx="797.29" cy="167.47" r="9.95" tabindex="0" style="animation-delay:-0.09s" aria-label="PPL — Infrastructure"></circle>
+    <circle class="cdot" data-slug="fortis-fts" data-ticker="FTS" data-sector="Infrastructure" data-last="May 2026" cx="931.67" cy="144.73" r="9.95" tabindex="0" style="animation-delay:-0.18s" aria-label="FTS — Infrastructure"></circle>
+    <circle class="cdot" data-slug="cn-rail-cnr" data-ticker="CNR" data-sector="Infrastructure" data-last="May 2026" cx="981.23" cy="177.16" r="13.0" tabindex="0" style="animation-delay:-1.73s" aria-label="CNR — Infrastructure"></circle>
+    <circle class="cdot" data-slug="kinder-morgan-kmi" data-ticker="KMI" data-sector="Infrastructure" data-last="May 2026" cx="828.16" cy="214.77" r="11.48" tabindex="0" style="animation-delay:-1.92s" aria-label="KMI — Infrastructure"></circle>
+  </svg>
+  <div class="constellation-tooltip" data-tooltip role="tooltip" aria-hidden="true">
+    <span class="tt-ticker" data-tt-ticker></span>
+    <span class="tt-sector" data-tt-sector></span>
+    <span class="tt-meta" data-tt-meta></span>
+  </div>
+</div>
+  <div class="constellation-mobile" aria-label="Coverage universe — operator list">
+    <div class="constellation-mobile-tabs" role="tablist">
+      <button type="button" data-sector="Energy" aria-pressed="true">Energy</button>
+      <button type="button" data-sector="Materials" aria-pressed="false">Materials</button>
+      <button type="button" data-sector="Infrastructure" aria-pressed="false">Infrastructure</button>
+    </div>
+    <ul class="constellation-mobile-list">
+      <li data-sector="Energy">
+        <a href="/research/canadian-natural-cnq">
+          <span class="cl-tkr">CNQ</span>
+          <span class="cl-sector">Energy · Apr 2026</span>
+        </a>
+      </li>
+      <li data-sector="Energy">
+        <a href="/research/suncor-su">
+          <span class="cl-tkr">SU</span>
+          <span class="cl-sector">Energy · May 2026</span>
+        </a>
+      </li>
+      <li data-sector="Energy">
+        <a href="/research/cenovus-cve">
+          <span class="cl-tkr">CVE</span>
+          <span class="cl-sector">Energy · May 2026</span>
+        </a>
+      </li>
+      <li data-sector="Energy">
+        <a href="/research/tourmaline-tou">
+          <span class="cl-tkr">TOU</span>
+          <span class="cl-sector">Energy · May 2026</span>
+        </a>
+      </li>
+      <li data-sector="Energy">
+        <a href="/research/arc-resources-arx">
+          <span class="cl-tkr">ARX</span>
+          <span class="cl-sector">Energy · May 2026</span>
+        </a>
+      </li>
+      <li data-sector="Energy">
+        <a href="/research/meg-energy-meg">
+          <span class="cl-tkr">MEG</span>
+          <span class="cl-sector">Energy · May 2026</span>
+        </a>
+      </li>
+      <li data-sector="Energy">
+        <a href="/research/cameco-cco">
+          <span class="cl-tkr">CCO</span>
+          <span class="cl-sector">Energy · Apr 2026</span>
+        </a>
+      </li>
+      <li data-sector="Energy">
+        <a href="/research/occidental-oxy">
+          <span class="cl-tkr">OXY</span>
+          <span class="cl-sector">Energy · May 2026</span>
+        </a>
+      </li>
+      <li data-sector="Materials" hidden>
+        <a href="/research/nutrien-ntr">
+          <span class="cl-tkr">NTR</span>
+          <span class="cl-sector">Materials · Apr 2026</span>
+        </a>
+      </li>
+      <li data-sector="Materials" hidden>
+        <a href="/research/agnico-eagle-aem">
+          <span class="cl-tkr">AEM</span>
+          <span class="cl-sector">Materials · May 2026</span>
+        </a>
+      </li>
+      <li data-sector="Materials" hidden>
+        <a href="/research/teck-resources-teck">
+          <span class="cl-tkr">TECK</span>
+          <span class="cl-sector">Materials · May 2026</span>
+        </a>
+      </li>
+      <li data-sector="Materials" hidden>
+        <a href="/research/west-fraser-wfg">
+          <span class="cl-tkr">WFG</span>
+          <span class="cl-sector">Materials · May 2026</span>
+        </a>
+      </li>
+      <li data-sector="Materials" hidden>
+        <a href="/research/first-majestic-ag">
+          <span class="cl-tkr">AG</span>
+          <span class="cl-sector">Materials · Apr 2026</span>
+        </a>
+      </li>
+      <li data-sector="Materials" hidden>
+        <a href="/research/freeport-mcmoran-fcx">
+          <span class="cl-tkr">FCX</span>
+          <span class="cl-sector">Materials · May 2026</span>
+        </a>
+      </li>
+      <li data-sector="Infrastructure" hidden>
+        <a href="/research/enbridge-enb">
+          <span class="cl-tkr">ENB</span>
+          <span class="cl-sector">Infrastructure · Apr 2026</span>
+        </a>
+      </li>
+      <li data-sector="Infrastructure" hidden>
+        <a href="/research/tc-energy-trp">
+          <span class="cl-tkr">TRP</span>
+          <span class="cl-sector">Infrastructure · May 2026</span>
+        </a>
+      </li>
+      <li data-sector="Infrastructure" hidden>
+        <a href="/research/pembina-ppl">
+          <span class="cl-tkr">PPL</span>
+          <span class="cl-sector">Infrastructure · May 2026</span>
+        </a>
+      </li>
+      <li data-sector="Infrastructure" hidden>
+        <a href="/research/fortis-fts">
+          <span class="cl-tkr">FTS</span>
+          <span class="cl-sector">Infrastructure · May 2026</span>
+        </a>
+      </li>
+      <li data-sector="Infrastructure" hidden>
+        <a href="/research/cn-rail-cnr">
+          <span class="cl-tkr">CNR</span>
+          <span class="cl-sector">Infrastructure · May 2026</span>
+        </a>
+      </li>
+      <li data-sector="Infrastructure" hidden>
+        <a href="/research/kinder-morgan-kmi">
+          <span class="cl-tkr">KMI</span>
+          <span class="cl-sector">Infrastructure · May 2026</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
   </div>
 </section>
 
@@ -782,10 +954,7 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
     <span class="footer-trust-item">Public research is free</span>
   </div>
   <div class="footer-inner">
-    <div class="footer-brand">
-      Halvren Capital
-      <span>Vancouver, BC · Est. 2025</span>
-    </div>
+    <div class="footer-brand">Halvren Capital — Vancouver — Est. 2025</div>
     <div class="footer-disclaimer">
       <p><strong>Disclaimer.</strong> Halvren Capital publishes research and commentary for informational and educational purposes only. Nothing on this site constitutes an offer, solicitation, or recommendation to buy or sell any security, or an endorsement of any investment strategy.</p>
       <p>Halvren manages proprietary capital and is <strong>not currently accepting outside investors</strong>. Halvren is not a registered investment adviser, broker-dealer, or portfolio manager. The author may hold positions in securities discussed and may transact in them at any time without notice.</p>
@@ -795,7 +964,7 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
   <div class="footer-inner footer-meta">
     <span>&copy; 2025–2026 Halvren Capital. All rights reserved.</span>
     <a href="/version" class="footer-last-reviewed" title="Build provenance and changelog"><strong>Last reviewed:</strong> May 6, 2026</a>
-    <span><a href="/">Home</a> &middot; <a href="/research">Research</a> &middot; <a href="/notes">Notes</a> &middot; <a href="/coverage">Coverage</a> &middot; <a href="/digest">Digest</a> &middot; <a href="/performance">Performance</a> &middot; <a href="/press">Press</a> &middot; <a href="/letters">Letters</a> &middot; <a href="/process">Process</a> &middot; <a href="/access">Access</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/version">Version</a></span>
+    <span><a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/version">Version</a></span>
   </div>
 </footer>
 
@@ -909,18 +1078,8 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
     });
   }
 
-  // Cursor-following hero halo
-  var halo=document.querySelector('[data-halo]');
-  var hero=halo?halo.parentElement:null;
-  if(halo&&hero&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
-    hero.addEventListener('mousemove',function(e){
-      var rect=hero.getBoundingClientRect();
-      var x=((e.clientX-rect.left)/rect.width)*100;
-      var y=((e.clientY-rect.top)/rect.height)*100;
-      halo.style.left=x+'%';
-      halo.style.top=y+'%';
-    },{passive:true});
-  }
+  // Hero halo: static. Sprint 4 leaves the Coverage Constellation as the
+  // only continuously-animated element above the fold.
 
   // Big-number counter on viewport entry
   var counters=document.querySelectorAll('.big-num[data-count]');
@@ -997,5 +1156,76 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
 <!-- Plausible Analytics — privacy-respecting, no cookies, no personal data. See /privacy. -->
 <script defer data-domain="halvrencapital.com" src="https://plausible.io/js/script.js"></script>
 <script src="/lc-sticky.js" defer></script>
+<script>
+(function(){
+  var con = document.querySelector('.constellation');
+  if (!con) return;
+  var tt  = con.querySelector('[data-tooltip]');
+  var ttT = con.querySelector('[data-tt-ticker]');
+  var ttS = con.querySelector('[data-tt-sector]');
+  var ttM = con.querySelector('[data-tt-meta]');
+
+  function show(e){
+    var d = e.currentTarget;
+    var slug = d.getAttribute('data-slug');
+    var ticker = d.getAttribute('data-ticker');
+    var sector = d.getAttribute('data-sector');
+    var last   = d.getAttribute('data-last');
+    ttT.textContent = ticker;
+    ttS.textContent = sector;
+    ttM.textContent = 'Last reviewed ' + last;
+    var rect = d.getBoundingClientRect();
+    var hostRect = con.getBoundingClientRect();
+    var x = rect.left - hostRect.left + rect.width / 2;
+    var y = rect.top  - hostRect.top  - 8;
+    tt.style.left = x + 'px';
+    tt.style.top  = y + 'px';
+    tt.style.transform = 'translate(-50%, -100%)';
+    tt.setAttribute('data-visible', 'true');
+    tt.setAttribute('aria-hidden', 'false');
+    var r = parseFloat(d.getAttribute('r'));
+    d.setAttribute('data-rest-r', r);
+    d.setAttribute('r', r * 1.7);
+  }
+  function hide(e){
+    tt.removeAttribute('data-visible');
+    tt.setAttribute('aria-hidden', 'true');
+    var d = e.currentTarget;
+    var rest = d.getAttribute('data-rest-r');
+    if (rest) d.setAttribute('r', rest);
+  }
+  function navigate(e){
+    var slug = e.currentTarget.getAttribute('data-slug');
+    if (slug) window.location.href = '/research/' + slug;
+  }
+  con.querySelectorAll('.cdot').forEach(function(d){
+    d.addEventListener('mouseenter', show);
+    d.addEventListener('focus',      show);
+    d.addEventListener('mouseleave', hide);
+    d.addEventListener('blur',       hide);
+    d.addEventListener('click',      navigate);
+    d.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); navigate(e); }
+    });
+  });
+
+  // mobile tabs
+  var tabsWrap = document.querySelector('.constellation-mobile-tabs');
+  if (!tabsWrap) return;
+  var items = document.querySelectorAll('.constellation-mobile-list li');
+  tabsWrap.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var s = b.getAttribute('data-sector');
+      tabsWrap.querySelectorAll('button').forEach(function(x){
+        x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+      });
+      items.forEach(function(li){
+        if (li.getAttribute('data-sector') === s) li.removeAttribute('hidden');
+        else li.setAttribute('hidden', '');
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
