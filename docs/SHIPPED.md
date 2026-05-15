@@ -8,6 +8,26 @@ Total commits on this branch (excluding the merge from main at the start): 7. On
 
 ---
 
+## Sprint 9 Part B — dark mode + type system + command palette + trading card + earnings tape
+
+The aesthetic upgrade. Shipped after Part A on the same branch.
+
+**Type system.** Four tokens replace the legacy pair. `--font-display` = Cormorant Garamond 500/600 (h1/h2). `--font-body` = Instrument Serif (body prose). `--font-ui` = Inter 400/500/600 (labels, chips, buttons, captions). `--font-data` = JetBrains Mono 400/500 with tabular-nums (every number, every ticker, every date). Google Fonts link rewritten across 57 HTML files + both build scripts in a single Python pass: DM Sans removed, Inter added.
+
+**Dark mode tokens refined.** Per the Sprint 9 brief: `--color-bg #0a0a0a`, `--color-text #f0ece4`, `--color-text-muted #8a8580`, `--color-divider #2a2724`, `--color-gold #d4a04c`, `--green #4a8c5f`, `--red #c44a4a`. Same tokens patched into `checklist/live/live.css` so the embeddable widget stays in sync. Toggle in the header swaps a sun SVG (visible when dark) for a moon SVG (visible when light); persisted via `localStorage` under `halvren-theme`.
+
+**Earnings Tape + Status Bar.** `tape.js` (vanilla, ~80 lines, idempotent). Loads `/data/earnings.json` once. Renders two thin rows at the very top of `<body>`, fixed above `<nav>`: a 22px **status bar** with the current as-of date and six macro values (USDCAD, WCS, WTI, U₃O₈, Cu, Ag) in mono ALL CAPS at 10–11px, and a 24px **earnings marquee** that lists upcoming consensus reporting dates for the 20 coverage operators (Q1 2026 + Q2 2026, 29 events). Marquee uses pure CSS `@keyframes` translateX at 60s/cycle, pauses on hover and respects `prefers-reduced-motion`. Self-suppresses inside iframes (the Checklist Live embed stays clean).
+
+**Command palette (⌘K / Ctrl+K).** `cmdk.js` (vanilla, ~180 lines). Indexes 15 key pages + 10 notes + 10 checklist questions + 20 operators (the operators fetched from `/data/viz-data.json`). Substring + token match across title/tag/meta. Keyboard-first: ↑/↓ to navigate, Enter to open, Esc to close, ⌘K/Ctrl+K to toggle. Subtle "⌘K" hint badge mounted inside `.nav-right`; hidden below 640px. Backdrop is a 78%-alpha bg with 6px backdrop-blur; results grouped by section (Operators / Notes / Checklist / Pages) with section labels in small-caps Inter.
+
+**The Halvren Trading Card.** New `mode=card` branch inside `api/og.js`. Endpoint: `/api/og?mode=card&ticker=CNQ&name=Canadian%20Natural&sector=ENERGY&read=<sentence>&v=p,p,p,n,p,p,p,n,p,p` returns a 1200×630 PNG. Layout: wordmark + glyph + "THE CHECKLIST" eyebrow top-left, ticker (display serif 56px) + sector top-right, 5×2 grid of verdict chips (pass / not yet / fail / unscored) center, the one-sentence Halvren read in display serif below, URL footer with section caption. Cached `s-maxage=86400` since chips vary per request.
+
+**Save + Copy buttons on Checklist Live scorecard.** Two new actions (`<a data-card-save>`, `<button data-card-copy>`) inside the scorecard panel, styled in the new `.live-card-btn` system (Inter, 11px tracked uppercase, ink-on-bg, gold on hover). `wireCardActions()` in `live.js` builds the trading-card URL from the streamed identity + scorecard text + the 10 verdict letters (`p`/`n`/`f`/`-`) and attaches it to the Save link as a `download` attribute; the Copy button writes the deep-link `?ticker=` URL to the clipboard and pulses "Link copied".
+
+**Sitewide injection.** `<script src="/tape.js" defer></script>` and `<script src="/cmdk.js" defer></script>` patched into all 57 HTML files + both build script templates. Tape and palette mount only at top-level (not in iframes); the tape suppresses if no data; the palette suppresses if no `.nav-right` exists.
+
+---
+
 ## Sprint 9 Part A — five core data visualizations
 
 Five vizes shipped. Pure SVG, vanilla JS, no third-party deps. Each renders from a single `data/viz-data.json` built by `scripts/build_viz_data.py` from the operator JSONs. Methodology logged in `docs/DECISIONS.md`.

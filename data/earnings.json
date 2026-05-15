@@ -1,0 +1,47 @@
+{
+  "$comment_1": "Halvren earnings tape — Q1 2026 + Q2 2026 reporting dates for the 20 coverage operators.",
+  "$comment_2": "Consensus dates as of May 2026. Refresh quarterly. The tape script renders entries in chronological order and skips dates in the past.",
+  "version": "2026-05-15",
+  "events": [
+    { "date": "2026-05-02", "ticker": "ENB",  "label": "Q1"   },
+    { "date": "2026-05-02", "ticker": "TRP",  "label": "Q1"   },
+    { "date": "2026-05-07", "ticker": "CNQ",  "label": "Q1"   },
+    { "date": "2026-05-07", "ticker": "SU",   "label": "Q1"   },
+    { "date": "2026-05-08", "ticker": "CVE",  "label": "Q1"   },
+    { "date": "2026-05-08", "ticker": "TOU",  "label": "Q1"   },
+    { "date": "2026-05-09", "ticker": "PPL",  "label": "Q1"   },
+    { "date": "2026-05-09", "ticker": "ARX",  "label": "Q1"   },
+    { "date": "2026-05-10", "ticker": "MEG",  "label": "Q1"   },
+    { "date": "2026-05-12", "ticker": "FTS",  "label": "Q1"   },
+    { "date": "2026-05-12", "ticker": "CNR",  "label": "Q1"   },
+    { "date": "2026-05-13", "ticker": "AEM",  "label": "Q1"   },
+    { "date": "2026-05-14", "ticker": "CCO",  "label": "Q1"   },
+    { "date": "2026-05-14", "ticker": "NTR",  "label": "Q1"   },
+    { "date": "2026-05-15", "ticker": "TECK", "label": "Q1"   },
+    { "date": "2026-05-16", "ticker": "WFG",  "label": "Q1"   },
+    { "date": "2026-05-21", "ticker": "OXY",  "label": "Q1"   },
+    { "date": "2026-05-21", "ticker": "FCX",  "label": "Q1"   },
+    { "date": "2026-05-22", "ticker": "KMI",  "label": "Q1"   },
+    { "date": "2026-05-22", "ticker": "AG",   "label": "Q1"   },
+    { "date": "2026-08-05", "ticker": "ENB",  "label": "Q2"   },
+    { "date": "2026-08-06", "ticker": "CNQ",  "label": "Q2"   },
+    { "date": "2026-08-06", "ticker": "SU",   "label": "Q2"   },
+    { "date": "2026-08-07", "ticker": "TRP",  "label": "Q2"   },
+    { "date": "2026-08-12", "ticker": "TOU",  "label": "Q2"   },
+    { "date": "2026-08-13", "ticker": "CCO",  "label": "Q2"   },
+    { "date": "2026-08-13", "ticker": "AEM",  "label": "Q2"   },
+    { "date": "2026-08-14", "ticker": "PPL",  "label": "Q2"   },
+    { "date": "2026-08-19", "ticker": "OXY",  "label": "Q2"   }
+  ],
+  "status_bar": {
+    "as_of": "2026-05-15",
+    "items": [
+      { "label": "USDCAD",   "value": "1.38"  },
+      { "label": "WCS",      "value": "$59"   },
+      { "label": "WTI",      "value": "$68"   },
+      { "label": "U3O8",     "value": "$74"   },
+      { "label": "Cu",       "value": "$4.12" },
+      { "label": "Ag",       "value": "$33"   }
+    ]
+  }
+}
