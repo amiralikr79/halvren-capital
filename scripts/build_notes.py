@@ -352,7 +352,7 @@ NOTE_TEMPLATE = """<!DOCTYPE html>
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/page.css">
 <style>
 .note-meta-row{{display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap;margin-top:var(--space-3);font-family:var(--font-body);font-size:var(--text-xs);color:var(--color-text-muted);letter-spacing:0.04em}}
@@ -462,8 +462,6 @@ NOTE_TEMPLATE = """<!DOCTYPE html>
 </aside>
 <script src="/nav-overlay.js" defer></script>
 <script src="/viz.js" defer></script>
-<script src="/tape.js" defer></script>
-<script src="/cmdk.js" defer></script>
 </body>
 </html>
 """
@@ -494,7 +492,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/page.css">
 <style>
 .notes-masthead{{max-width:var(--content-default);margin-bottom:var(--space-10)}}
@@ -634,8 +632,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 </aside>
 <script src="/nav-overlay.js" defer></script>
 <script src="/viz.js" defer></script>
-<script src="/tape.js" defer></script>
-<script src="/cmdk.js" defer></script>
 </body>
 </html>
 """

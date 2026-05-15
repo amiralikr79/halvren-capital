@@ -118,7 +118,6 @@
       textEl.textContent = text || "";
       chipsEl.innerHTML = "";
       var verdictsOrdered = (answers || []).slice().sort(function (a, b) { return a.q - b.q; });
-      var letters = [];
       for (var i = 0; i < 10; i++) {
         var v = (verdictsOrdered[i] && verdictsOrdered[i].verdict) || "amber";
         var chip = document.createElement("span");
@@ -126,49 +125,9 @@
         chip.setAttribute("data-verdict", v);
         chip.title = "Q" + (i + 1) + " — " + v;
         chipsEl.appendChild(chip);
-        letters.push(v === "green" ? "p" : v === "red" ? "f" : v === "amber" ? "n" : "-");
       }
       scorecardEl.removeAttribute("hidden");
       scorecardEl.setAttribute("data-visible", "true");
-      wireCardActions(identity, text, letters);
-    }
-
-    function wireCardActions(identity, text, letters) {
-      var actions = scorecardEl.querySelector("[data-card-actions]");
-      if (!actions) return;
-      var ticker = (identity && identity.ticker) || "";
-      var name   = (identity && identity.name) || ticker;
-      var sector = (identity && identity.sector) || "";
-      var qs = new URLSearchParams({
-        mode: "card",
-        ticker: ticker,
-        name: name,
-        sector: sector,
-        read: (text || "").slice(0, 180),
-        v: letters.join(",")
-      });
-      var cardUrl = "/api/og?" + qs.toString();
-      var saveBtn = actions.querySelector("[data-card-save]");
-      if (saveBtn) {
-        saveBtn.setAttribute("href", cardUrl);
-        saveBtn.setAttribute("download", "halvren-checklist-" + ticker.toLowerCase() + ".png");
-      }
-      var copyBtn = actions.querySelector("[data-card-copy]");
-      if (copyBtn) {
-        copyBtn.onclick = function () {
-          var pageUrl = location.origin + location.pathname + "?ticker=" + encodeURIComponent(ticker);
-          var done = function () {
-            var prev = copyBtn.textContent;
-            copyBtn.textContent = "Link copied";
-            setTimeout(function () { copyBtn.textContent = prev; }, 1600);
-          };
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(pageUrl).then(done, done);
-          } else {
-            done();
-          }
-        };
-      }
     }
 
     function setMeta(ticker, identity, fromCache) {

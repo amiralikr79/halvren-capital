@@ -13,33 +13,6 @@ Format:
 
 ---
 
-## 2026-05-15 — Sprint 9 Part B: type system — four-token model
-**Decision.** Replace the two-font pair (Instrument Serif display, DM Sans body) with a four-token system: `--font-display` (Cormorant Garamond), `--font-body` (Instrument Serif), `--font-ui` (Inter), `--font-data` (JetBrains Mono). Every number lives in `--font-data` with `font-variant-numeric:tabular-nums`. Body prose stays in serif; UI chrome (labels, chips, buttons, captions) moves to Inter for legibility at small sizes.
-**Context / alternatives.** Single-font body simplifies but compromises either prose or labels. Söhne (the brief's first preference) is a paid foundry license. Inter is the canonical free substitute and the Sprint 9 spec explicitly lists it as the fallback.
-**Cost / reversibility.** Reversible at the token. The legacy `--font-mono` alias is preserved as a synonym so nothing breaks.
-
-## 2026-05-15 — Sprint 9 Part B: dark mode tokens (final values)
-**Decision.** Refine the dark palette to: `--color-bg #0a0a0a`, `--color-text #f0ece4`, `--color-text-muted #8a8580`, `--color-divider #2a2724`, `--color-gold #d4a04c`. Greens and reds: `#4a8c5f` / `#c44a4a`. Same values mirrored into `checklist/live/live.css` so the embeddable widget matches the host.
-**Context / alternatives.** The earlier dark palette (`#0d0c0a` bg, `#ece8df` ink) was slightly warmer; the brief asked for a cooler near-black anchor. The new values pass WCAG AA on muted-on-bg (4.6:1) and AAA on ink-on-bg (15.1:1).
-**Cost / reversibility.** Token swap. No layout work.
-
-## 2026-05-15 — Sprint 9 Part B: earnings tape — fixed-position over sticky
-**Decision.** Render the earnings tape + status bar as a single `position:fixed; top:0; z-index:300` block. Push `nav` to `top:46px` and add 46px body padding when the tape is mounted.
-**Context / alternatives.** Sticky would have worked but sticky elements share their stacking context with the page, which fights the fixed nav. Fixed positioning gives a deterministic two-bar header. The 46px (22 status + 24 marquee) is small enough not to break existing top paddings.
-**Cost / reversibility.** Adds 46px to every page header. Suppressed inside iframes via `window.self !== window.top` so the Checklist Live embed stays clean.
-
-## 2026-05-15 — Sprint 9 Part B: command palette — flat substring search, no dependency
-**Decision.** Build the ⌘K palette as ~180 lines of vanilla JS with a flat in-memory index of pages + notes + checklist questions + operators (operators lazy-loaded from `/data/viz-data.json`). Token AND-substring match, four section groups, keyboard-first.
-**Context / alternatives.** `cmdk` (the React library) is the canonical choice but the site has zero React surface. fuse.js or similar fuzzy libraries would add ~10KB; substring match is enough for ~55 indexed items.
-**Cost / reversibility.** Self-contained. Replace search() to upgrade matching later.
-
-## 2026-05-15 — Sprint 9 Part B: trading card — query-mode branch of `/api/og`
-**Decision.** Add a `mode=card` branch to the existing `/api/og` edge function rather than create `/api/og/checklist/[ticker]`. Inputs: `ticker`, `name`, `sector`, `read`, `v` (comma-separated `p|n|f|-` letters, 10 of them).
-**Context / alternatives.** A dedicated route is more discoverable but adds a serverless function slot; the existing /api/og already has the font-loading scaffolding. Cache headers stay tight (`s-maxage=86400`) since chips vary per request.
-**Cost / reversibility.** Single file change. The classic note OG path is unaffected.
-
----
-
 ## 2026-05-15 — Sprint 9 Part A: visualization data foundation
 **Decision.** Build a derived `data/viz-data.json` rather than inflate the operator JSON schema. `scripts/build_viz_data.py` reads the operator JSONs and emits one record per operator with the fields the viz layer needs (`market_cap_usd_b`, `cost_curve_quartile`, `balance_sheet_health`, `dividend_streak_years`, `insider_score_0_10`, `halvren_verdict`, `fcf_per_share_series`, plus `aisc_curve` + `spot_prices` for the cost-curve viz).
 **Context / alternatives.** Could have added each field to every operator JSON. Rejected — the operator JSONs are principal-reviewed financial disclosure; mixing derived/synthesized fields into them would degrade their trust. The build script is the right home and the script's data is explicitly the principal's reconstruction, with methodology logged here.

@@ -6,7 +6,7 @@
  */
 
 :root{
-  --viz-font-ui: var(--font-ui, var(--font-body, "Inter", system-ui, sans-serif));
+  --viz-font-ui: var(--font-body, "DM Sans", system-ui, sans-serif);
   --viz-font-display: var(--font-h1h2, var(--font-display, "Cormorant Garamond", Georgia, serif));
   --viz-font-mono: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
 }

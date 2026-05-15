@@ -490,7 +490,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/page.css">
 <link rel="stylesheet" href="/viz.css">
 </head>
@@ -595,8 +595,6 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 </aside>
 <script src="/nav-overlay.js" defer></script>
 <script src="/viz.js" defer></script>
-<script src="/tape.js" defer></script>
-<script src="/cmdk.js" defer></script>
 </body>
 </html>
 """
