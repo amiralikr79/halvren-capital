@@ -462,6 +462,7 @@ NOTE_TEMPLATE = """<!DOCTYPE html>
 </aside>
 <script src="/nav-overlay.js" defer></script>
 <script src="/viz.js" defer></script>
+<script src="/glossary.js" defer></script>
 </body>
 </html>
 """

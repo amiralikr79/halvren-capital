@@ -13,6 +13,36 @@ Format:
 
 ---
 
+## 2026-05-15 — Sprint 10: Halvren Read formula
+**Decision.** Reduce ten checklist verdicts to a single 0–100 score with fixed weights: Pillar I (business, Q1–Q4) = 40, Pillar II (people, Q5–Q8) = 30, Pillar III (cycle, Q9–Q10) = 30. Each verdict resolves to points (pass=10, not_yet=5, fail=0); the raw sum within each pillar is rescaled to the pillar cap; the three contributions sum to the score, rounded and clamped to 0–100. Implementation lives in `scripts/build_halvren_read.py` and is mirrored in client JS, the operator OG card, and the methodology page so all five surfaces agree.
+**Context / alternatives.** Considered storing only inside `viz-data.json` (single source) but the score is shown on the operator hero strip, the watchlist, the cycle-map tooltip, the OG card, and the compare page. Centralizing the field on the operator JSONs as `halvren_read` lets every consumer read it without recomputing — and `build_halvren_read.py` is the only place that does the math. The viz layer reads it through `build_viz_data.py`, which simply passes it through.
+**Cost / reversibility.** Re-run the script after any checklist verdict change. The formula is documented at `/methodology` and the JSON disclaimer is explicit: "not a rating, not a buy or sell signal."
+
+## 2026-05-15 — Sprint 10: Halvren Read on coverage only, never on Checklist Live
+**Decision.** The 0–100 score is computed exclusively for the 20 operators in formal coverage. `/checklist/live/<TICKER>` produces the same 10-question read but no score; the result page shows the streaming read plus a note that "Full Halvren Read scores are computed only for operators in coverage. This is the desk's checklist applied; not the desk's verdict."
+**Context / alternatives.** Could have emitted a synthetic 0–100 for any ticker. Rejected — the score is the principal's view of operator quality reduced to a number, not an automated rating. Producing one without principal review would dilute the surface the score is meant to legibilize.
+**Cost / reversibility.** Trivial.
+
+## 2026-05-15 — Sprint 10: Compare engine as one HTML + Vercel rewrite
+**Decision.** Ship `/compare/index.html` (a single client-rendered page) and add a Vercel rewrite `/compare/:tickers → /compare/index.html` so `/compare/CNQ-vs-ENB` and `/compare/CNQ-vs-ENB-vs-AEM` resolve to the same artifact. The page parses the URL on load, falls back to a picker UI when no tickers are present, and pushes the canonical URL via `history.replaceState`.
+**Context / alternatives.** Pre-rendering all C(20,2) + C(20,3) = ~1,330 combinations to static HTML would have been wasteful and added build time. Server-rendering on Vercel would have required a function for every compare path. Client-rendering keeps the surface fast (single fetch of `/data/viz-data.json` + 2–3 operator JSONs) and indexable at the canonical empty-state page, with permalinks shared by JS.
+**Cost / reversibility.** Reversible. The pre-render path is available if the compare URL ever needs to be deeply indexable.
+
+## 2026-05-15 — Sprint 10: Glossary popovers at runtime, not at build time
+**Decision.** The inline `<Glossary term="...">` behaviour is delivered by `/glossary.js`, a runtime DOM-walker that scans article containers, matches the longest term first against the universe in `/data/glossary.json`, and wraps the first occurrence per page in a dotted-underline button. Popovers fire on click or tap; tap-outside or Escape closes.
+**Context / alternatives.** Could have rebuilt every research and note page at build time to inject the markup. Rejected — every glossary edit would force rebuilds of dozens of HTML files. Runtime scanning is one fetch per page and 200 lines of plain JS, with no markup churn. Trade-off: a flash of unstyled text on slow connections; acceptable given the dotted-underline state is the only visual change.
+**Cost / reversibility.** Reversible by adding a build-time wrapper later.
+
+## 2026-05-15 — Sprint 10: Cycle Diary as the third public output channel
+**Decision.** Introduce a chronological public log of desk actions at `/diary`, with per-entry indexable pages, RSS, and OG images. Each entry is one sentence in Halvren voice tied to an operator + an action (`promoted`, `demoted`, `flagged`, `added`, `killed`, `reviewed`). Seeded with 25 entries spanning Feb–May 2026.
+**Context / alternatives.** The desk already has the quarterly Letter (long-form) and the weekly Digest (machine surfaces). The Diary fills the slot between them: short, fast, action-shaped. The risk is that it reads as a "ratings" surface — mitigated by keeping the language to single sentences of operator-quality observation, never price, never recommendation.
+**Cost / reversibility.** Reversible. Stop adding entries and the surface ages out gracefully (RSS keeps working; nothing else depends on cadence).
+
+## 2026-05-15 — Sprint 10: Start page replaces the homepage CTA-graveyard pattern
+**Decision.** A linear five-step `/start` page (memo → seven-numbers note → Checklist Live → CNQ → letter) is the canonical onboarding for new readers. The homepage hero gets a small "New here? Start here →" link; the main nav adds Start as the first item.
+**Context / alternatives.** Considered an in-page expandable on the homepage. Rejected — the homepage is already dense and the onboarding wants a single uncluttered surface. The Start page is the rare place where prescriptive sequencing is the editorial choice.
+**Cost / reversibility.** Trivial.
+
 ## 2026-05-15 — Sprint 9 Part A: visualization data foundation
 **Decision.** Build a derived `data/viz-data.json` rather than inflate the operator JSON schema. `scripts/build_viz_data.py` reads the operator JSONs and emits one record per operator with the fields the viz layer needs (`market_cap_usd_b`, `cost_curve_quartile`, `balance_sheet_health`, `dividend_streak_years`, `insider_score_0_10`, `halvren_verdict`, `fcf_per_share_series`, plus `aisc_curve` + `spot_prices` for the cost-curve viz).
 **Context / alternatives.** Could have added each field to every operator JSON. Rejected — the operator JSONs are principal-reviewed financial disclosure; mixing derived/synthesized fields into them would degrade their trust. The build script is the right home and the script's data is explicitly the principal's reconstruction, with methodology logged here.

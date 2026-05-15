@@ -240,11 +240,15 @@
     function showTip(o, dot) {
       var hostRect = host.getBoundingClientRect();
       var dotRect = dot.getBoundingClientRect();
+      var readLine = o.halvren_read != null
+        ? '<span class="vt-meta">Halvren Read: <em>' + o.halvren_read + ' / 100</em></span>'
+        : '';
       tooltip.innerHTML =
         '<span class="vt-ticker">' + o.ticker + '</span>' +
         '<span class="vt-sector">' + o.sector + ' · ' + (o.sub_industry || "") + '</span>' +
         '<span class="vt-meta">Revenue ' + (o.fy25_revenue || "—") + '</span>' +
-        '<span class="vt-meta">Verdict: <em>' + o.halvren_verdict + '</em></span>';
+        '<span class="vt-meta">Verdict: <em>' + o.halvren_verdict + '</em></span>' +
+        readLine;
       var x = dotRect.left - hostRect.left + dotRect.width / 2;
       var y = dotRect.top - hostRect.top - 8;
       tooltip.style.left = x + "px";
@@ -323,7 +327,8 @@
       { k: "nd",       l: "ND/EBITDA",  mono: true,  key: function(o){ return o.net_debt_signal || ""; } },
       { k: "insider",  l: "Insider",    mono: true,  num: true, key: function(o){ return o.insider_score_0_10; }, fmt: function(v){ return v + "/10"; } },
       { k: "rev_iso",  l: "Reviewed",   mono: true,  key: function(o){ return o.last_reviewed_iso || ""; }, fmt: function(v){ return v ? v.slice(0, 7) : "—"; } },
-      { k: "verdict",  l: "Read",       chip: true,  key: function(o){ return o.halvren_verdict; } },
+      { k: "read",     l: "Halvren Read", mono: true, num: true, key: function(o){ return o.halvren_read; }, fmt: function(v){ return v == null ? "—" : v; }, band: true },
+      { k: "verdict",  l: "Verdict",    chip: true,  key: function(o){ return o.halvren_verdict; } },
     ];
 
     var sortKey = "mcap", sortDir = -1;
@@ -379,7 +384,11 @@
             td.appendChild(chip);
           } else {
             var v = c.key(o);
-            td.textContent = c.fmt ? c.fmt(v) : (v || "—");
+            td.textContent = c.fmt ? c.fmt(v) : (v == null || v === "" ? "—" : v);
+            if (c.band && v != null) {
+              var b = v >= 75 ? "green" : (v >= 50 ? "amber" : "red");
+              td.setAttribute("data-band", b);
+            }
           }
           tr.appendChild(td);
         });
@@ -400,6 +409,7 @@
       rows.forEach(function (o) {
         var card = el("a", "viz-spread-card");
         card.href = "/research/" + o.slug;
+        var readBand = o.halvren_read == null ? "" : (o.halvren_read >= 75 ? "green" : (o.halvren_read >= 50 ? "amber" : "red"));
         card.innerHTML =
           '<div class="card-row">' +
             '<span class="card-tkr">' + o.ticker + '</span>' +
@@ -409,7 +419,10 @@
           '<div class="card-row card-meta">' +
             '<span>' + o.sector + ' · ' + o.sub_industry + '</span>' +
             '<span class="mono">$' + (o.market_cap_usd_b == null ? "—" : Math.round(o.market_cap_usd_b) + "B") + '</span>' +
-          '</div>';
+          '</div>' +
+          (o.halvren_read != null
+            ? '<div class="card-row card-meta"><span>Halvren Read</span><span class="mono" data-band="' + readBand + '">' + o.halvren_read + ' / 100</span></div>'
+            : '');
         cards.appendChild(card);
       });
     }

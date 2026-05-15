@@ -18,6 +18,10 @@
       "destination": "/checklist/live/index.html"
     },
     {
+      "source": "/compare/:tickers",
+      "destination": "/compare/index.html"
+    },
+    {
       "source": "/version",
       "destination": "/api/version"
     }
@@ -29,6 +33,19 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/diary/feed.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/rss+xml; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=600, s-maxage=3600, stale-while-revalidate=86400"
         }
       ]
     }
@@ -59,6 +76,15 @@
       "includeFiles": "{content/changelog.md,content/site-meta.json}"
     },
     "api/og.js": {
+      "maxDuration": 10
+    },
+    "api/og/operator/[ticker].js": {
+      "maxDuration": 10
+    },
+    "api/og/compare/[tickers].js": {
+      "maxDuration": 10
+    },
+    "api/og/diary/[id].js": {
       "maxDuration": 10
     }
   }

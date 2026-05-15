@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Cycle Diary — Public log of desk actions | Halvren Capital</title>
+<meta name="description" content="A chronological public log of what the Halvren desk did: who got promoted, who got flagged, who got reviewed.">
+<meta name="theme-color" content="#111010" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<script>(function(){try{var s=localStorage.getItem('halvren-theme');var p=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',s||p);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="canonical" href="https://halvrencapital.com/diary">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cycle Diary — Halvren Capital">
+<meta property="og:description" content="A chronological public log of what the Halvren desk did: who got promoted, who got flagged, who got reviewed.">
+<meta property="og:url" content="https://halvrencapital.com/diary">
+<meta property="og:image" content="https://halvrencapital.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://halvrencapital.com/og.png">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="alternate" type="application/rss+xml" title="Halvren Cycle Diary" href="/diary/feed.xml">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111010'/><path d='M7 8 L7 24 M7 16 L15 16 M15 8 L15 24' stroke='%23e8e6e2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M19 8 L19 24 M19 8 L26 16 L19 24' stroke='%23c9a84c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/page.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav>
+  <a href="/" class="nav-logo" aria-label="Halvren Capital — home">
+    <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="4" fill="none"/>
+      <path d="M6 6 L6 26 M6 16 L16 16 M16 6 L16 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 6 L20 26 M20 6 L28 16 L20 26" stroke="var(--color-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-logo-name">Halvren Capital</span>
+  </a>
+  <div class="nav-links" id="nav-links" data-open="false">
+    <a href="/research">Research</a>
+    <a href="/notes">Notes</a>
+    <a href="/letters">Letters</a>
+    <a href="/process">Process</a>
+    <a href="/access">Access</a>
+    <a href="/about">About</a>
+  </div>
+  <div class="nav-right">
+    <a href="/" class="nav-back">Back to home</a>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" type="button">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="nav-burger" data-nav-open aria-label="Open menu" aria-controls="nav-overlay" aria-expanded="false" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 9h16M4 15h16"/></svg></button>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="diary-page">
+    <div class="diary-header">
+      <p class="doc-breadcrumb"><a href="/">Home</a><span class="doc-breadcrumb-sep">/</span><span>Diary</span></p>
+      <p class="section-label">The Cycle Diary</p>
+      <h1 class="doc-h1">What the desk actually <em>did</em>.</h1>
+      <p class="doc-meta">Newest first &middot; promoted / demoted / flagged / added / killed / reviewed</p>
+      <p class="doc-p">Every coverage-level action this desk takes, logged in public. Not opinions; actions. Promoted means the desk's read got stronger. Demoted means it got weaker. Flagged means something new entered the picture and the work isn't finished.</p>
+    </div>
+    <div class="diary-filters" role="tablist" aria-label="Filter by action">
+      <button type="button" class="diary-filter" data-filter="all" aria-pressed="true">All</button><button type="button" class="diary-filter" data-filter="promoted" aria-pressed="false">Promoted</button><button type="button" class="diary-filter" data-filter="demoted" aria-pressed="false">Demoted</button><button type="button" class="diary-filter" data-filter="flagged" aria-pressed="false">Flagged</button><button type="button" class="diary-filter" data-filter="added" aria-pressed="false">Added</button><button type="button" class="diary-filter" data-filter="killed" aria-pressed="false">Killed</button><button type="button" class="diary-filter" data-filter="reviewed" aria-pressed="false">Reviewed</button>
+    </div>
+    <div class="diary-feed" id="diary-feed">
+      <article class="diary-entry" data-action="promoted" data-id="2026-05-14-tou-promoted">
+        <div class="diary-entry-date">May 14, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/tourmaline-tou">TOU</a>
+            <span class="diary-entry-action" data-a="promoted">Promoted</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Tourmaline</span>
+          </div>
+          <p class="diary-entry-summary">Q1 cash flow exceeded guide by 18% and the buyback pace doubled.</p>
+          <a class="diary-entry-link" href="/diary/2026-05-14-tou-promoted">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="flagged" data-id="2026-05-09-ag-flagged">
+        <div class="diary-entry-date">May 9, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/first-majestic-ag">AG</a>
+            <span class="diary-entry-action" data-a="flagged">Flagged</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">First Majestic</span>
+          </div>
+          <p class="diary-entry-summary">Mexico royalty proposal advanced in legislature; thesis sensitivity revisited.</p>
+          <a class="diary-entry-link" href="/diary/2026-05-09-ag-flagged">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-05-06-cnq-reviewed">
+        <div class="diary-entry-date">May 6, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/canadian-natural-cnq">CNQ</a>
+            <span class="diary-entry-action" data-a="reviewed">Reviewed</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Canadian Natural</span>
+          </div>
+          <p class="diary-entry-summary">FY 2025 print and 26th consecutive raise reread against the succession question.</p>
+          <a class="diary-entry-link" href="/diary/2026-05-06-cnq-reviewed">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="promoted" data-id="2026-05-02-aem-promoted">
+        <div class="diary-entry-date">May 2, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/agnico-eagle-aem">AEM</a>
+            <span class="diary-entry-action" data-a="promoted">Promoted</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Agnico Eagle</span>
+          </div>
+          <p class="diary-entry-summary">Q1 AISC printed inside guide and the producer-of-the-decade case held.</p>
+          <a class="diary-entry-link" href="/diary/2026-05-02-aem-promoted">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-04-22-cco-reviewed">
+        <div class="diary-entry-date">April 22, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/cameco-cco">CCO</a>
+            <span class="diary-entry-action" data-a="reviewed">Reviewed</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Cameco</span>
+          </div>
+          <p class="diary-entry-summary">Westinghouse contribution disclosed at investor day; integration ahead of plan.</p>
+          <a class="diary-entry-link" href="/diary/2026-04-22-cco-reviewed">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-04-18-cnq-reviewed">
+        <div class="diary-entry-date">April 18, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/canadian-natural-cnq">CNQ</a>
+            <span class="diary-entry-action" data-a="reviewed">Reviewed</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Canadian Natural</span>
+          </div>
+          <p class="diary-entry-summary">Public writeup refreshed against the FY 2025 release and the buyback pace.</p>
+          <a class="diary-entry-link" href="/diary/2026-04-18-cnq-reviewed">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-04-11-enb-reviewed">
+        <div class="diary-entry-date">April 11, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/enbridge-enb">ENB</a>
+            <span class="diary-entry-action" data-a="reviewed">Reviewed</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Enbridge</span>
+          </div>
+          <p class="diary-entry-summary">Mainline apportionment normalised; the turnpike read remains intact.</p>
+          <a class="diary-entry-link" href="/diary/2026-04-11-enb-reviewed">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="promoted" data-id="2026-04-04-arx-promoted">
+        <div class="diary-entry-date">April 4, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/arc-resources-arx">ARX</a>
+            <span class="diary-entry-action" data-a="promoted">Promoted</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">ARC Resources</span>
+          </div>
+          <p class="diary-entry-summary">Attachie Phase 1 in service; the condensate strip moved per-share value the right way.</p>
+          <a class="diary-entry-link" href="/diary/2026-04-04-arx-promoted">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-03-28-fts-reviewed">
+        <div class="diary-entry-date">March 28, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/fortis-fts">FTS</a>
+            <span class="diary-entry-action" data-a="reviewed">Reviewed</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Fortis</span>
+          </div>
+          <p class="diary-entry-summary">53rd consecutive raise telegraphed in the annual; the rate-base compounding still works.</p>
+          <a class="diary-entry-link" href="/diary/2026-03-28-fts-reviewed">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="flagged" data-id="2026-03-21-cve-flagged">
+        <div class="diary-entry-date">March 21, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/cenovus-cve">CVE</a>
+            <span class="diary-entry-action" data-a="flagged">Flagged</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Cenovus</span>
+          </div>
+          <p class="diary-entry-summary">Foster Creek turnaround scope widened; full-year capex creeping above plan.</p>
+          <a class="diary-entry-link" href="/diary/2026-03-21-cve-flagged">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="demoted" data-id="2026-03-15-meg-demoted">
+        <div class="diary-entry-date">March 15, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/meg-energy-meg">MEG</a>
+            <span class="diary-entry-action" data-a="demoted">Demoted</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">MEG Energy</span>
+          </div>
+          <p class="diary-entry-summary">Free cash flow trajectory below sustaining capex through cycle on the revised price deck.</p>
+          <a class="diary-entry-link" href="/diary/2026-03-15-meg-demoted">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-03-12-ntr-reviewed">
+        <div class="diary-entry-date">March 12, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/nutrien-ntr">NTR</a>
+            <span class="diary-entry-action" data-a="reviewed">Reviewed</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Nutrien</span>
+          </div>
+          <p class="diary-entry-summary">Potash netbacks back inside the historical band; retail margin still doing the work.</p>
+          <a class="diary-entry-link" href="/diary/2026-03-12-ntr-reviewed">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="flagged" data-id="2026-03-05-trp-flagged">
+        <div class="diary-entry-date">March 5, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/tc-energy-trp">TRP</a>
+            <span class="diary-entry-action" data-a="flagged">Flagged</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">TC Energy</span>
+          </div>
+          <p class="diary-entry-summary">South Bow spin-off operating metrics diverging; rereading the remainco maturity ladder.</p>
+          <a class="diary-entry-link" href="/diary/2026-03-05-trp-flagged">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-02-28-cnr-reviewed">
+        <div class="diary-entry-date">February 28, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/cn-rail-cnr">CNR</a>
+            <span class="diary-entry-action" data-a="reviewed">Reviewed</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">CN Rail</span>
+          </div>
+          <p class="diary-entry-summary">Operating ratio held inside 58&ndash;60% range; the franchise is still earning the multiple.</p>
+          <a class="diary-entry-link" href="/diary/2026-02-28-cnr-reviewed">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="flagged" data-id="2026-02-25-oxy-flagged">
+        <div class="diary-entry-date">February 25, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/occidental-oxy">OXY</a>
+            <span class="diary-entry-action" data-a="flagged">Flagged</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Occidental</span>
+          </div>
+          <p class="diary-entry-summary">Buffett stake disclosure unchanged at 28%; Berkshire signalling, not buying.</p>
+          <a class="diary-entry-link" href="/diary/2026-02-25-oxy-flagged">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-02-20-su-reviewed">
+        <div class="diary-entry-date">February 20, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/suncor-su">SU</a>
+            <span class="diary-entry-action" data-a="reviewed">Reviewed</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Suncor</span>
+          </div>
+          <p class="diary-entry-summary">Refining utilization at 97% and unit cost down for a fourth quarter running.</p>
+          <a class="diary-entry-link" href="/diary/2026-02-20-su-reviewed">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="flagged" data-id="2026-02-18-teck-flagged">
+        <div class="diary-entry-date">February 18, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/teck-resources-teck">TECK</a>
+            <span class="diary-entry-action" data-a="flagged">Flagged</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Teck Resources</span>
+          </div>
+          <p class="diary-entry-summary">QB2 ramp curve still flattening; revised through-cycle ROIC walks closer to cost of capital.</p>
+          <a class="diary-entry-link" href="/diary/2026-02-18-teck-flagged">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="promoted" data-id="2026-02-14-ppl-promoted">
+        <div class="diary-entry-date">February 14, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/pembina-ppl">PPL</a>
+            <span class="diary-entry-action" data-a="promoted">Promoted</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Pembina</span>
+          </div>
+          <p class="diary-entry-summary">Cedar LNG sanctioned with the strip locked; long-dated take-or-pay book extended.</p>
+          <a class="diary-entry-link" href="/diary/2026-02-14-ppl-promoted">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-02-12-kmi-reviewed">
+        <div class="diary-entry-date">February 12, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/kinder-morgan-kmi">KMI</a>
+            <span class="diary-entry-action" data-a="reviewed">Reviewed</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Kinder Morgan</span>
+          </div>
+          <p class="diary-entry-summary">Permian gas backlog conversion accelerating; coverage 2.3&times; on the distribution.</p>
+          <a class="diary-entry-link" href="/diary/2026-02-12-kmi-reviewed">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="flagged" data-id="2026-02-09-fcx-flagged">
+        <div class="diary-entry-date">February 9, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/freeport-mcmoran-fcx">FCX</a>
+            <span class="diary-entry-action" data-a="flagged">Flagged</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Freeport</span>
+          </div>
+          <p class="diary-entry-summary">Indonesian smelter delay added six months to the export licence overhang.</p>
+          <a class="diary-entry-link" href="/diary/2026-02-09-fcx-flagged">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-02-07-wfg-reviewed">
+        <div class="diary-entry-date">February 7, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/west-fraser-wfg">WFG</a>
+            <span class="diary-entry-action" data-a="reviewed">Reviewed</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">West Fraser</span>
+          </div>
+          <p class="diary-entry-summary">BC mill curtailment offset by the U.S. South capacity additions; through-cycle FCF intact.</p>
+          <a class="diary-entry-link" href="/diary/2026-02-07-wfg-reviewed">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-02-04-aem-reviewed">
+        <div class="diary-entry-date">February 4, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/agnico-eagle-aem">AEM</a>
+            <span class="diary-entry-action" data-a="reviewed">Reviewed</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Agnico Eagle</span>
+          </div>
+          <p class="diary-entry-summary">Detour Lake throughput at a new high; the producer-of-the-decade case keeps holding.</p>
+          <a class="diary-entry-link" href="/diary/2026-02-04-aem-reviewed">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="promoted" data-id="2026-02-01-cco-promoted">
+        <div class="diary-entry-date">February 1, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/cameco-cco">CCO</a>
+            <span class="diary-entry-action" data-a="promoted">Promoted</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Cameco</span>
+          </div>
+          <p class="diary-entry-summary">Term book signings ran double the 2024 pace at a higher floor price.</p>
+          <a class="diary-entry-link" href="/diary/2026-02-01-cco-promoted">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-01-28-enb-reviewed">
+        <div class="diary-entry-date">January 28, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/enbridge-enb">ENB</a>
+            <span class="diary-entry-action" data-a="reviewed">Reviewed</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">Enbridge</span>
+          </div>
+          <p class="diary-entry-summary">Dominion utility rate cases closed inside the requested band; the take-or-pay base reads cleanly.</p>
+          <a class="diary-entry-link" href="/diary/2026-01-28-enb-reviewed">Read the entry &rarr;</a>
+        </div>
+      </article>
+      <article class="diary-entry" data-action="reviewed" data-id="2026-01-22-trp-reviewed">
+        <div class="diary-entry-date">January 22, 2026</div>
+        <div class="diary-entry-body">
+          <div class="diary-entry-row">
+            <a class="diary-entry-ticker" href="/research/tc-energy-trp">TRP</a>
+            <span class="diary-entry-action" data-a="reviewed">Reviewed</span>
+            <span style="color:var(--color-text-faint);font-size:11px;font-family:var(--font-body);letter-spacing:0.04em">TC Energy</span>
+          </div>
+          <p class="diary-entry-summary">Post-South-Bow remainco capex pulled back to the regulated base; balance sheet looks lighter.</p>
+          <a class="diary-entry-link" href="/diary/2026-01-22-trp-reviewed">Read the entry &rarr;</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-trust">
+    <span class="footer-trust-item">Canadian &amp; U.S. markets</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">AI-augmented &middot; human-reviewed</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">Proprietary capital</span>
+    <span class="footer-trust-sep">&middot;</span>
+    <span class="footer-trust-item">Public research is free</span>
+  </div>
+  <div class="footer-inner">
+    <div class="footer-brand">Halvren Capital &mdash; Vancouver &mdash; Est. 2025</div>
+    <div class="footer-disclaimer">
+      <p>Halvren Capital publishes research and commentary for informational and educational purposes only. Nothing on this site constitutes an offer, solicitation, or recommendation to buy or sell any security.</p>
+      <p>Halvren manages proprietary capital and is not a registered investment adviser, broker-dealer, or portfolio manager. The author may hold positions in securities discussed and may transact at any time without notice.</p>
+    </div>
+  </div>
+  <div class="footer-inner footer-meta">
+    <span>&copy; 2025&ndash;2026 Halvren Capital. All rights reserved.</span>
+    <a href="/version" class="footer-last-reviewed" title="Build provenance and changelog"><strong>Last reviewed:</strong> May 15, 2026</a>
+    <span><a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/version">Version</a></span>
+  </div>
+</footer>
+<script src="/nav.js" defer></script>
+<aside class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Main navigation" aria-hidden="true" hidden>
+  <div class="nav-overlay-bar">
+    <a href="/" class="nav-overlay-brand">Halvren Capital</a>
+    <button class="nav-overlay-close" data-nav-close aria-label="Close menu" type="button">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="nav-overlay-links" aria-label="Site sections">
+    <a href="/research">Research</a>
+    <a href="/notes">Notes</a>
+    <a href="/coverage">Coverage</a>
+    <a href="/checklist">Checklist</a>
+    <a href="/methodology">Methodology</a>
+    <a href="/glossary">Glossary</a>
+    <a href="/diary">Diary</a>
+    <a href="/letters">Letters</a>
+    <a href="/process">Process</a>
+    <a href="/access">Access</a>
+    <a href="/about">About</a>
+  </nav>
+  <div class="nav-overlay-foot">Halvren Capital &middot; Vancouver</div>
+</aside>
+<script src="/nav-overlay.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Halvren Cycle Diary","url":"https://halvrencapital.com/diary","description":"Public log of desk actions on the Halvren coverage universe.","inLanguage":"en-CA","isPartOf":{"@id":"https://halvrencapital.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://halvrencapital.com/"},{"@type":"ListItem","position":2,"name":"Diary","item":"https://halvrencapital.com/diary"}]}]}</script>
+<script>
+(function(){
+  var filters = document.querySelectorAll('.diary-filter');
+  var entries = document.querySelectorAll('.diary-entry');
+  filters.forEach(function(b){
+    b.addEventListener('click', function(){
+      var f = b.getAttribute('data-filter');
+      filters.forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      entries.forEach(function(e){
+        var match = (f === 'all') || (e.getAttribute('data-action') === f);
+        e.style.display = match ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

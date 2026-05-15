@@ -1,0 +1,208 @@
+{
+  "$comment_1": "Halvren Cycle Diary — public log of desk actions on the 20-operator coverage universe.",
+  "$comment_2": "Newest first. Drives /diary, /diary/<id>, /diary/feed.xml, and the homepage 'Latest from the desk' block.",
+  "$comment_3": "Action values: promoted, demoted, flagged, added, killed, reviewed.",
+  "version": "2026-05-15",
+  "entries": [
+    {
+      "id": "2026-05-14-tou-promoted",
+      "date": "2026-05-14",
+      "ticker": "TOU",
+      "slug": "tourmaline-tou",
+      "action": "promoted",
+      "summary": "Q1 cash flow exceeded guide by 18% and the buyback pace doubled."
+    },
+    {
+      "id": "2026-05-09-ag-flagged",
+      "date": "2026-05-09",
+      "ticker": "AG",
+      "slug": "first-majestic-ag",
+      "action": "flagged",
+      "summary": "Mexico royalty proposal advanced in legislature; thesis sensitivity revisited."
+    },
+    {
+      "id": "2026-05-06-cnq-reviewed",
+      "date": "2026-05-06",
+      "ticker": "CNQ",
+      "slug": "canadian-natural-cnq",
+      "action": "reviewed",
+      "summary": "FY 2025 print and 26th consecutive raise reread against the succession question."
+    },
+    {
+      "id": "2026-05-02-aem-promoted",
+      "date": "2026-05-02",
+      "ticker": "AEM",
+      "slug": "agnico-eagle-aem",
+      "action": "promoted",
+      "summary": "Q1 AISC printed inside guide and the producer-of-the-decade case held."
+    },
+    {
+      "id": "2026-04-22-cco-reviewed",
+      "date": "2026-04-22",
+      "ticker": "CCO",
+      "slug": "cameco-cco",
+      "action": "reviewed",
+      "summary": "Westinghouse contribution disclosed at investor day; integration ahead of plan."
+    },
+    {
+      "id": "2026-04-18-cnq-reviewed",
+      "date": "2026-04-18",
+      "ticker": "CNQ",
+      "slug": "canadian-natural-cnq",
+      "action": "reviewed",
+      "summary": "Public writeup refreshed against the FY 2025 release and the buyback pace."
+    },
+    {
+      "id": "2026-04-11-enb-reviewed",
+      "date": "2026-04-11",
+      "ticker": "ENB",
+      "slug": "enbridge-enb",
+      "action": "reviewed",
+      "summary": "Mainline apportionment normalised; the turnpike read remains intact."
+    },
+    {
+      "id": "2026-04-04-arx-promoted",
+      "date": "2026-04-04",
+      "ticker": "ARX",
+      "slug": "arc-resources-arx",
+      "action": "promoted",
+      "summary": "Attachie Phase 1 in service; the condensate strip moved per-share value the right way."
+    },
+    {
+      "id": "2026-03-28-fts-reviewed",
+      "date": "2026-03-28",
+      "ticker": "FTS",
+      "slug": "fortis-fts",
+      "action": "reviewed",
+      "summary": "53rd consecutive raise telegraphed in the annual; the rate-base compounding still works."
+    },
+    {
+      "id": "2026-03-21-cve-flagged",
+      "date": "2026-03-21",
+      "ticker": "CVE",
+      "slug": "cenovus-cve",
+      "action": "flagged",
+      "summary": "Foster Creek turnaround scope widened; full-year capex creeping above plan."
+    },
+    {
+      "id": "2026-03-15-meg-demoted",
+      "date": "2026-03-15",
+      "ticker": "MEG",
+      "slug": "meg-energy-meg",
+      "action": "demoted",
+      "summary": "Free cash flow trajectory below sustaining capex through cycle on the revised price deck."
+    },
+    {
+      "id": "2026-03-12-ntr-reviewed",
+      "date": "2026-03-12",
+      "ticker": "NTR",
+      "slug": "nutrien-ntr",
+      "action": "reviewed",
+      "summary": "Potash netbacks back inside the historical band; retail margin still doing the work."
+    },
+    {
+      "id": "2026-03-05-trp-flagged",
+      "date": "2026-03-05",
+      "ticker": "TRP",
+      "slug": "tc-energy-trp",
+      "action": "flagged",
+      "summary": "South Bow spin-off operating metrics diverging; rereading the remainco maturity ladder."
+    },
+    {
+      "id": "2026-02-28-cnr-reviewed",
+      "date": "2026-02-28",
+      "ticker": "CNR",
+      "slug": "cn-rail-cnr",
+      "action": "reviewed",
+      "summary": "Operating ratio held inside 58&ndash;60% range; the franchise is still earning the multiple."
+    },
+    {
+      "id": "2026-02-25-oxy-flagged",
+      "date": "2026-02-25",
+      "ticker": "OXY",
+      "slug": "occidental-oxy",
+      "action": "flagged",
+      "summary": "Buffett stake disclosure unchanged at 28%; Berkshire signalling, not buying."
+    },
+    {
+      "id": "2026-02-20-su-reviewed",
+      "date": "2026-02-20",
+      "ticker": "SU",
+      "slug": "suncor-su",
+      "action": "reviewed",
+      "summary": "Refining utilization at 97% and unit cost down for a fourth quarter running."
+    },
+    {
+      "id": "2026-02-18-teck-flagged",
+      "date": "2026-02-18",
+      "ticker": "TECK",
+      "slug": "teck-resources-teck",
+      "action": "flagged",
+      "summary": "QB2 ramp curve still flattening; revised through-cycle ROIC walks closer to cost of capital."
+    },
+    {
+      "id": "2026-02-14-ppl-promoted",
+      "date": "2026-02-14",
+      "ticker": "PPL",
+      "slug": "pembina-ppl",
+      "action": "promoted",
+      "summary": "Cedar LNG sanctioned with the strip locked; long-dated take-or-pay book extended."
+    },
+    {
+      "id": "2026-02-12-kmi-reviewed",
+      "date": "2026-02-12",
+      "ticker": "KMI",
+      "slug": "kinder-morgan-kmi",
+      "action": "reviewed",
+      "summary": "Permian gas backlog conversion accelerating; coverage 2.3&times; on the distribution."
+    },
+    {
+      "id": "2026-02-09-fcx-flagged",
+      "date": "2026-02-09",
+      "ticker": "FCX",
+      "slug": "freeport-mcmoran-fcx",
+      "action": "flagged",
+      "summary": "Indonesian smelter delay added six months to the export licence overhang."
+    },
+    {
+      "id": "2026-02-07-wfg-reviewed",
+      "date": "2026-02-07",
+      "ticker": "WFG",
+      "slug": "west-fraser-wfg",
+      "action": "reviewed",
+      "summary": "BC mill curtailment offset by the U.S. South capacity additions; through-cycle FCF intact."
+    },
+    {
+      "id": "2026-02-04-aem-reviewed",
+      "date": "2026-02-04",
+      "ticker": "AEM",
+      "slug": "agnico-eagle-aem",
+      "action": "reviewed",
+      "summary": "Detour Lake throughput at a new high; the producer-of-the-decade case keeps holding."
+    },
+    {
+      "id": "2026-02-01-cco-promoted",
+      "date": "2026-02-01",
+      "ticker": "CCO",
+      "slug": "cameco-cco",
+      "action": "promoted",
+      "summary": "Term book signings ran double the 2024 pace at a higher floor price."
+    },
+    {
+      "id": "2026-01-28-enb-reviewed",
+      "date": "2026-01-28",
+      "ticker": "ENB",
+      "slug": "enbridge-enb",
+      "action": "reviewed",
+      "summary": "Dominion utility rate cases closed inside the requested band; the take-or-pay base reads cleanly."
+    },
+    {
+      "id": "2026-01-22-trp-reviewed",
+      "date": "2026-01-22",
+      "ticker": "TRP",
+      "slug": "tc-energy-trp",
+      "action": "reviewed",
+      "summary": "Post-South-Bow remainco capex pulled back to the regulated base; balance sheet looks lighter."
+    }
+  ]
+}

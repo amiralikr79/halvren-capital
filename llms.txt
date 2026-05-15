@@ -18,7 +18,11 @@ This file follows the llmstxt.org convention: a stable, machine-readable index o
 - [Performance](https://halvrencapital.com/performance): the proprietary-book record since January 2019. No borrowing, no derivatives, no outside capital.
 - [Process](https://halvrencapital.com/process): the AI-augmented pipeline that feeds the desk.
 - [Letters](https://halvrencapital.com/letters): the quarterly Halvren letter (Substack canonical).
-- [Glossary](https://halvrencapital.com/glossary): the technical terms used in Halvren research.
+- [Glossary](https://halvrencapital.com/glossary): the 50+ technical terms used in Halvren research, defined in the desk's voice.
+- [Methodology](https://halvrencapital.com/methodology): how the 0-100 Halvren Read score is computed from the ten-question checklist.
+- [Compare](https://halvrencapital.com/compare): side-by-side comparison of two or three operators. Permalink at /compare/TICKER-vs-TICKER.
+- [Cycle Diary](https://halvrencapital.com/diary): public log of desk actions. RSS at /diary/feed.xml.
+- [Start here](https://halvrencapital.com/start): the twenty-minute onboarding for new readers.
 
 ## Operator research
 

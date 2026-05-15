@@ -67,6 +67,9 @@
 .viz-chip-verdict[data-verdict="green"]{background:var(--color-green,#2d5f3f);color:#fff}
 .viz-chip-verdict[data-verdict="amber"]{background:transparent;color:var(--color-gold,#a87f3c);border:1px solid var(--color-gold,#a87f3c)}
 .viz-chip-verdict[data-verdict="red"]{background:var(--color-red,#8b2c2c);color:#fff}
+.viz-spread td[data-band="green"]{color:#1e7e4c;font-weight:500}
+.viz-spread td[data-band="amber"]{color:var(--color-gold,#a87f3c);font-weight:500}
+.viz-spread td[data-band="red"]{color:#b94747;font-weight:500}
 
 /* mobile card view */
 .viz-spread-cards{display:none}
@@ -80,6 +83,9 @@
   .viz-spread-card .card-name{font-family:var(--viz-font-ui);font-size:13px;color:var(--color-text-muted)}
   .viz-spread-card .card-meta{font-family:var(--viz-font-ui);font-size:11px;color:var(--color-text-muted);letter-spacing:0.04em}
   .viz-spread-card .card-meta .mono{font-family:var(--viz-font-mono);font-variant-numeric:tabular-nums;color:var(--color-text)}
+  .viz-spread-card .card-meta .mono[data-band="green"]{color:#1e7e4c}
+  .viz-spread-card .card-meta .mono[data-band="amber"]{color:var(--color-gold,#a87f3c)}
+  .viz-spread-card .card-meta .mono[data-band="red"]{color:#b94747}
 }
 
 /* ----- 3. DIVIDEND LADDER ------------------------------------------- */

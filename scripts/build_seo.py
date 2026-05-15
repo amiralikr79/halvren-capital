@@ -140,7 +140,12 @@ def build_sitemap(coverage: dict, notes: list[dict]) -> str:
     add("/letters/three-questions-2025", TODAY, "yearly", "0.9")
     add("/memo/founding", TODAY, "yearly", "0.7")
     add("/access", TODAY, "monthly", "0.9")
-    add("/glossary", TODAY, "monthly", "0.7")
+    add("/glossary", TODAY, "monthly", "0.8")
+    add("/methodology", TODAY, "monthly", "0.85")
+    add("/compare", TODAY, "weekly", "0.85")
+    add("/diary", TODAY, "weekly", "0.9")
+    add("/diary/feed.xml", TODAY, "weekly", "0.7")
+    add("/start", TODAY, "monthly", "0.9")
     add("/privacy", TODAY, "yearly", "0.3")
     add("/terms", TODAY, "yearly", "0.3")
     add("/llms.txt", TODAY, "weekly", "0.6")
@@ -162,6 +167,13 @@ def build_sitemap(coverage: dict, notes: list[dict]) -> str:
     for d in sorted((ROOT / "digest").glob("2026-W*")):
         if d.is_dir() and (d / "index.html").exists():
             add(f"/digest/{d.name}", TODAY, "monthly", "0.75")
+
+    # diary entries
+    diary_path = ROOT / "data" / "diary.json"
+    if diary_path.exists():
+        diary = json.loads(diary_path.read_text(encoding="utf-8"))
+        for e in diary.get("entries", []):
+            add(f"/diary/{e['id']}", e["date"], "yearly", "0.65")
 
     body = "\n".join(
         f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lm}</lastmod>\n"
@@ -209,7 +221,11 @@ def build_llms_txt(coverage: dict, notes: list[dict]) -> str:
     L.append(f"- [Performance]({BASE}/performance): the proprietary-book record since January 2019. No borrowing, no derivatives, no outside capital.")
     L.append(f"- [Process]({BASE}/process): the AI-augmented pipeline that feeds the desk.")
     L.append(f"- [Letters]({BASE}/letters): the quarterly Halvren letter (Substack canonical).")
-    L.append(f"- [Glossary]({BASE}/glossary): the technical terms used in Halvren research.")
+    L.append(f"- [Glossary]({BASE}/glossary): the 50+ technical terms used in Halvren research, defined in the desk's voice.")
+    L.append(f"- [Methodology]({BASE}/methodology): how the 0-100 Halvren Read score is computed from the ten-question checklist.")
+    L.append(f"- [Compare]({BASE}/compare): side-by-side comparison of two or three operators. Permalink at /compare/TICKER-vs-TICKER.")
+    L.append(f"- [Cycle Diary]({BASE}/diary): public log of desk actions. RSS at /diary/feed.xml.")
+    L.append(f"- [Start here]({BASE}/start): the twenty-minute onboarding for new readers.")
     L.append("")
 
     L.append("## Operator research")

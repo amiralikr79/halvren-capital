@@ -554,6 +554,7 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
     <span class="nav-logo-name">Halvren Capital</span>
   </a>
   <div class="nav-links" id="nav-links" data-open="false">
+    <a href="/start">Start</a>
     <a href="/research">Research</a>
     <a href="/notes">Notes</a>
     <a href="/letters">Letters</a>
@@ -587,6 +588,7 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
     </p>
     <h1 class="hero-heading mask-reveal" data-reveal><span>Machine breadth. Human <em>conviction.</em></span></h1>
     <p class="hero-sub mask-reveal" data-reveal data-reveal-delay="180"><span>Halvren is an AI-augmented research desk covering Canadian and U.S. operators in energy, materials, and infrastructure. Models read at scale. The principal signs the decision. The book is proprietary. The work is public.</span></p>
+    <p style="margin-bottom:var(--space-10);font-family:var(--font-body)"><a href="/start" style="font-size:var(--text-sm);color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:2px;letter-spacing:0.02em">New here? Start here &rarr;</a></p>
     <div class="hero-meta">
       <span>Canadian &amp; U.S. markets</span>
       <div class="hero-meta-divider"></div>
@@ -904,6 +906,16 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
         </div>
       </div>
     </a>
+
+    <aside class="desk-latest" id="desk-latest" aria-labelledby="desk-latest-h">
+      <p class="section-label" style="margin-bottom:var(--space-2)">From the diary</p>
+      <h3 class="desk-latest-h" id="desk-latest-h">Latest from <em>the desk.</em></h3>
+      <p class="desk-latest-sub">The three most recent actions on the coverage universe. Promoted, demoted, flagged, reviewed &mdash; logged in public.</p>
+      <div class="desk-latest-list" id="desk-latest-list">
+        <p style="color:var(--color-text-muted);font-size:var(--text-sm)">Loading the diary&hellip;</p>
+      </div>
+      <p style="margin-top:var(--space-6)"><a class="desk-latest-more" href="/diary">Open the Cycle Diary &rarr;</a></p>
+    </aside>
   </div>
 </section>
 
@@ -918,6 +930,7 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
     </div>
     <div class="watchlist-grid">
       <article class="watch-card">
+        <a class="watch-read" data-band="green" href="/methodology" aria-label="Halvren Read 80 of 100 — see methodology"><span class="watch-read-num">80</span><span class="watch-read-label">Halvren Read</span></a>
         <div class="watch-head">
           <span class="watch-symbol">CCO</span>
           <span class="watch-name">Cameco Corp<br>TSX / NYSE:CCJ</span>
@@ -928,6 +941,7 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
         <p style="margin-top:var(--space-4)"><a href="/research/cameco-cco" style="font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:2px;font-family:var(--font-body);font-weight:500">Read full research &rarr;</a></p>
       </article>
       <article class="watch-card">
+        <a class="watch-read" data-band="green" href="/methodology" aria-label="Halvren Read 96 of 100 — see methodology"><span class="watch-read-num">96</span><span class="watch-read-label">Halvren Read</span></a>
         <div class="watch-head">
           <span class="watch-symbol">CNQ</span>
           <span class="watch-name">Canadian Natural<br>TSX / NYSE</span>
@@ -938,6 +952,7 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
         <p style="margin-top:var(--space-4)"><a href="/research/canadian-natural-cnq" style="font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:2px;font-family:var(--font-body);font-weight:500">Read full research &rarr;</a></p>
       </article>
       <article class="watch-card">
+        <a class="watch-read" data-band="red" href="/methodology" aria-label="Halvren Read 36 of 100 — see methodology"><span class="watch-read-num">36</span><span class="watch-read-label">Halvren Read</span></a>
         <div class="watch-head">
           <span class="watch-symbol">AG</span>
           <span class="watch-name">First Majestic Silver<br>NYSE / TSX</span>
@@ -948,6 +963,7 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
         <p style="margin-top:var(--space-4)"><a href="/research/first-majestic-ag" style="font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:2px;font-family:var(--font-body);font-weight:500">Read full research &rarr;</a></p>
       </article>
       <article class="watch-card">
+        <a class="watch-read" data-band="green" href="/methodology" aria-label="Halvren Read 86 of 100 — see methodology"><span class="watch-read-num">86</span><span class="watch-read-label">Halvren Read</span></a>
         <div class="watch-head">
           <span class="watch-symbol">ENB</span>
           <span class="watch-name">Enbridge<br>TSX / NYSE</span>
@@ -1408,6 +1424,28 @@ body[data-nav-locked="true"]{overflow:hidden;touch-action:none}
       });
     })
     .catch(function () { /* silent — keep fallback values */ });
+})();
+</script>
+<script>
+// "Latest from the desk" — fetch the 3 newest diary entries and render
+// into the homepage block. Silent fail if the data file isn't reachable.
+(function () {
+  var host = document.getElementById('desk-latest-list');
+  if (!host) return;
+  fetch('/data/diary.json', { headers: { 'Accept': 'application/json' } })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (j) {
+      if (!j || !j.entries) return;
+      var top = j.entries.slice().sort(function (a, b) { return b.date.localeCompare(a.date); }).slice(0, 3);
+      if (!top.length) return;
+      host.innerHTML = top.map(function (e) {
+        return '<div class="desk-latest-item">' +
+          '<span class="desk-latest-meta">' + e.date + ' · ' + e.ticker + ' · ' + e.action + '</span>' +
+          '<p class="desk-latest-summary"><a href="/diary/' + e.id + '" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--color-divider)">' + e.summary + '</a></p>' +
+        '</div>';
+      }).join('');
+    })
+    .catch(function () { /* silent */ });
 })();
 </script>
 <!-- Plausible Analytics — privacy-respecting, no cookies, no personal data. See /privacy. -->

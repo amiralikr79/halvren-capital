@@ -172,23 +172,44 @@ def relative_countdown_html(iso: str | None) -> str:
 # section renderers
 # --------------------------------------------------------------------------- #
 
+def _read_band(score: int | None) -> str:
+    if score is None:
+        return "amber"
+    if score >= 75:
+        return "green"
+    if score >= 50:
+        return "amber"
+    return "red"
+
+
 def render_header_strip(op: dict) -> str:
     last = fmt_iso_long(op["last_reviewed_iso"])
     nxt = fmt_iso_long(op.get("next_earnings_iso"))
     countdown = relative_countdown_html(op.get("next_earnings_iso"))
+    score = op.get("halvren_read")
+    band = _read_band(score)
+    score_block = f"""
+      <a class="op-header-read" data-band="{band}" href="/methodology" aria-label="Halvren Read {score} of 100 — view methodology">
+        <span class="op-header-read-num">{score}</span>
+        <span class="op-header-read-label">Halvren Read &middot; {score} / 100</span>
+      </a>""" if score is not None else ""
     return f"""
     <div class="op-header">
-      <div class="op-header-row">
-        <span class="op-header-tkr">{op['ticker']}</span>
-        <span class="op-header-sep">&middot;</span>
-        <span class="op-header-listing">{op['exchange']}</span>
-        <span class="op-header-sep">&middot;</span>
-        <span class="op-header-sector">{op['sector']} &middot; {op['sub_industry']}</span>
-      </div>
-      <div class="op-header-row op-header-row--dates">
-        <span class="op-header-meta"><span class="op-header-meta-label">Last reviewed</span> {last}</span>
-        <span class="op-header-sep">&middot;</span>
-        <span class="op-header-meta"><span class="op-header-meta-label">Next earnings</span> {nxt} {countdown}</span>
+      <div class="op-header-rowwrap">
+        <div>
+          <div class="op-header-row">
+            <span class="op-header-tkr">{op['ticker']}</span>
+            <span class="op-header-sep">&middot;</span>
+            <span class="op-header-listing">{op['exchange']}</span>
+            <span class="op-header-sep">&middot;</span>
+            <span class="op-header-sector">{op['sector']} &middot; {op['sub_industry']}</span>
+          </div>
+          <div class="op-header-row op-header-row--dates">
+            <span class="op-header-meta"><span class="op-header-meta-label">Last reviewed</span> {last}</span>
+            <span class="op-header-sep">&middot;</span>
+            <span class="op-header-meta"><span class="op-header-meta-label">Next earnings</span> {nxt} {countdown}</span>
+          </div>
+        </div>{score_block}
       </div>
     </div>"""
 
@@ -365,7 +386,15 @@ def render_inline_lettercapture(op: dict) -> str:
 
 def render_disclosure_footer(op: dict) -> str:
     bl = op["back_link"]
+    ticker_lower = op["ticker"].lower()
     return f"""
+    <section class="op-share" aria-label="Share the Halvren Read card">
+      <a class="op-share-card" href="/api/og/operator/{ticker_lower}" download="halvren-read-{ticker_lower}.png" rel="nofollow">
+        <span class="op-share-card-eyebrow">Halvren Read &middot; {op.get('halvren_read', '—')} / 100</span>
+        <span class="op-share-card-label">Save the card &darr;</span>
+      </a>
+      <p class="op-share-meta">A 1200&times;630 PNG built from this operator's checklist. Methodology lives at <a href="/methodology">/methodology</a>.</p>
+    </section>
     <section class="op-disclosure" aria-labelledby="op-disc-h">
       <hr class="doc-divider">
       <h2 class="doc-h2 op-disc-h" id="op-disc-h">Disclosure</h2>
@@ -595,6 +624,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 </aside>
 <script src="/nav-overlay.js" defer></script>
 <script src="/viz.js" defer></script>
+<script src="/glossary.js" defer></script>
 </body>
 </html>
 """

@@ -1,0 +1,320 @@
+{
+  "$comment_1": "Halvren Glossary — 50 finance and operator terms in the desk's voice.",
+  "$comment_2": "Source of truth. Drives /glossary, /api inline popovers, and JSON-LD on the index page.",
+  "$comment_3": "Style: 2-3 sentences per definition. Plain language. One Halvren opinion baked in where natural. No jargon explaining jargon.",
+  "version": "2026-05-15",
+  "terms": [
+    {
+      "term": "AISC",
+      "slug": "aisc",
+      "aliases": ["all-in sustaining cost", "all in sustaining cost", "all-in sustaining costs"],
+      "definition": "All-in sustaining cost. The number a miner needs to receive per ounce or pound to keep producing without eroding the asset base. Below it for too long, the mine starves. Above it, the operator is making money. Watch the gap, not the headline price."
+    },
+    {
+      "term": "FCF",
+      "slug": "fcf",
+      "aliases": ["free cash flow", "free cashflow"],
+      "definition": "Free cash flow. Operating cash flow minus capital expenditure. The actual cash a business generates after keeping itself running. For commodity producers, ten years of FCF tells the truth that twelve months of earnings hides."
+    },
+    {
+      "term": "FCF per share",
+      "slug": "fcf-per-share",
+      "aliases": ["free cash flow per share", "fcf/share"],
+      "definition": "Free cash flow divided by diluted shares outstanding. The per-share version is the honest one because it survives buybacks and dilution. A company can grow FCF and shrink FCF per share at the same time; only one of those rewards the owner."
+    },
+    {
+      "term": "ROIC",
+      "slug": "roic",
+      "aliases": ["return on invested capital", "return on incremental capital"],
+      "definition": "Return on invested capital. After-tax operating profit divided by the debt and equity that funded it. The desk cares about ROIC on the incremental dollar, not the average across the whole book &mdash; that is the dollar management still controls."
+    },
+    {
+      "term": "ROE",
+      "slug": "roe",
+      "aliases": ["return on equity"],
+      "definition": "Return on equity. Net income divided by shareholders' equity. Useful for steady-state businesses; misleading for commodity producers where reported earnings swing with price and equity is held flat with buybacks. ROIC reads cleaner through a cycle."
+    },
+    {
+      "term": "EBITDA",
+      "slug": "ebitda",
+      "aliases": ["earnings before interest taxes depreciation and amortization"],
+      "definition": "Earnings before interest, taxes, depreciation, and amortization. A cash-flow proxy for businesses where depreciation is non-cash and tax is structural. Useful as a denominator for leverage ratios; never the line that pays a dividend."
+    },
+    {
+      "term": "net debt",
+      "slug": "net-debt",
+      "aliases": ["net borrowings"],
+      "definition": "Total debt minus cash and equivalents. The number the company will be carrying when the next downturn arrives. For commodity producers, the only honest stress test is whether the maturity ladder survives trough EBITDA."
+    },
+    {
+      "term": "ND/EBITDA",
+      "slug": "nd-ebitda",
+      "aliases": ["net debt to ebitda", "net debt / ebitda", "leverage ratio"],
+      "definition": "Net debt divided by EBITDA. The standard corporate leverage ratio. For commodity producers, the honest version is computed on mid-cycle or trough EBITDA, not the last twelve months at peak pricing. A 1.0&times; ratio at the top of the cycle is a 3.0&times; ratio at the bottom."
+    },
+    {
+      "term": "maturity ladder",
+      "slug": "maturity-ladder",
+      "aliases": ["debt maturity schedule"],
+      "definition": "The schedule of when each tranche of debt comes due. Read it before the leverage ratio. A 1.0&times; balance sheet with a $2B wall in eighteen months is a tighter spot than 1.5&times; with no maturities for five years."
+    },
+    {
+      "term": "payout ratio",
+      "slug": "payout-ratio",
+      "aliases": ["dividend payout ratio"],
+      "definition": "Dividends divided by earnings, FCF, or AFFO &mdash; depending on the business. A sustainability check. A payout ratio that exceeds 100% over a cycle is a dividend waiting to be cut."
+    },
+    {
+      "term": "dividend coverage",
+      "slug": "dividend-coverage",
+      "aliases": ["dividend coverage ratio"],
+      "definition": "Free cash flow divided by dividends paid. The inverse of the payout ratio, read from the safer direction. 1.5&times; or better through a full cycle is what survives; 0.8&times; at peak pricing is what gets cut."
+    },
+    {
+      "term": "reserves",
+      "slug": "reserves",
+      "aliases": ["oil reserves", "gas reserves", "mineral reserves"],
+      "definition": "Hydrocarbons or minerals economically recoverable at today's prices under today's technology. Audited annually under NI 51-101 in Canada and SEC rules in the U.S. The reserves report tells you how long the business has to live; it does not tell you the price it gets."
+    },
+    {
+      "term": "P1 reserves",
+      "slug": "p1-reserves",
+      "aliases": ["proved reserves", "proven reserves", "1p reserves"],
+      "definition": "Proved reserves &mdash; the 90% confidence bucket under reserves engineering convention. P1 is the number a banker will lend against. The other categories are what management hopes to be standing on."
+    },
+    {
+      "term": "P2 reserves",
+      "slug": "p2-reserves",
+      "aliases": ["proved plus probable", "2p reserves"],
+      "definition": "Proved plus probable reserves &mdash; the 50% confidence bucket. The number used most often in valuation work because it captures the inventory the company expects to develop. The gap between P1 and P2 is the part of the story that still has to be earned."
+    },
+    {
+      "term": "decline rate",
+      "slug": "decline-rate",
+      "aliases": ["corporate decline", "production decline"],
+      "definition": "The rate at which production falls year over year without new capex. Low-decline businesses (oil sands mining, conventional gas) need less capital to stay flat. High-decline plays (tight oil, shale gas) trade growth for capital intensity. A 35% decline rate is a treadmill; a 10% decline rate is a business."
+    },
+    {
+      "term": "working interest",
+      "slug": "working-interest",
+      "aliases": ["wi"],
+      "definition": "The fractional ownership share of a well or property held by an operator before royalties. A 60% working interest means 60% of the costs and 60% of the production after royalty. The operator of record may hold less than 50% and still call the shots."
+    },
+    {
+      "term": "take-or-pay",
+      "slug": "take-or-pay",
+      "aliases": ["minimum volume commitment", "mvc"],
+      "definition": "A long-term contract that pays the operator whether or not the customer ships volume. The closest a commodity-adjacent business gets to a utility. Roughly 98% of Enbridge's group EBITDA is take-or-pay or cost-of-service; that is why it reads like a turnpike, not an oil bet."
+    },
+    {
+      "term": "cost of service",
+      "slug": "cost-of-service",
+      "aliases": ["cost-of-service rate", "cos"],
+      "definition": "A regulated rate structure that lets the operator earn an allowed return on rate base regardless of throughput. The other half of the pipeline turnpike model. The earnings are predictable because the regulator, not the commodity price, sets them."
+    },
+    {
+      "term": "rate base",
+      "slug": "rate-base",
+      "aliases": ["regulated rate base"],
+      "definition": "The depreciated asset value on which a regulated utility is allowed to earn its return. Grow the rate base, grow the earnings &mdash; subject to the regulator's allowed return. Fortis has compounded rate base for five decades; the dividend record is downstream of that."
+    },
+    {
+      "term": "regulated utility",
+      "slug": "regulated-utility",
+      "aliases": ["regulated utilities"],
+      "definition": "A business whose returns are set by a public utility commission against an allowed return on rate base. Earnings move with rate base, not with commodity prices. The trade-off is regulator risk: the allowed return can be lowered as easily as it was set."
+    },
+    {
+      "term": "midstream",
+      "slug": "midstream",
+      "aliases": ["midstream energy", "pipeline midstream"],
+      "definition": "The pipelines, storage, processing, and terminal businesses between the wellhead and the refinery or end customer. Commodity-adjacent rather than commodity-exposed when the contracts are long and take-or-pay. The cleanest part of the energy complex when read honestly."
+    },
+    {
+      "term": "term book",
+      "slug": "term-book",
+      "aliases": ["long-term contract book", "contract book"],
+      "definition": "The portfolio of long-dated sales agreements an operator has on the shelf. In uranium, the term book at Cameco rolls slowly and prices in over years, not days. A high-quality term book muffles the spot market for years at a time."
+    },
+    {
+      "term": "contract price",
+      "slug": "contract-price",
+      "aliases": ["long-term contract price"],
+      "definition": "The realized price under a long-term sales agreement, generally tied to a formula referencing spot with floors, ceilings, and escalators. The number the operator actually gets paid. Usually disconnected from the day's headline."
+    },
+    {
+      "term": "spot price",
+      "slug": "spot-price",
+      "aliases": ["spot market"],
+      "definition": "The price for immediate delivery on a public market. Loud, volatile, and a poor proxy for what the operator earns. For most producers, less than a third of revenue clears at spot."
+    },
+    {
+      "term": "hedge book",
+      "slug": "hedge-book",
+      "aliases": ["hedging program", "hedge program"],
+      "definition": "The portfolio of derivative contracts an operator uses to lock in future prices. A hedge book that survives a downturn smooths cash flow; one that traps the operator at the bottom of the cycle is the wrong kind of insurance. Read the strike and the duration before the headline percentage."
+    },
+    {
+      "term": "all-in margin",
+      "slug": "all-in-margin",
+      "aliases": ["fully loaded margin"],
+      "definition": "The margin after sustaining capex, corporate G&amp;A, interest, and tax &mdash; not just operating margin. The number that ends up in retained earnings. The rest is accounting."
+    },
+    {
+      "term": "buyback",
+      "slug": "buyback",
+      "aliases": ["share buyback", "share repurchase", "repurchase"],
+      "definition": "Open-market repurchase of the company's own shares. Value-accretive when bought below intrinsic value; value-destructive when bought at the top. The 2015&ndash;2020 record separates the operators who bought when the stock was hated from the ones who issued when it was loved."
+    },
+    {
+      "term": "share count",
+      "slug": "share-count",
+      "aliases": ["shares outstanding", "diluted shares"],
+      "definition": "The denominator that quietly determines whether everything else mattered. Production can grow, revenue can grow, even FCF can grow &mdash; if the share count grew faster, the owner went backwards. The per-share number is the only one the owner gets to spend."
+    },
+    {
+      "term": "dilution",
+      "slug": "dilution",
+      "aliases": ["equity dilution"],
+      "definition": "An increase in shares outstanding without a matching increase in value, eroding each existing share. Comes from secondary offerings, options grants, and acquisitions paid in stock. The opposite of a buyback, and usually announced with much better language."
+    },
+    {
+      "term": "options grant",
+      "slug": "options-grant",
+      "aliases": ["stock option grant", "option grant"],
+      "definition": "Compensation paid in the form of share options. Loyalty to a quarter, not to a decade. Treat granted shares and bought shares as two very different signals when reading insider alignment."
+    },
+    {
+      "term": "insider buy",
+      "slug": "insider-buy",
+      "aliases": ["insider purchase", "open-market purchase"],
+      "definition": "An open-market purchase of the company's stock by an officer or director, reported under SEDI in Canada or Form 4 in the U.S. Costs the insider real money and signals real conviction. Options exercises and gifts do not count."
+    },
+    {
+      "term": "free cash flow yield",
+      "slug": "fcf-yield",
+      "aliases": ["fcf yield", "free cash flow yield"],
+      "definition": "Free cash flow per share divided by share price. The desk's preferred valuation lens for commodity businesses because it survives the accounting noise. A 12% FCF yield through the cycle is a business; 12% at the peak is a warning."
+    },
+    {
+      "term": "sustaining capex",
+      "slug": "sustaining-capex",
+      "aliases": ["maintenance capex", "sustaining capital"],
+      "definition": "The capital required to keep production flat. The gap between reported capex and sustaining capex is growth investment in disguise. If sustaining capex is greater than free cash flow at trough, the dividend is not really covered."
+    },
+    {
+      "term": "growth capex",
+      "slug": "growth-capex",
+      "aliases": ["growth capital", "expansion capex"],
+      "definition": "Capital spent to add productive capacity, above what is required to stay flat. The number to test against ROIC on incremental capital. Growth capex that doesn't earn its cost of capital is destroying value at full pace."
+    },
+    {
+      "term": "capital intensity",
+      "slug": "capital-intensity",
+      "aliases": ["capex intensity"],
+      "definition": "Capital spending divided by revenue or by production. A measure of how much investment a business needs to stand still. High-decline shale plays carry capital intensity north of 50%; long-life oil sands assets sit closer to 15%."
+    },
+    {
+      "term": "breakeven price",
+      "slug": "breakeven-price",
+      "aliases": ["corporate breakeven"],
+      "definition": "The commodity price at which an operator's full-cycle revenue covers its full-cycle cost of capital. Below it, the business is running on momentum. Above it, the business is compounding. The honest version includes sustaining capex and the dividend."
+    },
+    {
+      "term": "WCS",
+      "slug": "wcs",
+      "aliases": ["western canadian select", "wcs heavy"],
+      "definition": "Western Canadian Select. The benchmark for heavy oil produced in the WCSB, priced at a discount to WTI that reflects quality and takeaway capacity. The differential is the part Canadian producers cannot control and the part most outsiders underestimate."
+    },
+    {
+      "term": "WTI",
+      "slug": "wti",
+      "aliases": ["west texas intermediate"],
+      "definition": "West Texas Intermediate. The U.S. light sweet crude benchmark priced at Cushing, Oklahoma. Most North American oil revenues reference WTI plus or minus a quality and location differential, not WTI itself."
+    },
+    {
+      "term": "AECO",
+      "slug": "aeco",
+      "aliases": ["aeco hub", "alberta gas"],
+      "definition": "The Alberta natural gas hub price. The benchmark Canadian gas producers actually receive. Frequently disconnected from Henry Hub by basin-takeaway constraints; the AECO discount is the structural reality, not a market accident."
+    },
+    {
+      "term": "U3O8",
+      "slug": "u3o8",
+      "aliases": ["uranium oxide", "yellowcake"],
+      "definition": "Uranium concentrate, the form in which uranium is bought and sold before enrichment. Priced per pound. The spot market is thin and noisy; the term market is where the real volume clears."
+    },
+    {
+      "term": "COMEX",
+      "slug": "comex",
+      "aliases": ["comex silver", "comex gold"],
+      "definition": "The U.S. commodity exchange for gold, silver, and copper futures. Spot prices most investors quote are COMEX prints. A futures market, not a physical delivery channel, and a poor proxy for what a miner actually realizes after royalties and treatment charges."
+    },
+    {
+      "term": "half-cycle",
+      "slug": "half-cycle",
+      "aliases": ["half cycle economics"],
+      "definition": "Economics that ignore the up-front capital already spent and look only at the next dollar of operating cost versus revenue. Useful for short-term operational decisions. Misleading when used to argue a project is profitable."
+    },
+    {
+      "term": "full-cycle",
+      "slug": "full-cycle",
+      "aliases": ["full cycle economics", "full-cycle returns"],
+      "definition": "Economics that include the entire capital base &mdash; exploration, development, sustaining, and decommissioning &mdash; against lifetime revenue. The only honest way to evaluate a long-lived asset. Half-cycle math is what gets sold; full-cycle math is what gets owned."
+    },
+    {
+      "term": "cyclical",
+      "slug": "cyclical",
+      "aliases": ["cyclical business"],
+      "definition": "A business whose earnings rise and fall with a broader macro or commodity cycle. Most operators on the Halvren desk are cyclical. The only investable cyclical is one that survives the trough without dilution."
+    },
+    {
+      "term": "secular",
+      "slug": "secular",
+      "aliases": ["secular trend", "secular growth"],
+      "definition": "A trend that operates above and across cycles &mdash; demographics, electrification, decarbonization, AI compute demand. Secular tailwinds can mask poor execution for years. They never excuse it forever."
+    },
+    {
+      "term": "moat",
+      "slug": "moat",
+      "aliases": ["economic moat", "competitive moat"],
+      "definition": "A durable advantage that protects returns on capital from competition. In commodities, the moat is almost always cost position on the curve. In regulated infrastructure, it is the rate base and the corridor."
+    },
+    {
+      "term": "capital allocation",
+      "slug": "capital-allocation",
+      "aliases": ["capital allocators"],
+      "definition": "The choice between reinvesting in the business, paying dividends, buying back stock, doing M&amp;A, or paying down debt. The most important sentence an operator writes is the one about what they did with the last dollar. Most public-company underperformance is a capital-allocation story dressed up as something else."
+    },
+    {
+      "term": "distribution",
+      "slug": "distribution",
+      "aliases": ["unit distribution"],
+      "definition": "A cash payment from a partnership or trust to unitholders. The structural equivalent of a dividend, but taxed differently and accounted for separately. The distribution coverage ratio plays the role of payout ratio."
+    },
+    {
+      "term": "royalty",
+      "slug": "royalty",
+      "aliases": ["royalty interest", "mineral royalty"],
+      "definition": "A share of production or revenue paid to a government or landowner before the producer earns anything. Royalty rates can materially change project economics. Mexico's silver royalty regime is the case study most outsiders underestimate."
+    },
+    {
+      "term": "NAV",
+      "slug": "nav",
+      "aliases": ["net asset value"],
+      "definition": "Net asset value. The sum of an operator's projects at engineered economics, minus debt, divided by shares. A standard valuation lens for mining and oil &amp; gas. Sensitive to the price deck and the discount rate &mdash; quote the assumptions, not just the number."
+    },
+    {
+      "term": "NPV",
+      "slug": "npv",
+      "aliases": ["net present value", "npv10"],
+      "definition": "Net present value. The discounted sum of a project's future cash flows. In Canadian reserves reports under NI 51-101, the conventional discount rate is 10% &mdash; hence NPV10. Industry convention is not the right cost of capital for every business."
+    },
+    {
+      "term": "IRR",
+      "slug": "irr",
+      "aliases": ["internal rate of return"],
+      "definition": "The discount rate at which a project's net present value is zero. The rate of return the project earns on its capital. A pre-tax 30% IRR at $80 oil is a very different project than a post-tax 12% IRR at $60 oil; ask which one the slide actually shows."
+    }
+  ]
+}

@@ -14,6 +14,7 @@
       "market_cap_usd_b": 45.0,
       "fy25_revenue": null,
       "fy25_fcf": "Strong at FY 2025 average gold price",
+      "fy25_earnings": null,
       "fy25_period": "FY 2025",
       "net_debt_signal": "Conservative; investment-grade",
       "dividend_signal": "US$0.40/sh",
@@ -26,6 +27,7 @@
       "cost_curve_quartile": 1,
       "insider_score_0_10": 9,
       "halvren_verdict": "green",
+      "halvren_read": 100,
       "fcf_per_share_series": {
         "currency": "USD",
         "series": [
@@ -58,6 +60,7 @@
       "market_cap_usd_b": 15.0,
       "fy25_revenue": null,
       "fy25_fcf": null,
+      "fy25_earnings": null,
       "fy25_period": "FY 2025",
       "net_debt_signal": "<1.0× target",
       "dividend_signal": "C$0.18/sh quarterly",
@@ -67,6 +70,7 @@
       "cost_curve_quartile": 1,
       "insider_score_0_10": 8,
       "halvren_verdict": "green",
+      "halvren_read": 96,
       "fcf_per_share_series": {
         "currency": "CAD",
         "series": [
@@ -98,9 +102,10 @@
       "research_url": "/research/cameco-cco",
       "market_cap_usd_b": 30.0,
       "fy25_revenue": "C$3.48B (+11% YoY)",
-      "fy25_fcf": null,
+      "fy25_fcf": "C$627M (vs C$292M FY24)",
+      "fy25_earnings": "C$627M (vs C$292M FY24)",
       "fy25_period": "FY 2025",
-      "net_debt_signal": "C$1.2B / C$1.0B",
+      "net_debt_signal": null,
       "dividend_signal": null,
       "dividend_streak_years": 0,
       "dividend_troughs": [],
@@ -108,6 +113,7 @@
       "cost_curve_quartile": 1,
       "insider_score_0_10": 7,
       "halvren_verdict": "amber",
+      "halvren_read": 80,
       "fcf_per_share_series": {
         "currency": "CAD",
         "series": [
@@ -139,7 +145,8 @@
       "research_url": "/research/canadian-natural-cnq",
       "market_cap_usd_b": 80.0,
       "fy25_revenue": null,
-      "fy25_fcf": null,
+      "fy25_fcf": "C$15.5B ($7.39/sh)",
+      "fy25_earnings": "C$7.4B ($3.56/sh)",
       "fy25_period": "FY 2025",
       "net_debt_signal": null,
       "dividend_signal": "C$2.50/sh (26th consec. raise)",
@@ -152,6 +159,7 @@
       "cost_curve_quartile": 1,
       "insider_score_0_10": 8,
       "halvren_verdict": "green",
+      "halvren_read": 96,
       "fcf_per_share_series": {
         "currency": "CAD",
         "series": [
@@ -184,6 +192,7 @@
       "market_cap_usd_b": 45.0,
       "fy25_revenue": null,
       "fy25_fcf": null,
+      "fy25_earnings": null,
       "fy25_period": "FY 2025",
       "net_debt_signal": "C$4.0B (achieved 2024)",
       "dividend_signal": "C$0.20/sh base + variable",
@@ -193,6 +202,7 @@
       "cost_curve_quartile": 1,
       "insider_score_0_10": 6,
       "halvren_verdict": "amber",
+      "halvren_read": 84,
       "fcf_per_share_series": {
         "currency": "CAD",
         "series": [
@@ -225,6 +235,7 @@
       "market_cap_usd_b": 120.0,
       "fy25_revenue": null,
       "fy25_fcf": null,
+      "fy25_earnings": null,
       "fy25_period": "FY 2025",
       "net_debt_signal": null,
       "dividend_signal": null,
@@ -238,6 +249,7 @@
       "cost_curve_quartile": 1,
       "insider_score_0_10": 8,
       "halvren_verdict": "green",
+      "halvren_read": 91,
       "fcf_per_share_series": {
         "currency": "CAD",
         "series": [
@@ -270,6 +282,7 @@
       "market_cap_usd_b": 110.0,
       "fy25_revenue": null,
       "fy25_fcf": null,
+      "fy25_earnings": null,
       "fy25_period": "FY 2025",
       "net_debt_signal": null,
       "dividend_signal": "C$3.89/sh (~31st consec. raise)",
@@ -282,6 +295,7 @@
       "cost_curve_quartile": 1,
       "insider_score_0_10": 8,
       "halvren_verdict": "green",
+      "halvren_read": 86,
       "fcf_per_share_series": {
         "currency": "CAD",
         "series": [
@@ -314,6 +328,7 @@
       "market_cap_usd_b": 2.0,
       "fy25_revenue": "US$1,257M (+124% YoY)",
       "fy25_fcf": null,
+      "fy25_earnings": null,
       "fy25_period": "FY 2025",
       "net_debt_signal": null,
       "dividend_signal": null,
@@ -323,6 +338,7 @@
       "cost_curve_quartile": 3,
       "insider_score_0_10": 4,
       "halvren_verdict": "red",
+      "halvren_read": 36,
       "fcf_per_share_series": {
         "currency": "USD",
         "series": [
@@ -355,6 +371,7 @@
       "market_cap_usd_b": 30.0,
       "fy25_revenue": null,
       "fy25_fcf": null,
+      "fy25_earnings": "~99% regulated",
       "fy25_period": "FY 2025",
       "net_debt_signal": null,
       "dividend_signal": "4–6% per year",
@@ -368,6 +385,7 @@
       "cost_curve_quartile": 1,
       "insider_score_0_10": 8,
       "halvren_verdict": "green",
+      "halvren_read": 96,
       "fcf_per_share_series": {
         "currency": "CAD",
         "series": [
@@ -400,6 +418,7 @@
       "market_cap_usd_b": 60.0,
       "fy25_revenue": null,
       "fy25_fcf": null,
+      "fy25_earnings": null,
       "fy25_period": "FY 2025",
       "net_debt_signal": "Conservative; investment-grade",
       "dividend_signal": null,
@@ -409,6 +428,7 @@
       "cost_curve_quartile": 1,
       "insider_score_0_10": 6,
       "halvren_verdict": "amber",
+      "halvren_read": 71,
       "fcf_per_share_series": {
         "currency": "USD",
         "series": [
@@ -441,6 +461,7 @@
       "market_cap_usd_b": 60.0,
       "fy25_revenue": null,
       "fy25_fcf": null,
+      "fy25_earnings": null,
       "fy25_period": "FY 2025",
       "net_debt_signal": "~4.0× target",
       "dividend_signal": "Quarterly; per-share growth tied to capital plan",
@@ -452,6 +473,7 @@
       "cost_curve_quartile": 1,
       "insider_score_0_10": 8,
       "halvren_verdict": "green",
+      "halvren_read": 91,
       "fcf_per_share_series": {
         "currency": "USD",
         "series": [
@@ -484,6 +506,7 @@
       "market_cap_usd_b": 5.0,
       "fy25_revenue": null,
       "fy25_fcf": null,
+      "fy25_earnings": null,
       "fy25_period": "FY 2025",
       "net_debt_signal": "Material reduction 2020–2024",
       "dividend_signal": "Initiated 2023",
@@ -493,6 +516,7 @@
       "cost_curve_quartile": 1,
       "insider_score_0_10": 5,
       "halvren_verdict": "amber",
+      "halvren_read": 68,
       "fcf_per_share_series": {
         "currency": "CAD",
         "series": [
@@ -524,7 +548,8 @@
       "research_url": "/research/nutrien-ntr",
       "market_cap_usd_b": 25.0,
       "fy25_revenue": "US$26.9B",
-      "fy25_fcf": null,
+      "fy25_fcf": "US$2.30B",
+      "fy25_earnings": "US$2.30B",
       "fy25_period": "FY 2025",
       "net_debt_signal": null,
       "dividend_signal": "US$0.55/sh (US$2.20 annualized)",
@@ -536,6 +561,7 @@
       "cost_curve_quartile": 1,
       "insider_score_0_10": 8,
       "halvren_verdict": "green",
+      "halvren_read": 91,
       "fcf_per_share_series": {
         "currency": "USD",
         "series": [
@@ -568,6 +594,7 @@
       "market_cap_usd_b": 50.0,
       "fy25_revenue": null,
       "fy25_fcf": null,
+      "fy25_earnings": null,
       "fy25_period": "FY 2025",
       "net_debt_signal": "Toward US$15B near-term target",
       "dividend_signal": null,
@@ -577,6 +604,7 @@
       "cost_curve_quartile": 2,
       "insider_score_0_10": 5,
       "halvren_verdict": "amber",
+      "halvren_read": 70,
       "fcf_per_share_series": {
         "currency": "USD",
         "series": [
@@ -609,6 +637,7 @@
       "market_cap_usd_b": 30.0,
       "fy25_revenue": null,
       "fy25_fcf": null,
+      "fy25_earnings": null,
       "fy25_period": "FY 2025",
       "net_debt_signal": "~3.5× target",
       "dividend_signal": "Monthly; per-share growth on capital program build-out",
@@ -621,6 +650,7 @@
       "cost_curve_quartile": 1,
       "insider_score_0_10": 8,
       "halvren_verdict": "green",
+      "halvren_read": 91,
       "fcf_per_share_series": {
         "currency": "CAD",
         "series": [
@@ -652,7 +682,8 @@
       "research_url": "/research/suncor-su",
       "market_cap_usd_b": 70.0,
       "fy25_revenue": null,
-      "fy25_fcf": null,
+      "fy25_fcf": "— (approx.)",
+      "fy25_earnings": "— (approx.)",
       "fy25_period": "FY 2025",
       "net_debt_signal": "C$8B (announced)",
       "dividend_signal": null,
@@ -662,6 +693,7 @@
       "cost_curve_quartile": 2,
       "insider_score_0_10": 6,
       "halvren_verdict": "amber",
+      "halvren_read": 76,
       "fcf_per_share_series": {
         "currency": "CAD",
         "series": [
@@ -694,6 +726,7 @@
       "market_cap_usd_b": 60.0,
       "fy25_revenue": null,
       "fy25_fcf": null,
+      "fy25_earnings": null,
       "fy25_period": "FY 2025",
       "net_debt_signal": "~4.8× target band",
       "dividend_signal": "Targeted 3–5% per year",
@@ -706,6 +739,7 @@
       "cost_curve_quartile": 1,
       "insider_score_0_10": 7,
       "halvren_verdict": "amber",
+      "halvren_read": 82,
       "fcf_per_share_series": {
         "currency": "CAD",
         "series": [
@@ -738,6 +772,7 @@
       "market_cap_usd_b": 20.0,
       "fy25_revenue": null,
       "fy25_fcf": null,
+      "fy25_earnings": null,
       "fy25_period": "FY 2025",
       "net_debt_signal": "Conservative post-divestiture",
       "dividend_signal": null,
@@ -747,6 +782,7 @@
       "cost_curve_quartile": 2,
       "insider_score_0_10": 7,
       "halvren_verdict": "amber",
+      "halvren_read": 70,
       "fcf_per_share_series": {
         "currency": "CAD",
         "series": [
@@ -779,6 +815,7 @@
       "market_cap_usd_b": 25.0,
       "fy25_revenue": null,
       "fy25_fcf": null,
+      "fy25_earnings": null,
       "fy25_period": "FY 2025",
       "net_debt_signal": "Effectively zero to negative",
       "dividend_signal": "C$1.50–2.50/sh range (approx.)",
@@ -788,6 +825,7 @@
       "cost_curve_quartile": 1,
       "insider_score_0_10": 8,
       "halvren_verdict": "green",
+      "halvren_read": 96,
       "fcf_per_share_series": {
         "currency": "CAD",
         "series": [
@@ -820,6 +858,7 @@
       "market_cap_usd_b": 6.0,
       "fy25_revenue": null,
       "fy25_fcf": null,
+      "fy25_earnings": null,
       "fy25_period": "FY 2025",
       "net_debt_signal": "Conservative; net cash periodic",
       "dividend_signal": null,
@@ -831,6 +870,7 @@
       "cost_curve_quartile": 2,
       "insider_score_0_10": 9,
       "halvren_verdict": "green",
+      "halvren_read": 88,
       "fcf_per_share_series": {
         "currency": "CAD",
         "series": [
