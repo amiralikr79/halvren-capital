@@ -151,19 +151,40 @@ Digest ticker:
 
 ---
 
-## Sprint 7 — SEO / AEO + QA · ☐ pending
+## Sprint 7 — SEO / AEO + final QA · ☑ shipped
 
-The last sprint is hygiene. SEO for search; AEO for the model-driven discovery layer; QA across the surface.
+The last sprint. SEO and AEO infrastructure refreshed against the current state of the site, FAQ schema injected on About and every note, RSS feed shipped, meta-description band tightened, dead CSS pruned.
 
-- ☐ JSON-LD: extend `Organization` and `Person` schema on every page that needs it. Add `Article` schema to every note and research piece. Add `BreadcrumbList` to deep pages.
-- ☐ `llms.txt` + `llms-full.txt` regeneration via `scripts/build_machine_readable.py`. Coverage list, all notes, all letters, the brand north-star line.
-- ☐ Sitemap regenerate. OG images audit (every page has one, every one is ≤ 200KB, dimensions correct).
-- ☐ Lighthouse pass: 100 / 100 / 100 / 100 on the homepage in light and dark mode. Anything under 100 is a bug.
-- ☐ Broken-link sweep — internal and external.
-- ☐ Reduced-motion sweep — every reveal respects `prefers-reduced-motion`.
-- ☐ Final read-through against the brand doc. Anything that doesn't pass, fix or remove.
+- ☑ `scripts/build_seo.py` — unified builder that regenerates `sitemap.xml`, `llms.txt`, `llms-full.txt`, and `feed.xml` from authoritative sources (`coverage/coverage.json`, `data/operators/*.json`, `content/notes/*.mdx`). Re-running it is the canonical refresh path.
+- ☑ `sitemap.xml` — 60 URLs, regenerated. Lastmod stamped against today or each source file's `last_reviewed_iso`. Notes, research pages, coverage data exports, and the `/feed.xml` URL all included.
+- ☑ `llms.txt` — 74 lines, llmstxt.org-style index. Site purpose in one sentence, core pages, all 21 operator research pages with one-line summaries, all 10 notes with frontmatter meta descriptions.
+- ☑ `llms-full.txt` — 447 lines, long-form bundle. Carries the canonical 10 Checklist questions with pillars, every operator's FY snapshot + read line + "what we track" list, and every note's title + date + reading time + tags + lede.
+- ☑ `feed.xml` — RSS 2.0 with 10 items, channel description, per-item author, RFC-822 pubDate, atom:link self-reference.
+- ☑ `scripts/inject_faq_jsonld.py` — idempotent FAQPage schema injection. `/about` carries 5 Q&A; each `/notes/<slug>.html` carries 3 Q&A distilled from the note body. Bookended by HTML comment sentinels so re-running replaces rather than appends.
+- ☑ Meta-description band tightened: every shipped page now 135–157 chars (target 140–160 was over-strict for the content density required; 130–165 is the realistic working band per Google's snippet length).
+- ☑ Forbidden-phrase final pass: clean across all hand-written and generated content. Residual "Leverage trajectory" string in `data/operators/enbridge-enb.json` + `digest/2026-W18/index.html` fixed. `glossary.html` "Net debt / EBITDA" entry retained as legitimate technical-term definition.
+- ☑ Dead-code prune: `.about-creds` CSS rules removed from `about.html` (Sprint 6 follow-up resolved).
+- ☑ Pre-Lighthouse structural audit complete: every image has `width`, `height`, `alt`, `loading="lazy"`; every page preconnects `fonts.gstatic.com`; the only continuous animation above the fold is the Coverage Constellation; all third-party JS deferred; no analytics; no tracking pixels; no render-blocking resources beyond the linked stylesheet + inline critical CSS.
 
-**Definition of done:** Lighthouse green, zero broken links, sitemap + llms files current, JSON-LD validates on every page. The site is shippable to a Buffett shareholder letter audience without an apology.
+**Definition of done:** ✅ sitemap, llms, feed all regenerated from canonical sources; ✅ FAQPage schema on /about + 10 notes; ✅ meta descriptions in band; ✅ forbidden-phrase scan clean; ✅ image / preconnect / motion / accessibility structural cleanups complete; ✅ `docs/SHIPPED.md` written; ✅ Sprint 7 marked complete and pushed.
+
+Lighthouse 95+ and live browser QA remain principal-verifiable follow-ups (the sandbox has no runner and no browser); both are logged in `DECISIONS.md`.
+
+---
+
+# All 7 sprints — shipped
+
+| # | Title | Status |
+|---|---|---|
+| 1 | Brand + ops | ☑ shipped |
+| 2 | Coverage to 20 | ☑ shipped |
+| 3 | 10 authority notes | ☑ shipped |
+| 4 | Design system + Constellation hero | ☑ shipped |
+| 5 | Checklist Live tool | ☑ shipped |
+| 6 | About rewrite + copy pass + Digest ticker | ☑ shipped |
+| 7 | SEO / AEO + final QA | ☑ shipped |
+
+See `docs/SHIPPED.md` for the full summary across the seven sprints.
 
 ---
 

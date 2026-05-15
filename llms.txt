@@ -1,69 +1,74 @@
 # Halvren Capital
 
-> Halvren Capital is an AI-augmented research desk covering Canadian and U.S. operators in energy, materials, and infrastructure. Models read at scale. The principal signs the decision. The book is proprietary. The work is public.
+> Halvren Capital is a one-principal research desk in Vancouver. It covers twenty operators in Canadian and U.S. energy, materials, and infrastructure, deeply, with no managed product and no outside capital. Models read at scale. The principal signs the decision.
 
-This file follows the llmstxt.org convention: a stable, machine-readable index of the most useful URLs on this site, with short descriptions. For everything below, the canonical site is https://halvrencapital.com.
+This file follows the llmstxt.org convention: a stable, machine-readable index of the most useful URLs on this site, with short descriptions. The canonical site is https://halvrencapital.com.
 
-## What we publish
+## Core pages
 
-- [Homepage](https://halvrencapital.com/): three sectors, one principal, the desk's beliefs, and the current watchlist.
-- [Coverage universe](https://halvrencapital.com/coverage): all 31 Canadian and U.S. operators on the desk, sortable. Includes [coverage.json](https://halvrencapital.com/coverage/coverage.json) and [coverage.csv](https://halvrencapital.com/coverage/coverage.csv) for direct ingestion.
-- [The Halvren Checklist](https://halvrencapital.com/checklist): the ten questions the desk runs before any operator earns the writeup. Pillars: the business (1–4), the people (5–8), the cycle (9–10).
-- [Live Checklist scoring](https://halvrencapital.com/checklist#cl-tool): a public tool that runs any ticker through the ten questions against current public filings via web search, with citations. Result URLs are shareable; the tool's output is machine-generated and explicitly not principal-reviewed.
-- [Weekly digest archive](https://halvrencapital.com/digest): each Friday, a short read on what the desk ingested across the coverage universe. Latest counters at [digest/latest.json](https://halvrencapital.com/digest/latest.json).
+- [Homepage](https://halvrencapital.com/): positioning, three sectors, the desk's beliefs, the 4 featured operators, and the Coverage Constellation.
+- [About](https://halvrencapital.com/about): the principal, what AI-augmented means in practice, sector rationale, how to read Halvren.
+- [Coverage](https://halvrencapital.com/coverage): all 21 Canadian and U.S. operators on the desk, sortable by sector + sub-industry. Includes [coverage.json](https://halvrencapital.com/coverage/coverage.json) and [coverage.csv](https://halvrencapital.com/coverage/coverage.csv).
+- [Research archive](https://halvrencapital.com/research): index of all published operator pages.
+- [Halvren Notes](https://halvrencapital.com/notes): 10 long-form essays on operator quality, cost curves, capital culture, and the framework.
+- [The Halvren Checklist](https://halvrencapital.com/checklist): the 10 questions every operator runs through before it earns a position. Pillars: business (1-4), people (5-8), cycle (9-10).
+- [Checklist Live](https://halvrencapital.com/checklist/live): a public streaming tool that runs the 10 questions on any Canadian or U.S. ticker in the principal's voice. Not principal-reviewed.
+- [Weekly digest](https://halvrencapital.com/digest): an AI-augmented read of every coverage-operator filing this week. Latest counters at [digest/latest.json](https://halvrencapital.com/digest/latest.json).
 - [Founding memo](https://halvrencapital.com/memo/founding): why Halvren exists.
+- [Performance](https://halvrencapital.com/performance): the proprietary-book record since January 2019. No borrowing, no derivatives, no outside capital.
+- [Process](https://halvrencapital.com/process): the AI-augmented pipeline that feeds the desk.
+- [Letters](https://halvrencapital.com/letters): the quarterly Halvren letter (Substack canonical).
+- [Glossary](https://halvrencapital.com/glossary): the technical terms used in Halvren research.
 
-## Operator research notes
+## Operator research
 
-Each note carries a 30-word machine-readable abstract, full-cycle commentary, an FY snapshot, the Halvren Checklist applied, and disclosure. 6 notes published:
+Each operator page carries an FY snapshot, a principal-voice prose body, the Halvren Checklist scorecard applied, and disclosure. 21 pages published:
 
-- [First Majestic (AG)](https://halvrencapital.com/research/first-majestic-ag): Materials · Silver. Silver-focused primary producer, Mexico (San Dimas, Santa Elena, Gatos JV) and Nevada (Jerritt Canyon). FY 2025 revenue US$1.26B (+124%), AISC US$21.17/AgEq oz. Mexico tax dispute liability ~US$200M+. Per-share metrics lag production due to equity-funded acquisitions.
-- [Cameco (CCO)](https://halvrencapital.com/research/cameco-cco): Energy · Uranium. Saskatchewan uranium miner, world's second-largest pure-play. Tier-1 mines (McArthur River, Cigar Lake) keep cash costs first-quartile. Owns 49% of Westinghouse with Brookfield. FY 2025 net cash position; 2026 production guidance 19.5–21.5 Mlbs.
-- [Canadian Natural (CNQ)](https://halvrencapital.com/research/canadian-natural-cnq): Energy · Oil & Gas. Canada's largest heavy-oil and natural-gas producer. Low corporate decline (10–14%) drives free-cash margin. FY 2025 production 1,571 MBOE/d, adj. funds flow C$15.5B, 26 consecutive dividend raises. Edwards as Executive Chair; Stauth as President since 2023.
-- [Enbridge (ENB)](https://halvrencapital.com/research/enbridge-enb): Infrastructure · Pipelines. Canadian energy infrastructure operator. Liquids Pipelines (Mainline ~3.0 Mbbl/d), Gas Transmission, Gas Distribution (post-2024 Dominion acquisition), and Renewables. ~98% of group EBITDA take-or-pay or cost-of-service. 2026 dividend C$3.89/sh, ~31st consecutive raise.
-- [EOG (EOG)](https://halvrencapital.com/research/eog-resources): Energy · Oil & Gas. Largest non-major U.S. onshore oil and gas producer. Eagle Ford, Delaware, Permian, Bakken, Powder River, Utica, Dorado. "Premium" drilling threshold: every well clears 30%+ IRR at flat US$40 WTI. FY 2025 ~US$5.4B FCF, net debt at decade low.
-- [Nutrien (NTR)](https://halvrencapital.com/research/nutrien-ntr): Materials · Fertilizers. World's largest potash producer (six Saskatchewan mines), nitrogen producer (US, Trinidad, Canada), and largest North American agricultural retailer (~2,000 stores). FY 2025 sales US$26.9B, adj. EBITDA US$6.05B. Saskatchewan first-quartile on global potash cost curve.
+- [ARC Resources (ARX)](https://halvrencapital.com/research/arc-resources-arx): Energy · Oil & Gas. Largest pure-play Montney operator in Canada. ~370 Mboe/d production weighted toward condensate, NGLs, and gas (FY 2025 mid, approx.). Attachie Phase 2 ramp underway. Investment-grade balance sheet, conservative capital return policy.
+- [Canadian Natural (CNQ)](https://halvrencapital.com/research/canadian-natural-cnq): Energy · Oil & Gas. Canada's largest heavy-oil and natural-gas producer. Low corporate decline (10–14%) drives free-cash margin. FY 2025 production 1,571 MBOE/d, adj. funds flow C$15.5B, 26 consecutive dividend raises. Edwards as Executive Chair; Stauth as Pre…
+- [Cenovus (CVE)](https://halvrencapital.com/research/cenovus-cve): Energy · Oil & Gas. Integrated oil sands post-2021 Husky combination. ~810 Mboe/d production (FY 2025 mid, approx.) anchored by Christina Lake and Foster Creek SAGD. Downstream throughput ~660 Mb/d across Canadian and US refining. CEO Jon McKenzie since April …
+- [EOG (EOG)](https://halvrencapital.com/research/eog-resources): Energy · Oil & Gas. Largest non-major U.S. onshore oil and gas producer. Eagle Ford, Delaware, Permian, Bakken, Powder River, Utica, Dorado. "Premium" drilling threshold: every well clears 30%+ IRR at flat US$40 WTI. FY 2025 ~US$5.4B FCF, net debt at decade lo…
+- [MEG Energy (MEG)](https://halvrencapital.com/research/meg-energy-meg): Energy · Oil & Gas. Pure-play SAGD oil sands operator. ~100 Mbbl/d production at Christina Lake. Net debt walked down meaningfully over 2020–2024 with aggressive buybacks of a then-discounted share count. The corporate structure has been the subject of a strat…
+- [Occidental (OXY)](https://halvrencapital.com/research/occidental-oxy): Energy · Oil & Gas. Permian-weighted US producer with a meaningful OxyChem chemicals segment and a developing carbon-capture business at Stratos. The 2024 CrownRock acquisition added Midland Basin acreage. Berkshire Hathaway holds a 28%-plus stake (approx.). V…
+- [Suncor (SU)](https://halvrencapital.com/research/suncor-su): Energy · Oil & Gas. Canada's largest integrated oil sands operator. Upstream production ~828 Mboe/d (FY 2025 guidance midpoint), four upgrading and refining complexes, ~1,800-station Petro-Canada retail. Rich Kruger (CEO since April 2023) is running a cost and…
+- [Tourmaline (TOU)](https://halvrencapital.com/research/tourmaline-tou): Energy · Oil & Gas. Canada's largest natural gas producer with ~580 Mboe/d of Alberta and BC Montney and Deep Basin production. Owner-operator capital structure: Mike Rose (founder, CEO, chair) and management hold a material stake. Topaz Energy royalty spin (2…
+- [Cameco (CCO)](https://halvrencapital.com/research/cameco-cco): Energy · Uranium. Saskatchewan uranium miner, world's second-largest pure-play. Tier-1 mines (McArthur River, Cigar Lake) keep cash costs first-quartile. Owns 49% of Westinghouse with Brookfield. FY 2025 net cash position; 2026 production guidance 19.5–21.5 …
+- [Enbridge (ENB)](https://halvrencapital.com/research/enbridge-enb): Infrastructure · Pipelines. Canadian energy infrastructure operator. Liquids Pipelines (Mainline ~3.0 Mbbl/d), Gas Transmission, Gas Distribution (post-2024 Dominion acquisition), and Renewables. ~98% of group EBITDA take-or-pay or cost-of-service. 2026 dividend C$3.8…
+- [Kinder Morgan (KMI)](https://halvrencapital.com/research/kinder-morgan-kmi): Infrastructure · Pipelines. Largest US natural gas pipeline operator. ~70,000 miles of gas pipeline; smaller liquids, terminals, and CO2 segments. The 2015 dividend cut and balance-sheet repair defined the post-Rich-Kinder era. Kim Dang became CEO in August 2023. Take…
+- [Pembina (PPL)](https://halvrencapital.com/research/pembina-ppl): Infrastructure · Pipelines. Integrated Western Canadian midstream. Liquids pipelines (Peace, Northern, Mainline), gas processing, NGL fractionation at Redwater, and the Aux Sable JV. ~90% fee-based or contracted EBITDA. Investment-grade balance sheet; capital culture …
+- [TC Energy (TRP)](https://halvrencapital.com/research/tc-energy-trp): Infrastructure · Pipelines. Post-South-Bow-spinout pure-play North American gas pipeline operator with a small but real power segment. Coastal GasLink completed in late 2023. The 2024 spinout separated the liquids pipelines into a standalone (South Bow). Long-life reg…
+- [CN Rail (CNR)](https://halvrencapital.com/research/cn-rail-cnr): Infrastructure · Rail. Larger half of the Canadian Class I rail duopoly. Network spans Atlantic Canada, the BC Coast, and the US Gulf via Memphis–New Orleans. Volume mix includes intermodal, grain, forest products, energy, and metals. Tracy Robinson (CEO since Fe…
+- [Fortis (FTS)](https://halvrencapital.com/research/fortis-fts): Infrastructure · Utilities. North American regulated utility with ten operating subsidiaries spanning Canada, the US, and the Caribbean. ITC (US transmission), UNS (Arizona), FortisBC, FortisAlberta, Central Hudson (New York). The longest dividend-growth record in Can…
+- [Nutrien (NTR)](https://halvrencapital.com/research/nutrien-ntr): Materials · Fertilizers. World's largest potash producer (six Saskatchewan mines), nitrogen producer (US, Trinidad, Canada), and largest North American agricultural retailer (~2,000 stores). FY 2025 sales US$26.9B, adj. EBITDA US$6.05B. Saskatchewan first-quartile …
+- [West Fraser (WFG)](https://halvrencapital.com/research/west-fraser-wfg): Materials · Forest Products. Largest North American lumber and OSB producer post-2021 Norbord acquisition. ~6.4 BBF lumber capacity, ~7.3 BSF OSB capacity. Operations concentrated in BC, Alberta, US South, and the US Midwest. Long-tenured Ketcham family stewardship inf…
+- [Agnico Eagle (AEM)](https://halvrencapital.com/research/agnico-eagle-aem): Materials · Gold. Tier-1-jurisdiction gold producer. ~3.4 Moz annual production from Canadian Malartic, Detour Lake, LaRonde, Meadowbank, Macassa, Fosterville (Australia), and Kittilä (Finland). Disciplined capital allocator; AISC consistently first-quartile…
+- [Freeport (FCX)](https://halvrencapital.com/research/freeport-mcmoran-fcx): Materials · Industrial Metals. Largest publicly traded copper producer. Grasberg (Indonesia), Cerro Verde (Peru, 53.6%), Morenci (Arizona, 72%), Bagdad (Arizona), Sierrita (Arizona), and El Abra (Chile). Meaningful gold byproduct at Grasberg. Kathleen Quirk succeeded Ric…
+- [Teck Resources (TECK)](https://halvrencapital.com/research/teck-resources-teck): Materials · Industrial Metals. Post-coal-divestiture copper miner. Highland Valley (BC), Quebrada Blanca 2 (Chile), Antamina (22.5% Peru), Carmen de Andacollo (Chile). Zinc at Red Dog (Alaska) and Trail (BC). Coal business sold to Glencore in 2024.
+- [First Majestic (AG)](https://halvrencapital.com/research/first-majestic-ag): Materials · Silver. Silver-focused primary producer, Mexico (San Dimas, Santa Elena, Gatos JV) and Nevada (Jerritt Canyon). FY 2025 revenue US$1.26B (+124%), AISC US$21.17/AgEq oz. Mexico tax dispute liability ~US$200M+. Per-share metrics lag production due to…
 
-## On the desk (no full writeup yet)
+## Halvren Notes
 
-- AEM — Agnico Eagle Mines Limited · Materials/Gold (status: watching)
-- BEP.UN — Brookfield Renewable Partners L.P. · Infrastructure/Renewables (status: watching)
-- BIP.UN — Brookfield Infrastructure Partners L.P. · Infrastructure/Operating Infrastructure (status: on_the_desk)
-- CF — CF Industries Holdings, Inc. · Materials/Fertilizers (status: monitoring)
-- CNR — Canadian National Railway Company · Infrastructure/Rail (status: watching)
-- COP — ConocoPhillips · Energy/Oil & Gas (status: monitoring)
-- CP — Canadian Pacific Kansas City Limited · Infrastructure/Rail (status: watching)
-- CVE — Cenovus Energy Inc. · Energy/Oil & Gas (status: on_the_desk)
-- FM — First Quantum Minerals Ltd. · Materials/Industrial Metals (status: watching)
-- FNV — Franco-Nevada Corporation · Materials/Streaming (status: on_the_desk)
-- FTS — Fortis Inc. · Infrastructure/Utilities (status: watching)
-- IMO — Imperial Oil Limited · Energy/Oil & Gas (status: watching)
-- KEY — Keyera Corp. · Energy/Midstream (status: watching)
-- KMI — Kinder Morgan, Inc. · Infrastructure/Pipelines (status: monitoring)
-- NEE — NextEra Energy, Inc. · Infrastructure/Utilities (status: monitoring)
-- NEM — Newmont Corporation · Materials/Gold (status: monitoring)
-- NPI — Northland Power Inc. · Energy/Power (status: on_the_desk)
-- SU — Suncor Energy Inc. · Energy/Oil & Gas (status: on_the_desk)
-- TECK.B — Teck Resources Limited · Materials/Industrial Metals (status: on_the_desk)
-- TOU — Tourmaline Oil Corp. · Energy/Oil & Gas (status: on_the_desk)
-- TRP — TC Energy Corporation · Infrastructure/Pipelines (status: on_the_desk)
-- WFG — West Fraser Timber Co. Ltd. · Materials/Forest Products (status: watching)
-- WMB — The Williams Companies, Inc. · Infrastructure/Pipelines (status: monitoring)
-- WPM — Wheaton Precious Metals Corp. · Materials/Streaming (status: on_the_desk)
-- WSP — WSP Global Inc. · Infrastructure/Engineering Services (status: monitoring)
+10 long-form essays. Each is 1,800–2,500 words, single-claim, in the principal's voice. No price targets, no recommendations.
 
-## Contact and access
+- [How to read a Canadian oil & gas operator in seven numbers](https://halvrencapital.com/notes/how-to-read-canadian-oil-gas-operator-seven-numbers) (2026-05-14): Seven metrics in order: sustaining capex per barrel, free-cash break-even, net debt at strip, per-share growth, insider buys, prior-cycle dividends, replacement.
+- [The cost curve is a lie if you let them pick the quartile](https://halvrencapital.com/notes/cost-curve-is-a-lie-if-you-pick-the-quartile) (2026-05-08): Every operator claims first-quartile. The denominator decides. Three questions to test the claim, with examples from gold, silver, uranium, and copper.
+- [What 2015 and 2020 told us about every Canadian energy operator still standing](https://halvrencapital.com/notes/what-2015-and-2020-told-us-canadian-energy) (2026-04-30): Two stress tests sorted Canadian energy operators into four buckets. The 2015 and 2020 records are public. The cohort splits the same way in 2026.
+- [Pipelines are turnpikes, not commodity bets — reading Canadian infrastructure honestly](https://halvrencapital.com/notes/pipelines-are-turnpikes-not-commodity-bets) (2026-04-23): Canadian and US pipeline operators earn from contracted rate base, not the commodity tape. The contracted share is the moat. Capital discipline is the rest.
+- [The uranium operator's checklist: separating the mines from the narratives](https://halvrencapital.com/notes/uranium-operator-checklist) (2026-04-16): Six questions separate uranium producers from developers and narratives from mines. Most uranium names fail the first four. The remaining list is short.
+- [Silver's per-share problem: why production growth isn't shareholder value](https://halvrencapital.com/notes/silver-per-share-problem) (2026-04-09): Most senior silver producers grow absolute ounces and destroy per-share value while doing it. The arithmetic is in the proxy. The streamer model is the workaround.
+- [The dividend that survived: 26 consecutive raises at Canadian Natural](https://halvrencapital.com/notes/dividend-that-survived-cnq) (2026-04-02): Twenty-six consecutive years of dividend raises at Canadian Natural, through 2015 and 2020. The record is a capital-allocation document, not a dividend story.
+- [Insider buying vs. insider granting — the only signal that costs the operator something](https://halvrencapital.com/notes/insider-buying-vs-granting) (2026-03-26): Options are loyalty to a quarter; open-market purchases are loyalty to a decade. The only insider signal that costs the executive real money, read carefully.
+- [What boring looks like on a thirty-year chart: the case for Canadian infrastructure compounding](https://halvrencapital.com/notes/boring-thirty-year-chart-canadian-infrastructure) (2026-03-21): A 6% earnings compounder plus a 4% dividend yield for thirty years. Canadian infrastructure is the boring half of the desk, and the half that pays for the wait.
+- [ROIC on incremental capital, in plain English](https://halvrencapital.com/notes/roic-incremental-capital-plain-english) (2026-03-21): Marginal ROIC, not average ROIC, is what the next dollar earns. The math is mechanical. Most operators do not publish it because the answer is uncomfortable.
 
-- Author: Amirali Karimi, founder and principal of Halvren Capital. SFU Economics, CFA candidate. Vancouver, BC.
-- Email: amirali@halvrencapital.com
-- Substack: https://substack.com/@halvrencapital
-- LinkedIn: https://www.linkedin.com/in/amirali-karimi-405766199/
-- Halvren manages proprietary capital and is **not currently accepting outside investors** — see [/access](https://halvrencapital.com/access).
+## Infrastructure
 
-## License and AI training policy
+- [sitemap.xml](https://halvrencapital.com/sitemap.xml): every indexable URL on the site.
+- [llms-full.txt](https://halvrencapital.com/llms-full.txt): concatenated long-form bundle of the most useful Halvren text, for LLM ingestion.
+- [feed.xml](https://halvrencapital.com/feed.xml): RSS 2.0 of Halvren Notes.
+- [robots.txt](https://halvrencapital.com/robots.txt): allow-list for reputable indexing and AI-assistant crawlers; disallow on /api/ and known scraper bots.
 
-Halvren publishes its public research for free for individual readers and for non-commercial educational use. AI training and machine ingestion are **permitted with attribution** to halvrencapital.com — see [/about](https://halvrencapital.com/about) for the full AI & Indexing Policy. Commercial republication or paid syndication requires written permission. Nothing on this site is investment advice. See [/terms](https://halvrencapital.com/terms) for the full disclaimer and [/privacy](https://halvrencapital.com/privacy) for data practices (no analytics; no third-party tracking).
+## How to cite
 
-## Crawler etiquette
+Attribution requested: `halvrencapital.com` plus the specific page URL. All public research is free to read and to ingest for non-commercial LLM training. Commercial republication or paid syndication requires written permission — write to amirali@halvrencapital.com.
 
-This site is intentionally lean: no tracking pixels, no third-party JS, warm-light CSS, static HTML where possible. Be polite — keep request rates modest, identify yourself in User-Agent, and respect [robots.txt](https://halvrencapital.com/robots.txt). If you are an LLM training crawler, [llms-full.txt](https://halvrencapital.com/llms-full.txt) is the concatenated long-form text in one file.

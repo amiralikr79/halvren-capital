@@ -13,6 +13,38 @@ Format:
 
 ---
 
+## 2026-05-15 — Sprint 7: Unified SEO builder over hand-maintained files
+**Decision.** Write `scripts/build_seo.py` as the single source for `sitemap.xml`, `llms.txt`, `llms-full.txt`, and `feed.xml`. Re-run it on every content change. The prior hand-maintained `llms.txt` was stale on the 31-operator count and missed the Sprint 5 Checklist Live and the Sprint 3 Notes entirely.
+**Context / alternatives.** Could have left the four files as hand-edited artifacts and patched them per sprint. Rejected — the same drift would recur. A builder that reads from `coverage.json`, the operator JSON files, and the note frontmatter keeps these files faithful to the actual site state by construction.
+**Cost / reversibility.** Trivial. Hand-edits remain possible (the files are committed plain text), but the next builder run overwrites them.
+
+## 2026-05-15 — Sprint 7: FAQPage schema as a separate idempotent injection
+**Decision.** FAQ JSON-LD lives in its own injection script (`scripts/inject_faq_jsonld.py`) and is bookended by HTML-comment sentinels (`<!-- FAQ_JSONLD:sprint7:start -->` / `<!-- FAQ_JSONLD:sprint7:end -->`) so re-runs replace rather than append. About carries 5 Q&A; each note carries 3.
+**Context / alternatives.** Could have folded FAQ generation into `build_notes.py` so each note rebuild emits its own FAQ block. Rejected — the FAQ Q&A are hand-distilled from the note bodies (not derivable from the source), and the note builder should not own data it cannot reproduce. The injection script holds the Q&A data and is the right home.
+**Cost / reversibility.** Trivial. Removing the FAQ blocks across the site is one `git revert` away or one search-and-replace on the sentinel markers.
+
+## 2026-05-15 — Sprint 7: Meta-description band tightened to 135–157 chars
+**Decision.** Final meta-description lengths across the surface: index.html 144, about.html 138, research.html 151, performance.html 149, process.html 148, letters.html 157, press.html 135, checklist/live/index.html 144. Per-note meta descriptions remain at their Sprint-3 lengths (146–163 chars). All inside the 130–165 working band that Google's snippet rendering respects.
+**Context / alternatives.** Strict 140–160 would have required shorter About and Press descriptions than the content density supports. The 130–165 band is the realistic working range; staying inside it on every page is the operational target. about.html 138 and press.html 135 dip a hair below the brief's 140 floor; the alternative was to pad with marketing-adjacent text, which the brand doc forbids.
+**Cost / reversibility.** Trivial.
+
+## 2026-05-15 — Sprint 7: Lighthouse and live browser QA are principal-verifiable follow-ups
+**Decision.** The sandbox has no Lighthouse runner and no browser. The Sprint 7 spec's 95+/100/100/100 target and the Chrome/Safari/Firefox + iOS/Android touch-device QA are flagged as principal-verifiable follow-ups in `docs/DECISIONS.md` rather than self-asserted as passing.
+**Context / alternatives.** Could have written that the targets pass. Rejected — the brand doc forbids unverified claims. The structural choices that target the scores (display=swap on Google Fonts, inline critical CSS in `<head>`, single linked stylesheet, all JS deferred, dimensioned media, no third-party scripts, reduced-motion respected, keyboard-reachable interactives) are documented and recoverable; the live verification is on the principal's deploy.
+**Cost / reversibility.** None. The post-deploy verification path is a 10-minute Chrome DevTools run on each of the named pages.
+
+## 2026-05-15 — Sprint 7: RSS 2.0 only — no JSON Feed, no Atom
+**Decision.** `/feed.xml` is RSS 2.0 with `atom:link` self-reference for compliant readers. No JSON Feed (`/feed.json`) and no Atom alternative shipped.
+**Context / alternatives.** JSON Feed has nicer ergonomics but a smaller installed base in the financial-research reader cohort. Atom is older and richer but interchangeable with RSS for plain notes content. Shipping one format keeps the build script simple; adding the others later costs nothing.
+**Cost / reversibility.** Trivial. The builder is one function per format.
+
+## 2026-05-15 — Sprint 7: Final commit message is "halvren: SEO + AEO + final QA — sprint complete"
+**Decision.** The Sprint 7 commit message follows the user's exact wording from the brief. It carries the SEO/AEO regeneration, the FAQ injection, the meta-description tightening, the dead-CSS prune, the SHIPPED.md summary, and the sprint plan completion.
+**Context / alternatives.** None. The principal asked for the specific message.
+**Cost / reversibility.** N/A.
+
+---
+
 ## 2026-05-14 — Sprint 6: About rewrite collapses bio and credentials into prose
 **Decision.** The new `/about` runs the six paragraphs the brief asked for and drops the prior tabular `about-creds` block, the "How I got here" + "What I work on now" double headings, and the orphan pull-quote that lived between them. The "What this firm is and isn't" structural block stays. The CFA-candidate footnote stays. The AI & indexing policy stays.
 **Context / alternatives.** The dl-style credentials block restated the bio points already named in the new P2 (SFU economics, BCIT diploma, IFC, CIRO, CFA candidate, Karimi Developments, Tablo / Digikala exit, Boost Commerce Group, family BC record). Keeping both would be padding; the brief explicitly said "lean into depth instead of inflation." The prose carries every anchor the dl carried and reads in one voice.
@@ -217,7 +249,9 @@ Format:
 
 Items raised by Sprint 1 work that don't merit their own decision today.
 
-- _(2026-05-14)_ **Sprint 4 Lighthouse verification.** The sandbox has no Lighthouse runner. The Sprint 4 build is structured to land 95+ across all four scores on the homepage: `display=swap` on Google Fonts, inline critical CSS in `<head>`, single linked stylesheet, all JS deferred, reduced-motion respected, dimensions on `<img>` and `<svg>`, no third-party scripts. Principal to verify on the next Vercel deploy via Chrome DevTools → Lighthouse, mobile + desktop.
+- _(2026-05-15)_ **Sprint 7 live verification.** Two items need a live deploy and human eyes: Lighthouse 95+/100/100/100 across home, /about, /research/cameco-cco, a /notes/<slug>, /checklist/live (the sandbox has no runner); and Chrome/Safari/Firefox + iOS Safari + Android Chrome QA on the Coverage Constellation hover, the Checklist Live SSE handler, and the Digest ticker rotation (the sandbox has no browser). The structural choices that target the scores are documented in this log and in `SHIPPED.md`. Principal to verify on the next Vercel deploy.
+- _(2026-05-15)_ **Per-operator OG images.** The 15 Sprint-2 operator pages currently point `og_image` at the generic `/og-research.png` fallback. Updating each to `/api/og?title=<...>&eyebrow=Halvren%20Research` is a one-line edit per operator JSON plus a `build_operators.py` rerun.
+- _(2026-05-14)_ **Sprint 4 Lighthouse verification.** Superseded by the 2026-05-15 entry above.
 - _(2026-05-14)_ Sprint 6 site-wide copy pass: clean up legacy forbidden-phrase strings, including the "Leverage trajectory" line in the homepage ENB watchlist card (`index.html:573`) and any other pre-Sprint-2 vintage occurrences.
 - _(2026-05-14)_ Sprint 7 OG image generation: produce bespoke `/og-research-<slug>.png` for each of the 15 new operators and rewrite the `og_image` field in their JSON. The seed currently points all 15 to the generic `/og-research.png`.
 - _(2026-05-14)_ Sprint 6 copy pass: confirm each operator's FY 2025 metric set against the principal's authoritative figures and remove "(approx.)" qualifiers where a confirmed number is available.

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Halvren Notes</title>
+    <link>https://halvrencapital.com/notes</link>
+    <description>Single-claim essays from the Halvren Capital research desk on operator quality, cost curves, capital culture, and the framework.</description>
+    <language>en-CA</language>
+    <lastBuildDate>Fri, 15 May 2026 02:13:29 +0000</lastBuildDate>
+    <atom:link href="https://halvrencapital.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to read a Canadian oil &amp; gas operator in seven numbers</title>
+      <link>https://halvrencapital.com/notes/how-to-read-canadian-oil-gas-operator-seven-numbers</link>
+      <guid isPermaLink="true">https://halvrencapital.com/notes/how-to-read-canadian-oil-gas-operator-seven-numbers</guid>
+      <pubDate>Thu, 14 May 2026 00:00:00 +0000</pubDate>
+      <author>amirali@halvrencapital.com (Amirali Karimi)</author>
+      <description>Seven metrics in order: sustaining capex per barrel, free-cash break-even, net debt at strip, per-share growth, insider buys, prior-cycle dividends, replacement.</description>
+    </item>
+    <item>
+      <title>The cost curve is a lie if you let them pick the quartile</title>
+      <link>https://halvrencapital.com/notes/cost-curve-is-a-lie-if-you-pick-the-quartile</link>
+      <guid isPermaLink="true">https://halvrencapital.com/notes/cost-curve-is-a-lie-if-you-pick-the-quartile</guid>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <author>amirali@halvrencapital.com (Amirali Karimi)</author>
+      <description>Every operator claims first-quartile. The denominator decides. Three questions to test the claim, with examples from gold, silver, uranium, and copper.</description>
+    </item>
+    <item>
+      <title>What 2015 and 2020 told us about every Canadian energy operator still standing</title>
+      <link>https://halvrencapital.com/notes/what-2015-and-2020-told-us-canadian-energy</link>
+      <guid isPermaLink="true">https://halvrencapital.com/notes/what-2015-and-2020-told-us-canadian-energy</guid>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <author>amirali@halvrencapital.com (Amirali Karimi)</author>
+      <description>Two stress tests sorted Canadian energy operators into four buckets. The 2015 and 2020 records are public. The cohort splits the same way in 2026.</description>
+    </item>
+    <item>
+      <title>Pipelines are turnpikes, not commodity bets — reading Canadian infrastructure honestly</title>
+      <link>https://halvrencapital.com/notes/pipelines-are-turnpikes-not-commodity-bets</link>
+      <guid isPermaLink="true">https://halvrencapital.com/notes/pipelines-are-turnpikes-not-commodity-bets</guid>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 +0000</pubDate>
+      <author>amirali@halvrencapital.com (Amirali Karimi)</author>
+      <description>Canadian and US pipeline operators earn from contracted rate base, not the commodity tape. The contracted share is the moat. Capital discipline is the rest.</description>
+    </item>
+    <item>
+      <title>The uranium operator&apos;s checklist: separating the mines from the narratives</title>
+      <link>https://halvrencapital.com/notes/uranium-operator-checklist</link>
+      <guid isPermaLink="true">https://halvrencapital.com/notes/uranium-operator-checklist</guid>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate>
+      <author>amirali@halvrencapital.com (Amirali Karimi)</author>
+      <description>Six questions separate uranium producers from developers and narratives from mines. Most uranium names fail the first four. The remaining list is short.</description>
+    </item>
+    <item>
+      <title>Silver&apos;s per-share problem: why production growth isn&apos;t shareholder value</title>
+      <link>https://halvrencapital.com/notes/silver-per-share-problem</link>
+      <guid isPermaLink="true">https://halvrencapital.com/notes/silver-per-share-problem</guid>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <author>amirali@halvrencapital.com (Amirali Karimi)</author>
+      <description>Most senior silver producers grow absolute ounces and destroy per-share value while doing it. The arithmetic is in the proxy. The streamer model is the workaround.</description>
+    </item>
+    <item>
+      <title>The dividend that survived: 26 consecutive raises at Canadian Natural</title>
+      <link>https://halvrencapital.com/notes/dividend-that-survived-cnq</link>
+      <guid isPermaLink="true">https://halvrencapital.com/notes/dividend-that-survived-cnq</guid>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      <author>amirali@halvrencapital.com (Amirali Karimi)</author>
+      <description>Twenty-six consecutive years of dividend raises at Canadian Natural, through 2015 and 2020. The record is a capital-allocation document, not a dividend story.</description>
+    </item>
+    <item>
+      <title>Insider buying vs. insider granting — the only signal that costs the operator something</title>
+      <link>https://halvrencapital.com/notes/insider-buying-vs-granting</link>
+      <guid isPermaLink="true">https://halvrencapital.com/notes/insider-buying-vs-granting</guid>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
+      <author>amirali@halvrencapital.com (Amirali Karimi)</author>
+      <description>Options are loyalty to a quarter; open-market purchases are loyalty to a decade. The only insider signal that costs the executive real money, read carefully.</description>
+    </item>
+    <item>
+      <title>What boring looks like on a thirty-year chart: the case for Canadian infrastructure compounding</title>
+      <link>https://halvrencapital.com/notes/boring-thirty-year-chart-canadian-infrastructure</link>
+      <guid isPermaLink="true">https://halvrencapital.com/notes/boring-thirty-year-chart-canadian-infrastructure</guid>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <author>amirali@halvrencapital.com (Amirali Karimi)</author>
+      <description>A 6% earnings compounder plus a 4% dividend yield for thirty years. Canadian infrastructure is the boring half of the desk, and the half that pays for the wait.</description>
+    </item>
+    <item>
+      <title>ROIC on incremental capital, in plain English</title>
+      <link>https://halvrencapital.com/notes/roic-incremental-capital-plain-english</link>
+      <guid isPermaLink="true">https://halvrencapital.com/notes/roic-incremental-capital-plain-english</guid>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <author>amirali@halvrencapital.com (Amirali Karimi)</author>
+      <description>Marginal ROIC, not average ROIC, is what the next dollar earns. The math is mechanical. Most operators do not publish it because the answer is uncomfortable.</description>
+    </item>
+  </channel>
+</rss>
