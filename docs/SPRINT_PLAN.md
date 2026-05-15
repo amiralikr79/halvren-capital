@@ -127,16 +127,27 @@ Manual test pass: ticker regex accepts CCO, NVDA, SHOP, ATD, CIX.TO, ATD.TO. The
 
 ---
 
-## Sprint 6 — About rewrite + copy pass + Digest ticker · ☐ pending
+## Sprint 6 — About rewrite + copy pass + Digest ticker · ☑ shipped
 
-Rewrite the About page against the brand doc. Run a copy pass across every page. Add a quiet Digest ticker to the homepage.
+About rewrite, site-wide forbidden-phrase audit, and the homepage Digest ticker all shipped.
 
-- ☐ `/about` — rewrite top-to-bottom. One desk, one principal. No bio bullet list — prose only. Cut the Substack plug down to one line.
-- ☐ Copy pass across `index.html`, `process.html`, `letters.html`, `press.html`, `access.html`, `glossary.html`. Strip forbidden phrases. Tighten openings. End sections on a line that lands.
-- ☐ Add the **Digest ticker** to the homepage — a single-line, monospace strip below the hero showing the last digest's filing count, model flags, and any names promoted to principal review. Pulled from `digest/latest.json`. Updates on each digest build.
-- ☐ Run the grep guard from `OPERATING_RULES.md` on the whole site. Zero hits.
+About:
+- ☑ `/about` rewritten top-to-bottom to the 6-paragraph spec: positioning (1 sentence), principal bio with all named credibility anchors (Karimi Developments, Tablo→Digikala 2023, Boost Commerce Group, SFU economics in progress, BCIT marketing management diploma, IFC passed April 2026, CIRO in progress, CFA candidate, family thirty-plus years in BC), what "AI-augmented" means in practice with no mystique, why Canadian + U.S. operators in energy/materials/infrastructure, how to read Halvren, and a closing line in founding-memo voice.
+- ☑ Removed the tabular `about-creds` block, the dual-H2 "How I got here" + "What I work on now" pattern, and the orphan internal pull-quote. The "What this firm is and isn't" structural block, the CFA-candidate footnote, and the AI &amp; indexing policy stayed.
 
-**Definition of done:** zero forbidden phrases in the live HTML; the About page is one page of prose; the Digest ticker reads correctly with and without JS.
+Site-wide copy pass:
+- ☑ Hand-written pages forbidden-phrase grep is now zero across `index.html`, `about.html`, `press.html`, `performance.html`, `letters/q1-2026.html`, `letters/three-questions-2025.html`, and the rest of the static surface. `glossary.html` was kept untouched (it is defining the financial term "Net debt / EBITDA" with its leverage-ratio anchor — legitimate technical-finance reference, not marketing copy).
+- ☑ Specific cleanups: homepage ENB watchlist card "Leverage trajectory" → "Net debt trajectory"; `performance.html` disclosure rows ("No leverage / Leverage used / leverage strategy") → ("No borrowing / Borrowing used / borrowing strategy") across 7 sites; q1-2026 letter "AOSP acquisition synergies" → "AOSP acquisition unit-cost overlap"; three-questions-2025 essay "leverage clock" → "debt clock"; `press.html` stats row label "Leverage" → "Borrowing" and coverage-universe count corrected 31 → 21.
+- ☑ Re-read of the named audit targets (hero subheadline, "Three things we actually believe", operator cards, checklist intro, footer) — all already tight after the Sprints 1–4 calibration; no edits needed.
+
+Digest ticker:
+- ☑ `/data/digest-stream.json` carries 40 editorial phrases across the 21-published-operator universe and a handful of non-coverage names (EQT, EOG legacy), with `rotate_seconds: 7` and `fade_ms: 300` knobs in the same file.
+- ☑ Ticker mounted in the homepage Digest section between the live pill and the H2 heading. Single line, mono-family, muted, with a small gold "AT THE DESK" eyebrow and a hairline rule. Fades opacity 1 → 0 → 1 over 600ms total around each phrase swap.
+- ☑ Fisher-Yates shuffle on every page load so a returning reader sees a different first phrase.
+- ☑ Respects `prefers-reduced-motion: reduce` by quadrupling the rotation interval (and disabling the CSS opacity transition).
+- ☑ The existing four-column stat block (Filings ingested / Pages read / Model flags / Promoted to desk) stays where it was, below in the same digest card.
+
+**Definition of done:** ✅ zero forbidden phrases in hand-written HTML; ✅ About reads as six paragraphs of prose with every credibility anchor surfaced cleanly; ✅ Digest ticker fetches its JSON, rotates with a 300ms fade, and degrades to the seed phrase on fetch failure; ✅ Cards, hero, beliefs, checklist intro, and footer all pass a brand-doc re-read; ✅ All HTML/JSON syntax-checks pass.
 
 ---
 

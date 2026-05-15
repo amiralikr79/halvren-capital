@@ -289,6 +289,20 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
 .live-pill{display:inline-flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-8);padding:6px 14px;background:oklch(from var(--color-text) l c h/0.04);border:1px solid oklch(from var(--color-text) l c h/0.08);border-radius:99px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.04em;color:var(--color-text-muted);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
 .live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 oklch(0.7 0.18 145/0.55);animation:livePulse 2.4s var(--ease-soft) infinite;flex-shrink:0}
 @keyframes livePulse{0%{box-shadow:0 0 0 0 oklch(0.7 0.18 145/0.45)}70%{box-shadow:0 0 0 8px oklch(0.7 0.18 145/0)}100%{box-shadow:0 0 0 0 oklch(0.7 0.18 145/0)}}
+
+/* Digest ticker (Sprint 6) */
+.digest-ticker{display:flex;align-items:baseline;gap:var(--space-3);margin-bottom:var(--space-6);max-width:60ch;font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-text-muted);letter-spacing:0.04em;flex-wrap:nowrap;min-height:1.6em}
+.digest-ticker .dt-eyebrow{font-family:var(--font-body);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-gold);flex-shrink:0}
+.digest-ticker .dt-rule{display:inline-block;width:18px;height:1px;background:var(--color-divider);flex-shrink:0}
+.digest-ticker .dt-phrase{flex:1;color:var(--color-text);transition:opacity 300ms var(--ease-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.digest-ticker[data-fading="true"] .dt-phrase{opacity:0}
+@media(prefers-reduced-motion:reduce){
+  .digest-ticker .dt-phrase{transition:none}
+}
+@media(max-width:600px){
+  .digest-ticker{flex-wrap:wrap}
+  .digest-ticker .dt-phrase{white-space:normal;overflow:visible;text-overflow:clip;flex-basis:100%}
+}
 .live-pill .sep{color:var(--color-text-faint)}
 @media(max-width:520px){.live-pill>span:nth-child(n+5){display:none}.live-pill{font-size:10.5px;padding:6px 12px}}
 
@@ -682,7 +696,15 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
     <a href="/digest" style="display:block;padding:var(--space-10) var(--space-10);background:linear-gradient(135deg,oklch(from var(--color-gold) l c h/0.05) 0%,transparent 60%);border:1px solid oklch(from var(--color-gold) l c h/0.18);border-radius:var(--radius-lg);text-decoration:none;color:inherit;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.18);transition:border-color var(--transition),transform var(--transition);position:relative;overflow:hidden" onmouseover="this.style.borderColor='oklch(from var(--color-gold) l c h/0.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='oklch(from var(--color-gold) l c h/0.18)';this.style.transform='translateY(0)'">
       <div style="display:grid;grid-template-columns:1fr auto;gap:var(--space-8);align-items:center">
         <div>
-          <p style="display:inline-flex;align-items:center;gap:var(--space-3);padding:6px 14px;background:oklch(from var(--color-text) l c h/0.04);border:1px solid oklch(from var(--color-text) l c h/0.08);border-radius:99px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.04em;color:var(--color-text-muted);margin-bottom:var(--space-5)"><span style="width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 oklch(0.7 0.18 145/0.55);animation:livePulse 2.4s var(--ease-soft) infinite;flex-shrink:0"></span><span>The digest is live</span><span style="color:var(--color-text-faint)">·</span><span>Updated this week</span></p>
+          <p style="display:inline-flex;align-items:center;gap:var(--space-3);padding:6px 14px;background:oklch(from var(--color-text) l c h/0.04);border:1px solid oklch(from var(--color-text) l c h/0.08);border-radius:99px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.04em;color:var(--color-text-muted);margin-bottom:var(--space-4)"><span style="width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 oklch(0.7 0.18 145/0.55);animation:livePulse 2.4s var(--ease-soft) infinite;flex-shrink:0"></span><span>The digest is live</span><span style="color:var(--color-text-faint)">·</span><span>Updated this week</span></p>
+
+          <!-- Digest ticker (Sprint 6): rotating editorial phrases at the desk's current cadence. -->
+          <p class="digest-ticker" data-digest-ticker aria-live="polite" aria-atomic="true">
+            <span class="dt-eyebrow">At the desk</span>
+            <span class="dt-rule" aria-hidden="true"></span>
+            <span class="dt-phrase" data-digest-phrase>Reading the desk's queue…</span>
+          </p>
+
           <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);letter-spacing:-0.02em;line-height:1.1;color:var(--color-text);margin-bottom:var(--space-4);max-width:22ch">What the desk is reading <em style="font-style:italic;color:var(--color-gold)">this week.</em></h2>
           <p style="font-size:var(--text-base);color:var(--color-text-muted);max-width:56ch;line-height:1.7;margin-bottom:var(--space-5)">An AI-augmented read of every Canadian and U.S. operator earnings call on the Halvren coverage list. <strong style="color:var(--color-text);font-weight:500">142 filings, 4,820 pages, 7.4 hours of call audio</strong> processed this week — eleven model flags, eighty checklist questions evaluated, two names promoted to principal review.</p>
           <span style="display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--text-sm);color:var(--color-gold);font-family:var(--font-body);font-weight:500;letter-spacing:0.02em;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:1px">Read the digest <span aria-hidden="true">→</span></span>
@@ -745,7 +767,7 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
         </div>
         <p class="watch-sector">Infrastructure</p>
         <p class="watch-body">A pipeline is not an oil bet. Owning Enbridge is closer to owning a turnpike with a thirty-year toll structure. The corridor between the WCSB and the U.S. Midwest and Gulf Coast does not get rebuilt every cycle, and roughly 98% of group EBITDA is take-or-pay or cost-of-service. Thirty-one years of dividend raises is the receipt for that arithmetic. The honest question is whether management keeps treating it like the toll-road it is.</p>
-        <p class="watch-track"><span class="watch-track-label">What we track</span>Mainline apportionment · Dominion utility rate cases · U.S. gas backlog conversion · Leverage trajectory · Transition capital discipline</p>
+        <p class="watch-track"><span class="watch-track-label">What we track</span>Mainline apportionment · Dominion utility rate cases · U.S. gas backlog conversion · Net debt trajectory · Transition capital discipline</p>
         <p style="margin-top:var(--space-4)"><a href="/research/enbridge-enb" style="font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--color-gold);text-decoration:none;border-bottom:1px solid oklch(from var(--color-gold) l c h/0.3);padding-bottom:2px;font-family:var(--font-body);font-weight:500">Read full research &rarr;</a></p>
       </article>
     </div>
@@ -1275,6 +1297,44 @@ footer{padding:var(--space-16) var(--space-8) var(--space-12);border-top:1px sol
   });
 })();
 </script>
+
+<!-- Digest ticker rotation (Sprint 6). Fetches /data/digest-stream.json,
+     fades through phrases at the cadence declared in the file. Respects
+     prefers-reduced-motion by holding each phrase for 4× the normal interval. -->
+<script>
+(function(){
+  var el = document.querySelector('[data-digest-ticker]');
+  if (!el) return;
+  var phraseEl = el.querySelector('[data-digest-phrase]');
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  fetch('/data/digest-stream.json', { credentials: 'omit', cache: 'default' })
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){
+      if (!d || !Array.isArray(d.phrases) || !d.phrases.length) return;
+      // Fisher-Yates shuffle so a refresh shows a different cadence first
+      var phrases = d.phrases.slice();
+      for (var i = phrases.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = phrases[i]; phrases[i] = phrases[j]; phrases[j] = t;
+      }
+      var idx = 0;
+      var rotateMs = (d.rotate_seconds || 7) * 1000;
+      var fadeMs   = d.fade_ms || 300;
+      phraseEl.textContent = phrases[idx];
+      if (reduced) rotateMs = rotateMs * 4; // honor reduced-motion: slow it way down
+      setInterval(function(){
+        el.setAttribute('data-fading', 'true');
+        setTimeout(function(){
+          idx = (idx + 1) % phrases.length;
+          phraseEl.textContent = phrases[idx];
+          el.removeAttribute('data-fading');
+        }, fadeMs);
+      }, rotateMs);
+    })
+    .catch(function(){ /* silent: phrase stays at the seed text */ });
+})();
+</script>
+
 <script src="/checklist/live/live.js" defer></script>
 </body>
 </html>

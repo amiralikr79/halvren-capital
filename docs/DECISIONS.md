@@ -13,6 +13,33 @@ Format:
 
 ---
 
+## 2026-05-14 — Sprint 6: About rewrite collapses bio and credentials into prose
+**Decision.** The new `/about` runs the six paragraphs the brief asked for and drops the prior tabular `about-creds` block, the "How I got here" + "What I work on now" double headings, and the orphan pull-quote that lived between them. The "What this firm is and isn't" structural block stays. The CFA-candidate footnote stays. The AI & indexing policy stays.
+**Context / alternatives.** The dl-style credentials block restated the bio points already named in the new P2 (SFU economics, BCIT diploma, IFC, CIRO, CFA candidate, Karimi Developments, Tablo / Digikala exit, Boost Commerce Group, family BC record). Keeping both would be padding; the brief explicitly said "lean into depth instead of inflation." The prose carries every anchor the dl carried and reads in one voice.
+**Cost / reversibility.** Reversible — the prior markup is in git history. Removed CSS for `.about-creds` is left in `page.css` as unused style; harmless and a small follow-up to prune in Sprint 7.
+
+## 2026-05-14 — Sprint 6: Site-wide copy pass — discrete forbidden-phrase fixes, glossary kept as definitional
+**Decision.** Removed every legacy "leverage" occurrence in hand-written page copy across `index.html`, `press.html`, `performance.html`, `letters/q1-2026.html`, and `letters/three-questions-2025.html`. The homepage ENB watchlist card "Leverage trajectory" became "Net debt trajectory"; the `performance.html` disclosure rows ("No leverage / Leverage used / leverage strategy") became "No borrowing / Borrowing used / borrowing strategy"; the q1-2026 letter's "AOSP acquisition synergies" became "AOSP acquisition unit-cost overlap"; the three-questions essay's "leverage clock" became "debt clock"; the press.html stats label became "Borrowing." `glossary.html` is kept untouched — the page is defining the financial term "Net debt / EBITDA" with its anchor and definition, which is a legitimate technical-finance usage rather than a marketing usage.
+**Context / alternatives.** Could have done a deeper rewrite of all the surrounding sentences. Rejected — the targets are specific words that violated brand doc §2, not whole-paragraph quality issues. Each substitution was selected to preserve the original meaning (financial debt) while clearing the lexicon.
+**Cost / reversibility.** Trivial. Also updated `press.html` coverage-universe count from 31 to 21 to match Sprint 2's universe; both edits land in the same commit.
+
+## 2026-05-14 — Sprint 6: The named audit targets (hero sub, three beliefs, operator cards, checklist intro, footer) already read tight
+**Decision.** No copy edits to the hero subheadline, the "Three things we actually believe" block, the operator-card body copy on the homepage, the checklist section intro, or the footer (post-Sprint-4 tightening). They were calibrated in earlier sprints and pass the brand-doc voice review on re-read.
+**Context / alternatives.** Could have over-edited for the sake of generating a diff. Rejected — the spec said "tighten without losing voice" and the existing copy is the voice. The single visible footer change in Sprint 6 was already applied in Sprint 4 (the brand-block tighten). Anything beyond that would be cosmetic.
+**Cost / reversibility.** None.
+
+## 2026-05-14 — Sprint 6: Digest ticker uses fade-and-replace, not typewriter
+**Decision.** The Digest ticker on the homepage rotates with a 300ms opacity fade and a single 7-second interval. The typewriter effect (40–60ms per character) the brief called optional was not added.
+**Context / alternatives.** Typewriter would pull more attention than the brand doc allows ("nothing moves faster than the reader's eye"). The ticker is meant to read as a quiet "at the desk" note, not a performance. A clean fade respects the motion section of the constitution and stays under the "max one animated element above the fold" rule (the constellation is the wow above the fold; the ticker sits below it in the digest section). If a future sprint wants typewriter, the data file already carries `fade_ms` and `rotate_seconds` keys; a per-character renderer can be added without changing the JSON shape.
+**Cost / reversibility.** Trivial. The handler is ~30 lines of inline JS.
+
+## 2026-05-14 — Sprint 6: Digest ticker phrases shuffled per page load
+**Decision.** The 40 phrases in `data/digest-stream.json` are Fisher-Yates shuffled on every page load before the rotation begins, so a returning reader sees a different first phrase even if they hit the page twice in a session.
+**Context / alternatives.** Could have served the array in fixed order. Rejected — the ticker simulates a live desk feed; serving the same first phrase to every visitor would tip the artifice. Shuffle keeps the editorial illusion intact at zero implementation cost.
+**Cost / reversibility.** Trivial.
+
+---
+
 ## 2026-05-14 — Sprint 5: Model choice — Sonnet 4.6 over Opus 4.5
 **Decision.** Use `claude-sonnet-4-6` as the model id for the streaming Checklist engine.
 **Context / alternatives.** The Sprint 5 brief offered either `claude-opus-4-5` or `claude-sonnet-4-6`. The engine emits 11 short JSON-Lines (10 question answers + 1 scorecard), each 1–3 sentences. Sonnet 4.6 is several multiples faster on streaming output, materially cheaper at scale, and produces voice-aligned output when given the four anchor examples in the system prompt. Opus would be the right call for a much harder reasoning task; here the reasoning is shallow and the work is style + structure, which Sonnet handles cleanly.
