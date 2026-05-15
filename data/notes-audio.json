@@ -1,0 +1,110 @@
+{
+  "$comment_1": "Halvren note narration metadata.",
+  "$comment_2": "Built by scripts/build_audio_notes.py from /content/notes/*.mdx.",
+  "$comment_3": "Audio MP3s live at /audio/notes/<slug>.mp3 and are generated only when ELEVENLABS_API_KEY or OPENAI_API_KEY is in the environment.",
+  "version": "2026-05-15",
+  "wpm_estimate": 150,
+  "provider": "metadata-only",
+  "notes": {
+    "boring-thirty-year-chart-canadian-infrastructure": {
+      "slug": "boring-thirty-year-chart-canadian-infrastructure",
+      "title": "What boring looks like on a thirty-year chart: the case for Canadian infrastructure compounding",
+      "words": 1711,
+      "duration_seconds": 684,
+      "duration_human": "11:24",
+      "audio_url": "/audio/notes/boring-thirty-year-chart-canadian-infrastructure.mp3",
+      "has_audio": false,
+      "voice": "narration pending"
+    },
+    "cost-curve-is-a-lie-if-you-pick-the-quartile": {
+      "slug": "cost-curve-is-a-lie-if-you-pick-the-quartile",
+      "title": "The cost curve is a lie if you let them pick the quartile",
+      "words": 1715,
+      "duration_seconds": 686,
+      "duration_human": "11:26",
+      "audio_url": "/audio/notes/cost-curve-is-a-lie-if-you-pick-the-quartile.mp3",
+      "has_audio": false,
+      "voice": "narration pending"
+    },
+    "dividend-that-survived-cnq": {
+      "slug": "dividend-that-survived-cnq",
+      "title": "The dividend that survived: 26 consecutive raises at Canadian Natural",
+      "words": 1730,
+      "duration_seconds": 692,
+      "duration_human": "11:32",
+      "audio_url": "/audio/notes/dividend-that-survived-cnq.mp3",
+      "has_audio": false,
+      "voice": "narration pending"
+    },
+    "how-to-read-canadian-oil-gas-operator-seven-numbers": {
+      "slug": "how-to-read-canadian-oil-gas-operator-seven-numbers",
+      "title": "How to read a Canadian oil & gas operator in seven numbers",
+      "words": 1883,
+      "duration_seconds": 753,
+      "duration_human": "12:33",
+      "audio_url": "/audio/notes/how-to-read-canadian-oil-gas-operator-seven-numbers.mp3",
+      "has_audio": false,
+      "voice": "narration pending"
+    },
+    "insider-buying-vs-granting": {
+      "slug": "insider-buying-vs-granting",
+      "title": "Insider buying vs. insider granting — the only signal that costs the operator something",
+      "words": 1744,
+      "duration_seconds": 698,
+      "duration_human": "11:38",
+      "audio_url": "/audio/notes/insider-buying-vs-granting.mp3",
+      "has_audio": false,
+      "voice": "narration pending"
+    },
+    "pipelines-are-turnpikes-not-commodity-bets": {
+      "slug": "pipelines-are-turnpikes-not-commodity-bets",
+      "title": "Pipelines are turnpikes, not commodity bets — reading Canadian infrastructure honestly",
+      "words": 1919,
+      "duration_seconds": 768,
+      "duration_human": "12:48",
+      "audio_url": "/audio/notes/pipelines-are-turnpikes-not-commodity-bets.mp3",
+      "has_audio": false,
+      "voice": "narration pending"
+    },
+    "roic-incremental-capital-plain-english": {
+      "slug": "roic-incremental-capital-plain-english",
+      "title": "ROIC on incremental capital, in plain English",
+      "words": 1803,
+      "duration_seconds": 721,
+      "duration_human": "12:01",
+      "audio_url": "/audio/notes/roic-incremental-capital-plain-english.mp3",
+      "has_audio": false,
+      "voice": "narration pending"
+    },
+    "silver-per-share-problem": {
+      "slug": "silver-per-share-problem",
+      "title": "Silver's per-share problem: why production growth isn't shareholder value",
+      "words": 1778,
+      "duration_seconds": 711,
+      "duration_human": "11:51",
+      "audio_url": "/audio/notes/silver-per-share-problem.mp3",
+      "has_audio": false,
+      "voice": "narration pending"
+    },
+    "uranium-operator-checklist": {
+      "slug": "uranium-operator-checklist",
+      "title": "The uranium operator's checklist: separating the mines from the narratives",
+      "words": 1731,
+      "duration_seconds": 692,
+      "duration_human": "11:32",
+      "audio_url": "/audio/notes/uranium-operator-checklist.mp3",
+      "has_audio": false,
+      "voice": "narration pending"
+    },
+    "what-2015-and-2020-told-us-canadian-energy": {
+      "slug": "what-2015-and-2020-told-us-canadian-energy",
+      "title": "What 2015 and 2020 told us about every Canadian energy operator still standing",
+      "words": 1711,
+      "duration_seconds": 684,
+      "duration_human": "11:24",
+      "audio_url": "/audio/notes/what-2015-and-2020-told-us-canadian-energy.mp3",
+      "has_audio": false,
+      "voice": "narration pending"
+    }
+  }
+}

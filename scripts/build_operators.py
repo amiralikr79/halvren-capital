@@ -191,7 +191,7 @@ def render_header_strip(op: dict) -> str:
     score_block = f"""
       <a class="op-header-read" data-band="{band}" href="/methodology" aria-label="Halvren Read {score} of 100 — view methodology">
         <span class="op-header-read-num">{score}</span>
-        <span class="op-header-read-label">Halvren Read &middot; {score} / 100</span>
+        <span class="op-header-read-label">Halvren Read</span>
       </a>""" if score is not None else ""
     return f"""
     <div class="op-header">
@@ -611,10 +611,16 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     </button>
   </div>
   <nav class="nav-overlay-links" aria-label="Site sections">
+    <a href="/start">Start</a>
     <a href="/research">Research</a>
+    <a href="/halvren-index">Halvren Index</a>
     <a href="/notes">Notes</a>
     <a href="/coverage">Coverage</a>
     <a href="/checklist">Checklist</a>
+    <a href="/compare">Compare</a>
+    <a href="/methodology">Methodology</a>
+    <a href="/glossary">Glossary</a>
+    <a href="/diary">Diary</a>
     <a href="/letters">Letters</a>
     <a href="/process">Process</a>
     <a href="/access">Access</a>

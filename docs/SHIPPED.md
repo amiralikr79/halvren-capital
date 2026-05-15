@@ -8,6 +8,60 @@ Total commits on this branch (excluding the merge from main at the start): 7. On
 
 ---
 
+## Sprint 11 — audit, surgical fixes, and three high-leverage additions
+
+Three phases. Audit, surgical fixes, then audio + threads + Halvren Index.
+
+### Phase A — audit
+Walked the deployed surface and cross-checked it against the Sprint 9 / 10 specs in `docs/SHIPPED.md`. Full report in `docs/SPRINT_11_AUDIT.md`. All 5 Sprint 9 vizes verified shipped. All 18 Sprint 10 surfaces verified shipped, with one broken case (homepage diary widget) and three SSR/no-CSS bugs flagged for Phase B. The brief's references to "⌘K command palette / earnings tape / status bar" are documented as out-of-scope (those features were on commit `e67a153`, reverted in `ac649e6` long before any committed sprint).
+
+### Phase B — surgical fixes
+**1. Diary widget pre-built into homepage HTML.** New `scripts/inject_homepage_diary.py` writes the three newest diary entries between `<!-- DESK-LATEST-START -->` and `<!-- DESK-LATEST-END -->` sentinels in `index.html`. The client-side fetch is removed entirely. `scripts/build_diary.py` now invokes the injector at the end of every diary build so the homepage and `/diary` stay in sync.
+
+**2. Halvren Read display hardened.** Switched `.op-header-read` and `.watch-read` from `inline-flex` to block-level `flex` with explicit `gap` and `display:block` on every span child so the markup reads cleanly in every context (CSS, no-CSS, screen reader, plain-text scrape). Operator hero label simplified to "Halvren Read" (the duplicate "· NN / 100" is gone — the number above is the number). Number sized at 40–48px clamp display serif, color-coded by band (`#1e7e4c` ≥75, `--gold` 50–74, `#b94747` <50). Verified on CCO 80, CNQ 96, AG 36, ENB 86 cards on the homepage and across all 20 `/research/<slug>` pages.
+
+**3. Stat strip baked numbers into static HTML.** Wrote target values into the `.big-num` text node so SSR/no-JS readers see real numbers. The IntersectionObserver still resets to 0 and animates from there. Replaced the two unused stats ("5 Public research writeups", "1 Quarterly letter live") with grounded counts: "10 Long-form notes published" and "142 FY 2025 filings read this quarter". The 17.1% annualised return figure stays — that's the principal-published figure on `/performance`.
+
+**4. Constellation cluster labels.** Added `<ul class="constellation-cluster-labels">` above the SVG with three `<li>` children for Energy / Materials / Infrastructure. Visible above the SVG on desktop; hidden on mobile (the tabbed list already provides the same structure). The SVG `<text>` elements stay as visual reinforcement; the HTML list is the authoritative semantic version that text scrapers and screen readers see.
+
+### Phase C — three additions
+
+**1. Audio narration infrastructure (per-note player + listen indicator).**
+- `scripts/build_audio_notes.py` reads every `/content/notes/<slug>.mdx`, computes word count → estimated duration at 150 wpm, writes `data/notes-audio.json` with per-note metadata. If `ELEVENLABS_API_KEY` is set, synthesises MP3s via the "Daniel" voice (male, restrained, editorial — best brand match) into `/audio/notes/<slug>.mp3`. If `OPENAI_API_KEY` is set, falls back to the "onyx" voice. With neither key, the metadata still ships; the player UI shows "narration coming soon" and disables the play button.
+- `scripts/build_notes.py` renders `render_audio_player()` above the article body on every `/notes/<slug>`: 44px circular play button with custom SVG, scrubber line, elapsed/total time in mono. Above the player: "Listen · 12:33 · narrated by the Halvren engine".
+- `/notes-extras.js` (new) wires the player to the `<audio>` element: play/pause toggle, scrubber → seek, timeupdate → elapsed display, ended → reset.
+- `/notes` index gets a small "🎧 12:33" chip next to each note title (SVG headphones glyph, mono duration).
+- TODO logged in DECISIONS.md: provision an ElevenLabs key in Vercel env, re-run the build, commit `audio/notes/*.mp3`. Note pages pick up the audio automatically.
+
+**2. Tweet thread generator (one click per note → 6-tweet thread).**
+- New endpoint `/api/thread/[slug].js` (Node runtime) reads the note .mdx, calls Anthropic `claude-sonnet-4-5` with a tight Halvren-voice system prompt (exactly 6 tweets, ≤280 chars each, no hashtags, no emoji, hook with a claim/number, final tweet ends with the note URL, the existing forbidden-phrase list enforced). Returns `{ tweets: string[] }`.
+- Cached in Upstash Redis 7 days under `thread:v1:<slug>:<sha256(body)>` so editorial revisions invalidate stale threads. If `ANTHROPIC_API_KEY` isn't set, returns 503 with a friendly message and the modal renders the error inline.
+- Modal UI in `/notes-extras.js`: each tweet a card with character count + per-tweet "Copy" button; "Copy all" button at the bottom joins with `\n\n`. Backdrop click, Escape, or close button dismisses. Mobile-tested at 375px.
+- Button rendered below every note body via `render_thread_button()` in `build_notes.py`.
+
+**3. The Halvren Index (`/halvren-index`).**
+- New page documenting a hypothetical equal-weighted basket of the top 10 operators by Halvren Read, rebalanced quarterly. `scripts/build_halvren_index.py` derives the constituents directly from `data/operators/*.json` (current top 10: AEM 100, ARX/CNQ/FTS/TOU 96, CNR/KMI/NTR/PPL 91, WFG 88).
+- Hero: "Top 10 operators by Halvren Read, equal-weighted, rebalanced *quarterly*." with a one-paragraph framing line.
+- Constituents table: rank, ticker, operator, sector, Halvren Read (color-coded by band), included since (Jan 2024), weight (10% each).
+- Inline SVG line chart: hand-curated monthly index series in `data/halvren-index-prices.json` against TSX Total Return benchmark, both normalised to 100 at Jan 2024. Methodology logged in DECISIONS.md as the principal's reconstruction; a live price-feed wiring is the follow-up.
+- Mono small-caps context line: "Inception: Jan 2024 · Rebalance: quarterly · Methodology: top 10 by Halvren Read at rebalance date."
+- Hard disclaimer block: "This is not a fund. This is not a benchmark. This is the desk's coverage top-decile, made legible. Past performance does not predict future returns. Halvren may hold positions in any of these names."
+- "Read the methodology →" link to `/methodology`.
+- Added to main nav between Research and Notes; added to overlay nav across all four builder templates so the link surfaces on every page.
+
+### Infrastructure touched
+- New scripts: `scripts/inject_homepage_diary.py`, `scripts/build_audio_notes.py`, `scripts/build_halvren_index.py`.
+- New files: `data/glossary.json` already existed; new `data/notes-audio.json`, `data/halvren-index-prices.json`.
+- New routes/pages: `/halvren-index/index.html`, `/api/thread/[slug].js`, `/audio/notes/` (dir, MP3s pending API key).
+- New JS: `/notes-extras.js` (audio player + thread modal).
+- Updated: `index.html` (hardened stat strip + sector labels + Halvren Index nav + diary SSR + nav-overlay enriched), `page.css` (Sprint 11 block ~140 lines for player, modal, and Halvren Index styles), `vercel.json` (`/api/thread/[slug].js` registered with `content/notes/**` includeFiles), `scripts/build_notes.py` (audio + thread blocks, listen chip on index, notes-extras script tag, Halvren Index in overlay nav), `scripts/build_operators.py` (simplified Halvren Read label, Halvren Index in overlay nav), `scripts/build_diary.py` (auto-invokes diary injector, Halvren Index in overlay nav), `scripts/build_seo.py` (`/halvren-index` in sitemap + llms.txt), `docs/DECISIONS.md` (7 Sprint 11 entries), `docs/SPRINT_11_AUDIT.md` (new audit doc).
+
+### What's NOT shipped (logged honestly)
+- Audio MP3s — synthesis requires `ELEVENLABS_API_KEY` or `OPENAI_API_KEY` in env. The player UI ships everywhere; the play button is disabled until audio is generated. TODO in DECISIONS.md.
+- Live price feed for the Halvren Index — current chart uses the hand-curated monthly series. TODO is to wire a Yahoo Finance or free price API in a follow-up sprint.
+
+---
+
 ## Sprint 10 — the conversion layer
 
 Six deliverables shipped on the same branch. The score, the comparison, the glossary popovers, the diary, the onboarding, the trading card. All wired through one source of truth (the existing checklist verdicts) and one design language (the brand doc tokens).

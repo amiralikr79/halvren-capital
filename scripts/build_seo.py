@@ -146,6 +146,7 @@ def build_sitemap(coverage: dict, notes: list[dict]) -> str:
     add("/diary", TODAY, "weekly", "0.9")
     add("/diary/feed.xml", TODAY, "weekly", "0.7")
     add("/start", TODAY, "monthly", "0.9")
+    add("/halvren-index", TODAY, "weekly", "0.9")
     add("/privacy", TODAY, "yearly", "0.3")
     add("/terms", TODAY, "yearly", "0.3")
     add("/llms.txt", TODAY, "weekly", "0.6")
@@ -226,6 +227,7 @@ def build_llms_txt(coverage: dict, notes: list[dict]) -> str:
     L.append(f"- [Compare]({BASE}/compare): side-by-side comparison of two or three operators. Permalink at /compare/TICKER-vs-TICKER.")
     L.append(f"- [Cycle Diary]({BASE}/diary): public log of desk actions. RSS at /diary/feed.xml.")
     L.append(f"- [Start here]({BASE}/start): the twenty-minute onboarding for new readers.")
+    L.append(f"- [Halvren Index]({BASE}/halvren-index): hypothetical equal-weighted basket of the top 10 operators by Halvren Read.")
     L.append("")
 
     L.append("## Operator research")

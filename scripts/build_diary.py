@@ -150,10 +150,13 @@ CHROME_FOOT = """<footer>
     </button>
   </div>
   <nav class="nav-overlay-links" aria-label="Site sections">
+    <a href="/start">Start</a>
     <a href="/research">Research</a>
+    <a href="/halvren-index">Halvren Index</a>
     <a href="/notes">Notes</a>
     <a href="/coverage">Coverage</a>
     <a href="/checklist">Checklist</a>
+    <a href="/compare">Compare</a>
     <a href="/methodology">Methodology</a>
     <a href="/glossary">Glossary</a>
     <a href="/diary">Diary</a>
@@ -418,6 +421,13 @@ def main() -> int:
     # write feed
     (OUT_DIR / "feed.xml").write_text(render_rss(entries, all_ops), encoding="utf-8")
     print(f"  wrote {(OUT_DIR / 'feed.xml').relative_to(ROOT)}")
+
+    # keep the homepage "Latest from the desk" block in sync (server-rendered).
+    try:
+        import subprocess
+        subprocess.run(["python3", str(ROOT / "scripts" / "inject_homepage_diary.py")], check=True)
+    except Exception as ex:
+        print(f"  warning: could not inject homepage diary: {ex}")
     return 0
 
 

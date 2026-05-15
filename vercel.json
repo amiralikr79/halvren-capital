@@ -86,6 +86,10 @@
     },
     "api/og/diary/[id].js": {
       "maxDuration": 10
+    },
+    "api/thread/[slug].js": {
+      "maxDuration": 30,
+      "includeFiles": "content/notes/**"
     }
   }
 }

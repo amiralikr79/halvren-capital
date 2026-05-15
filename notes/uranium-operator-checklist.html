@@ -78,6 +78,21 @@
     </div>
     <div class="note-tags"><span class="note-tag">Energy</span><span class="note-tag">Uranium</span><span class="note-tag">Materials</span><span class="note-tag">Operator quality</span></div>
 
+    <section class="note-audio" data-playable="false" aria-label="Listen to this note">
+      <p class="note-audio-eyebrow">Listen &middot; 11:32 estimated &middot; narration coming soon</p>
+      <div class="note-audio-row">
+        <button class="note-audio-play" type="button" aria-label="Play narration" disabled data-state="paused">
+          <svg class="note-audio-play-svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M7 4 L20 12 L7 20 Z"></path></svg>
+          <svg class="note-audio-pause-svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" hidden><path d="M6 4 H10 V20 H6 Z M14 4 H18 V20 H14 Z"></path></svg>
+        </button>
+        <div class="note-audio-track">
+          <input class="note-audio-scrubber" type="range" min="0" max="100" step="0.1" value="0" aria-label="Audio progress" disabled>
+        </div>
+        <span class="note-audio-time"><span class="note-audio-elapsed">0:00</span> / <span class="note-audio-total">11:32</span></span>
+      </div>
+      <audio class="note-audio-src" preload="none"></audio>
+    </section>
+
     <div class="doc-body">
 <p class="doc-p">Uranium has traded on narrative for almost two decades. The narrative is real — nuclear restart, AP1000 build, data-center power demand, post-Fukushima inventory exhaustion — but the narrative is not the business, and the operators worth owning are read on the mines, not the slides.</p>
 <p class="doc-p">The Halvren uranium checklist is short. Six questions. Four of them eliminate most uranium names without controversy. The remaining two are where the work happens.</p>
@@ -114,6 +129,15 @@
 <p class="doc-p">That list is shorter than the universe of names being discussed at any given uranium conference. It is also the list whose share-price performance over the last cycle has been less spectacular than the developers'. The first observation is structural; the second is the consequence of an entire investor cohort having confused operators with options. Both can be true. The Halvren framework rewards Pillar I and II over the Pillar III commodity bet; that bias produces the smaller universe and the more patient compounding.</p>
 <p class="doc-p">The compare for <a href="/research/canadian-natural-cnq">Canadian Natural (CNQ)</a> in oil and gas, with its sustaining-cost discipline and dividend record, is closer to Cameco than it sounds. Both are operating businesses in narrative commodities. The narrative is the part that prices the stock in any given quarter. The operating business is the part that earns the position over a decade. The reader who can hold the second sentence steady through the first is the reader the framework is written for.</p>
     </div>
+
+    <section class="note-thread" aria-label="Generate a tweet thread from this note">
+      <button class="note-thread-btn" type="button" data-thread-slug="uranium-operator-checklist" data-thread-title="The uranium operator's checklist: separating the mines from the narratives">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H5.17L4 17.17V4z"/></svg>
+        <span>Generate X thread</span>
+      </button>
+      <p class="note-thread-meta">A 6-tweet distillation in Halvren voice &mdash; copy individually or all at once.</p>
+    </section>
+
 
     <p class="note-disclaimer">This note is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold positions in any of the operators referenced and may transact at any time without notice. Halvren Capital manages proprietary capital and is not currently accepting outside investors. See the <a href="/terms">Terms of Use</a> for the full disclaimer.</p>
 
@@ -185,10 +209,16 @@
     </button>
   </div>
   <nav class="nav-overlay-links" aria-label="Site sections">
+    <a href="/start">Start</a>
     <a href="/research">Research</a>
+    <a href="/halvren-index">Halvren Index</a>
     <a href="/notes">Notes</a>
     <a href="/coverage">Coverage</a>
     <a href="/checklist">Checklist</a>
+    <a href="/compare">Compare</a>
+    <a href="/methodology">Methodology</a>
+    <a href="/glossary">Glossary</a>
+    <a href="/diary">Diary</a>
     <a href="/letters">Letters</a>
     <a href="/process">Process</a>
     <a href="/access">Access</a>
@@ -199,5 +229,6 @@
 <script src="/nav-overlay.js" defer></script>
 <script src="/viz.js" defer></script>
 <script src="/glossary.js" defer></script>
+<script src="/notes-extras.js" defer></script>
 </body>
 </html>

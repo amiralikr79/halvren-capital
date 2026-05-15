@@ -406,9 +406,12 @@ NOTE_TEMPLATE = """<!DOCTYPE html>
     </div>
     <div class="note-tags">{tag_chips}</div>
 
+{audio_block}
     <div class="doc-body">
 {body_html}
     </div>
+
+{thread_block}
 
     <p class="note-disclaimer">This note is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold positions in any of the operators referenced and may transact at any time without notice. Halvren Capital manages proprietary capital and is not currently accepting outside investors. See the <a href="/terms">Terms of Use</a> for the full disclaimer.</p>
 {operator_crosslinks}
@@ -449,10 +452,16 @@ NOTE_TEMPLATE = """<!DOCTYPE html>
     </button>
   </div>
   <nav class="nav-overlay-links" aria-label="Site sections">
+    <a href="/start">Start</a>
     <a href="/research">Research</a>
+    <a href="/halvren-index">Halvren Index</a>
     <a href="/notes">Notes</a>
     <a href="/coverage">Coverage</a>
     <a href="/checklist">Checklist</a>
+    <a href="/compare">Compare</a>
+    <a href="/methodology">Methodology</a>
+    <a href="/glossary">Glossary</a>
+    <a href="/diary">Diary</a>
     <a href="/letters">Letters</a>
     <a href="/process">Process</a>
     <a href="/access">Access</a>
@@ -463,6 +472,7 @@ NOTE_TEMPLATE = """<!DOCTYPE html>
 <script src="/nav-overlay.js" defer></script>
 <script src="/viz.js" defer></script>
 <script src="/glossary.js" defer></script>
+<script src="/notes-extras.js" defer></script>
 </body>
 </html>
 """
@@ -620,10 +630,16 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     </button>
   </div>
   <nav class="nav-overlay-links" aria-label="Site sections">
+    <a href="/start">Start</a>
     <a href="/research">Research</a>
+    <a href="/halvren-index">Halvren Index</a>
     <a href="/notes">Notes</a>
     <a href="/coverage">Coverage</a>
     <a href="/checklist">Checklist</a>
+    <a href="/compare">Compare</a>
+    <a href="/methodology">Methodology</a>
+    <a href="/glossary">Glossary</a>
+    <a href="/diary">Diary</a>
     <a href="/letters">Letters</a>
     <a href="/process">Process</a>
     <a href="/access">Access</a>
@@ -665,8 +681,9 @@ def die(msg: str) -> None:
 # index renderer
 # --------------------------------------------------------------------------- #
 
-def render_index(notes: list[dict], last_site_review: str) -> str:
+def render_index(notes: list[dict], last_site_review: str, audio_index: dict | None = None) -> str:
     notes_sorted = sorted(notes, key=lambda n: n["date"], reverse=True)
+    audio_index = audio_index or {}
 
     # collect tag set in stable order (first appearance wins)
     seen: list[str] = []
@@ -687,12 +704,19 @@ def render_index(notes: list[dict], last_site_review: str) -> str:
             f'<span class="notes-item-tag">{_esc(t)}</span>'
             for t in (n.get("tags") or [])
         )
+        a = audio_index.get(n["slug"]) or {}
+        listen_chip = (
+            f'<span class="notes-item-listen" aria-label="Audio narration available, {a.get("duration_human","")}">'
+            f'<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14v-3a9 9 0 0 1 18 0v3"/><path d="M21 17a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2z"/><path d="M3 17a2 2 0 0 0 2 2h1v-5H5a2 2 0 0 0-2 2z"/></svg>'
+            f'<span>{a.get("duration_human","")}</span></span>'
+            if a else ""
+        )
         items_html.append(f"""    <li class="notes-item" data-tags="{_esc(tags_attr)}">
       <div class="notes-item-date">{fmt_iso_short(n['date'])}</div>
       <div class="notes-item-body">
         <a class="notes-item-title" href="/notes/{n['slug']}">{_esc(n['title'])}</a>
         <p class="notes-item-pull">{_esc(n['excerpt'])}</p>
-        <div class="notes-item-tags">{tag_spans}</div>
+        <div class="notes-item-tags">{tag_spans}{listen_chip}</div>
       </div>
     </li>""")
 
@@ -745,7 +769,52 @@ def render_index(notes: list[dict], last_site_review: str) -> str:
 # driver
 # --------------------------------------------------------------------------- #
 
-def build_one(meta: dict, body_md: str, all_meta: dict[str, dict], last_site_review: str) -> Path:
+def render_audio_player(meta: dict, audio: dict | None) -> str:
+    """Audio player block above the article body.
+    audio: row from data/notes-audio.json or None."""
+    if not audio:
+        return ""
+    has = audio.get("has_audio", False)
+    duration = audio.get("duration_human", "—")
+    voice = audio.get("voice", "narration pending")
+    audio_url = audio.get("audio_url", "")
+    src_attr = f' src="{audio_url}"' if has else ""
+    if has:
+        eyebrow = f'Listen &middot; {duration} &middot; narrated by the Halvren engine ({_esc(voice)})'
+        playable = "true"
+    else:
+        eyebrow = f'Listen &middot; {duration} estimated &middot; narration coming soon'
+        playable = "false"
+    return f"""    <section class="note-audio" data-playable="{playable}" aria-label="Listen to this note">
+      <p class="note-audio-eyebrow">{eyebrow}</p>
+      <div class="note-audio-row">
+        <button class="note-audio-play" type="button" aria-label="Play narration"{' disabled' if not has else ''} data-state="paused">
+          <svg class="note-audio-play-svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M7 4 L20 12 L7 20 Z"></path></svg>
+          <svg class="note-audio-pause-svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" hidden><path d="M6 4 H10 V20 H6 Z M14 4 H18 V20 H14 Z"></path></svg>
+        </button>
+        <div class="note-audio-track">
+          <input class="note-audio-scrubber" type="range" min="0" max="100" step="0.1" value="0" aria-label="Audio progress"{' disabled' if not has else ''}>
+        </div>
+        <span class="note-audio-time"><span class="note-audio-elapsed">0:00</span> / <span class="note-audio-total">{duration}</span></span>
+      </div>
+      <audio class="note-audio-src" preload="none"{src_attr}></audio>
+    </section>
+"""
+
+
+def render_thread_button(meta: dict) -> str:
+    slug = meta["slug"]
+    return f"""    <section class="note-thread" aria-label="Generate a tweet thread from this note">
+      <button class="note-thread-btn" type="button" data-thread-slug="{slug}" data-thread-title="{_esc(meta['title'])}">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H5.17L4 17.17V4z"/></svg>
+        <span>Generate X thread</span>
+      </button>
+      <p class="note-thread-meta">A 6-tweet distillation in Halvren voice &mdash; copy individually or all at once.</p>
+    </section>
+"""
+
+
+def build_one(meta: dict, body_md: str, all_meta: dict[str, dict], audio_index: dict, last_site_review: str) -> Path:
     body_html = render_markdown(body_md)
     tag_chips = "".join(
         f'<span class="note-tag">{_esc(t)}</span>'
@@ -762,6 +831,8 @@ def build_one(meta: dict, body_md: str, all_meta: dict[str, dict], last_site_rev
         date_human=fmt_iso_long(meta["date"]),
         reading_time=int(meta.get("reading_time") or 8),
         tag_chips=tag_chips,
+        audio_block=render_audio_player(meta, audio_index.get(meta["slug"])),
+        thread_block=render_thread_button(meta),
         body_html=body_html,
         operator_crosslinks=render_operator_crosslinks(meta),
         related_block=render_related_notes(meta, all_meta),
@@ -796,17 +867,25 @@ def main(argv: list[str]) -> int:
         or "—"
     )
 
+    audio_path = ROOT / "data" / "notes-audio.json"
+    audio_index: dict = {}
+    if audio_path.exists():
+        try:
+            audio_index = (json.loads(audio_path.read_text(encoding="utf-8")) or {}).get("notes", {})
+        except Exception:
+            audio_index = {}
+
     targets = set(argv[1:]) if len(argv) > 1 else None
     for meta, body in pairs:
         if targets and meta["slug"] not in targets:
             continue
-        out = build_one(meta, body, all_meta, last_site_review)
+        out = build_one(meta, body, all_meta, audio_index, last_site_review)
         print(f"  wrote {out.relative_to(ROOT)}")
 
     # index always rebuilds
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     (OUT_DIR / "index.html").write_text(
-        render_index([m for m, _ in pairs], last_site_review),
+        render_index([m for m, _ in pairs], last_site_review, audio_index),
         encoding="utf-8",
     )
     print(f"  wrote notes/index.html")

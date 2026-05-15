@@ -23,6 +23,7 @@ This file follows the llmstxt.org convention: a stable, machine-readable index o
 - [Compare](https://halvrencapital.com/compare): side-by-side comparison of two or three operators. Permalink at /compare/TICKER-vs-TICKER.
 - [Cycle Diary](https://halvrencapital.com/diary): public log of desk actions. RSS at /diary/feed.xml.
 - [Start here](https://halvrencapital.com/start): the twenty-minute onboarding for new readers.
+- [Halvren Index](https://halvrencapital.com/halvren-index): hypothetical equal-weighted basket of the top 10 operators by Halvren Read.
 
 ## Operator research
 

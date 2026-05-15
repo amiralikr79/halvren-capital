@@ -78,6 +78,21 @@
     </div>
     <div class="note-tags"><span class="note-tag">Capital allocation</span><span class="note-tag">Operator quality</span><span class="note-tag">Cross-sector</span></div>
 
+    <section class="note-audio" data-playable="false" aria-label="Listen to this note">
+      <p class="note-audio-eyebrow">Listen &middot; 12:01 estimated &middot; narration coming soon</p>
+      <div class="note-audio-row">
+        <button class="note-audio-play" type="button" aria-label="Play narration" disabled data-state="paused">
+          <svg class="note-audio-play-svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M7 4 L20 12 L7 20 Z"></path></svg>
+          <svg class="note-audio-pause-svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" hidden><path d="M6 4 H10 V20 H6 Z M14 4 H18 V20 H14 Z"></path></svg>
+        </button>
+        <div class="note-audio-track">
+          <input class="note-audio-scrubber" type="range" min="0" max="100" step="0.1" value="0" aria-label="Audio progress" disabled>
+        </div>
+        <span class="note-audio-time"><span class="note-audio-elapsed">0:00</span> / <span class="note-audio-total">12:01</span></span>
+      </div>
+      <audio class="note-audio-src" preload="none"></audio>
+    </section>
+
     <div class="doc-body">
 <p class="doc-p">Most operator decks report return on equity or return on invested capital on a whole-business basis. The number is average ROIC across every dollar of historical capital, irrespective of when it was deployed, by which CEO, into which asset. As a backward-looking summary it is fine. As a forward-looking decision input it is almost useless.</p>
 <p class="doc-p">The number that matters is marginal ROIC. What does the next dollar of capital, deployed today, earn? The math is not difficult. The reason most operators do not report it cleanly is that the answer is sometimes uncomfortable, and the answer changes the multiple readers should pay for the next round of capex.</p>
@@ -113,6 +128,15 @@
 <p class="doc-p">Operators whose marginal-ROIC range is wide and downward-skewed get the harder read on Pillar I. Operators whose marginal-ROIC range is narrow and consistently above the cost of capital get the cleaner read. The framework will not tell you the right multiple for the stock; it will tell you which operators are deploying capital at returns that justify the next year of patience, and which are deploying capital at returns that suggest a different decision is overdue.</p>
 <p class="doc-p">The operators on the Halvren desk are not always the operators with the highest marginal ROIC at any given moment. They are the operators whose marginal ROIC framework is consistent year-to-year, disciplined when the easy money is on the table, and honest about the answer when it is not what the deck says.</p>
     </div>
+
+    <section class="note-thread" aria-label="Generate a tweet thread from this note">
+      <button class="note-thread-btn" type="button" data-thread-slug="roic-incremental-capital-plain-english" data-thread-title="ROIC on incremental capital, in plain English">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H5.17L4 17.17V4z"/></svg>
+        <span>Generate X thread</span>
+      </button>
+      <p class="note-thread-meta">A 6-tweet distillation in Halvren voice &mdash; copy individually or all at once.</p>
+    </section>
+
 
     <p class="note-disclaimer">This note is for informational and educational purposes only and is not a recommendation, solicitation, or price call. The author may hold positions in any of the operators referenced and may transact at any time without notice. Halvren Capital manages proprietary capital and is not currently accepting outside investors. See the <a href="/terms">Terms of Use</a> for the full disclaimer.</p>
 
@@ -189,10 +213,16 @@
     </button>
   </div>
   <nav class="nav-overlay-links" aria-label="Site sections">
+    <a href="/start">Start</a>
     <a href="/research">Research</a>
+    <a href="/halvren-index">Halvren Index</a>
     <a href="/notes">Notes</a>
     <a href="/coverage">Coverage</a>
     <a href="/checklist">Checklist</a>
+    <a href="/compare">Compare</a>
+    <a href="/methodology">Methodology</a>
+    <a href="/glossary">Glossary</a>
+    <a href="/diary">Diary</a>
     <a href="/letters">Letters</a>
     <a href="/process">Process</a>
     <a href="/access">Access</a>
@@ -203,5 +233,6 @@
 <script src="/nav-overlay.js" defer></script>
 <script src="/viz.js" defer></script>
 <script src="/glossary.js" defer></script>
+<script src="/notes-extras.js" defer></script>
 </body>
 </html>

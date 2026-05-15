@@ -172,7 +172,7 @@ Lighthouse 95+ and live browser QA remain principal-verifiable follow-ups (the s
 
 ---
 
-# All 7 sprints — shipped
+# All 11 sprints — shipped
 
 | # | Title | Status |
 |---|---|---|
@@ -183,8 +183,12 @@ Lighthouse 95+ and live browser QA remain principal-verifiable follow-ups (the s
 | 5 | Checklist Live tool | ☑ shipped |
 | 6 | About rewrite + copy pass + Digest ticker | ☑ shipped |
 | 7 | SEO / AEO + final QA | ☑ shipped |
+| 8 | Mobile surgical pass (post-Sprint 7) | ☑ shipped |
+| 9 | Five core data visualizations | ☑ shipped |
+| 10 | Conversion layer (Halvren Read + Compare + Glossary + Diary + Start + Trading Card) | ☑ shipped |
+| 11 | Audit + surgical fixes + audio narration + thread generator + Halvren Index | ☑ shipped |
 
-See `docs/SHIPPED.md` for the full summary across the seven sprints.
+See `docs/SHIPPED.md` for the full summary across all eleven sprints.
 
 ---
 
@@ -194,3 +198,5 @@ See `docs/SHIPPED.md` for the full summary across the seven sprints.
 - Sprint 4 (design system) is a hard cut. Land it before Sprint 6's copy pass so the rewrite happens against the new tokens.
 - Sprint 5 (Checklist Live) is the only sprint with meaningful runtime risk. Budget Upstash limits up front; log the call in `DECISIONS.md`.
 - Sprint 7 is non-negotiable. Hygiene at the end is hygiene that survives.
+- Sprint 8 was an unplanned mobile pass triggered by user-flagged regressions; logged in `docs/SHIPPED.md` rather than retroactively planned here.
+- Sprints 9 / 10 / 11 were defined ad-hoc by the principal in session prompts. Specifications live in `docs/SHIPPED.md`; decisions in `docs/DECISIONS.md`; the Sprint 11 audit in `docs/SPRINT_11_AUDIT.md`.

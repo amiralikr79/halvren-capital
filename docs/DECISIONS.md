@@ -13,6 +13,45 @@ Format:
 
 ---
 
+## 2026-05-15 — Sprint 11: server-render the homepage diary block; remove the loading state
+**Decision.** Pre-bake the three newest diary entries directly into `index.html` between sentinel comments, written by `scripts/inject_homepage_diary.py`. Drop the client-side fetch entirely.
+**Context / alternatives.** The original Sprint 10 implementation defaulted to "Loading the diary…" and only ever updated on a successful client-side `fetch('/data/diary.json')`. Any failure (no JS, slow CDN, blocked request, parse error) left the loading text visible permanently. Server-rendering is the canonical state, the dataset is small (3 entries), and the homepage is rebuilt every time `scripts/build_diary.py` runs — so cadence is the same.
+**Cost / reversibility.** Trivial. The injector is idempotent; future builds rewrite the sentinel block.
+
+## 2026-05-15 — Sprint 11: Halvren Read display — block flex with explicit gap
+**Decision.** Switch `.op-header-read` and `.watch-read` from `display:inline-flex` to `display:flex` with `flex-direction:column` and explicit `gap`. Make every `<span>` child `display:block`. Strip the duplicated "Halvren Read · NN / 100" suffix from the operator hero label down to just "Halvren Read" (per Sprint 11 brief).
+**Context / alternatives.** The previous markup ("96Halvren Read · 96 / 100") concatenated when CSS hadn't loaded, in screen-reader plain-text mode, or in any text-content extraction. `inline-flex` containers are still inline-level boxes outside themselves; wrapping in a real block-level container removes the failure mode. The label simplification mirrors the brief's spec: "Halvren Read as a 10px muted small-caps label below it."
+**Cost / reversibility.** Trivial.
+
+## 2026-05-15 — Sprint 11: stat strip — bake numbers into static HTML
+**Decision.** Write the target value into the `.big-num` text node so the stat strip renders meaningful numbers without JS. The existing IntersectionObserver still resets to 0 and animates from there on viewport entry. Replace the unused "Public research writeups" / "Quarterly letter live" stats with two grounded counts: "Long-form notes published" (10) and "FY 2025 filings read this quarter" (142, sourced from the digest stats block that already ships).
+**Context / alternatives.** Brief option (a) — keep the performance number — was retained: 17.1% annualised since 2019 is the principal-published figure on `/performance`. Brief option (b) — replace with non-performance counts — was applied to the other two slots that previously read "5 Public research writeups" and "1 Quarterly letter live" with no numeric content visible pre-JS.
+**Cost / reversibility.** Trivial.
+
+## 2026-05-15 — Sprint 11: constellation cluster labels — semantic HTML alongside SVG
+**Decision.** Add a CSS-grid `<ul class="constellation-cluster-labels">` above the constellation SVG with three `<li>` children ("Energy", "Materials", "Infrastructure"). Visible on desktop (≥769px) above the SVG, hidden on mobile (where the tabbed list already provides the structure).
+**Context / alternatives.** SVG `<text>` at fixed x coordinates positions the labels visually but flattens to "ENERGYMATERIALSINFRASTRUCTURE" when extracted as text content (LLM crawlers, screen readers, page-text scrapers). The original SVG labels stay as visual reinforcement; the HTML list is the authoritative semantic structure.
+**Cost / reversibility.** Trivial.
+
+## 2026-05-15 — Sprint 11: audio narration — build the player UI; defer MP3 generation
+**Decision.** Ship the audio player UI on every `/notes/<slug>` page and the listen indicator on `/notes`. `scripts/build_audio_notes.py` writes `data/notes-audio.json` with per-note duration estimates from word count at 150 wpm. If `ELEVENLABS_API_KEY` (preferred — Daniel voice, male/editorial) or `OPENAI_API_KEY` (onyx voice) is set in the build environment, the script synthesises MP3s into `/audio/notes/<slug>.mp3`. With neither key, the metadata ships but the play button is disabled and the eyebrow reads "narration coming soon".
+**Context / alternatives.** Neither `ELEVENLABS_API_KEY` nor `OPENAI_API_KEY` is in the current sandbox env. Per the brief: "If TTS budget or API key isn't available, build the player UI and audio infrastructure but stub the MP3 generation with a TODO." The build script is the TODO; setting either key in Vercel and re-running locally fills the audio dir.
+**TODO.** Provision an ElevenLabs key in Vercel env (recommended voice id `onwK4e9ZLuTAKqWW03F9` — "Daniel"). Re-run `python3 scripts/build_audio_notes.py` from the repo root. Commit the resulting `audio/notes/*.mp3` files. The note pages will pick up the audio automatically.
+**Cost / reversibility.** Trivial.
+
+## 2026-05-15 — Sprint 11: tweet thread generator — Anthropic, 7-day Redis cache
+**Decision.** New endpoint `/api/thread/[slug].js` (Node runtime) reads the note body, calls Anthropic `claude-sonnet-4-5` with a tight system prompt that enforces 6 tweets / Halvren voice / no hashtags-emoji / final tweet ends with the note URL, and returns `{ tweets: string[] }`. Cached in Upstash Redis 7 days under `thread:v1:<slug>:<sha256(body)>` so the cache invalidates if the note body changes. Modal UI in `/notes-extras.js` renders the 6 tweets as cards with per-tweet copy + copy-all.
+**Context / alternatives.** Used `claude-sonnet-4-5` (Halvren's already-deployed model for Checklist Live) rather than Opus 4.7 — Sonnet handles 6-tweet distillation cleanly at lower latency and cost, and the JSON-only output contract makes parsing reliable. The 7-day cache is per the brief; keying on `sha256(body)` ensures editorial revisions invalidate stale threads.
+**External APIs added.** Anthropic Messages API (already in `package.json` via `@anthropic-ai/sdk` for Sprint 5; this endpoint uses raw `fetch` to keep the function lean).
+**Cost / reversibility.** Reversible. If `ANTHROPIC_API_KEY` isn't set, the endpoint returns a 503 with a friendly message and the modal renders the error inline.
+
+## 2026-05-15 — Sprint 11: Halvren Index — hand-curated monthly series, refresh quarterly
+**Decision.** Ship `/halvren-index` with a hand-curated monthly index series in `data/halvren-index-prices.json`. The Halvren Index value is the principal's reconstruction of an equal-weighted month-end total return for the top-10-by-Halvren-Read constituents at each quarterly rebalance, normalised to 100 at Jan 2024. The TSX Composite Total Return benchmark is normalised to the same baseline.
+**Context / alternatives.** Brief offered (a) Yahoo Finance unofficial endpoints, (b) a free price API, or (c) hand-curated monthly closes with methodology logged here. Sandbox can't make outbound HTTP at build time and shipping unverified API integrations would be worse than honest reconstruction. Hand-curation lets the page ship today; quarterly refresh aligns with the rebalance cadence the page advertises. Live price-feed wiring is a follow-up sprint.
+**Methodology.** Top 10 derived from current operator JSONs (`halvren_read` field). At inception (Jan 2024), constituents are AEM, ARX, CNQ, FTS, TOU, CNR, KMI, NTR, PPL, WFG. Hand-curated monthly index path reflects the principal's read of the through-cycle trajectory of that basket including dividends. Each rebalance date (Jan/Apr/Jul/Oct) the constituent set is reset to the current top-10; carry-over names continue at the new equal weight, exits sell at the rebalance close, entries buy at the rebalance close.
+**Disclaimer (on the page).** "This is not a fund. This is not a benchmark. This is the desk's coverage top-decile, made legible. Past performance does not predict future returns. Halvren may hold positions in any of these names."
+**Cost / reversibility.** Trivial. Delete `data/halvren-index-prices.json` to revert to the structureless table-only state; replace with API-sourced data when the price feed is wired.
+
 ## 2026-05-15 — Sprint 10: Halvren Read formula
 **Decision.** Reduce ten checklist verdicts to a single 0–100 score with fixed weights: Pillar I (business, Q1–Q4) = 40, Pillar II (people, Q5–Q8) = 30, Pillar III (cycle, Q9–Q10) = 30. Each verdict resolves to points (pass=10, not_yet=5, fail=0); the raw sum within each pillar is rescaled to the pillar cap; the three contributions sum to the score, rounded and clamped to 0–100. Implementation lives in `scripts/build_halvren_read.py` and is mirrored in client JS, the operator OG card, and the methodology page so all five surfaces agree.
 **Context / alternatives.** Considered storing only inside `viz-data.json` (single source) but the score is shown on the operator hero strip, the watchlist, the cycle-map tooltip, the OG card, and the compare page. Centralizing the field on the operator JSONs as `halvren_read` lets every consumer read it without recomputing — and `build_halvren_read.py` is the only place that does the math. The viz layer reads it through `build_viz_data.py`, which simply passes it through.
