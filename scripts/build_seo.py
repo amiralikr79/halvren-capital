@@ -127,6 +127,8 @@ def build_sitemap(coverage: dict, notes: list[dict]) -> str:
     add("/coverage/coverage.csv", TODAY, "weekly", "0.5")
     add("/checklist", TODAY, "monthly", "0.95")
     add("/checklist/live", TODAY, "weekly", "0.95")
+    add("/cycle-map",      TODAY, "weekly", "0.9")
+    add("/cost-curves",    TODAY, "weekly", "0.85")
     add("/notes", TODAY, "weekly", "0.95")
     add("/digest", TODAY, "weekly", "0.95")
     add("/digest/latest.json", TODAY, "weekly", "0.5")

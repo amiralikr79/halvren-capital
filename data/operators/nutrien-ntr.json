@@ -95,52 +95,52 @@
     "scoring": [
       {
         "q": 1,
-        "status": null,
+        "status": "pass",
         "note": null
       },
       {
         "q": 2,
-        "status": null,
+        "status": "pass",
         "note": null
       },
       {
         "q": 3,
-        "status": null,
+        "status": "pass",
         "note": null
       },
       {
         "q": 4,
-        "status": null,
+        "status": "not_yet",
         "note": null
       },
       {
         "q": 5,
-        "status": null,
+        "status": "not_yet",
         "note": null
       },
       {
         "q": 6,
-        "status": null,
+        "status": "pass",
         "note": null
       },
       {
         "q": 7,
-        "status": null,
+        "status": "pass",
         "note": null
       },
       {
         "q": 8,
-        "status": null,
+        "status": "pass",
         "note": null
       },
       {
         "q": 9,
-        "status": null,
+        "status": "pass",
         "note": null
       },
       {
         "q": 10,
-        "status": null,
+        "status": "pass",
         "note": null
       }
     ],

@@ -30,6 +30,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/page.css">
+<link rel="stylesheet" href="/viz.css">
 </head>
 <body>
 <div class="progress-bar" aria-hidden="true"><div class="progress-bar-fill"></div></div>
@@ -64,9 +65,18 @@
     <p class="doc-breadcrumb"><a href="/">Home</a><span class="doc-breadcrumb-sep">/</span><span>Coverage</span></p>
     <div class="cov-header">
       <p class="section-label">Coverage universe</p>
-      <h1 class="doc-h1">Thirty-one names we read on a quarterly cadence. Most never become a position. The list <em>is the work.</em></h1>
+      <h1 class="doc-h1">Twenty names we read on a quarterly cadence. Most never become a position. The list <em>is the work.</em></h1>
       <p class="cov-lede">Halvren covers operators across <strong>Canada and the United States</strong> in energy, materials, and infrastructure. The list below is the working universe. The Canadian sectors are deepest, the legacy of the firm's home market and the SEDAR+ ingestion layer that has been live the longest. The U.S. universe is in the build, ingested through SEC EDGAR at the same standard. A name appears here when it has earned the read, regardless of whether it has earned a position.</p>
     </div>
+
+    <!-- SPRINT 9: Dividend Ladder + Watchlist Spread mounted above the legacy filter table -->
+    <section style="margin:var(--space-10) 0 var(--space-12)">
+      <div data-viz="dividend-ladder"></div>
+    </section>
+
+    <section style="margin-bottom:var(--space-12)">
+      <div data-viz="watchlist-spread"></div>
+    </section>
 
     <div class="legend" aria-label="Status legend">
       <div class="legend-item">
@@ -332,5 +342,6 @@
   <div class="nav-overlay-foot">Halvren Capital &middot; Vancouver</div>
 </aside>
 <script src="/nav-overlay.js" defer></script>
+<script src="/viz.js" defer></script>
 </body>
 </html>

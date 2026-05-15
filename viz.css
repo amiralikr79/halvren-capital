@@ -1,0 +1,107 @@
+/* Halvren visualization layer — shared styles.
+ *
+ * Loaded by every page that mounts a [data-viz="..."]. Mobile-first, brand
+ * tokens only, no third-party deps. Works in light and dark — every value
+ * uses --color-* variables that the existing theme system already swaps.
+ */
+
+:root{
+  --viz-font-ui: var(--font-body, "DM Sans", system-ui, sans-serif);
+  --viz-font-display: var(--font-h1h2, var(--font-display, "Cormorant Garamond", Georgia, serif));
+  --viz-font-mono: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
+}
+
+/* ----- shared scaffolding -------------------------------------------- */
+[data-viz]{position:relative;font-family:var(--viz-font-ui)}
+.viz-eyebrow{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-gold);font-weight:500;margin:0 0 var(--space-2,8px) 0;font-family:var(--viz-font-ui)}
+.viz-sub{font-family:var(--viz-font-ui);font-size:var(--text-sm,0.875rem);color:var(--color-text-muted);line-height:1.6;max-width:64ch;margin:0 0 var(--space-5,1.25rem) 0}
+.viz-sub a{color:var(--color-gold);text-decoration:none;border-bottom:1px solid rgba(168,127,60,0.4);padding-bottom:1px}
+.viz-foot{font-family:var(--viz-font-ui);font-size:11px;letter-spacing:0.04em;color:var(--color-text-faint,#bab9b4);line-height:1.6;margin:var(--space-3,12px) 0 0 0;max-width:72ch}
+.viz-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:var(--space-4,1rem)}
+.viz-chip{font-family:var(--viz-font-ui);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;padding:0 14px;min-height:36px;border:1px solid var(--color-divider);background:transparent;color:var(--color-text-muted);border-radius:999px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:color 160ms,border-color 160ms,background-color 160ms}
+.viz-chip[aria-pressed="true"]{color:var(--color-text);border-color:var(--color-text);font-weight:500}
+
+/* ----- 1. CYCLE MAP -------------------------------------------------- */
+.viz-cyclemap-head{margin-bottom:var(--space-4,1rem)}
+.viz-cyclemap-svg{width:100%;height:auto;display:block;margin:0 auto;max-width:1200px}
+.viz-cyclemap-svg .viz-dot:hover,.viz-cyclemap-svg .viz-dot:focus{fill-opacity:1;outline:none}
+.viz-tooltip{position:absolute;pointer-events:none;background:var(--color-surface,#fbfbf9);border:1px solid var(--color-divider);border-radius:6px;padding:var(--space-3,12px) var(--space-4,16px);font-family:var(--viz-font-ui);font-size:11px;color:var(--color-text);min-width:160px;line-height:1.5;opacity:0;transition:opacity 160ms;z-index:5;box-shadow:0 4px 12px rgba(0,0,0,0.06)}
+.viz-tooltip[data-visible="true"]{opacity:1}
+.viz-tooltip .vt-ticker{font-family:var(--viz-font-display);font-size:18px;color:var(--color-text);display:block;font-weight:500;letter-spacing:-0.01em;margin-bottom:2px}
+.viz-tooltip .vt-sector{display:block;color:var(--color-text-muted);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.viz-tooltip .vt-meta{display:block;color:var(--color-text-muted);font-family:var(--viz-font-mono);font-size:11px;font-variant-numeric:tabular-nums;margin-top:2px}
+.viz-tooltip .vt-meta em{font-style:italic;color:var(--color-text)}
+
+.viz-cyclemap-mobile{display:none;margin-top:var(--space-6,1.5rem)}
+.viz-mobile-sector{margin-bottom:var(--space-6,1.5rem)}
+.viz-mobile-sectorname{font-family:var(--viz-font-ui);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:8px;font-weight:500}
+.viz-mobile-list{list-style:none;padding:0;margin:0;border-top:1px solid var(--color-divider)}
+.viz-mobile-list li{border-bottom:1px solid var(--color-divider)}
+.viz-mobile-list a{display:flex;justify-content:space-between;align-items:center;min-height:48px;padding:0;color:var(--color-text);text-decoration:none;border:none}
+.viz-mobile-list .vm-tkr{font-family:var(--viz-font-display);font-size:18px;letter-spacing:-0.01em;color:var(--color-text);font-weight:500}
+.viz-mobile-list .vm-meta{font-family:var(--viz-font-mono);font-variant-numeric:tabular-nums;font-size:11px;color:var(--color-text-muted)}
+.viz-mobile-list .vm-meta em{font-style:italic;color:var(--color-text)}
+
+@media(max-width:768px){
+  .viz-cyclemap-svg{display:none}
+  .viz-cyclemap-mobile{display:block}
+  .viz-tooltip{display:none}
+}
+
+/* ----- 2. WATCHLIST SPREAD ------------------------------------------ */
+.viz-spread-head{margin-bottom:var(--space-5,1.25rem)}
+.viz-spread-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--color-divider);border-radius:6px}
+.viz-spread{width:100%;min-width:920px;border-collapse:collapse;font-family:var(--viz-font-ui)}
+.viz-spread th,.viz-spread td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--color-divider);font-size:13px;line-height:1.4}
+.viz-spread th{position:sticky;top:0;background:var(--color-bg,#f7f6f2);font-family:var(--viz-font-ui);font-size:11px;letter-spacing:0.06em;color:var(--color-text-muted);font-weight:500;text-transform:uppercase;border-bottom:1px solid var(--color-text)}
+.viz-spread th[aria-sort]{color:var(--color-text)}
+.viz-spread th[aria-sort]::after{content:"";display:inline-block;width:0;height:0;margin-left:6px;vertical-align:middle;border-left:4px solid transparent;border-right:4px solid transparent}
+.viz-spread th[aria-sort="descending"]::after{border-top:5px solid var(--color-text)}
+.viz-spread th[aria-sort="ascending"]::after{border-bottom:5px solid var(--color-text)}
+.viz-spread td.mono,.viz-spread th.mono{font-family:var(--viz-font-mono);font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.viz-spread tbody tr{transition:background-color 120ms}
+.viz-spread tbody tr:nth-child(even){background:oklch(from var(--color-text, #1a1a1a) l c h/0.02)}
+.viz-spread tbody tr:hover{background:oklch(from var(--color-text, #1a1a1a) l c h/0.05)}
+
+.viz-chip-verdict{display:inline-block;font-family:var(--viz-font-ui);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px;font-weight:500;line-height:1.4}
+.viz-chip-verdict[data-verdict="green"]{background:var(--color-green,#2d5f3f);color:#fff}
+.viz-chip-verdict[data-verdict="amber"]{background:transparent;color:var(--color-gold,#a87f3c);border:1px solid var(--color-gold,#a87f3c)}
+.viz-chip-verdict[data-verdict="red"]{background:var(--color-red,#8b2c2c);color:#fff}
+
+/* mobile card view */
+.viz-spread-cards{display:none}
+@media(max-width:768px){
+  .viz-spread-wrap{display:none}
+  .viz-spread-cards{display:flex;flex-direction:column;gap:8px;margin-top:var(--space-4,1rem)}
+  .viz-spread-card{display:block;padding:var(--space-4,1rem) var(--space-5,1.25rem);border:1px solid var(--color-divider);border-radius:6px;text-decoration:none;color:var(--color-text);background:transparent;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .viz-spread-card .card-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .viz-spread-card .card-row:last-child{margin-bottom:0}
+  .viz-spread-card .card-tkr{font-family:var(--viz-font-display);font-size:24px;letter-spacing:-0.01em;color:var(--color-text);font-weight:500}
+  .viz-spread-card .card-name{font-family:var(--viz-font-ui);font-size:13px;color:var(--color-text-muted)}
+  .viz-spread-card .card-meta{font-family:var(--viz-font-ui);font-size:11px;color:var(--color-text-muted);letter-spacing:0.04em}
+  .viz-spread-card .card-meta .mono{font-family:var(--viz-font-mono);font-variant-numeric:tabular-nums;color:var(--color-text)}
+}
+
+/* ----- 3. DIVIDEND LADDER ------------------------------------------- */
+.viz-ladder-head{margin-bottom:var(--space-5,1.25rem)}
+.viz-ladder-list{display:flex;flex-direction:column;border-top:1px solid var(--color-divider)}
+.viz-ladder-row{display:grid;grid-template-columns:54px 1fr 220px 60px minmax(180px,1fr);gap:var(--space-4,1rem);align-items:center;padding:14px 0;border-bottom:1px solid var(--color-divider);text-decoration:none;color:var(--color-text);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.viz-ladder-row:hover{background:oklch(from var(--color-text, #1a1a1a) l c h/0.04)}
+.viz-ladder-row .ld-tkr{font-family:var(--viz-font-display);font-size:18px;letter-spacing:-0.01em;color:var(--color-text);font-weight:500}
+.viz-ladder-row .ld-name{font-family:var(--viz-font-ui);font-size:13px;color:var(--color-text-muted)}
+.viz-ladder-row .ld-bar{height:14px;background:transparent;border:1px solid var(--color-divider);position:relative;overflow:hidden;border-radius:1px}
+.viz-ladder-row .ld-bar-fill{display:block;height:100%;background:var(--color-text);transition:width 280ms cubic-bezier(0.16,1,0.3,1)}
+.viz-ladder-row .ld-years{font-family:var(--viz-font-mono);font-variant-numeric:tabular-nums;font-size:13px;color:var(--color-text);text-align:right}
+.viz-ladder-row .ld-troughs{font-family:var(--viz-font-ui);font-size:11px;letter-spacing:0.04em;color:var(--color-text-muted)}
+@media(max-width:768px){
+  .viz-ladder-row{grid-template-columns:54px 1fr 80px;gap:12px}
+  .viz-ladder-row .ld-name,.viz-ladder-row .ld-bar,.viz-ladder-row .ld-troughs{display:none}
+}
+
+/* ----- 4. TROUGH TEST SPARKLINE ------------------------------------- */
+.viz-trough-head{margin-bottom:var(--space-3,12px)}
+.viz-trough-svg{width:100%;max-width:600px;height:auto;display:block}
+
+/* ----- 5. COST CURVE ------------------------------------------------ */
+.viz-cost-head{margin-bottom:var(--space-4,1rem)}
+.viz-cost-svg{width:100%;max-width:700px;height:auto;display:block;margin:0 auto}

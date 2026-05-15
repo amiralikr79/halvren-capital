@@ -243,6 +243,18 @@ def render_by_the_numbers(op: dict) -> str:
     </section>"""
 
 
+def render_trough_test(op: dict) -> str:
+    """Sprint 9 — Trough Test sparkline mount point. The viz.js handler
+    fetches viz-data.json and renders FCF/share for this slug with
+    vertical red lines at 2015 and 2020. Server-renders empty; the script
+    fills it. Falls back to a 'not available' line if data is missing."""
+    return f"""
+    <section class="op-section" aria-labelledby="op-trough-h">
+      <h2 class="doc-h2" id="op-trough-h">The Trough Test</h2>
+      <div data-viz="trough-test" data-slug="{op['slug']}" class="op-trough"></div>
+    </section>"""
+
+
 def render_what_we_track(op: dict) -> str:
     items = op.get("what_we_track") or []
     if not items:
@@ -480,6 +492,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/page.css">
+<link rel="stylesheet" href="/viz.css">
 </head>
 <body>
 <div class="progress-bar" aria-hidden="true"><div class="progress-bar-fill"></div></div>
@@ -527,6 +540,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 {the_read}
 {by_the_numbers}
 {what_we_track}
+{trough_test}
 {the_note}
 {scorecard}
 {lettercapture}
@@ -580,6 +594,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <div class="nav-overlay-foot">Halvren Capital &middot; Vancouver</div>
 </aside>
 <script src="/nav-overlay.js" defer></script>
+<script src="/viz.js" defer></script>
 </body>
 </html>
 """
@@ -644,6 +659,7 @@ def build_one(slug: str, all_ops: dict[str, dict], questions_doc: dict, site_met
         the_read=render_the_read(op),
         by_the_numbers=render_by_the_numbers(op),
         what_we_track=render_what_we_track(op),
+        trough_test=render_trough_test(op),
         the_note=render_the_note(body_html),
         scorecard=render_scorecard(op, questions_doc["questions"], questions_doc["_pillars"]),
         lettercapture=render_inline_lettercapture(op),

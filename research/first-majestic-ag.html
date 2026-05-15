@@ -26,6 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/page.css">
+<link rel="stylesheet" href="/viz.css">
 </head>
 <body>
 <div class="progress-bar" aria-hidden="true"><div class="progress-bar-fill"></div></div>
@@ -116,6 +117,11 @@
       </ul>
     </section>
 
+    <section class="op-section" aria-labelledby="op-trough-h">
+      <h2 class="doc-h2" id="op-trough-h">The Trough Test</h2>
+      <div data-viz="trough-test" data-slug="first-majestic-ag" class="op-trough"></div>
+    </section>
+
     <section class="op-section op-note" aria-labelledby="op-note-h">
       <p class="op-note-eyebrow">The note &middot; Principal</p>
       <h2 class="doc-h2" id="op-note-h">The note</h2>
@@ -158,10 +164,10 @@
           <span class="sc-num">01</span>
           <div>
             <div class="sc-row">
-              <span class="sc-dot" data-status="null" aria-hidden="true"></span>
+              <span class="sc-dot" data-status="not_yet" aria-hidden="true"></span>
               <p class="sc-q">Does it generate free cash flow through the <em>full</em> cycle, or only the top half of it?</p>
             </div>
-            <p class="sc-status" data-status="null">Pending principal review</p>
+            <p class="sc-status" data-status="not_yet">Not yet</p>
             <p class="sc-note">Reported earnings lie in commodities. Ten years of FCF tells the truth.</p>
           </div>
         </div>
@@ -169,10 +175,10 @@
           <span class="sc-num">02</span>
           <div>
             <div class="sc-row">
-              <span class="sc-dot" data-status="null" aria-hidden="true"></span>
+              <span class="sc-dot" data-status="fail" aria-hidden="true"></span>
               <p class="sc-q">Do the unit economics still work at the <em>worst</em> price of the last decade?</p>
             </div>
-            <p class="sc-status" data-status="null">Pending principal review</p>
+            <p class="sc-status" data-status="fail">Fail</p>
             <p class="sc-note">If the thesis needs a new commodity regime to work, it isn't a business yet.</p>
           </div>
         </div>
@@ -180,10 +186,10 @@
           <span class="sc-num">03</span>
           <div>
             <div class="sc-row">
-              <span class="sc-dot" data-status="null" aria-hidden="true"></span>
+              <span class="sc-dot" data-status="not_yet" aria-hidden="true"></span>
               <p class="sc-q">What does the balance sheet look like at <em>trough</em> pricing: net debt, covenants, maturity ladder?</p>
             </div>
-            <p class="sc-status" data-status="null">Pending principal review</p>
+            <p class="sc-status" data-status="not_yet">Not yet</p>
             <p class="sc-note">The next crisis won't ask what you projected. It asks what you owe and when.</p>
           </div>
         </div>
@@ -191,10 +197,10 @@
           <span class="sc-num">04</span>
           <div>
             <div class="sc-row">
-              <span class="sc-dot" data-status="null" aria-hidden="true"></span>
+              <span class="sc-dot" data-status="fail" aria-hidden="true"></span>
               <p class="sc-q">When they reinvest a dollar (capex, M&amp;A, or buyback), what actually <em>comes back</em>?</p>
             </div>
-            <p class="sc-status" data-status="null">Pending principal review</p>
+            <p class="sc-status" data-status="fail">Fail</p>
             <p class="sc-note">ROIC on incremental capital, not reported ROE on the whole book.</p>
           </div>
         </div>
@@ -207,10 +213,10 @@
           <span class="sc-num">05</span>
           <div>
             <div class="sc-row">
-              <span class="sc-dot" data-status="null" aria-hidden="true"></span>
+              <span class="sc-dot" data-status="not_yet" aria-hidden="true"></span>
               <p class="sc-q">How much of the operator's own net worth, <em>bought</em> and not granted, sits in this name?</p>
             </div>
-            <p class="sc-status" data-status="null">Pending principal review</p>
+            <p class="sc-status" data-status="not_yet">Not yet</p>
             <p class="sc-note">Options are loyalty to a quarter. Open-market purchases are loyalty to a decade.</p>
           </div>
         </div>
@@ -218,10 +224,10 @@
           <span class="sc-num">06</span>
           <div>
             <div class="sc-row">
-              <span class="sc-dot" data-status="null" aria-hidden="true"></span>
+              <span class="sc-dot" data-status="not_yet" aria-hidden="true"></span>
               <p class="sc-q">What did management actually <em>do</em> in 2015 and 2020: issue, buy back, or sit still?</p>
             </div>
-            <p class="sc-status" data-status="null">Pending principal review</p>
+            <p class="sc-status" data-status="not_yet">Not yet</p>
             <p class="sc-note">Every operator on the desk has been stress-tested twice in the last decade. The record is public.</p>
           </div>
         </div>
@@ -229,10 +235,10 @@
           <span class="sc-num">07</span>
           <div>
             <div class="sc-row">
-              <span class="sc-dot" data-status="null" aria-hidden="true"></span>
+              <span class="sc-dot" data-status="fail" aria-hidden="true"></span>
               <p class="sc-q">Is compensation tied to <em>per-share</em> value, or to production, revenue, and size?</p>
             </div>
-            <p class="sc-status" data-status="null">Pending principal review</p>
+            <p class="sc-status" data-status="fail">Fail</p>
             <p class="sc-note">Growth at the expense of the share count is a tax the operator quietly charges you.</p>
           </div>
         </div>
@@ -240,10 +246,10 @@
           <span class="sc-num">08</span>
           <div>
             <div class="sc-row">
-              <span class="sc-dot" data-status="null" aria-hidden="true"></span>
+              <span class="sc-dot" data-status="not_yet" aria-hidden="true"></span>
               <p class="sc-q">Who <em>succeeds</em> the operator, and is that person already visible on the page?</p>
             </div>
-            <p class="sc-status" data-status="null">Pending principal review</p>
+            <p class="sc-status" data-status="not_yet">Not yet</p>
             <p class="sc-note">Every owner-operator story ends. The question is whether the business does too.</p>
           </div>
         </div>
@@ -256,10 +262,10 @@
           <span class="sc-num">09</span>
           <div>
             <div class="sc-row">
-              <span class="sc-dot" data-status="null" aria-hidden="true"></span>
+              <span class="sc-dot" data-status="not_yet" aria-hidden="true"></span>
               <p class="sc-q">Where are we on the cost curve that <em>matters</em>: the real one, not the one in the pitch deck?</p>
             </div>
-            <p class="sc-status" data-status="null">Pending principal review</p>
+            <p class="sc-status" data-status="not_yet">Not yet</p>
             <p class="sc-note">Every operator is first-quartile when they pick the quartile. Ask who sets the denominator.</p>
           </div>
         </div>
@@ -267,10 +273,10 @@
           <span class="sc-num">10</span>
           <div>
             <div class="sc-row">
-              <span class="sc-dot" data-status="null" aria-hidden="true"></span>
+              <span class="sc-dot" data-status="not_yet" aria-hidden="true"></span>
               <p class="sc-q">What does a &ldquo;normal&rdquo; year look like a <em>decade</em> from now, and does this business still work at that price?</p>
             </div>
-            <p class="sc-status" data-status="null">Pending principal review</p>
+            <p class="sc-status" data-status="not_yet">Not yet</p>
             <p class="sc-note">If the thesis only works at the top of the cycle, it's a trade. Halvren doesn't trade.</p>
           </div>
         </div>
@@ -366,5 +372,6 @@
   <div class="nav-overlay-foot">Halvren Capital &middot; Vancouver</div>
 </aside>
 <script src="/nav-overlay.js" defer></script>
+<script src="/viz.js" defer></script>
 </body>
 </html>

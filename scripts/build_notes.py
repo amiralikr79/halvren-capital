@@ -461,6 +461,7 @@ NOTE_TEMPLATE = """<!DOCTYPE html>
   <div class="nav-overlay-foot">Halvren Capital &middot; Vancouver</div>
 </aside>
 <script src="/nav-overlay.js" defer></script>
+<script src="/viz.js" defer></script>
 </body>
 </html>
 """
@@ -630,6 +631,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <div class="nav-overlay-foot">Halvren Capital &middot; Vancouver</div>
 </aside>
 <script src="/nav-overlay.js" defer></script>
+<script src="/viz.js" defer></script>
 </body>
 </html>
 """

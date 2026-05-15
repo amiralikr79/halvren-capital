@@ -26,6 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/page.css">
+<link rel="stylesheet" href="/viz.css">
 </head>
 <body>
 <div class="progress-bar" aria-hidden="true"><div class="progress-bar-fill"></div></div>
@@ -114,6 +115,11 @@
         <li>Insider behaviour — buys vs. grants</li>
         <li>Lower-decline assets vs. capex required to hold flat</li>
       </ul>
+    </section>
+
+    <section class="op-section" aria-labelledby="op-trough-h">
+      <h2 class="doc-h2" id="op-trough-h">The Trough Test</h2>
+      <div data-viz="trough-test" data-slug="cenovus-cve" class="op-trough"></div>
     </section>
 
     <section class="op-section op-note" aria-labelledby="op-note-h">
@@ -362,5 +368,6 @@
   <div class="nav-overlay-foot">Halvren Capital &middot; Vancouver</div>
 </aside>
 <script src="/nav-overlay.js" defer></script>
+<script src="/viz.js" defer></script>
 </body>
 </html>

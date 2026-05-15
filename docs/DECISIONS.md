@@ -13,6 +13,40 @@ Format:
 
 ---
 
+## 2026-05-15 — Sprint 9 Part A: visualization data foundation
+**Decision.** Build a derived `data/viz-data.json` rather than inflate the operator JSON schema. `scripts/build_viz_data.py` reads the operator JSONs and emits one record per operator with the fields the viz layer needs (`market_cap_usd_b`, `cost_curve_quartile`, `balance_sheet_health`, `dividend_streak_years`, `insider_score_0_10`, `halvren_verdict`, `fcf_per_share_series`, plus `aisc_curve` + `spot_prices` for the cost-curve viz).
+**Context / alternatives.** Could have added each field to every operator JSON. Rejected — the operator JSONs are principal-reviewed financial disclosure; mixing derived/synthesized fields into them would degrade their trust. The build script is the right home and the script's data is explicitly the principal's reconstruction, with methodology logged here.
+**Methodology.**
+- `cost_curve_quartile` (1..4) — derived from checklist Q9 status + sector knowledge of each operator's per-unit disclosures. 15 operators in Q1, 4 in Q2, 1 in Q3.
+- `balance_sheet_health` (0..100) — 60% weight on checklist Q3 (balance sheet at trough), 40% on Q1 (full-cycle FCF). pass=90, not_yet=60, fail=30. Range came in at 60–90 across the 20 names.
+- `insider_score_0_10` — average of Q5..Q8 statuses mapped to 0/5/9 then normalized.
+- `halvren_verdict` (green/amber/red) — derived from pass/fail counts across the 10 questions. 11 green, 8 amber, 1 red.
+- `fcf_per_share_series` — 13 years per operator (2013–2025), hand-curated from public filings. Where uncertain, the year is `null` and the sparkline breaks gracefully.
+- `aisc_curve` — only for commodities with confident public AISC data. Uranium (1 operator), WCS heavy oil (5), silver (1).
+**Cost / reversibility.** Trivial. Re-run the build after any operator JSON change. The legacy operators (CCO, CNQ, AG, ENB) had null checklist statuses; backfilled from the Sprint 5 anchor examples (which already encoded the principal's verdicts) before building the viz data.
+
+## 2026-05-15 — Sprint 9 Part A: pure SVG over D3 or Chart.js
+**Decision.** Build all five vizes (Cycle Map, Watchlist Spread, Dividend Ladder, Trough Test, Cost Curve) in vanilla SVG inside a single `viz.js` module. No D3, no Chart.js, no Three.js, no React.
+**Context / alternatives.** D3 was on the table — the brief said "D3 if already in stack, otherwise build with raw SVG." Nothing in the existing repo uses D3; adding it for 5 small charts would cost ~80 KB minified plus a runtime dep. Raw SVG with a small `svgEl()` helper renders the same shapes in ~500 lines total and stays in the dependency-light posture every other Halvren script has shipped on. Charts are static surfaces with simple interactions; no force simulation, no animated transitions beyond hover, no axis libraries needed.
+**Cost / reversibility.** Reversible by introducing D3 in a future sprint if any viz requires it. The existing module is the smallest possible scaffolding.
+
+## 2026-05-15 — Sprint 9 Part A: Cycle Map placement — above the Constellation
+**Decision.** Mount the Cycle Map above the existing Coverage Constellation on the homepage as the new data-first hero. Keep the Constellation directly below it. The standalone `/cycle-map` page renders the same viz with a methodology block underneath.
+**Context / alternatives.** The Constellation is editorial — sector clusters, breathing dots, qualitative. The Cycle Map is analytical — quartile by health, market-cap-sized. Stacking them gives the reader the analytical frame first, then the constellation as a softer visual coda. Removing the Constellation entirely was considered and rejected; it earned its slot in Sprint 4 and the two together read better than either alone.
+**Cost / reversibility.** Trivial.
+
+## 2026-05-15 — Sprint 9 Part A: Trough Test sparkline injected via build pipeline
+**Decision.** Add `render_trough_test(op)` to `scripts/build_operators.py` so every `/research/<slug>` page server-renders the placeholder `<div data-viz="trough-test" data-slug="...">`. The client-side `viz.js` fetches `viz-data.json` and renders the FCF/share path. This keeps the build pipeline the single source of truth — re-running `build_operators.py` re-emits every page with the mount point in the right slot (between "What we track" and "The note").
+**Context / alternatives.** Could have inlined a per-operator SVG in each page at build time. Rejected — the FCF/share series lives in `viz-data.json`, the source of all chart data, and shouldn't be embedded twice.
+**Cost / reversibility.** Trivial.
+
+## 2026-05-15 — Sprint 9 Part A: Cost-curve AISC honesty
+**Decision.** Ship cost curves for three commodities (uranium, WCS heavy oil, silver) where the principal has confident public FY 2025 AISC numbers. Hold the other four (AECO gas, copper, potash, lumber) for a future pass.
+**Context / alternatives.** The brief said "Ship others if time permits." The discipline call is to ship a chart the principal could defend in print rather than seven shaky charts. Uranium has Cameco's audited per-pound disclosures; silver has First Majestic's; WCS heavy oil uses the principal's reconstruction (corporate netback at trough WTI + sustaining capex per barrel) for the five Canadian / U.S. heavy producers and is marked as such in the underlying data file. Operators not on these three curves are intentionally excluded.
+**Cost / reversibility.** Reversible — adding a commodity is one new entry in `AISC_CURVE` plus a tab on `/cost-curves`.
+
+---
+
 ## 2026-05-15 — Sprint 8: mobile surgical pass — root cause was the homepage's self-contained CSS
 **Decision.** The Coverage Constellation mobile-fallback tabs rendering as `ENERGYMATERIALSINFRASTRUCTURE` with no spacing, and the Checklist Live embed rendering its "Something went sideways" error and empty scorecard as the default state, both traced to the same root cause: the homepage `/index.html` is fully self-contained inline CSS — it does NOT link `page.css`. The Sprint 4 constellation-mobile-tabs rules and the Sprint 5 `.live-error { display:none }` rule live in `page.css` and `live.css` respectively, so on slow networks or any moment of CSS-load lag the homepage exposes the raw DOM without those defenses.
 **Fix.** (1) Add a `[hidden]{display:none !important}` rule in both inline and linked stylesheets — bulletproof regardless of load state. (2) Add the `hidden` HTML attribute to every default-hidden Checklist Live element (`.live-error`, `.live-meta-strip`, `.live-list`, `.live-share`, `.live-scorecard`, `.live-trust`). The JS toggles both `hidden` and `data-visible="true"` so CSS transitions still work but the default state survives any CSS load issue. (3) Inline the constellation-mobile-tabs and constellation-mobile-list CSS into the homepage `<style>` block, with proper tab spacing (gap 8px, padding 0 14px, min-height 44px), full-width tap rows (min-height 56px), and `overscroll-behavior-x: contain`.

@@ -8,6 +8,26 @@ Total commits on this branch (excluding the merge from main at the start): 7. On
 
 ---
 
+## Sprint 9 Part A — five core data visualizations
+
+Five vizes shipped. Pure SVG, vanilla JS, no third-party deps. Each renders from a single `data/viz-data.json` built by `scripts/build_viz_data.py` from the operator JSONs. Methodology logged in `docs/DECISIONS.md`.
+
+**Cycle Map** (`/cycle-map` + homepage hero, above the Constellation). 2D scatter: cost-curve quartile (x) by balance-sheet health at trough (y), bubbles sized by log market cap, sector-colored. Filter chips: All / Energy / Materials / Infrastructure. Hover for ticker + sector + revenue + verdict; click navigates to `/research/<slug>`. Mobile fallback: sector-grouped tap-list (no SVG below 768px). 11 green / 8 amber / 1 red verdict spread; balance-sheet-health 60–90.
+
+**Watchlist Spread** (`/coverage`, above the legacy table). Bloomberg-style sortable table: 12 columns including Ticker, Exchange, Sector, Mkt Cap, FY25 Rev, FY25 FCF, Div, Yrs (consecutive raises), ND/EBITDA, Insider (0–10), Reviewed (YYYY-MM), and the Halvren verdict chip. Click row → `/research/<slug>`. Sticky header, zebra rows at 2% darken. Below 768px: card view with ticker, name, sector, market cap, and verdict chip.
+
+**Dividend Ladder** (`/coverage`, above the spread). Horizontal-bar list of dividend-paying operators ranked by consecutive years of raises. Fortis 52, Enbridge 31, CN 29, CNQ 26, TC Energy 24, Pembina 14, Agnico Eagle 10, Kinder Morgan 9, Nutrien 7, West Fraser 6. Each row annotated "survived [year list]". Click navigates to the operator page.
+
+**Trough Test sparkline** (every `/research/<slug>` page, between "What we track" and "The note"). 13-year FCF/share line with vertical dashed red markers at 2015 and 2020. Zero baseline if the series crosses it. Range printed below in mono. Currency tagged (CAD or USD per operator). Mounted via `scripts/build_operators.py` so a single rebuild emits the sparkline placeholder into all 20 pages.
+
+**Cost Curves** (`/cost-curves`). Tabbed by commodity: Uranium, WCS Heavy Oil, Silver. Cumulative production on x, AISC on y, current spot price as a dashed gold horizontal line, each operator a step bar. Three commodities ship today because three is what the principal has confident FY 2025 AISC for; the other four (AECO gas, copper, potash, lumber) are logged as follow-ups.
+
+**Build pipeline.** `scripts/build_viz_data.py` consolidates `data/operators/*.json` → `data/viz-data.json` (20 operators + curve + spot + sector hex). `build_operators.py` was updated to render the Trough Test mount point. `viz.js` + `viz.css` linked from every page that needs a viz (homepage, /coverage, /cycle-map, /cost-curves, every /research page, every /notes page). Sitemap extended with `/cycle-map` and `/cost-curves`.
+
+**Backfill.** The four legacy operators (CCO, CNQ, AG, ENB) had null checklist statuses; verdicts backfilled from the Sprint 5 anchor examples + NTR by hand. Rebuilt their `/research` pages so the scorecard dots are no longer dashed-grey "pending".
+
+---
+
 ## Mobile pass (post-Sprint 7)
 
 Two hotfix commits closed the production deploy regression (the legacy `og.tsx` TypeScript+JSX file that had been failing builds since before Sprint 1) and shipped the first mobile cleanup pass. The full Sprint 8 surgical pass followed.
